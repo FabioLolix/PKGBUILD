@@ -1,0 +1,114 @@
+# Messed by FabioLolix :/
+# Thanks to all the people of clementine-git and clementine-qt5-git
+#
+# Mantainer: Adria Arrufat <swiftscythe@gmail.com>
+# Contributor: Ike Devolder <ike.devolder@gmail.com>
+# Contributor: Daniel Hill <daniel.hill@orcon.net.nz>
+# Contributor: Xiao-Long Chen <chenxiaolong@cxl.epac.to>
+# Maintainer: Eduardo Sánchez Muñoz
+# Contributor: Maxime Gauduin <alucryd@archlinux.org>
+# Contributor: Stéphane Gaudreault <stephane@archlinux.org>
+# Contributor: BlackEagle <ike.devolder@gmail.com>
+# Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
+
+
+pkgname=clementine-git
+pkgver=1.3.1.r238.gac90f0b
+pkgrel=1
+pkgdesc="A modern music player and library organiser"
+arch=('i686' 'x86_64')
+url='http://www.clementine-player.org/'
+license=('GPL')
+depends=('chromaprint' 'crypto++'
+		'glew' 'gst-plugins-base'
+		'hicolor-icon-theme'
+		'libcdio' 'libechonest'
+#'liblastfm'
+#'libmygpo-qt'
+		'libplist' 
+		'protobuf'
+		'qjson'
+		'qt4'
+		'taglib'	
+		'sparsehash'
+)
+
+optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
+            'gst-plugins-bad: for use with "Bad" plugin libraries'
+            'gst-plugins-ugly: for use with "Ugly" plugin libraries'
+)
+
+makedepends=('git' 'boost' 'cmake' 'mesa')
+install=clementine.install
+
+# Uncomment next lines to enable more features
+#makedepends+=(
+#	'libspotify'
+#	'libgpod'
+#	'libimobiledevice'
+#	'libmtp'
+#)
+
+#optdepends+=(
+#'libspotify: for Spotify support'
+#'libgpod: for iPod support'
+#'libimobiledevice: for iPhone and iPod Touch support'
+#'libmtp: for MTP devices, Android'
+#)
+
+source=('git+https://github.com/clementine-player/Clementine.git')
+sha256sums=('SKIP')
+
+provides=('clementine')
+conflicts=('clementine' 'clementine-lxqt' 'clementine-git')
+replaces=('clementine' 'clementine-lxqt' 'clementine-git')
+
+pkgver() {
+    cd "$srcdir/Clementine"
+    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+    echo "Patching sources"
+    sed -i 's/crypto++/cryptopp/g' ${srcdir}/Clementine/src/internet/spotify/spotifyblobdownloader.cpp
+}
+
+build() {
+    mkdir -p "$srcdir/clementine-build"
+    cd "$srcdir/clementine-build"
+    
+    cmake "$srcdir/Clementine" \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DENABLE_VISUALISATIONS=OFF \
+        -DENABLE_SPOTIFY_BLOB=OFF \
+        -DENABLE_SKYDRIVE=OFF \
+        -DENABLE_GOOGLE_DRIVE=OFF \
+        -DENABLE_DROPBOX=OFF \
+        -DENABLE_LIBGPOD=OFF \
+        -DENABLE_WIIMOTEDEV=OFF \
+        -DENABLE_SPARKLE=OFF \
+        -DENABLE_LIBMTP=OFF \
+        -DENABLE_GIO=ON \
+        -DENABLE_BOX=OFF \
+		-DENABLE_LIBLASTFM=OFF \
+		-DENABLE_DEBUG=ON \
+        -DLINGUAS="en"
+# -DENABLE_xxxx
+# - force their inclusion with =ON  - this could trigger an error for
+#   unlisted dependencies in depends=()
+# - remove them to get auto-detected - this could include (without notice)
+#   packages not listed in depends=()
+
+# -DCMAKE_BUILD_TYPE remove to get  a debug build with symbols
+# -DLINGUAS remove for all translations or put in  a space-separated list
+#  of translations to be included, eg. ="en es"
+# Qt doesn't respect LC_xxx settings... which is really annoying!
+make 
+}
+
+package() {
+    cd "$srcdir/clementine-build"
+    
+    make DESTDIR="$pkgdir" install
+}
