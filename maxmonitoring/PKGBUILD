@@ -21,7 +21,7 @@ options=()
 #changelog=
 
 source=("http://www.solarmax.com/ftp/MaxMonitoring_Linux_1.2.0.zip"
-		"local://maxmonitoring.desktop"
+		"https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/maxmonitoring.desktop"
 )
 
 md5sums=('SKIP'
