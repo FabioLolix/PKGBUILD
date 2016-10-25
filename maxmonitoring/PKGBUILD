@@ -3,10 +3,10 @@
 pkgname=maxmonitoring
 pkgver=1.2.0
 pkgrel=1
-pkgdesc="Max Monitoring tool"
+pkgdesc="Max Monitoring, monitoring tool for Solarmax inverter "
 arch=('x86_64')
 url="http://www.solarmax.com"
-license=('custom')
+license=('custom:Solarmax')
 groups=()
 depends=()
 makedepends=()
@@ -24,12 +24,9 @@ source=("http://www.solarmax.com/ftp/MaxMonitoring_Linux_1.2.0.zip"
 		"https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/maxmonitoring.desktop"
 )
 
-md5sums=('SKIP'
-		 'SKIP'
-)   
-
-#md5sums=('32b532520915f664806a3f88f39578ba')
-#md5sums=('')
+md5sums=('32b532520915f664806a3f88f39578ba'
+		 '1918a5639532a2230a2c3ac7cb7f551a'
+)
 
 package() {
 
