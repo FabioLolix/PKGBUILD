@@ -1,0 +1,5 @@
+*.rpm
+*.deb
+*.tar
+*.tar.gz
+*.tar.xz
