@@ -1,0 +1,46 @@
+# Maintainer: FabioLolix https://github.com/FabioLolix
+
+pkgname=maxmonitoring
+pkgver=1.2.0
+pkgrel=1
+pkgdesc="Max Monitoring tool"
+arch=('x86_64')
+url="http://www.solarmax.com"
+license=('custom')
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=(maxmonitoring)
+conflicts=()
+replaces=()
+backup=()
+options=()
+#install=
+#changelog=
+
+source=("http://www.solarmax.com/ftp/MaxMonitoring_Linux_1.2.0.zip"
+		"local://maxmonitoring.desktop"
+)
+
+md5sums=('SKIP'
+		 'SKIP'
+)   
+
+#md5sums=('32b532520915f664806a3f88f39578ba')
+#md5sums=('')
+
+package() {
+
+  bsdtar -xf MaxMonitoring_Linux_$pkgver.zip
+
+  mkdir -p "$pkgdir"/opt/MaxMonitoring/
+
+  mv "$srcdir"/MaxMonitoring_Linux_1.2.0/* "$pkgdir"/opt/MaxMonitoring/
+
+  chmod +x "$pkgdir"/opt/MaxMonitoring/MaxMonitoring
+
+  install -Dm644 "$srcdir"/maxmonitoring.desktop "$pkgdir"/usr/share/applications/maxmonitoring.desktop
+
+}
