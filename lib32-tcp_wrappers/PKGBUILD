@@ -12,7 +12,7 @@ url="ftp://ftp.porcupine.org/pub/security/index.html"
 license=('custom')
 depends=('bash' 'lib32-glibc' 'tcp_wrappers')
 source=(ftp://ftp.porcupine.org/pub/security/tcp_wrappers_${pkgver}.tar.gz
-        http://archlinux-stuff.googlecode.com/files/tcp-wrappers-${pkgver}%2B.patch.gz)
+		https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/archlinux-stuff/tcp-wrappers-7.6+.patch.gz)
 md5sums=('e6fa25f71226d090f34de3f6b122fb5a'
          '3e786669e16b78ba726f948ddb73c9db')
 
@@ -22,8 +22,8 @@ build() {
   cd $srcdir/${_pkgbasename}_${pkgver}
 
   # Actually force 32bit compilation modes
-  sed -i 's/CC\t= gcc/CC\t= gcc -m32/' $srcdir/tcp-wrappers-${pkgver}%2B.patch
-  patch -p1 <$srcdir/tcp-wrappers-${pkgver}%2B.patch
+  sed -i 's/CC\t= gcc/CC\t= gcc -m32/' $srcdir/tcp-wrappers-${pkgver}+.patch
+  patch -p1 <$srcdir/tcp-wrappers-${pkgver}+.patch
 
   make REAL_DAEMON_DIR=/usr/sbin STYLE=-DPROCESS_OPTIONS linux
 }
