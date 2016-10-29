@@ -5,4 +5,4 @@
 *.tar.gz
 *.tar.xz
 *.zip
-*/src
+*/*
