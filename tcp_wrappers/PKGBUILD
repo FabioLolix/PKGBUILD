@@ -12,8 +12,9 @@ license=('custom')
 groups=('base')
 backup=(etc/hosts.allow etc/hosts.deny)
 depends=('bash' 'glibc')
+provides=('tcp_wrappers' 'libwrap')
 source=(ftp://ftp.porcupine.org/pub/security/tcp_wrappers_${pkgver}.tar.gz
-	http://archlinux-stuff.googlecode.com/files/tcp-wrappers-${pkgver}%2B.patch.gz
+	https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/archlinux-stuff/tcp-wrappers-7.6+.patch.gz
 	hosts.allow
 	hosts.deny)
 md5sums=('e6fa25f71226d090f34de3f6b122fb5a'
@@ -23,7 +24,7 @@ md5sums=('e6fa25f71226d090f34de3f6b122fb5a'
 
 prepare() {
   cd $srcdir/${pkgname}_${pkgver}
-  patch -p1 <$srcdir/tcp-wrappers-${pkgver}%2B.patch
+  patch -p1 <$srcdir/tcp-wrappers-${pkgver}+.patch
   sed -i 's|usr/sbin|usr/bin|g' Makefile
 }
 
