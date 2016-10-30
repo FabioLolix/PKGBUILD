@@ -1,0 +1,40 @@
+# Maintainer: FabioLolix https://github.com/FabioLolix
+
+pkgname=qmultirecord
+pkgver=0.2.7
+pkgrel=1
+pkgdesc="CD, DVD and BD recording frontend for cdrskin. Allows to simultaneously burn (and check) multiple ISO files in multithread mode on several optical drives"
+arch=('i686' 'x86_64')
+url="https://www.linux-apps.com/content/show.php/qmultirecord?content=106254"
+license=('GPLv2')
+depends=('libburn')
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=('qmultirecord')
+#install=
+#changelog=
+
+source=("https://dl.opendesktop.org/api/files/download/id/1466643061/106254-qmultirecord-0.2.7.tar.bz2")
+
+md5sums=('0f8aeff121a1d009c16747f00f88e182')
+
+package() {
+
+	cd $srcdir/$pkgname-$pkgver/src
+
+	qmake
+
+#	make install
+
+install -m 755 -p $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/bin/qmultirecord
+
+strip $pkgdir/usr/bin/qmultirecord
+
+install -m 644 -p $srcdir/$pkgname-$pkgver/qmultirecord.desktop $pkgdir/usr/share/applications/
+
+install -m 644 -p $srcdir/$pkgname-$pkgver/icons/qmultirecord.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
+
+}
+
+# /$pkgname-$pkgver
