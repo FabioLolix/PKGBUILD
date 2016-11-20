@@ -1,13 +1,13 @@
 # Maintainer: FabioLolix https://github.com/FabioLolix
 
-pkgname=madrigal
+pkgname=madrigal-git
 pkgver=0.0.1
 pkgrel=1
 pkgdesc="Madrigal is a Qt5 OpenHome Control Point, currently still in development"
 arch=('i686' 'x86_64')
 url="https://github.com/CDrummond/madrigal"
 license=('GPLv3')
-depends=()
+depends=('qt5-base')
 makedepends=()
 checkdepends=()
 optdepends=()
@@ -15,15 +15,18 @@ provides=('madrigal')
 #install=
 #changelog=
 
+_gitroot="git://github.com/CDrummond/madrigal"
+_gitname="madrigal"
+
 source=("git+https://github.com/CDrummond/madrigal")
 
 md5sums=('SKIP')
 
 package() {
 
-	mkdir $srcdir/$pkgname/build
+	mkdir $srcdir/$_gitname/build
 
-	cd $srcdir/$pkgname/build
+	cd $srcdir/$_gitname/build
 
 	cmake .. -DCMAKE_BUILD_TYPE=Release
 
