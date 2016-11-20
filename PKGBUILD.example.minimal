@@ -1,0 +1,31 @@
+# Maintainer: FabioLolix https://github.com/FabioLolix
+
+pkgname=
+pkgver=
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url=""
+license=()
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+#install=
+#changelog=
+
+source=()
+
+
+md5sums=()
+
+
+package() {
+
+}
