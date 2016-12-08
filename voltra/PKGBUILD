@@ -1,24 +1,34 @@
+# Messed by FabioLolix :/ loli_fabio@protonmail.com
+# https://github.com/FabioLolix
+#
 # Maintainer: Ali Ukani <ali.ukani@gmail.com>
+
 pkgname=voltra
-pkgver=1.11.0_1
+pkgver=2.0
 pkgrel=1
 pkgdesc='Voltra music player'
-arch=('x86_64')
+arch=('i386' 'x86_64')
 url='https://voltra.co'
 license=('custom')
 depends=()
 makedepends=()
+provides=('voltra')
+conflicts=('voltra')
 install=${pkgname}.install
-source=('https://s3.amazonaws.com/download.voltra.co/voltra.deb')
-md5sums=('52cbfe64f2799fe58a4094fb6881f74e')
 
-pkgver() {
-  bsdtar -xf "${srcdir}/control.tar.gz"
-  grep -i "version" "${srcdir}/control" | cut -d ':' -f 2 | sed -e "s/-/_/" -e "s/\s//g"
-}
+source_i686=('https://s3.amazonaws.com/download.voltra.co/voltra32.tar.gz')
+source_x86_64=('https://s3.amazonaws.com/download.voltra.co/voltra64.tar.gz')
+
+md5sums_i686=('922061ae3b51f53c1d94d52674111339')
+md5sums_x86_64=('5ec489e08e730eabe004a34a89a35c90')
+
+#pkgver() {
+#  bsdtar -xf "${srcdir}/control.tar.gz"
+#  grep -i "version" "${srcdir}/control" | cut -d ':' -f 2 | sed -e "s/-/_/" -e "s/\s//g"
+#}
 
 package() {
-  bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
+#  bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
 
   cd "${pkgdir}"
   find -name '*.py' -exec sed -i 's|^#!/usr/bin/env python\s*$|#!/usr/bin/env python2|' {} \;
