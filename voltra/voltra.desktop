@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=voltra
+Comment=Voltra music player and store
+GenericName=Music Platform
+Exec=voltra %U
+Icon=voltra
+Type=Application
+StartupNotify=true
+Categories=Music;
+

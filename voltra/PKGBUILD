@@ -6,7 +6,7 @@
 pkgname=voltra
 pkgver=2.0
 pkgrel=1
-pkgdesc='Voltra music player'
+pkgdesc='Voltra music player. Organize your own music, discover and buy new music'
 arch=('i386' 'x86_64')
 url='https://voltra.co'
 license=('custom')
@@ -16,10 +16,12 @@ provides=('voltra')
 conflicts=('voltra')
 install=${pkgname}.install
 
+source=(local://voltra.desktop)
 source_i686=('https://s3.amazonaws.com/download.voltra.co/voltra32.tar.gz')
 source_x86_64=('https://s3.amazonaws.com/download.voltra.co/voltra64.tar.gz')
 
-md5sums_i686=('922061ae3b51f53c1d94d52674111339')
+md5sums=('b78149080a5591421561dd713cab6e8b')
+md5sums_i686=('922061ae3b51f53c1d94d52674111339') 
 md5sums_x86_64=('5ec489e08e730eabe004a34a89a35c90')
 
 #pkgver() {
@@ -28,21 +30,22 @@ md5sums_x86_64=('5ec489e08e730eabe004a34a89a35c90')
 #}
 
 package() {
-#  bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
 
-  cd "${pkgdir}"
-  find -name '*.py' -exec sed -i 's|^#!/usr/bin/env python\s*$|#!/usr/bin/env python2|' {} \;
-  find -name '*.py' -exec sed -i 's|^#!/usr/bin/python\s*$|#!/usr/bin/python2|' {} \;
+    mkdir -p "${pkgdir}"/usr/bin/
+    mkdir -p "${pkgdir}"/opt/voltra.co/voltra/
+    mkdir -p "${pkgdir}"/opt/voltra.co/voltra/license/
 
-  find "${pkgdir}"/usr -type f -exec chmod 644 {} \;
-  find "${pkgdir}"/usr/bin -type f -exec chmod 755 {} \;
-  find "${pkgdir}"/usr -type d -exec chmod 755 {} \;
-  chmod 755 "${pkgdir}"/usr/share/voltra/voltra
-  chmod 755 "${pkgdir}"/usr/share/voltra/resources/app/plugins
+    rm ${srcdir}/version
 
-  mkdir -p "${pkgdir}"/usr/share/licenses/voltra/
+    rsync -av --no-links "$srcdir"/ "$pkgdir"/usr/share/voltra
 
-  rm -rf "${pkgdir}/usr/bin/voltra"
-  ln -s /usr/share/voltra/voltra "${pkgdir}/usr/bin/voltra"
-  ln -s /usr/share/voltra/LICENSE "${pkgdir}/usr/share/licenses/voltra/LICENSE"
+    install -mD 755 "$srcdir"/voltra.desktop "$pkgdir"/usr/share/applications/
+    install -mD 644 "$srcdir"/resources/app/static/voltra.png "$pkgdir"/usr/share/pixmaps/
+
+    ln -s "${pkgdir}"/opt/voltra.co/voltra/voltra "${pkgdir}/usr/bin/voltra"
+
+    mv "${pkgdir}"/opt/voltra.co/voltra/LICENSE "${pkgdir}"/opt/voltra.co/voltra/license/
+    mv "${pkgdir}"/opt/voltra.co/voltra/LICENSES.chromium.html "${pkgdir}"/opt/voltra.co/voltra/license/
+
+
 }
