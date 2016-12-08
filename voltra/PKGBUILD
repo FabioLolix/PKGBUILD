@@ -16,7 +16,7 @@ provides=('voltra')
 conflicts=('voltra')
 install=${pkgname}.install
 
-source=(local://voltra.desktop)
+source=(https://github.com/FabioLolix/PKGBUILD/blob/master/voltra/voltra.desktop)
 source_i686=('https://s3.amazonaws.com/download.voltra.co/voltra32.tar.gz')
 source_x86_64=('https://s3.amazonaws.com/download.voltra.co/voltra64.tar.gz')
 
