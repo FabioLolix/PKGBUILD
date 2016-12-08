@@ -1,6 +1,6 @@
 # Maintainer: Ali Ukani <ali.ukani@gmail.com>
 pkgname=voltra
-pkgver=1.11.0_1
+pkgver=1.12.2_1
 pkgrel=1
 pkgdesc='Voltra music player'
 arch=('x86_64')
@@ -10,7 +10,7 @@ depends=()
 makedepends=()
 install=${pkgname}.install
 source=('https://s3.amazonaws.com/download.voltra.co/voltra.deb')
-md5sums=('52cbfe64f2799fe58a4094fb6881f74e')
+md5sums=('19ff7b5a2cda856cc217932bd83bf5b7')
 
 pkgver() {
   bsdtar -xf "${srcdir}/control.tar.gz"
