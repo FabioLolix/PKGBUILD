@@ -1,4 +1,5 @@
-# Maintainer: FabioLolix https://github.com/FabioLolix
+# Messed by FabioLolix :/ loli_fabio@protonmail.com
+# https://github.com/FabioLolix
 
 pkgname=qmultirecord
 pkgver=0.2.7
@@ -12,6 +13,7 @@ makedepends=()
 checkdepends=()
 optdepends=()
 provides=('qmultirecord')
+conflicts=('qmultirecord')
 #install=
 #changelog=
 

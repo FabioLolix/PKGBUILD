@@ -1,3 +1,6 @@
+# Messed by FabioLolix :/ loli_fabio@protonmail.com
+# https://github.com/FabioLolix
+
 # Maintainer: jyantis <yantis@yantis.net>
 
 # Improvements & Fixes added from suggestions of Tristelune
@@ -7,7 +10,7 @@ pkgver=7.3.0
 pkgrel=1
 pkgdesc='DVD audio extract & ripping tool for extracting streams from DVD-Audio & Video discs and save them as OGG, MP3, Wave or FLAC files.'
 url='http://www.dvdae.com'
-arch=(x86_64)
+arch=('x86_64')
 source=("http://www.dvdae.com/dvdae/dvdae_7.3.0_amd64.deb" "http://www.dvdae.com/license.htm")
 license=('custom')
 depends=( 'flac'
