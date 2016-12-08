@@ -12,6 +12,8 @@ makedepends=()
 checkdepends=()
 optdepends=()
 provides=('madrigal')
+conflicts=('madrigal')
+replaces=('madrigal')
 #install=
 #changelog=
 
