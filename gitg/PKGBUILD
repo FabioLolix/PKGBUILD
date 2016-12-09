@@ -12,8 +12,7 @@ depends=('gtksourceview3' 'git' 'desktop-file-utils' 'libgit2-glib' 'libgee' 'we
          'python-gobject')
 makedepends=('intltool' 'vala' 'gobject-introspection' 'gnome-common' 'glade' 'git')
 groups=('gnome-extra')
-_commit=bcd34298c3ab9d840646962eccf74b0f861fc7d1  # tags/v3.23.0^0
-source=("git://git.gnome.org/gitg#commit=$_commit")
+source=("git://git.gnome.org/gitg#tag=v$pkgver")
 sha256sums=('SKIP')
 
 pkgver() {
