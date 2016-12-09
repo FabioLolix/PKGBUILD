@@ -27,15 +27,17 @@ package() {
 
 	qmake
 
-#	make install
+	make install
 
-install -m 755 -p $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/bin/qmultirecord
+    mkdir -p $pkgdir/usr/share/qmultirecord/
+    mkdir -p $pkgdir/usr/share/applications/
+    mkdir -p $pkgdir/usr/share/icons/hicolor/48x48/apps/
 
-strip $pkgdir/usr/bin/qmultirecord
+install -m 755 $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/share/qmultirecord/
 
-install -m 644 -p $srcdir/$pkgname-$pkgver/qmultirecord.desktop $pkgdir/usr/share/applications/
+install -m 644 $srcdir/$pkgname-$pkgver/src/qmultirecord.desktop $pkgdir/usr/share/applications/
 
-install -m 644 -p $srcdir/$pkgname-$pkgver/icons/qmultirecord.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
+install -m 644 $srcdir/$pkgname-$pkgver/src/icons/*.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
 
 }
 
