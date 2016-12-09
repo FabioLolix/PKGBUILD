@@ -1,13 +1,12 @@
-PKGBUILD
-
-
-Fails to build (prev. did): Clementine-git
+**Status**
 
 Fails to compile (prev. did): Gtkrawgallery
 
-Fails to compile (never): Berry, Qscanner
+Fails to compile (never did): Berry, Qscanner
 
-Other:
+Other packages works
+
+***
 
 * qstopmotion as been added in the AUR
 
