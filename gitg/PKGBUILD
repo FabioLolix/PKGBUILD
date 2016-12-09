@@ -2,7 +2,7 @@
 # Maintainer: Eric Bélanger <eric@archlinux.org>
 
 pkgname=gitg
-pkgver=3.22.0
+pkgver=3.23.0
 pkgrel=1
 pkgdesc='A GIT repository viewer based on GTK+'
 arch=('i686' 'x86_64')
@@ -10,9 +10,9 @@ url='https://git.gnome.org/browse/gitg/'
 license=('GPL')
 depends=('gtksourceview3' 'git' 'desktop-file-utils' 'libgit2-glib' 'libgee' 'webkit2gtk' 'libpeas' 'gtkspell3'
          'python-gobject')
-makedepends=('intltool' 'vala' 'gobject-introspection' 'gnome-common' 'glade' git)
+makedepends=('intltool' 'vala' 'gobject-introspection' 'gnome-common' 'glade' 'git')
 groups=('gnome-extra')
-_commit=226d5f03f8873a7a8bdaa1984036096604eae078  # tags/v3.22.0^0
+_commit=bcd34298c3ab9d840646962eccf74b0f861fc7d1  # tags/v3.23.0^0
 source=("git://git.gnome.org/gitg#commit=$_commit")
 sha256sums=('SKIP')
 
