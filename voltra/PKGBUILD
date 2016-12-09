@@ -32,20 +32,23 @@ md5sums_x86_64=('5ec489e08e730eabe004a34a89a35c90')
 package() {
 
     mkdir -p "${pkgdir}"/usr/bin/
-    mkdir -p "${pkgdir}"/opt/voltra.co/voltra/
-    mkdir -p "${pkgdir}"/opt/voltra.co/voltra/license/
+    mkdir -p "${pkgdir}"/usr/share/voltra/
+    mkdir -p "${pkgdir}"/usr/share/voltra/license/
+    mkdir -p "${pkgdir}"/usr/share/applications/
+    mkdir -p "${pkgdir}"/usr/share/pixmaps/
 
     rm ${srcdir}/version
 
+    cp -av "${srcdir}/resources/app/static/icon.png" "${pkgdir}"/usr/share/pixmaps/voltra.png
+
+    install -m 755 "${srcdir}/voltra.desktop" "${pkgdir}"/usr/share/applications/
+
     rsync -av --no-links "$srcdir"/ "$pkgdir"/usr/share/voltra
 
-    install -mD 755 "$srcdir"/voltra.desktop "$pkgdir"/usr/share/applications/
-    install -mD 644 "$srcdir"/resources/app/static/voltra.png "$pkgdir"/usr/share/pixmaps/
+    ln -s "${pkgdir}"/usr/share/voltra/voltra "${pkgdir}/usr/bin/voltra"
 
-    ln -s "${pkgdir}"/opt/voltra.co/voltra/voltra "${pkgdir}/usr/bin/voltra"
-
-    mv "${pkgdir}"/opt/voltra.co/voltra/LICENSE "${pkgdir}"/opt/voltra.co/voltra/license/
-    mv "${pkgdir}"/opt/voltra.co/voltra/LICENSES.chromium.html "${pkgdir}"/opt/voltra.co/voltra/license/
+    mv "${pkgdir}"/usr/share/voltra/LICENSE "${pkgdir}"/usr/share/voltra/license/
+    mv "${pkgdir}"/usr/share/voltra/LICENSES.chromium.html "${pkgdir}"/usr/share/voltra/license/
 
 
 }
