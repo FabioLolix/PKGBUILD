@@ -5,9 +5,6 @@ Status
 Fails: Berry, Clementine-git, gtkrawgallery
 
 
-Work in progress: Voltra
-
-
 Other:
 
 * qstopmotion as been added in the AUR
