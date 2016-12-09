@@ -1,0 +1,14 @@
+pkgbase = berry
+	pkgdesc = Berry image viewer
+	pkgver = 1.0.0
+	pkgrel = 1
+	url = http://aseman.co/en/products/berry/
+	arch = i686
+	arch = x86_64
+	license = GPLv3
+	provides = berry
+	source = http://aseman.co/downloads/berry/1/berry-1.0.0-src.tar.gz
+	md5sums = 4c648bf8d8417fdd69a9bb223be266cc
+
+pkgname = berry
+

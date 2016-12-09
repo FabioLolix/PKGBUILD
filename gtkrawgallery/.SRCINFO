@@ -1,0 +1,22 @@
+pkgbase = gtkrawgallery
+	pkgdesc = A photo manager and camera raw file processor
+	pkgver = 0.9.9
+	pkgrel = 1
+	url = http://gtkrawgallery.sourceforge.net/
+	arch = any
+	license = GPL
+	depends = python2
+	depends = imagemagick
+	depends = dcraw
+	depends = perl-exiftool
+	depends = python2-numpy
+	depends = dos2unix
+	source = http://downloads.sourceforge.net/gtkrawgallery/gtkrawgallery-0.9.9.tar.bz2
+	source = gtkrawgallery.desktop
+	source = locale.patch
+	md5sums = 7d25c68c9cd8d96838fc60bd35f11d51
+	md5sums = 9d8b5b372bbc06334c3d13d708970696
+	md5sums = 92e8db53a20fdf6c577ed08caf2ed98c
+
+pkgname = gtkrawgallery
+

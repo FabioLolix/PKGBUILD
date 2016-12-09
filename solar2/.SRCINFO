@@ -6,16 +6,16 @@ pkgbase = solar2
 	arch = i686
 	arch = x86_64
 	license = custom
-	depends = sdl_mixer
-	depends = glu
-	depends = openal
+	depends = lib32-sdl_mixer
+	depends = lib32-glu
+	depends = lib32-openal
 	options = !strip
 	source = hib://solar2-linux-1.10.tar.gz
 	source = solar2.desktop
 	source = solar2.png::https://humblebundle-a.akamaihd.net/misc/files/a72badb523/images/icons/solar_android_pc.png
 	md5sums = 243918907eea486fdc820b7cac0c260b
 	md5sums = 642ebed8f1bbbc0541ed826e775b7c65
-	md5sums = b49600d174ac15a910d93d874062f8ec
+	md5sums = 632b6b015930edc631d5ad2e51ea3b17
 
 pkgname = solar2
 

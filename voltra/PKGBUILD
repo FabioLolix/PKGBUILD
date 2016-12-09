@@ -45,7 +45,7 @@ package() {
 
     rsync -av --no-links "$srcdir"/ "$pkgdir"/usr/share/voltra
 
-    ln -s "${pkgdir}"/usr/share/voltra/voltra "${pkgdir}/usr/bin/voltra"
+    ln -s /usr/share/voltra/voltra "${pkgdir}/usr/bin/voltra"
 
     mv "${pkgdir}"/usr/share/voltra/LICENSE "${pkgdir}"/usr/share/voltra/license/
     mv "${pkgdir}"/usr/share/voltra/LICENSES.chromium.html "${pkgdir}"/usr/share/voltra/license/
