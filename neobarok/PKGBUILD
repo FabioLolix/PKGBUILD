@@ -1,0 +1,46 @@
+# Messed by FabioLolix :/ loli_fabio@protonmail.com
+# https://github.com/FabioLolix
+
+pkgname=neobarok
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="3D modeling software aimed at artists and users of all levels"
+arch=('x86_64')
+url="http://neobarok.com"
+license=('custom')
+groups=()
+depends=('sfml'
+         'qt5-base'
+)
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=('neobarok')
+conflicts=('neobarok')
+replaces=()
+options=()
+#install=
+#changelog=
+
+source=("http://neobarok.com/Neobarok-1.0.1-linux.zip")
+
+
+md5sums=('d9cadc75ea151be790bfa982c1735672')
+
+
+package() {
+
+    bsdtar -xf Neobarok-$pkgver-linux.zip
+
+    mkdir -p "${pkgdir}"/opt/Neobarok/
+    mkdir -p "${pkgdir}"/usr/bin/
+    mkdir -p "${pkgdir}"/usr/lib/
+
+    mv "$srcdir"/Neobarok/* "$pkgdir"/opt/Neobarok/
+
+    chmod +x "${pkgdir}"/opt/Neobarok/Bin/Neobarok
+
+    ln -s /opt/Neobarok/Bin/Neobarok "${pkgdir}"/usr/bin/neobarok
+    ln -s /opt/Neobarok/Bin/Neobarok "${pkgdir}"/usr/bin/Neobarok
+    ln -s /usr/lib/libsfml-window.so.2.4 "${pkgdir}"/usr/lib/libsfml-window.so.2.3
+}
