@@ -1,0 +1,16 @@
+pkgbase = neobarok
+	pkgdesc = 3D modeling software aimed at artists and users of all levels
+	pkgver = 1.0.1
+	pkgrel = 1
+	url = http://neobarok.com
+	arch = x86_64
+	license = custom
+	depends = sfml
+	depends = qt5-base
+	provides = neobarok
+	conflicts = neobarok
+	source = http://neobarok.com/Neobarok-1.0.1-linux.zip
+	md5sums = d9cadc75ea151be790bfa982c1735672
+
+pkgname = neobarok
+

@@ -9,9 +9,7 @@ arch=('x86_64')
 url="http://neobarok.com"
 license=('custom')
 groups=()
-depends=('sfml'
-         'qt5-base'
-)
+depends=('sfml' 'qt5-base')
 makedepends=()
 checkdepends=()
 optdepends=()
@@ -24,12 +22,9 @@ options=()
 
 source=("http://neobarok.com/Neobarok-1.0.1-linux.zip")
 
-
 md5sums=('d9cadc75ea151be790bfa982c1735672')
 
-
 package() {
-
     bsdtar -xf Neobarok-$pkgver-linux.zip
 
     mkdir -p "${pkgdir}"/opt/Neobarok/
