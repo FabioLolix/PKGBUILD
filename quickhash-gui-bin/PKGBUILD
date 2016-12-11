@@ -1,0 +1,52 @@
+# Messed by FabioLolix :/ loli_fabio@protonmail.com
+# https://github.com/FabioLolix
+
+pkgname=quickhash-gui-bin
+pkgver=2.6.9.2
+pkgrel=1
+pkgdesc="QuickHash is an open-source Linux GUI that enables hashing of files, text, entire folder trees of files, and physical disks"
+arch=('i686' 'x86_64')
+url="http://quickhash-gui.org/"
+license=('GPLv2')
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=('quickhash-gui')
+conflicts=('quickhash-gui' 'quickhash-gui-bin')
+replaces=()
+backup=()
+options=()
+#install=
+#changelog=
+
+source=("https://sourceforge.net/projects/quickhash/files/v2.6.9/Linux/QuickHash-v$pkgver-Linux.zip")
+
+# Future version at quickhash-gui.org . fails to download with cli apps
+#source=("http://quickhash-gui.org/download/quickhash-v2-6-9-2-for-linux/#")
+
+md5sums=('1eda4b8e2b260feab80213925b2c1201')
+
+package() {
+
+  bsdtar -xf QuickHash-v$pkgver-Linux.zip
+
+    mkdir -p "$pkgdir"/opt/quickhash-gui/
+
+    mkdir -p "$pkgdir"/usr/bin/
+
+    mv "$srcdir"/*.txt "$pkgdir"/opt/quickhash-gui/
+
+    mv "$srcdir"/*.pdf "$pkgdir"/opt/quickhash-gui/
+
+if [[ "${CARCH}" = 'i686' ]]; then
+        mv $srcdir/QuickHash-Linux-x86-v$pkgver $pkgdir/opt/quickhash-gui/quickhash
+    fi
+
+if [[ "${CARCH}" = 'x86_64' ]]; then
+        mv $srcdir/QuickHash-Linux-x64-v$pkgver $pkgdir/opt/quickhash-gui/quickhash
+    fi
+
+    ln -s /opt/quickhash-gui/quickhash "$pkgdir"/usr/bin/quickhash
+}
