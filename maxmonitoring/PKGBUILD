@@ -1,44 +1,30 @@
 # Messed by FabioLolix :/ loli_fabio@protonmail.com
 # https://github.com/FabioLolix
 
-pkgname=maxmonitoring
+pkgname=MaxMonitoring
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Max Monitoring, monitoring tool for Solarmax inverter "
 arch=('x86_64')
 url="http://www.solarmax.com"
-license=('custom:Solarmax')
-groups=()
-depends=()
-makedepends=()
-checkdepends=()
-optdepends=()
-provides=('maxmonitoring')
-conflicts=()
-replaces=()
-backup=()
-options=()
-#install=
-#changelog=
-
+license=('custom')
+provides=('MaxMonitoring')
 source=("http://www.solarmax.com/ftp/MaxMonitoring_Linux_1.2.0.zip"
-		"https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/maxmonitoring.desktop"
+		"https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/MaxMonitoring.desktop"
 )
-
 md5sums=('32b532520915f664806a3f88f39578ba'
 		 '1918a5639532a2230a2c3ac7cb7f551a'
 )
-
 package() {
 
-  bsdtar -xf MaxMonitoring_Linux_$pkgver.zip
+  bsdtar -xf "$pkgname"_Linux_$pkgver.zip
 
-  mkdir -p "$pkgdir"/opt/MaxMonitoring/
+  install -dm755 $pkgdir/opt/MaxMonitoring/
+  cp -r $srcdir/"$pkgname"_Linux_1.2.0/* $pkgdir/opt/$pkgname/
+  chmod +x $pkgdir/opt/$pkgname/$pkgname
 
-  mv "$srcdir"/MaxMonitoring_Linux_1.2.0/* "$pkgdir"/opt/MaxMonitoring/
+  install -dm755 $pkgdir/usr/bin
+  ln -s /opt/$pkgname/$pkgname $pkgdir/usr/bin/$pkgname
 
-  chmod +x "$pkgdir"/opt/MaxMonitoring/MaxMonitoring
-
-  install -Dm644 "$srcdir"/maxmonitoring.desktop "$pkgdir"/usr/share/applications/maxmonitoring.desktop
-
+  install -Dm644 $srcdir/$pkgname.desktop $pkgdir/usr/share/applications/$pkgname.desktop
 }

@@ -7,3 +7,4 @@ Icon=/opt/MaxMonitoring/_environment/MaxMonitoring-icon-144.png
 Exec=/opt/MaxMonitoring/MaxMonitoring
 Terminal=false
 Categories=Utility;
+Name[it_IT]=MaxMonitoring.desktop
