@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=quickhash-gui-bin
-pkgver=2.6.9.2
+pkgver=2.7.0
 pkgrel=1
 pkgdesc="QuickHash is an open-source Linux GUI that enables hashing of files, text, entire folder trees of files, and physical disks"
 arch=('i686' 'x86_64')
@@ -10,27 +10,23 @@ url="http://quickhash-gui.org/"
 license=('GPLv2')
 provides=('quickhash-gui')
 conflicts=('quickhash-gui' 'quickhash-gui-bin')
-
-source=("https://sourceforge.net/projects/quickhash/files/v2.6.9/Linux/QuickHash-v$pkgver-Linux.zip")
+source=("local://Quickhash-Linux-v$pkgver.tar.gz")
 # Future version at quickhash-gui.org . fails to download with cli apps
-#source=("http://quickhash-gui.org/download/quickhash-v2-6-9-2-for-linux/#")
+#source=("http://quickhash-gui.org/download/quickhash-v2-7-0-for-linux/#")
 
-md5sums=('1eda4b8e2b260feab80213925b2c1201')
+md5sums=('a314c5270befedf539e333b85f2765d2')
 
 package() {
-
-  bsdtar -xf QuickHash-v$pkgver-Linux.zip
-
   install -dm755 $pkgdir/opt/quickhash-gui/
   cp "$srcdir"/*.txt "$pkgdir"/opt/quickhash-gui/
   cp "$srcdir"/*.pdf "$pkgdir"/opt/quickhash-gui/
 
 if [[ "${CARCH}" = 'i686' ]]; then
-        install -m755 $srcdir/QuickHash-Linux-x86-v$pkgver $pkgdir/opt/quickhash-gui/quickhash
+        install -m755 $srcdir/32-Bit/QuickHash-32Bit-v$pkgver $pkgdir/opt/quickhash-gui/quickhash
     fi
 
 if [[ "${CARCH}" = 'x86_64' ]]; then
-        install -m755 $srcdir/QuickHash-Linux-x64-v$pkgver $pkgdir/opt/quickhash-gui/quickhash
+        install -m755 $srcdir/64-Bit/QuickHash-64Bit-v$pkgver $pkgdir/opt/quickhash-gui/quickhash
     fi
 
   install -dm755 $pkgdir/usr/bin
