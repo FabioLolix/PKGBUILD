@@ -1,4 +1,4 @@
-# Messed by FabioLolix :/ loli_fabio@protonmail.com
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 # https://github.com/FabioLolix
 
 pkgname=madrigal-git
@@ -13,28 +13,17 @@ makedepends=()
 checkdepends=()
 optdepends=()
 provides=('madrigal')
-conflicts=('madrigal')
-replaces=('madrigal')
-#install=
-#changelog=
 
 _gitroot="git://github.com/CDrummond/madrigal"
 _gitname="madrigal"
 
 source=("git+https://github.com/CDrummond/madrigal")
-
 md5sums=('SKIP')
 
 package() {
-
 	mkdir $srcdir/$_gitname/build
-
 	cd $srcdir/$_gitname/build
-
 	cmake .. -DCMAKE_BUILD_TYPE=Release
-
 	make
-
 	make DESTDIR=$pkgdir install
-
 }
