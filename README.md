@@ -2,13 +2,33 @@
 
 Fails to compile (prev. did): Gtkrawgallery
 
-Fails to compile (never did): Berry, Qscanner
+Now on AUR:
 
-Other packages works
+    Neobarok, qstopmotion
 
-***
+From AUR3: 
 
-* qstopmotion as been added in the AUR
+    spe, gtkrawgalley
+
+From AUR: 
+
+    dvdae-bin, fs-uae, fs-uae-launcher, solar2, voltra-deb
+
+Re-worked:
+
+    Clementine-light-git, Clementine-light-qt5-git, Voltra
+
+Original: 
+
+    madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-2.6.9.2 qviever
+
+From Manjaro:
+
+    lib32-tcp_wrappers, tcp_wrappers
+
+From Arch:
+
+    gitg
 
 ***
 
