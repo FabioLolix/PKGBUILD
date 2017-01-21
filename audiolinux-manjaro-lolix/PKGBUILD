@@ -1,6 +1,6 @@
 ## Maintainer: AudioLinux  <audiolinux AT fastmail DOT fm>
 
-pkgname=audiolinux
+pkgname=audiolinux-manjaro-lolix
 pkgver=1.7.1
 pkgrel=1
 pkgdesc="AudioLinux audiophile linux configuration files, scripts and shortcuts"
@@ -9,9 +9,11 @@ url="http://www.audio-linux.com"
 license=('custom')
 install=$pkgname.install
 depends=()
-optdepends=('linux-rt: The Linux-rt kernel and modules'
-            'nvidia-last-rt: NVIDIA last drivers for linux-rt'
-            'nvidia-340xx-rt: NVIDIA 340xx drivers for linux-rt'
+optdepends=(#'linux-rt: The Linux-rt kernel and modules'
+            'linux-rt-manjaro: The Linux-rt kernel and modules'
+            'linux-rt-lts-manjaro: The Linux-rt-lts kernel and modules'
+            #'nvidia-last-rt: NVIDIA last drivers for linux-rt'
+            #'nvidia-340xx-rt: NVIDIA 340xx drivers for linux-rt'
             'rtirq: Realtime IRQ thread system tuning' 
             'rtapp: Realtime application thread priority tuning'
             'rt-tests: A collection of latency testing tools for the linux(-rt) kernel'
@@ -19,13 +21,15 @@ optdepends=('linux-rt: The Linux-rt kernel and modules'
             'jack2-no-dbus-git: Classic jack2 without dbus enabled. For starting as daemon with systemd'
             'minimserver: UPnP Audio Server'
             'mpd: Flexible, powerful, server-side application for playing music'
-            'mpd-dsd: Flexible, powerful, server-side application for playing music, with DSD seek support'
+            #'mpd-dsd: Flexible, powerful, server-side application for playing music, with DSD seek support'
             'hqplayer: The high-end upsampling multichannel software HD-audio player' 
             'hqplayer-embedded: Signalyst HQPlayer Embedded HQPlayer - the high-end upsampling multichannel software HD-audio player' 
             'hqplayer-network-audio-daemon: The high-end upsampling multichannel software HD-audio player' 
             'jriver-media-center: The Most Comprehensive Media Software' 
             'dff2dsf: Signalyst DFF to DSF command line conversion utility' 
             'deadbeef: A GTK+ audio player for GNU/Linux'
+            'gmusicbrowser: A GTK+ audio player for GNU/Linux'
+            'guayadeque: A GTK+ audio player for GNU/Linux'
             'squeezelite-git: Lightweight headless squeezebox emulator'
             'logitechmediaserver-git: Streaming audio server'
             'sox-dsd-git: SoX Resampler library dsd branch')
