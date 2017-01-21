@@ -15,7 +15,7 @@
 
 
 pkgname=clementine-qt5-light-git
-pkgver=1.3.1.r318.g36d617a
+pkgver=1.3.1.r331.g09c4b05ec
 pkgrel=1
 pkgdesc="A modern music player and library organiser, qt5 version, disabled plugins"
 arch=('i686' 'x86_64')
