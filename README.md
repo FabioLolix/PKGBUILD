@@ -20,11 +20,7 @@ Re-worked:
 
 Original: 
 
-    madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-2.6.9.2 qviever
-
-From Manjaro:
-
-    lib32-tcp_wrappers, tcp_wrappers
+    madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-2.6.9.2, qviever
 
 From Arch:
 
