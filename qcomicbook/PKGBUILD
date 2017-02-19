@@ -1,33 +1,35 @@
-# Maintainer: kagan <juanynie AT gmail DOT com>
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: kagan <juanynie AT gmail DOT com>
 # Contributor: Valheru <valheru AT facticius DOT net>
 # Contributor: jackoneill
 
 pkgname=qcomicbook
-pkgver=0.9.0
-pkgrel=4
+pkgver=0.9.1
+pkgrel=1
 pkgdesc="QComicBook is a viewer for comic book archives"
 url="http://qcomicbook.org/"
 arch=('i686' 'x86_64')
-license="GPL"
-depends=('qt4' 'unrar' 'p7zip' 'tar' 'poppler-qt4')
-optdepends=('unzip' 'unace')
+license=('GPLv2')
+depends=('qt5-base'
+         'qt5-x11extras'
+         'poppler-qt5'
+         'unzip'
+         'tar')
+optdepends=('p7zip'
+            'unace'
+            'unrar'
+            'rar')
 makedepends=('cmake')
-source=("http://qcomicbook.org/releases/$pkgname-$pkgver.tar.gz")
-md5sums=('b209bfb081afd4c06eedb6bb08f957f0')
+source=("https://github.com/stolowski/QComicBook/archive/$pkgver.tar.gz")
+md5sums=('d8762ff0698652cd2c383dbaa30cc132')
 
 build() {
-   cd "$srcdir/$pkgname-$pkgver"
-   #rm -rf build-dir
-   #mkdir -p build-dir
-   #cd build-dir
-   
-   cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release \
-	 -DQT_QMAKE_EXECUTABLE=/usr/bin/qmake-qt4
-   
+   cd "$srcdir/QComicBook-$pkgver"
+   cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release  
    make
 }
 
 package() {
-   cd "$srcdir/$pkgname-$pkgver"
+   cd "$srcdir/QComicBook-$pkgver"
    make DESTDIR="$pkgdir" install
 }
