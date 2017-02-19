@@ -1,0 +1,32 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=quickhash-gui-bin
+_pkgname=QuickHash-Linux
+pkgver=2.8.0
+pkgrel=1
+pkgdesc="QuickHash is an open-source Linux GUI that enables hashing of files, text, entire folder trees of files, and physical disks"
+arch=('i686' 'x86_64')
+url="http://quickhash-gui.org/"
+license=('GPLv2')
+provides=('quickhash-gui')
+conflicts=('quickhash-gui' 'quickhash-gui-bin')
+source=("local://"$_pkgname"-v$pkgver.zip")
+md5sums=('a4eb70e70c432984a20170b7374d14f4')
+
+package() {
+  install -dm755 $pkgdir/opt/quickhash-gui/
+  cp "$srcdir"/*.txt "$pkgdir"/opt/quickhash-gui/
+  cp "$srcdir"/*.pdf "$pkgdir"/opt/quickhash-gui/
+
+if [[ "${CARCH}" = 'i686' ]]; then
+        install -m755 $srcdir/$_pkgname-v$pkgver-32Bit $pkgdir/opt/quickhash-gui/quickhash
+    fi
+
+if [[ "${CARCH}" = 'x86_64' ]]; then
+        install -m755 $srcdir/$_pkgname-v$pkgver-64Bit $pkgdir/opt/quickhash-gui/quickhash
+    fi
+
+  install -dm755 $pkgdir/usr/bin
+  ln -s /opt/quickhash-gui/quickhash "$pkgdir"/usr/bin/quickhash
+}
