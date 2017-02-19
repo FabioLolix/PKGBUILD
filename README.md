@@ -12,7 +12,7 @@ From AUR3:
 
 From AUR: 
 
-    dvdae-bin, fs-uae, fs-uae-launcher, solar2, voltra-deb
+    dvdae-bin, fs-uae, fs-uae-launcher, solar2, voltra-deb, upplay-git
 
 Re-worked:
 
