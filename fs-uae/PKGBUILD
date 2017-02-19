@@ -2,8 +2,8 @@
 # Contributor: Sebastian Wolf < fatmike303 at gmail dot com >
 
 pkgname=fs-uae
-pkgver=2.8.1
-pkgrel=2
+pkgver=2.8.3
+pkgrel=1
 pkgdesc="Focuses on emulating Amiga games using the accurate emulation code from WinUAE"
 arch=('i686' 'x86_64')
 url="http://fs-uae.net"
@@ -13,7 +13,7 @@ depends=('sdl2' 'openal' 'mesa' 'freetype2' 'gtk-update-icon-cache' 'glew'
 makedepends=('zip')
 install=$pkgname.install
 source=($url/stable/$pkgver/$pkgname-$pkgver.tar.gz)
-md5sums=('6dd3a6edc9c08780db8b7d6002440929')
+md5sums=('bb9096904619db0202370b1cc4dd1b55')
 
 build() {
   cd $pkgname-$pkgver

@@ -5,7 +5,7 @@
 # Maintainer: Uffe Jakobsen <uffe@uffe.org>
 #
 pkgname=fs-uae-launcher
-pkgver=2.8.2
+pkgver=2.8.3
 pkgrel=1
 epoch=
 pkgdesc=""
@@ -34,11 +34,11 @@ changelog=
 source=("${_pkgurl}")
 noextract=()
 
-md5sums=('fc4be7844c21c905074872dc4fc8be6a')
-sha1sums=('22a0accc5076617c7703407fde412ca19f23a8af')
-sha256sums=('34e40e11ffbc62a041e6b91101e6448586c6eedadf631f0e6bca0bfa55eff021')
-sha384sums=('9312f44b2fbba0aea3c1ca288a35ef6a03960cc5b040417e005d79dd89bbb9119a3284b76534adc938bd1518c383f640')
-sha512sums=('ba2a0f6d0771b5c6cd212c9807d1882884fce55fc87654b6a0c522c24ae1b3e7ea8c668306d93c64bdded4c0c0e463b93970be247604905d8f4b3c1c1f37d5a0')
+md5sums=('6afb73337cdeaca9339264350e4a5d17')
+sha1sums=('76bd61a8887d17029af7ceaa9d31d2e1097858ed')
+sha256sums=('8ce764031013516daab76e996eff9e9fdead6c0f00b4e497fc927f7719d8a233')
+sha384sums=('08fb1f551009715b29bb54c5cce0a7df3b2013a63e794203a1261ad2f2a8aa219c049c9954e02d18e661af745d5e1bf9')
+sha512sums=('4eaa5979fe2e8f2c792d4878e9a9ad0a0433206aac42aa380d97aee21e4ba29a54caced2437b83357c2c4d2fab121bfb821fdb8a883ead971766866b02067a2d')
 
 prepare() {
   cd "${srcdir}/${_pkgname}-${_pkgver}/${_pkgsrcdir}"
