@@ -12,21 +12,17 @@ depends=('sdl2' 'openal' 'mesa' 'freetype2' 'gtk-update-icon-cache' 'glew'
          'desktop-file-utils' 'shared-mime-info' 'libmpeg2')
 makedepends=('zip')
 install=$pkgname.install
-source=($url/stable/$pkgver/$pkgname-$pkgver.tar.gz)
+source=("$url/stable/$pkgver/$pkgname-$pkgver.tar.gz")
 md5sums=('bb9096904619db0202370b1cc4dd1b55')
 
 build() {
   cd $pkgname-$pkgver
-
   XXFLAGS="${CXXFLAGS} -std=gnu++98"
-
   ./configure --prefix=/usr
-
   make 
 }
 
 package() {
   cd $pkgname-$pkgver
-
   make DESTDIR="$pkgdir" install
 }

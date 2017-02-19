@@ -22,12 +22,7 @@ Original:
 
     madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-2.6.9.2, qviever
 
-From Arch:
-
-    gitg
-
 ***
-
 
 **Tips for other packages**
 
@@ -52,3 +47,5 @@ for **fs-uae** Amiga emulator add CXXFlags in build()
 	build() {
 	cd $pkgname-$pkgver
 	CXXFLAGS="${CXXFLAGS} -std=gnu++98"
+
+for **upplay** remove 'qtchooser' dep
