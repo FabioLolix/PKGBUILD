@@ -1,10 +1,9 @@
-# Maintainer: Daniel Maslowski <info@orangecms.org>
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 
-_gitname=upplay
-pkgname=${_gitname}-git
-pkgver=UPPLAY_0.8.5.r338.g32ac391
+pkgname=upplay
+pkgver=1.2.8
 pkgrel=1
-pkgdesc="A Qt-based UPnP audio Control point"
+pkgdesc="A Qt-based UPnP audio Control point, stable version"
 url="http://www.lesbonscomptes.com/upplay/"
 arch=('x86_64')
 license=('GPL2')
@@ -13,20 +12,18 @@ conflicts=('upplay' 'upplay-git')
 depends=('libupnpp>=0.15.0'
          'qt5-webkit'
          'qt5-base')
-source=("git+https://github.com/medoc92/upplay.git")
-md5sums=('SKIP')
-         
-pkgver() {
-  cd "${srcdir}/${_gitname}"
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
-}
+source=("https://www.lesbonscomptes.com/upplay/downloads/$pkgname-$pkgver.tar.gz")
+md5sums=('dc6150d9e17178d10a33d01761d432b9')
 
 build(){
-	cd "${srcdir}/${_gitname}"
+	cd "$srcdir/$pkgname-$pkgver"
     qmake -o Makefile upplay.pro PREFIX=/usr
 }
 
 package(){
-	cd "${srcdir}/${_gitname}"
+	cd "${srcdir}/$pkgname-$pkgver"
 	make install INSTALL_ROOT="${pkgdir}"
 }
+
+
+

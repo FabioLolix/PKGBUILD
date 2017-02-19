@@ -16,7 +16,7 @@ From AUR:
 
 Re-worked:
 
-    Clementine-light-git, Clementine-light-qt5-git, Voltra
+    Clementine-light-git, Clementine-light-qt5-git, Voltra, upplay
 
 Original: 
 
