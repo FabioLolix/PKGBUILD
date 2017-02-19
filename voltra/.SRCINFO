@@ -1,6 +1,6 @@
 pkgbase = voltra
 	pkgdesc = Voltra music player. Organize your own music, discover and buy new music
-	pkgver = 2.0
+	pkgver = 2.3.2
 	pkgrel = 1
 	url = https://voltra.co
 	install = voltra.install
@@ -10,9 +10,9 @@ pkgbase = voltra
 	provides = voltra
 	conflicts = voltra
 	source = https://github.com/FabioLolix/PKGBUILD/blob/master/voltra/voltra.desktop
+	source = https://s3.amazonaws.com/download.voltra.co/Voltra.tar.gz
 	md5sums = b78149080a5591421561dd713cab6e8b
-	source_x86_64 = https://s3.amazonaws.com/download.voltra.co/voltra64.tar.gz
-	md5sums_x86_64 = 5ec489e08e730eabe004a34a89a35c90
+	md5sums = a639c1c28b3f2d4568acf84c4ad7b7e8
 
 pkgname = voltra
 
