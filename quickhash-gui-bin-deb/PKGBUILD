@@ -1,8 +1,9 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 # https://github.com/FabioLolix
 
-pkgname=quickhash-gui-bin
-_pkgname=QuickHash-Linux
+pkgname=quickhash-gui-bin-deb
+_pkgname1=QuickHash
+_pkgname2=quickhash
 pkgver=2.8.0
 pkgrel=1
 pkgdesc="QuickHash is an open-source Linux GUI that enables hashing of files, text, entire folder trees of files, and physical disks"
@@ -11,22 +12,14 @@ url="http://quickhash-gui.org/"
 license=('GPLv2')
 provides=('quickhash-gui')
 conflicts=('quickhash-gui' 'quickhash-gui-bin')
-source=("local://"$_pkgname"-v$pkgver.zip")
-md5sums=('a4eb70e70c432984a20170b7374d14f4')
-
+source=("local://${_pkgname1}-v$pkgver-DebianPackages.tar.gz")
+md5sums=('ddf2bbfb50df1b0bf81e046c37d35fda')
 package() {
-  install -dm755 $pkgdir/opt/quickhash-gui/
-  cp "$srcdir"/*.txt "$pkgdir"/opt/quickhash-gui/
-  cp "$srcdir"/*.pdf "$pkgdir"/opt/quickhash-gui/
-
 if [[ "${CARCH}" = 'i686' ]]; then
-        install -m755 $srcdir/$_pkgname-v$pkgver-32Bit $pkgdir/opt/quickhash-gui/quickhash
+        bsdtar -xf "$_pkgname2"_"$pkgver"-1_i386.deb
     fi
-
 if [[ "${CARCH}" = 'x86_64' ]]; then
-        install -m755 $srcdir/$_pkgname-v$pkgver-64Bit $pkgdir/opt/quickhash-gui/quickhash
+        bsdtar -xf "$_pkgname2"_"$pkgver"-1_amd64.deb
     fi
-
-  install -dm755 $pkgdir/usr/bin
-  ln -s /opt/quickhash-gui/quickhash "$pkgdir"/usr/bin/quickhash
+bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
 }
