@@ -1,7 +1,7 @@
 ## Maintainer: AudioLinux  <audiolinux AT fastmail DOT fm>
 
 pkgname=audiolinux-manjaro-lolix
-pkgver=1.7.1
+pkgver=1.9.1
 pkgrel=1
 pkgdesc="AudioLinux audiophile linux configuration files, scripts and shortcuts"
 arch=('x86_64')
@@ -21,7 +21,8 @@ optdepends=(#'linux-rt: The Linux-rt kernel and modules'
             'jack2-no-dbus-git: Classic jack2 without dbus enabled. For starting as daemon with systemd'
             'minimserver: UPnP Audio Server'
             'mpd: Flexible, powerful, server-side application for playing music'
-            #'mpd-dsd: Flexible, powerful, server-side application for playing music, with DSD seek support'
+            'mpd-dsd: Flexible, powerful, server-side application for playing music, with DSD seek support'
+            'mpd-sacd: MPD with patches for SACD and DVDA ISO playback'
             'hqplayer: The high-end upsampling multichannel software HD-audio player' 
             'hqplayer-embedded: Signalyst HQPlayer Embedded HQPlayer - the high-end upsampling multichannel software HD-audio player' 
             'hqplayer-network-audio-daemon: The high-end upsampling multichannel software HD-audio player' 
