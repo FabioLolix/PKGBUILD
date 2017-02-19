@@ -1,6 +1,6 @@
 pkgbase = quickhash-gui-bin
 	pkgdesc = QuickHash is an open-source Linux GUI that enables hashing of files, text, entire folder trees of files, and physical disks
-	pkgver = 2.7.0
+	pkgver = 2.8.0
 	pkgrel = 1
 	url = http://quickhash-gui.org/
 	arch = i686
@@ -9,8 +9,8 @@ pkgbase = quickhash-gui-bin
 	provides = quickhash-gui
 	conflicts = quickhash-gui
 	conflicts = quickhash-gui-bin
-	source = local://Quickhash-Linux-v2.7.0.tar.gz
-	md5sums = a314c5270befedf539e333b85f2765d2
+	source = local://QuickHash-Linux-v2.8.0.zip
+	md5sums = a4eb70e70c432984a20170b7374d14f4
 
 pkgname = quickhash-gui-bin
 
