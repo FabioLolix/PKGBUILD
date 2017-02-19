@@ -1,15 +1,15 @@
 pkgbase = maxmonitoring
 	pkgdesc = Max Monitoring, monitoring tool for Solarmax inverter
 	pkgver = 1.2.0
-	pkgrel = 1
+	pkgrel = 3
 	url = http://www.solarmax.com
 	arch = x86_64
-	license = custom:Solarmax
-	provides = maxmonitoring
+	license = custom
+	provides = MaxMonitoring
 	source = http://www.solarmax.com/ftp/MaxMonitoring_Linux_1.2.0.zip
-	source = https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/maxmonitoring.desktop
+	source = https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/MaxMonitoring.desktop
 	md5sums = 32b532520915f664806a3f88f39578ba
-	md5sums = 1918a5639532a2230a2c3ac7cb7f551a
+	md5sums = 6140f630315275c4bb25022e23da51f4
 
 pkgname = maxmonitoring
 

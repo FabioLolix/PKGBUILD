@@ -8,8 +8,6 @@ pkgbase = madrigal-git
 	license = GPLv3
 	depends = qt5-base
 	provides = madrigal
-	conflicts = madrigal
-	replaces = madrigal
 	source = git+https://github.com/CDrummond/madrigal
 	md5sums = SKIP
 
