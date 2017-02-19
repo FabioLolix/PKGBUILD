@@ -8,7 +8,7 @@ Now on AUR:
 
 From AUR3: 
 
-    spe, gtkrawgalley
+    spe, gtkrawgalley, qcomicbook
 
 From AUR: 
 
