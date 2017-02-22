@@ -1,17 +1,17 @@
 # Maintainer: Michal Malek <michalm@jabster.pl>
 
 pkgname=squeezeplay
-_majorver_=7.8
+#_majorver_=7.8
 pkgver=7.8.r9704
-pkgrel=3
+pkgrel=1
 pkgdesc='Desktop version of Squeezebox Controller software supported by Logitech'
-url='http://downloads.slimdevices.com/nightly/?ver=7.8'
+url='https://github.com/ralph-irving/squeezeplay'
 license=('GPL' 'custom')
 depends=('alsa-lib' 'bzip2' 'flac' 'libmad' 'libogg' 'lua51' 'lua51-expat' 'lua51-filesystem' 'lua51-socket' 'sdl' 'sdl_gfx' 'sdl_image' 'sdl_ttf' 'ttf-freefont')
 conflicts=('luajson')
 arch=('i686' 'x86_64' 'arm')
-makedepends=('make' 'gcc' 'scons' 'subversion' 'patch')
-source=("svn+http://svn.slimdevices.com/repos/jive/${_majorver_}/trunk/${pkgname}#revision=9704"
+makedepends=('git' 'scons')
+source=("git+https://github.com/ralph-irving/squeezeplay.git"
         'vanilla_sdl.patch'
         'no-error-on-warnings.patch'
         'static-libs.patch'
@@ -22,11 +22,11 @@ sha1sums=(SKIP
           '3fd28a445678e9ec8c96a716a8cc77e7e43a9229'
           '8d8b30d73e11ab092c2a1b7f7a8dcd474ffc6672')
           
-pkgver() {
-	cd "$srcdir/$pkgname"
-	local ver="$(svnversion)"
-	printf "%s.r%s" "${_majorver_}" "${ver//[[:alpha:]]}"
-}
+#pkgver() {
+#	cd "$srcdir/$pkgname"
+#	local ver="$(svnversion)"
+#	printf "%s.r%s" "${_majorver_}" "${ver//[[:alpha:]]}"
+#}
 
 build() {
 	export PATH="${srcdir}/${pkgname}/bin:$PATH"
