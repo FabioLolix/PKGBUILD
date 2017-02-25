@@ -12,11 +12,11 @@ From AUR3:
 
 From AUR: 
 
-    dvdae-bin, fs-uae, fs-uae-launcher, solar2, voltra-deb, upplay-git, openboard
+    dvdae-bin, fs-uae, fs-uae-launcher, solar2, voltra-deb, upplay-git
 
 Re-worked:
 
-    Clementine-light-git, Clementine-light-qt5-git, Voltra, upplay
+    Clementine-light-git, Clementine-light-qt5-git, Voltra, upplay, openboard-deb
 
 Original: 
 
