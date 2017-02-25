@@ -20,7 +20,7 @@ Re-worked:
 
 Original: 
 
-    madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-2.6.9.2, qviever
+    madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-deb, qviever, sacd-decoder
 
 ***
 
