@@ -2,7 +2,8 @@
 # https://github.com/FabioLolix
 
 pkgname=madrigal-git
-pkgver=0.0.1
+_gitname="madrigal"
+pkgver=r192.8395a23
 pkgrel=1
 pkgdesc="Madrigal is a Qt5 OpenHome Control Point, currently still in development"
 arch=('i686' 'x86_64')
@@ -13,12 +14,13 @@ makedepends=()
 checkdepends=()
 optdepends=()
 provides=('madrigal')
-
-_gitroot="git://github.com/CDrummond/madrigal"
-_gitname="madrigal"
-
 source=("git+https://github.com/CDrummond/madrigal")
 md5sums=('SKIP')
+
+pkgver() {
+  cd "$_gitname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 
 package() {
 	mkdir $srcdir/$_gitname/build

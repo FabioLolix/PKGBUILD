@@ -1,6 +1,6 @@
 pkgbase = madrigal-git
 	pkgdesc = Madrigal is a Qt5 OpenHome Control Point, currently still in development
-	pkgver = 0.0.1
+	pkgver = r192.8395a23
 	pkgrel = 1
 	url = https://github.com/CDrummond/madrigal
 	arch = i686
