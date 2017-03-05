@@ -4,7 +4,7 @@
 _pkgbase='openage'
 pkgname="$_pkgbase-git_fix"
 pkgver=v0.3.0.r720.g816fa621
-pkgrel=1
+pkgrel=2
 pkgdesc='A free (as in freedom) clone of the Age of Empires II engine'
 arch=('i686' 'x86_64')
 url='http://openage.sft.mx/'
@@ -18,8 +18,10 @@ optdepends=('python-pillow: for the media convert script'
 provides=('openage')
 conflicts=('openage')
 
-source=("$_pkgbase::git+https://github.com/SFTtech/openage")
-md5sums=('SKIP')
+source=("$_pkgbase::git+https://github.com/SFTtech/openage"
+        "https://github.com/FabioLolix/PKGBUILD/blob/master/openage-git_fix/openage.desktop")
+md5sums=('SKIP'
+         'de6ce50efd3c33b85f27d67ebda16d16')
 
 pkgver() {
   cd "$srcdir/$_pkgbase"
@@ -44,6 +46,10 @@ package() {
   cp "$srcdir/$_pkgbase/run" $pkgdir/usr/bin/openage
   mv $pkgdir/usr/lib64/* $pkgdir/usr/lib/
   rmdir $pkgdir/usr/lib64
+  rm $pkgdir/usr/share/pixmaps/openage.png
+  cp $pkgdir/usr/share/openage/logo/crown.svg $pkgdir/usr/share/pixmaps/openage.svg
+  rm $pkgdir/usr/share/applications/openage.desktop
+  install $srcdir/openage.desktop $pkgdir/usr/share/applications/
 }
 
 # vim:set ts=2 sts=2 sw=2 et:
