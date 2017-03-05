@@ -1,11 +1,13 @@
-# $Id$
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+# Thanks to:
 # Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Andreas Schönfelder <passtschu at freenet dot de>
 
-pkgname=phoronix-test-suite
-pkgver=6.8.0
+pkgname=phoronix-test-suite-rc
+pkgver=7.0.0m5
 pkgrel=1
-pkgdesc="The most comprehensive testing and benchmarking platform available for Linux"
+pkgdesc="The most comprehensive testing and benchmarking platform available for Linux, milestone version"
 arch=('any')
 license=('GPL3')
 url="http://www.phoronix-test-suite.com/"
@@ -13,8 +15,8 @@ depends=('php')
 optdepends=('php-gtk'
 	    'php-gd')
 install=${pkgname}.install
-source=(http://www.phoronix.net/downloads/phoronix-test-suite/releases/phoronix-test-suite-$pkgver.tar.gz)
-sha256sums=('fe741336dbf251fc210367b20713b554b3fd4edf15cf1f5950ff8bcbb3b09aec')
+source=(http://www.phoronix.net/downloads/phoronix-test-suite/releases/development/phoronix-test-suite-$pkgver.tar.gz)
+sha256sums=('e2200cfe3ed9963e05387b0b1954fccacdc64e80930a5966c1ab619e9b95b35b')
 
 package() {
   cd "$srcdir"/phoronix-test-suite

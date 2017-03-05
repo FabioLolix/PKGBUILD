@@ -14,7 +14,7 @@ From AUR:
 
 Re-worked:
 
-    Clementine-light-git, Clementine-light-qt5-git, Voltra, upplay, openboard-deb
+    Clementine-light-git, Clementine-light-qt5-git, Voltra, upplay, openboard-deb, phoronix-test-suite-rc
 
 Original: 
 
