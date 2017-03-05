@@ -1,14 +1,12 @@
 **Status**
 
-Fails to compile (prev. did): Gtkrawgallery
-
 Now on AUR:
 
     Neobarok, qstopmotion
 
 From AUR3: 
 
-    spe, gtkrawgalley, qcomicbook, squeezeplay
+    spe, qcomicbook, squeezeplay
 
 From AUR: 
 
