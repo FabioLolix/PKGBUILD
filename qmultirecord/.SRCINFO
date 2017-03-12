@@ -1,12 +1,13 @@
 pkgbase = qmultirecord
 	pkgdesc = CD, DVD and BD recording frontend for cdrskin. Allows to simultaneously burn (and check) multiple ISO files in multithread mode on several optical drives
 	pkgver = 0.2.7
-	pkgrel = 1
+	pkgrel = 2
 	url = https://www.linux-apps.com/content/show.php/qmultirecord?content=106254
 	arch = i686
 	arch = x86_64
 	license = GPLv2
 	depends = libburn
+	depends = qt5-base
 	provides = qmultirecord
 	conflicts = qmultirecord
 	source = https://dl.opendesktop.org/api/files/download/id/1466643061/106254-qmultirecord-0.2.7.tar.bz2

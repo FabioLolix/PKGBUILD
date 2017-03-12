@@ -2,25 +2,51 @@
 
 Now on AUR:
 
-    Neobarok, qstopmotion
+* Neobarok
+* qstopmotion
 
 From AUR3: 
 
-    spe, qcomicbook, squeezeplay
+| Name        | Done            |
+| ----------- | --------------- |
+| qcomicbook  | updated version |
+| spe         | aur3 import     |
+| squeezeplay | aur3 import     |
 
 From AUR: 
 
-    dvdae-bin, fs-uae, fs-uae-launcher, solar2, voltra-deb, upplay-git, openage-git
+| Name            | Done                               |
+| --------------- | ---------------------------------- |
+| fs-uae          | updated + compiling fix            |
+| fs-uae-launcher | updated   version                  |
+| openage-git     | install fix + icon fix             |
+| upplay          | updated compiling flag - build QT5 |
+| upplay-git      | updated compiling flag - build QT5 |
+| dvdae-bin       | updpkgsums                         |
+| solar2          | updpkgsums                         |
+| voltra          | updpkgsums                         |
 
-Re-worked:
+Reworked from AUR or Arch:
 
-    Clementine-light-git, Clementine-light-qt5-git, Voltra, upplay, openboard-deb, phoronix-test-suite-rc
+| Name                     | done                    |
+| ------------------------ | ----------------------- |
+| clementine-light-git     | disabled plugins        |
+| clementine-light-qt5-git | disabled plugins        |
+| phoronix-test-suite-rc   | build milestone version |
 
-Original: 
+Original:
 
-    madrigal-git, maxmonitoring, neobarok, qmultirecord, quickhash-gui-bin, quickhash-gui-bin-deb, qviever, sacd-decoder
-
-***
+| Name                  | done                                     |
+| --------------------- | :--------------------------------------- |
+| madrigal-git          | Qt5 OpenHome Control Point               |
+| maxmonitoring         | Monitoring tool for Solarmax inverter    |
+| neobarok              | 3D modeling software                     |
+| openboard-bin         | Openboard Ubuntu binary version          |
+| qmultirecord          | Simultaneously burn multiple ISO files on several optical drives |
+| quickhash-gui-bin     | Graphical hashing utility tar.gz version |
+| quickhash-gui-bin-deb | Graphical hashing utility debian binary version |
+| qviever               | QT image viewer                          |
+| sacd-decoder          | Command line SACD decoder                |
 
 **Tips for other packages**
 
@@ -34,6 +60,8 @@ Extract .rpm .deb etc, avoid rpmextract
 
     bsdtar -xf $packagename.*
 
+***
+
 Package which use rpmextarct
 
 * libstdc++296
@@ -44,6 +72,7 @@ for **fs-uae** Amiga emulator add CXXFlags in build()
 
 	build() {
 	cd $pkgname-$pkgver
-	CXXFLAGS="${CXXFLAGS} -std=gnu++98"
-
-for **upplay** remove 'qtchooser' dep
+	XXFLAGS="${CXXFLAGS} -std=gnu++98"
+	./configure --prefix=/usr
+    make 
+	}

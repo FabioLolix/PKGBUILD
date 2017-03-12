@@ -4,31 +4,17 @@
 pkgname=qiviewer
 pkgver=0.7.0
 pkgrel=1
-pkgdesc="Qiviewer image viewer"
+pkgdesc="Qt image viewer"
 arch=('i686' 'x86_64')
 url="https://github.com/samkpo/qiviewer"
 license=('GPLv2')
-depends=()
-## don't know on which qt need, 'qt4' or 'qt5-base'
-makedepends=()
-checkdepends=()
-optdepends=()
-provides=('qiviewer')
-#install=
+depends=('qt4')
 #changelog=https://github.com/samkpo/qiviewer/blob/master/ChangeLog
-
 source=("git+https://github.com/samkpo/qiviewer.git")
-
 md5sums=('SKIP')
-
 package() {
-
-	mkdir $pkgname/build
-
-	cd $pkgname/build
-
-	cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
-
-	make DESTDIR=$pkgdir install
-
+  mkdir $pkgname/build
+  cd $pkgname/build
+  cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+  make DESTDIR=$pkgdir install
 }

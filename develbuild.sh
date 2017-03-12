@@ -29,3 +29,8 @@ cd $PWD/madrigal-git
     makepkg -s
     makepkg --printsrcinfo > .SRCINFO
 cd ..
+
+cd $PWD/twin-git
+    makepkg -s
+    makepkg --printsrcinfo > .SRCINFO
+cd ..

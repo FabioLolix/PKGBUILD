@@ -1,12 +1,12 @@
 pkgbase = qiviewer
-	pkgdesc = Qiviewer image viewer
+	pkgdesc = Qt image viewer
 	pkgver = 0.7.0
 	pkgrel = 1
 	url = https://github.com/samkpo/qiviewer
 	arch = i686
 	arch = x86_64
 	license = GPLv2
-	provides = qiviewer
+	depends = qt4
 	source = git+https://github.com/samkpo/qiviewer.git
 	md5sums = SKIP
 
