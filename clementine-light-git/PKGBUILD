@@ -2,21 +2,19 @@
 # https://github.com/FabioLolix
 #
 # Thanks to all the people of clementine-git and clementine-qt5-git
-#
-# Mantainer: Adria Arrufat <swiftscythe@gmail.com>
+# Contributor: Adria Arrufat <swiftscythe@gmail.com>
 # Contributor: Ike Devolder <ike.devolder@gmail.com>
 # Contributor: Daniel Hill <daniel.hill@orcon.net.nz>
 # Contributor: Xiao-Long Chen <chenxiaolong@cxl.epac.to>
-# Maintainer: Eduardo Sánchez Muñoz
+# Contributor: Eduardo Sánchez Muñoz
 # Contributor: Maxime Gauduin <alucryd@archlinux.org>
 # Contributor: Stéphane Gaudreault <stephane@archlinux.org>
 # Contributor: BlackEagle <ike.devolder@gmail.com>
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
-
 pkgname=clementine-light-git
-pkgver=1.3.1.r291.g3b51f80fa
-pkgrel=1
+pkgver=1.3.1.r313.ga034c2d4d
+pkgrel=4
 pkgdesc="A modern music player and library organiser, disabled plugins"
 arch=('i686' 'x86_64')
 url='http://www.clementine-player.org/'
@@ -26,24 +24,15 @@ depends=('chromaprint'
         'gst-plugins-base'
 		'hicolor-icon-theme'
 		'libcdio' 
-#        'libechonest'
 		'libplist' 
 		'protobuf'
 		'qjson'
 		'qt4')
-
 optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
             'gst-plugins-bad: for use with "Bad" plugin libraries'
-            'gst-plugins-ugly: for use with "Ugly" plugin libraries')
-
-makedepends=('git' 'boost' 'cmake' 'mesa')
-
-provides=('clementine')
-conflicts=('clementine' 'clementine-lxqt' 'clementine-git')
-replaces=('clementine' 'clementine-lxqt' 'clementine-git')
-
-install=clementine.install
-
+            'gst-plugins-ugly: for use with "Ugly" plugin libraries'
+            'gst-libav: Libav plugin'
+            'gvfs: Various devices support')
 #optdepends+=(
 #'taglib: required by Drive, Skydrive, Dropbox, Box, Seafile'	
 #'sparsehash: required by Drive, Skydrive, Dropbox, Box, Seafile'
@@ -55,30 +44,30 @@ install=clementine.install
 #'libimobiledevice: for iPhone and iPod Touch support'
 #'libmtp: for MTP devices, Android'
 #)
-
+makedepends=('git' 'boost' 'cmake' 'mesa')
+provides=('clementine')
+conflicts=('clementine' 'clementine-git')
+replaces=('clementine' 'clementine-git')
 source=('git+https://github.com/clementine-player/Clementine.git')
 sha256sums=('SKIP')
 
 pkgver() {
-    cd "$srcdir/Clementine"
-    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  cd "$srcdir/Clementine"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    mkdir -p "$srcdir/clementine-build"
-    cd "$srcdir/clementine-build"
-    
-    cmake "$srcdir/Clementine" \
+    cd "$srcdir/Clementine/bin"
+
+    cmake .. \
         -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_BUILD_TYPE=Debug \
         -DENABLE_VISUALISATIONS=OFF \
-        -DENABLE_SPOTIFY=OFF \
         -DENABLE_SPOTIFY_BLOB=OFF \
         -DENABLE_SKYDRIVE=OFF \
         -DENABLE_GOOGLE_DRIVE=OFF \
         -DENABLE_DROPBOX=OFF \
         -DENABLE_SEAFILE=OFF \
-        -DENABLE_VK=OFF \
         -DENABLE_LIBGPOD=OFF \
         -DENABLE_WIIMOTEDEV=OFF \
         -DENABLE_SPARKLE=OFF \
@@ -86,8 +75,6 @@ build() {
         -DENABLE_GIO=ON \
         -DENABLE_BOX=OFF \
 		-DENABLE_LIBLASTFM=OFF \
-		-DENABLE_DEBUG=ON \
-#        -DENABLE_BREAKPAD=ON \
 
 # -DENABLE_xxxx
 # - force their inclusion with =ON  - this could trigger an error for
@@ -97,11 +84,9 @@ build() {
 
 # -DCMAKE_BUILD_TYPE remove to get a debug build with symbols
 # Qt doesn't respect LC_xxx settings... which is really annoying!
-
-make 
 }
 
 package() {
-    cd "$srcdir/clementine-build"
+    cd "$srcdir/Clementine/bin"
     make DESTDIR="$pkgdir" install
 }
