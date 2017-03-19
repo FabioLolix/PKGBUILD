@@ -1,40 +1,30 @@
 # Maintainer: Ali Ukani <ali.ukani@gmail.com>
 pkgname=voltra
-pkgver=2.3.2
-pkgrel=2
+pkgver=2.5.3
+pkgrel=1
 pkgdesc='Voltra music player'
 arch=('x86_64')
 url='https://voltra.co'
 license=('custom')
-provides=('voltra')
+depends=('desktop-file-utils')
 install=${pkgname}.install
+provides=('voltra')
 source=('https://s3.amazonaws.com/download.voltra.co/Voltra.deb')
-md5sums=('b6ae8c5c646b78b5158558c53ddbbbce')
+md5sums=('d755c6db45860978df08d5a11187496c')
+
+prepare() {
+  cd "${srcdir}"
+  tar xzf control.tar.gz
+}
 
 pkgver() {
-  bsdtar -xf "${srcdir}/control.tar.gz"
-  grep -i "version" "${srcdir}/control" | cut -d ':' -f 2 | sed -e "s/-/_/" -e "s/\s//g"
+  grep -i "Version" "${srcdir}"/control | cut -d ' ' -f 2
 }
 
 package() {
-  bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
-
-#  cd "${pkgdir}"
-#  find -name '*.py' -exec sed -i 's|^#!/usr/bin/env python\s*$|#!/usr/bin/env python2|' {} \;
-#  find -name '*.py' -exec sed -i 's|^#!/usr/bin/python\s*$|#!/usr/bin/python2|' {} \;
-
-#  find "${pkgdir}"/usr -type f -exec chmod 644 {} \;
-#  find "${pkgdir}"/usr/bin -type f -exec chmod 755 {} \;
-#  find "${pkgdir}"/usr -type d -exec chmod 755 {} \;
-#  chmod 755 "${pkgdir}"/opt/Voltra/voltra
-#  chmod 755 "${pkgdir}"/opt/Voltra/resources/app/plugins
-
-  install -dm755 $pkgdir/usr/bin
-  ln -s /opt/Voltra/voltra "${pkgdir}/usr/bin/voltra"
-
-  mkdir -p $pkgdir/usr/share/licenses/voltra/
-  mv $pkgdir/opt/Voltra/LICENSE.electron.txt $pkgdir/usr/share/licenses/voltra/
-  mv $pkgdir/opt/Voltra/LICENSES.chromium.html $pkgdir/usr/share/licenses/voltra/
-
-#  ln -s /opt/Voltra/LICENSE "${pkgdir}/usr/share/licenses/voltra/LICENSE"
+  cd "${srcdir}"
+  tar xJvf data.tar.xz
+  cp -r usr opt "${pkgdir}"
+  install -dm755 "${pkgdir}"/usr/bin
+  ln -s /opt/Voltra/voltra "${pkgdir}"/usr/bin/voltra
 }
