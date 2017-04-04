@@ -1,0 +1,28 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=jam-git
+_gitname=jam
+pkgver=0.6.0a
+pkgrel=1
+pkgdesc='Google Play Music console player for Linux, written in Go'
+arch=('i686' 'x86_64')
+url='https://github.com/budkin/jam'
+license=('MIT')
+makedepends=('go' 'git')
+_gourl=github.com/budkin/jam
+
+#pkgver() {
+#  cd "$_gitname"
+#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+# src/src/github.com/budkin/jam/version/version.go
+#}
+
+build() {
+  GOPATH="$srcdir" go get -fix -v -x ${_gourl}
+}
+
+package() {
+  install -d $pkgdir/usr/bin
+  install -D $srcdir/bin/jam $pkgdir/usr/bin/
+}

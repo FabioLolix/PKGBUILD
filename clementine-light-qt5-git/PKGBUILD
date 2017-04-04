@@ -74,7 +74,8 @@ build() {
         -DENABLE_LIBMTP=OFF \
         -DENABLE_GIO=ON \
         -DENABLE_BOX=OFF \
-		-DENABLE_LIBLASTFM=OFF \
+		-DENABLE_LIBLASTFM=OFF
+make -j 8
 # -DENABLE_xxxx
 # - force their inclusion with =ON  - this could trigger an error for
 #   unlisted dependencies in depends=()

@@ -3,8 +3,8 @@
 
 _pkgbase='openage'
 pkgname="$_pkgbase-git_fix"
-pkgver=v0.3.0.r720.g816fa621
-pkgrel=2
+pkgver=v0.3.0.r844.g7e65549a
+pkgrel=1
 pkgdesc='A free (as in freedom) clone of the Age of Empires II engine'
 arch=('i686' 'x86_64')
 url='http://openage.sft.mx/'
@@ -36,7 +36,7 @@ prepare() {
 build() {
   cd "$srcdir/$_pkgbase/build"
   cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
-  make
+  make -j 8
 }
 
 package() {
@@ -46,8 +46,8 @@ package() {
   cp "$srcdir/$_pkgbase/run" $pkgdir/usr/bin/openage
   mv $pkgdir/usr/lib64/* $pkgdir/usr/lib/
   rmdir $pkgdir/usr/lib64
-  rm $pkgdir/usr/share/pixmaps/openage.png
-  cp $pkgdir/usr/share/openage/logo/crown.svg $pkgdir/usr/share/pixmaps/openage.svg
+  #rm $pkgdir/usr/share/pixmaps/openage.png
+  #cp $pkgdir/usr/share/openage/logo/crown.svg $pkgdir/usr/share/pixmaps/openage.svg
   rm $pkgdir/usr/share/applications/openage.desktop
   install $srcdir/openage.desktop $pkgdir/usr/share/applications/
 }

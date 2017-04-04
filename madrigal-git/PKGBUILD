@@ -26,6 +26,6 @@ package() {
 	mkdir $srcdir/$_gitname/build
 	cd $srcdir/$_gitname/build
 	cmake .. -DCMAKE_BUILD_TYPE=Release
-	make
+	make -j 8
 	make DESTDIR=$pkgdir install
 }
