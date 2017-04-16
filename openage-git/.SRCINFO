@@ -1,6 +1,6 @@
-pkgbase = openage-git_fix
+pkgbase = openage-git
 	pkgdesc = A free (as in freedom) clone of the Age of Empires II engine
-	pkgver = v0.3.0.r844.g7e65549a
+	pkgver = v0.3.0.r160.g6b8ff36
 	pkgrel = 1
 	url = http://openage.sft.mx/
 	arch = i686
@@ -29,9 +29,7 @@ pkgbase = openage-git_fix
 	provides = openage
 	conflicts = openage
 	source = openage::git+https://github.com/SFTtech/openage
-	source = https://github.com/FabioLolix/PKGBUILD/blob/master/openage-git_fix/openage.desktop
 	md5sums = SKIP
-	md5sums = de6ce50efd3c33b85f27d67ebda16d16
 
-pkgname = openage-git_fix
+pkgname = openage-git
 

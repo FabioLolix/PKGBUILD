@@ -15,16 +15,14 @@ From AUR3:
 
 From AUR: 
 
-| Name            | Done                               |
-| --------------- | ---------------------------------- |
-| fs-uae          | updated + compiling fix            |
-| fs-uae-launcher | updated   version                  |
-| openage-git     | install fix + icon fix             |
-| upplay          | updated compiling flag - build QT5 |
-| upplay-git      | updated compiling flag - build QT5 |
-| dvdae-bin       | updpkgsums                         |
-| solar2          | updpkgsums                         |
-| voltra          | updpkgsums                         |
+| Name        | Done                               |
+| ----------- | ---------------------------------- |
+| openage-git | install fix                        |
+| upplay      | updated compiling flag - build QT5 |
+| upplay-git  | updated compiling flag - build QT5 |
+| dvdae-bin   | updpkgsums                         |
+| solar2      | updpkgsums                         |
+| voltra      | updpkgsums                         |
 
 Reworked from AUR or Arch:
 
@@ -53,13 +51,11 @@ Original:
 Update source info
 
     makepkg --printsrcinfo > .SRCINFO
-
 ***
 
 Extract .rpm .deb etc, avoid rpmextract
 
     bsdtar -xf $packagename.*
-
 ***
 
 Package which use rpmextarct
@@ -74,5 +70,5 @@ for **fs-uae** Amiga emulator add CXXFlags in build()
 	cd $pkgname-$pkgver
 	XXFLAGS="${CXXFLAGS} -std=gnu++98"
 	./configure --prefix=/usr
-    make 
+	make 
 	}
