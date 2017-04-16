@@ -10,7 +10,7 @@ cd $PWD/clementine-light-qt5-git
     makepkg --printsrcinfo > .SRCINFO
 cd ..
 
-cd $PWD/openage-git_fix
+cd $PWD/openage-git
     makepkg -s
     makepkg --printsrcinfo > .SRCINFO
 cd ..

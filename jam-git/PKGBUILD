@@ -9,6 +9,7 @@ pkgdesc='Google Play Music console player for Linux, written in Go'
 arch=('i686' 'x86_64')
 url='https://github.com/budkin/jam'
 license=('MIT')
+depends=('libpulse')
 makedepends=('go' 'git')
 _gourl=github.com/budkin/jam
 

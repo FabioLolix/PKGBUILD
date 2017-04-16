@@ -5,12 +5,13 @@ pkgbase = quickhash-gui-bin
 	url = http://quickhash-gui.org/
 	arch = i686
 	arch = x86_64
-	license = GPLv2
+	license = GPL2
+	depends = gtk2
 	provides = quickhash-gui
 	conflicts = quickhash-gui
 	conflicts = quickhash-gui-bin
-	source = local://QuickHash-Linux-v2.8.0.zip
-	md5sums = a4eb70e70c432984a20170b7374d14f4
+	source = local://QuickHash-v2.8.0-DebianPackages.tar.gz
+	md5sums = ddf2bbfb50df1b0bf81e046c37d35fda
 
 pkgname = quickhash-gui-bin
 

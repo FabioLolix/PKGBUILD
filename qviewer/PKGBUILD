@@ -7,7 +7,7 @@ pkgrel=1
 pkgdesc="Qt image viewer"
 arch=('i686' 'x86_64')
 url="https://github.com/samkpo/qiviewer"
-license=('GPLv2')
+license=('GPL2')
 depends=('qt4')
 #changelog=https://github.com/samkpo/qiviewer/blob/master/ChangeLog
 source=("git+https://github.com/samkpo/qiviewer.git")
@@ -15,6 +15,6 @@ md5sums=('SKIP')
 package() {
   install -d $pkgname/build
   cd $pkgname/build
-  cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+  cmake .. -DCMAKE_INSTALL_PREFIX=/usr
   make DESTDIR=$pkgdir install
 }

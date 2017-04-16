@@ -5,8 +5,9 @@ pkgbase = sacd-decoder-bzr
 	url = https://tari.in/www/software/sacd/
 	arch = i686
 	arch = x86_64
-	license = GPLv3
+	license = GPL3
 	makedepends = bzr
+	depends = gcc-libs-multilib
 	source = bzr+lp:/sacd/trunk
 	md5sums = SKIP
 

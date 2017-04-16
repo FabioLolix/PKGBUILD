@@ -8,6 +8,7 @@ pkgbase = jam-git
 	license = MIT
 	makedepends = go
 	makedepends = git
+	depends = libpulse
 
 pkgname = jam-git
 

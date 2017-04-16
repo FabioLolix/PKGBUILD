@@ -7,7 +7,7 @@ pkgbase = upplay
 	license = GPL2
 	depends = libupnpp>=0.15.0
 	depends = qt5-webkit
-	depends = qt5-base
+	depends = hicolor-icon-theme
 	provides = upplay
 	conflicts = upplay
 	conflicts = upplay-git

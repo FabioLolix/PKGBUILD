@@ -6,15 +6,12 @@
 pkgname=qcomicbook
 pkgver=0.9.1
 pkgrel=1
-pkgdesc="QComicBook is a viewer for comic book archives"
+pkgdesc="A reader of comic book archives"
 url="http://qcomicbook.org/"
 arch=('i686' 'x86_64')
-license=('GPLv2')
-depends=('qt5-base'
-         'qt5-x11extras'
-         'poppler-qt5'
-         'unzip'
-         'tar')
+license=('GPL2')
+depends=('qt5-x11extras'
+         'poppler-qt5')
 optdepends=('p7zip'
             'unace'
             'unrar'

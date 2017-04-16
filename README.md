@@ -7,11 +7,10 @@ Now on AUR:
 
 From AUR3: 
 
-| Name        | Done            |
-| ----------- | --------------- |
-| qcomicbook  | updated version |
-| spe         | aur3 import     |
-| squeezeplay | aur3 import     |
+| Name       | Done            |
+| ---------- | --------------- |
+| qcomicbook | updated version |
+| spe        | aur3 import     |
 
 From AUR: 
 

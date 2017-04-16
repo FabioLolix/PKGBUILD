@@ -3,12 +3,12 @@
 
 pkgname=qmultirecord
 pkgver=0.2.7
-pkgrel=2
+pkgrel=3
 pkgdesc="CD, DVD and BD recording frontend for cdrskin. Allows to simultaneously burn (and check) multiple ISO files in multithread mode on several optical drives"
 arch=('i686' 'x86_64')
 url="https://www.linux-apps.com/content/show.php/qmultirecord?content=106254"
-license=('GPLv2')
-depends=('libburn' 'qt5-base')
+license=('GPL2')
+depends=('libburn' 'qt5-base' 'hicolor-icon-theme')
 provides=('qmultirecord')
 conflicts=('qmultirecord')
 source=("https://dl.opendesktop.org/api/files/download/id/1466643061/106254-qmultirecord-0.2.7.tar.bz2")
@@ -18,8 +18,8 @@ package() {
   qmake
   make
   make DESTDIR=$pkgdir install
-  install -d $pkgdir/usr/share/{qmultirecord,applications,icons/hicolor/48x48/apps}
-  install -m 755 $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/share/qmultirecord/
+  install -d $pkgdir/usr/share/{applications,icons/hicolor/48x48/apps}
+  install -Dm 755 $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/bin/qmultirecord
   install -m 644 $srcdir/$pkgname-$pkgver/src/qmultirecord.desktop $pkgdir/usr/share/applications/
   install -m 644 $srcdir/$pkgname-$pkgver/src/icons/*.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
 }
