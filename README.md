@@ -1,60 +1,77 @@
 **Status**
 
-Now on AUR:
-
-* Neobarok
-* qstopmotion
+* Neobarok: on AUR (Oberon)
+* qstopmotion: on AUR (not me)
+* openage-git: on AUR, adopted
 
 From AUR3: 
 
-| Name       | Done            |
+| Name       | status            |
 | ---------- | --------------- |
 | qcomicbook | updated version |
-| spe        | aur3 import     |
+| spe        | plain aur3 import |
+| squeezeplay | plain aur3 import |
 
 From AUR: 
 
-| Name        | Done                               |
+| Name        | status                               |
 | ----------- | ---------------------------------- |
-| openage-git | install fix                        |
-| upplay      | updated compiling flag - build QT5 |
-| upplay-git  | updated compiling flag - build QT5 |
+| moksha-modules-extra-git | build fix |
+| openage-git | install fix (adopted)                       |
+| upplay-qt5      | updated compiling flag to build in QT5 |
+| upplay-qt5-git  | updated compiling flag to build in QT5 |
 | dvdae-bin   | updpkgsums                         |
 | solar2      | updpkgsums                         |
 | voltra      | updpkgsums                         |
 
 Reworked from AUR or Arch:
 
-| Name                     | done                    |
+| Name                     | modified to                    |
 | ------------------------ | ----------------------- |
-| clementine-light-git     | disabled plugins        |
-| clementine-light-qt5-git | disabled plugins        |
+| clementine-light-git     | disable plugins        |
+| clementine-light-qt5-git | disable plugins        |
 | phoronix-test-suite-rc   | build milestone version |
+| roonbridge | add 'armv7h' & 'aarch64' architectures |
+| smbnetfs | enable gnome keyring |
+| smbnetfs-git | build git version with gnome keyring enabled |
+| twin-git | build git version |
 
 Original:
 
-| Name                  | done                                     |
-| --------------------- | :--------------------------------------- |
-| madrigal-git          | Qt5 OpenHome Control Point               |
-| maxmonitoring         | Monitoring tool for Solarmax inverter    |
+| Name                  | Description                                     |
+| --------------------- | --------------------------------------- |
+| madrigal-git          | Qt5 OpenHome Control Point, in development               |
+| maxmonitoring         | Monitoring tool for Solarmax inverters    |
 | neobarok              | 3D modeling software                     |
 | openboard-bin         | Openboard Ubuntu binary version          |
 | qmultirecord          | Simultaneously burn multiple ISO files on several optical drives |
-| quickhash-gui-bin     | Graphical hashing utility tar.gz version |
-| quickhash-gui-bin-deb | Graphical hashing utility debian binary version |
+| quickhash-gui-bin     | Graphical hashing utility, Debian binary version |
 | qviever               | QT image viewer                          |
 | sacd-decoder          | Command line SACD decoder                |
+
+***
+
+Others pkgbuilds are experimental, work in progress or fails:
+
+| Name                     |                     |
+| ------------------------ | ----------------------- |
+| jam-git | Google Play Music console player, bogus $pkgver |
+| squeezeplay | Git versions don't compile |
+| gravit-designer | In progress |
+
 
 **Tips for other packages**
 
 Update source info
 
     makepkg --printsrcinfo > .SRCINFO
+
 ***
 
-Extract .rpm .deb etc, avoid rpmextract
+Extract .rpm .deb, avoid rpmextract, debtap, etc..
 
     bsdtar -xf $packagename.*
+
 ***
 
 Package which use rpmextarct

@@ -1,6 +1,7 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 
 pkgname=upplay
+_pkgname=upplay
 pkgver=1.2.8
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point, stable version"
@@ -25,6 +26,3 @@ package(){
 	cd "${srcdir}/$pkgname-$pkgver"
 	make install INSTALL_ROOT="${pkgdir}"
 }
-
-
-

@@ -5,11 +5,11 @@
 pkgname=smbnetfs
 pkgver=0.6.0
 pkgrel=3
-pkgdesc="small C program that mounts Microsoft network neighborhood in single directory."
+pkgdesc="Small C program that mounts Microsoft network neighborhood in single directory, gnome keyring enabled"
 arch=('i686' 'x86_64')
 url="http://smbnetfs.sourceforge.net/"
 license=('GPL')
-depends=('fuse2' 'smbclient')
+depends=('fuse2' 'smbclient' 'libgnome-keyring')
 backup=('etc/smbnetfs/.smb/smb.conf'
 	'etc/smbnetfs/.smb/smbnetfs.conf'
 	'etc/smbnetfs/.smb/smbnetfs.auth'
