@@ -12,6 +12,7 @@ conflicts=('upplay' 'upplay-git')
 depends=('libupnpp>=0.15.0'
          'qt5-webkit'
          'hicolor-icon-theme')
+makedepends=('qt5-script')
 source=("https://www.lesbonscomptes.com/upplay/downloads/$pkgname-$pkgver.tar.gz")
 md5sums=('dc6150d9e17178d10a33d01761d432b9')
 

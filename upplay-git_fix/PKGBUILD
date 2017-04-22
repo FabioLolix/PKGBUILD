@@ -13,6 +13,7 @@ conflicts=('upplay' 'upplay-git')
 depends=('libupnpp>=0.15.0'
          'qt5-webkit'
          'hicolor-icon-theme')
+makedepends=('qt5-script')
 source=("git+https://github.com/medoc92/upplay.git")
 md5sums=('SKIP')
          

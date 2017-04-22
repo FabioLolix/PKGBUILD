@@ -5,6 +5,7 @@ pkgbase = upplay-git_fix
 	url = http://www.lesbonscomptes.com/upplay/
 	arch = x86_64
 	license = GPL2
+	makedepends = qt5-script
 	depends = libupnpp>=0.15.0
 	depends = qt5-webkit
 	depends = hicolor-icon-theme
