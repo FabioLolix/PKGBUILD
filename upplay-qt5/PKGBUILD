@@ -1,6 +1,6 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 
-pkgname=upplay
+pkgname=upplay-qt5
 _pkgname=upplay
 pkgver=1.2.8
 pkgrel=1
@@ -14,15 +14,15 @@ depends=('libupnpp>=0.15.0'
          'qt5-webkit'
          'hicolor-icon-theme')
 makedepends=('qt5-script')
-source=("https://www.lesbonscomptes.com/upplay/downloads/$pkgname-$pkgver.tar.gz")
+source=("https://www.lesbonscomptes.com/upplay/downloads/$_pkgname-$pkgver.tar.gz")
 md5sums=('dc6150d9e17178d10a33d01761d432b9')
 
 build(){
-	cd "$srcdir/$pkgname-$pkgver"
+	cd "$srcdir/$_pkgname-$pkgver"
     qmake -o Makefile upplay.pro PREFIX=/usr
 }
 
 package(){
-	cd "${srcdir}/$pkgname-$pkgver"
+	cd "${srcdir}/$_pkgname-$pkgver"
 	make install INSTALL_ROOT="${pkgdir}"
 }

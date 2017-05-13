@@ -1,11 +1,11 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 # https://github.com/FabioLolix
 # Thanks to:
-# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Andreas Schönfelder <passtschu at freenet dot de>
 
-pkgname=phoronix-test-suite-rc
-pkgver=7.2.0m1
+pkgname=phoronix-test-suite-milestone
+pkgver=7.2.0m2
 pkgrel=1
 pkgdesc="The most comprehensive testing and benchmarking platform available for Linux, milestone version"
 arch=('any')
@@ -16,7 +16,7 @@ optdepends=('php-gtk'
 	        'php-gd')
 install=${pkgname}.install
 source=(http://www.phoronix-test-suite.com/releases/development/phoronix-test-suite-$pkgver.tar.gz)
-sha256sums=('02e16a9bdf79c49f3f1cd0e8c336a0a0c1bbad17f0abb99a15409ba8f6d12695')
+sha256sums=('9da637c667b7081996ee992bc8ca8b174034d41bcf2d2c77006b5c2819cf4c44')
 
 package() {
   cd "$srcdir"/phoronix-test-suite

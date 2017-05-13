@@ -13,7 +13,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-light-git
-pkgver=1.3.1.r327.gedccd9591
+pkgver=1.3.1.r333.gf854bc5de
 pkgrel=1
 pkgdesc="A modern music player and library organiser, disabled plugins"
 arch=('i686' 'x86_64')

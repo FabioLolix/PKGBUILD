@@ -1,8 +1,8 @@
 # Maintainer: Daniel Maslowski <info@orangecms.org>
 
 _gitname=upplay
-pkgname=${_gitname}-git_fix
-pkgver=UPPLAY_0.8.5.r338.g32ac391
+pkgname=$_gitname-qt5-git
+pkgver=UPPLAY_0.8.5.r345.g1431b77
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point"
 url="http://www.lesbonscomptes.com/upplay/"

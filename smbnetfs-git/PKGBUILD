@@ -3,7 +3,7 @@
 # Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 
 pkgname=smbnetfs-git
-pkgver=r116.53b0889
+pkgver=r117.c72dfb1
 pkgrel=1
 pkgdesc="Small C program that mounts Microsoft network neighborhood in single directory, gnome keyring enabled. Git version"
 arch=('i686' 'x86_64')
@@ -34,7 +34,7 @@ build() {
   cd "$srcdir"/git
   sed -i 's|libsmbclient.h|samba-4.0/libsmbclient.h|g' \
     src/smb_conn_srv.c src/smb_conn_proto.h src/function.c src/main.c src/event.c
-  [ $NOEXTRACT -eq 1 ] || ./configure --prefix=/usr --docdir=/usr/share/doc/smbnetfs --with-gnome-keyring=yes
+  [ $NOEXTRACT -eq 1 ] || ./autogen.sh && ./configure --prefix=/usr --docdir=/usr/share/doc/smbnetfs --with-gnome-keyring=yes
   make
 }
 

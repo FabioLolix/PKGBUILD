@@ -8,7 +8,6 @@ pkgbase = twin-git
 	license = GPL2
 	license = LGPL2.1
 	depends = gpm
-	depends = zlib
 	depends = libxpm
 	options = !makeflags
 	source = git+https://github.com/cosmos72/twin

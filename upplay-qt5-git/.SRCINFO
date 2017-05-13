@@ -1,6 +1,6 @@
-pkgbase = upplay-git_fix
+pkgbase = upplay-qt5-git
 	pkgdesc = A Qt-based UPnP audio Control point
-	pkgver = UPPLAY_0.8.5.r338.g32ac391
+	pkgver = UPPLAY_0.8.5.r345.g1431b77
 	pkgrel = 1
 	url = http://www.lesbonscomptes.com/upplay/
 	arch = x86_64
@@ -15,5 +15,5 @@ pkgbase = upplay-git_fix
 	source = git+https://github.com/medoc92/upplay.git
 	md5sums = SKIP
 
-pkgname = upplay-git_fix
+pkgname = upplay-qt5-git
 
