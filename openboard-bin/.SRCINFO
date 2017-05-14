@@ -10,6 +10,7 @@ pkgbase = openboard-bin
 	depends = qt5-script
 	depends = qt5-webkit
 	depends = libpaper
+	provides = openboard
 	conflicts = openboard
 	source = https://github.com/OpenBoard-org/OpenBoard/releases/download/v1.3.4/openboard_ubuntu_16.04_1.3.4_amd64.deb
 	md5sums = bd0a1c20d66b45f17bb73c713bf50a9a

@@ -2,7 +2,7 @@
 pkgname=voltra
 pkgver=2.5.12
 pkgrel=1
-pkgdesc='Voltra music player'
+pkgdesc='Electron based material design music player'
 arch=('x86_64')
 url='https://voltra.co'
 license=('custom')

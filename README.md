@@ -1,8 +1,8 @@
 **Status**
 
-* Neobarok: on AUR (Oberon)
+* Neobarok: on AUR
+* openage-git: on AUR (adopted)
 * qstopmotion: on AUR (not me)
-* openage-git: on AUR, adopted
 
 From AUR3: 
 
@@ -30,11 +30,13 @@ Reworked from AUR or Arch:
 | ------------------------ | ----------------------- |
 | clementine-light-git     | disable plugins        |
 | clementine-light-qt5-git | disable plugins        |
+| mpv-vaapi | enabled vaapi |
 | phoronix-test-suite-rc   | build milestone version |
 | roonbridge | add 'armv7h' & 'aarch64' architectures |
 | smbnetfs | enable gnome keyring |
 | smbnetfs-git | build git version with gnome keyring enabled |
 | twin-git | build git version |
+| xf86-video-sisimedia-rkrell-git | video driver for SiS 671/771 cards |
 
 Original:
 
@@ -44,9 +46,9 @@ Original:
 | maxmonitoring         | Monitoring tool for Solarmax inverters    |
 | neobarok              | 3D modeling software                     |
 | openboard-bin         | Openboard Ubuntu binary version          |
+| qiviever              | QT image viewer                          |
 | qmultirecord          | Simultaneously burn multiple ISO files on several optical drives |
 | quickhash-gui-bin     | Graphical hashing utility, Debian binary version |
-| qviever               | QT image viewer                          |
 | sacd-decoder          | Command line SACD decoder                |
 
 ***
@@ -55,7 +57,7 @@ Others pkgbuilds are experimental, work in progress or fails:
 
 | Name                     |                     |
 | ------------------------ | ----------------------- |
-| jam-git | Google Play Music console player, bogus $pkgver |
+| jam-git | Google Play Music console player, bogus package version |
 | squeezeplay | Git versions don't compile |
 | gravit-designer | In progress |
 

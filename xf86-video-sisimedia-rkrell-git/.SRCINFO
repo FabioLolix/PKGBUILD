@@ -11,6 +11,7 @@ pkgbase = xf86-video-sisimedia-rkrell-git
 	makedepends = X-ABI-VIDEODRV_VERSION=23
 	makedepends = xf86dgaproto
 	depends = glibc
+	provides = xf86-video-sisimedia
 	conflicts = xf86-video-sisimedia
 	conflicts = xorg-server<1.19
 	conflicts = X-ABI-VIDEODRV_VERSION<23

@@ -21,7 +21,7 @@ pkgver() {
 }
 
 package() {
-	mkdir "$srcdir"/"$_gitname"/build
+	install -d "$srcdir"/"$_gitname"/build
 	cd "$srcdir"/"$_gitname"/build
 	cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
 	make
