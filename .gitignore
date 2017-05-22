@@ -3,6 +3,7 @@
 *.tar*
 *.gz
 *.zip
+*.run
 solar2.png
 #*/*/*/*
 */pkg

@@ -4,7 +4,7 @@
 
 _pkgbase='openage'
 pkgname="$_pkgbase-git"
-pkgver=v0.3.0.r910.g37adb1ad
+pkgver=v0.3.0.r928.g277af480
 pkgrel=1
 pkgdesc='A free (as in freedom) clone of the Age of Empires II engine'
 arch=('i686' 'x86_64')
