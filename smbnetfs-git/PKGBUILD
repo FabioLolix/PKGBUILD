@@ -3,7 +3,7 @@
 # Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 
 pkgname=smbnetfs-git
-pkgver=r121.85e28d4
+pkgver=r122.94913c2
 pkgrel=1
 pkgdesc="Small C program that mounts Microsoft network neighborhood in single directory, gnome keyring enabled. Git version"
 arch=('i686' 'x86_64')

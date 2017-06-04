@@ -1,13 +1,15 @@
 
 pkgname=polo
-pkgver=17.5.1
 pkgrel=1
 _betaver=beta.6
+_ver=17.5.1
+pkgver=17.5.1
+#pkgver=$_ver-$_betaver
 pkgdesc="GTK file manager"
 arch=('i686' 'x86_64')
 url="http://www.teejeetech.in/"
 license=(''GPL2)
-depends=('gtk3' 'libgee')
+depends=('gtk3' 'libgee' 'libsoup')
 provides=('polo')
 conflicts=('polo')
 source=(https://github.com/teejee2008/polo/archive/v$pkgver-$_betaver.tar.gz)

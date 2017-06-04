@@ -1,20 +1,27 @@
 
 pkgname=polo
-pkgver=17.5
+_name=polo-file-manager
+_ver=17.6
+_betaver=beta.7
+pkgver=17.6
 pkgrel=1
-_betaver=5
-pkgdesc="Polo file manager"
+pkgdesc="GTK file manager"
 arch=('i686' 'x86_64')
 url="http://www.teejeetech.in/"
 #license=()
-depends=('gtk3' 'libgee')
+depends=('gtk3' 'libgee' 'vte3')
+optdepends=('mediainfo'
+            'fish'
+            'perl-image-exiftool'
+            'pv')
 provides=('polo')
 conflicts=('polo')
-source_i686=("local://polo-beta-"${_betaver}"-i386.deb") 
-source_x86_64=("local://polo-beta-"${_betaver}"-amd64.deb") 
-md5sums_i686=('5db1745d40b5a71ad739632b46018e5b')
-md5sums_x86_64=('b70ab5fdcdc30ee5e7809dff3f5af796')
+source_i686=("local://"$_name"-v"$_ver"-"$_betaver"-i386.deb") 
+source_x86_64=("local://"$_name"-v"$_ver"-"$_betaver"-amd64.deb") 
+md5sums_i686=('9950ab04ab573da085749d275899788b')
+md5sums_x86_64=('478122a9f0d4a33934505520809ce6a2')
 #options=(emptydirs)
+
 prepare() {
   cd "${srcdir}"
   tar xzf control.tar.gz
@@ -26,10 +33,10 @@ pkgver() {
 
 package() {
 if [[ "${CARCH}" = 'i686' ]]; then
-        bsdtar -xf $pkgname-beta-"$_betaver"-i386.deb
+        bsdtar -xf "$_name"-v"$_ver"-"$_betaver"-i386.deb
     fi
 if [[ "${CARCH}" = 'x86_64' ]]; then
-        bsdtar -xf $pkgname-beta-"$_betaver"-amd64.deb
+        bsdtar -xf "$_name"-v"$_ver"-"$_betaver"-amd64.deb
     fi
   bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
   install -d $pkgdir/usr/bin

@@ -39,3 +39,8 @@ cd $PWD/smbnetfs-git
     makepkg -s
     makepkg --printsrcinfo > .SRCINFO
 cd ..
+
+cd $PWD/xf86-video-sisimedia-rkrell-git
+    makepkg -s
+    makepkg --printsrcinfo > .SRCINFO
+cd ..

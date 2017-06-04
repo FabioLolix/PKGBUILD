@@ -1,0 +1,18 @@
+pkgbase = polo
+	pkgdesc = GTK file manager
+	pkgver = 17.5.1
+	pkgrel = 1
+	url = http://www.teejeetech.in/
+	arch = i686
+	arch = x86_64
+	license = GPL2
+	depends = gtk3
+	depends = libgee
+	depends = libsoup
+	provides = polo
+	conflicts = polo
+	source = https://github.com/teejee2008/polo/archive/v17.5.1-beta.6.tar.gz
+	md5sums = fe4a9c3d61084a68f5838e50b6cd4119
+
+pkgname = polo
+

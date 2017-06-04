@@ -1,0 +1,23 @@
+pkgbase = polo
+	pkgdesc = GTK file manager
+	pkgver = 17.6
+	pkgrel = 1
+	url = http://www.teejeetech.in/
+	arch = i686
+	arch = x86_64
+	depends = gtk3
+	depends = libgee
+	depends = vte3
+	optdepends = mediainfo
+	optdepends = fish
+	optdepends = perl-image-exiftool
+	optdepends = pv
+	provides = polo
+	conflicts = polo
+	source_i686 = local://polo-file-manager-v17.6-beta.7-i386.deb
+	md5sums_i686 = 9950ab04ab573da085749d275899788b
+	source_x86_64 = local://polo-file-manager-v17.6-beta.7-amd64.deb
+	md5sums_x86_64 = 478122a9f0d4a33934505520809ce6a2
+
+pkgname = polo
+

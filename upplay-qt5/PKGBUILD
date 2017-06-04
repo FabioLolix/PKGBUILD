@@ -2,7 +2,7 @@
 
 pkgname=upplay-qt5
 _pkgname=upplay
-pkgver=1.2.8
+pkgver=1.2.9
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point, stable version"
 url="http://www.lesbonscomptes.com/upplay/"
@@ -15,7 +15,7 @@ depends=('libupnpp>=0.15.0'
          'hicolor-icon-theme')
 makedepends=('qt5-script')
 source=("https://www.lesbonscomptes.com/upplay/downloads/$_pkgname-$pkgver.tar.gz")
-md5sums=('dc6150d9e17178d10a33d01761d432b9')
+md5sums=('77d3e26f3d96a361f2d83579634ed03d')
 
 build(){
 	cd "$srcdir/$_pkgname-$pkgver"

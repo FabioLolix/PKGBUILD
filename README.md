@@ -57,7 +57,6 @@ Others pkgbuilds are experimental, work in progress or fails:
 
 | Name                     |                     |
 | ------------------------ | ----------------------- |
-| jam-git | Google Play Music console player, bogus package version |
 | squeezeplay | Git versions don't compile |
 | gravit-designer | In progress |
 
