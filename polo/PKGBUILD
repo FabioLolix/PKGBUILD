@@ -1,3 +1,5 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
 
 pkgname=polo
 pkgrel=1
@@ -12,7 +14,7 @@ license=(''GPL2)
 depends=('gtk3' 'libgee' 'libsoup')
 provides=('polo')
 conflicts=('polo')
-source=(https://github.com/teejee2008/polo/archive/v$pkgver-$_betaver.tar.gz)
+source=(https://github.com/teejee2008/polo/archive/v${pkgver}-${_betaver}.tar.gz)
 md5sums=('fe4a9c3d61084a68f5838e50b6cd4119')
 
 package() {

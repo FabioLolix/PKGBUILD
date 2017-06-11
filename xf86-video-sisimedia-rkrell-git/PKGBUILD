@@ -39,8 +39,8 @@ package() {
 
   rm -rf "${pkgdir}/usr/share/man"
 
-  install -m755 -d "${pkgdir}/usr/share/licenses/${_pkgname}"
-  install -m644 "${srcdir}/COPYING" "${pkgdir}/usr/share/licenses/${_pkgname}/"
+  install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
+  install -m644 "${srcdir}/COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/"
 
   install -m755 -d "${pkgdir}/etc/X11/xorg.conf.d/"
   install -m644 "${srcdir}/${_pkgname}.conf" "${pkgdir}/etc/X11/xorg.conf.d/"

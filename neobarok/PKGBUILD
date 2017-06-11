@@ -4,12 +4,14 @@
 _pkgname=Neobarok
 pkgname=${_pkgname,,}
 pkgver=1.1.3
-pkgrel=1
+pkgrel=2
 pkgdesc="3D modeling software aimed at artists and users of all levels"
 arch=('x86_64')
 url="http://$pkgname.com"
 license=('custom')
-depends=('qt5-base' 'sfml')
+depends=('qt5-base'
+         'sfml'
+         'hicolor-icon-theme')
 source=("http://$pkgname.com/$_pkgname-$pkgver-linux.zip"
         "$pkgname.desktop"
         "$pkgname.svg")

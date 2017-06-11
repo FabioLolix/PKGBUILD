@@ -31,7 +31,7 @@ Reworked from AUR or Arch:
 | clementine-light-git     | disable plugins        |
 | clementine-light-qt5-git | disable plugins        |
 | mpv-vaapi | enabled vaapi |
-| phoronix-test-suite-rc   | build milestone version |
+| phoronix-test-suite-milestone   | build milestone version |
 | roonbridge | add 'armv7h' & 'aarch64' architectures |
 | smbnetfs | enable gnome keyring |
 | smbnetfs-git | build git version with gnome keyring enabled |

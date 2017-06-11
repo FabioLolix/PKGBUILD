@@ -1,0 +1,15 @@
+pkgbase = openteacher
+	pkgdesc = Is an opensource application that helps you learn a variety of subjects.
+	pkgver = 3.3
+	pkgrel = 1
+	url = http://openteacher.org/
+	arch = any
+	license = GPL
+	depends = python2
+	depends = python2-pyqt4
+	depends = phonon-qt4
+	source = http://sourceforge.net/projects/openteacher/files/openteacher/3.3/openteacher_3.3_linux.tar.gz
+	sha256sums = 030c3839e9ce6be2c8b21c125b7acd6d91a6737bec96b0fb95839251f2f940dd
+
+pkgname = openteacher
+

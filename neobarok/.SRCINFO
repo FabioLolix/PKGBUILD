@@ -1,12 +1,13 @@
 pkgbase = neobarok
 	pkgdesc = 3D modeling software aimed at artists and users of all levels
 	pkgver = 1.1.3
-	pkgrel = 1
+	pkgrel = 2
 	url = http://neobarok.com
 	arch = x86_64
 	license = custom
 	depends = qt5-base
 	depends = sfml
+	depends = hicolor-icon-theme
 	source = http://neobarok.com/Neobarok-1.1.3-linux.zip
 	source = neobarok.desktop
 	source = neobarok.svg

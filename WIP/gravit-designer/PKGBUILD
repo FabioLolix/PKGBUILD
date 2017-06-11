@@ -1,0 +1,39 @@
+
+pkgname=gravit-designer
+pkgver=20170418
+pkgrel=4
+pkgdesc="Burn images to SD cards & USB drives, safe & easy"
+arch=('x86_64')
+url="https://designer.io/"
+license=('custom')
+depends=('gtk2' 'dbus' 'libxi' 'libxcursor' 'libxdamage' 'libxrandr'
+	 'libxcomposite' 'libxext' 'libxfixes' 'libxrender' 'libxtst'
+	 'gconf' 'glib2' 'nss' 'xz' 'fuse2')
+optdepends=('libnotify: for notifications'
+	    'speech-dispatcher: for text-to-speech')
+source=("https://app.designer.io/_downloads/linux/GravitDesigner.zip"
+        'gravit-designer.desktop')
+#options=("!strip")
+md5sums=('fa036f468396e9b0ffe20ed952890a85'
+         '5df15d346d4ae9c725ea4e2f858229cf')
+PKGEXT='.pkg.tar'
+
+package() {
+  bsdtar -xf GravitDesigner.AppImage
+  install -d $pkgdir/usr/share/gravit-designer
+  cp -rp usr/bin/ "$pkgdir/usr/share/gravit-designer"
+  install -d $pkgdir/usr/share/applications
+  cp -r $srcdir/usr/share $pkgdir/usr/share
+
+gravit-designer.desktop
+
+#  rm "$pkgdir"/AppRun
+#  rm "$pkgdir"/gravit-designer.desktop
+#  install -d $pkgdir"/usr/share/applications
+
+#  install -d "$pkgdir"/usr/bin
+#  install -D "$srcdir/etcher" "$pkgdir/usr/bin/etcher"
+#  install -D "Etcher-$realver-linux-$a.AppImage" "$pkgdir/usr/share/etcher/Etcher-$realver-linux-$a.AppImage"
+#  install --mode=644 -D "$srcdir/etcher.png" "$pkgdir/usr/share/etcher/etcher.png"
+#  install -D "$srcdir/Etcher.desktop" "$pkgdir/usr/share/applications/Etcher.desktop"
+}

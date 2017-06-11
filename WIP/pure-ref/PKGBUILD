@@ -1,0 +1,23 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+
+pkgname=pureref
+pkgver=1.9.1
+pkgrel=1
+pkgdesc="Simple and lightweight tool for artists to organize and view their reference images"
+arch=('x86_64')
+url="https://www.pureref.com/"
+license=('unknown')
+depends=('hicolor-icon-theme'
+         'gcc-libs-multilib'
+         'libglvnd'
+         'glib2'
+         'libxtst')
+provides=('pureref')
+conflicts=('pureref')
+source=(local://PureRef-${pkgver}_x64.deb)
+md5sums=('3aece649e8c04d34b6b4191266def4ec')
+
+package() {
+  bsdtar -xf "${srcdir}/data.tar.xz" -C "${pkgdir}/"
+#  install -d ${pkgdir}/usr/share/licenses/${pkgname}
+}

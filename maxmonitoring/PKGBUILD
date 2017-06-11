@@ -4,27 +4,27 @@
 _pkgname=MaxMonitoring
 pkgname=${_pkgname,,}
 pkgver=1.2.0
-pkgrel=3
-pkgdesc="Max Monitoring, monitoring tool for Solarmax inverter "
+pkgrel=4
+pkgdesc="Monitoring tool for Solarmax inverter "
 arch=('x86_64')
 url="http://www.solarmax.com"
-license=('custom')
-provides=('MaxMonitoring')
-source=("http://www.solarmax.com/ftp/"$_pkgname"_Linux_$pkgver.zip"
-		"https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/MaxMonitoring.desktop"
-)
+license=('unknown')
+depends=('lib32-libxext')
+provides=('maxmonitoring')
+source=("http://www.solarmax.com/ftp/${_pkgname}_Linux_$pkgver.zip"
+		"https://github.com/FabioLolix/PKGBUILD/blob/master/maxmonitoring/MaxMonitoring.desktop")
 md5sums=('32b532520915f664806a3f88f39578ba'
          '6140f630315275c4bb25022e23da51f4')
 package() {
 
-  bsdtar -xf "$_pkgname"_Linux_$pkgver.zip
+  bsdtar -xf ${_pkgname}_Linux_${pkgver}.zip
 
-  install -dm755 $pkgdir/opt/$_pkgname/
-  cp -r $srcdir/"$_pkgname"_Linux_$pkgver/* $pkgdir/opt/$_pkgname/
-  chmod +x $pkgdir/opt/$_pkgname/$_pkgname
+  install -dm755 ${pkgdir}/usr/share/${_pkgname}
+  cp -r ${srcdir}/${_pkgname}_Linux_${pkgver}/* ${pkgdir}/usr/share/${_pkgname}
+  chmod +x $pkgdir/usr/share/$_pkgname/$_pkgname
 
-  install -dm755 $pkgdir/usr/bin
-  ln -s /opt/$_pkgname/$_pkgname $pkgdir/usr/bin/$pkgname
+  install -d ${pkgdir}/usr/bin
+  ln -s /usr/share/${_pkgname}/${_pkgname} $pkgdir/usr/bin/${pkgname}
 
-  install -Dm644 $srcdir/$_pkgname.desktop $pkgdir/usr/share/applications/$_pkgname.desktop
+  install -Dm644 ${srcdir}/${_pkgname}.desktop ${pkgdir}/usr/share/applications/${_pkgname}.desktop
 }

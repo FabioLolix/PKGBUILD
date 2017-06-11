@@ -1,0 +1,29 @@
+# Maintainer: Lolix
+
+pkgname=obsidian-icon-theme-git
+pkgver=0.r16.c615b91
+pkgrel=1
+pkgdesc="Obsidian Icon Theme"
+arch=('any')
+url="https://www.gnome-look.org/p/1169579"
+license=('GPL3')
+depends=('gtk-update-icon-cache')
+makedepends=('git')
+source=(git+https://github.com/madmaxms/iconpack-obsidian.git)
+sha256sums=(SKIP)
+
+pkgver() {
+  cd iconpack-obsidian
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd $srcdir/iconpack-obsidian
+  install -dm 755 ${pkgdir}/usr/share/icons
+#  cp -r iconpack-obsidian-master/Obsidian-1 ${pkgdir}/usr/share/icons/Obsidian-1
+  cp -dr --no-preserve='ownership' Obsidian{,_green} "$pkgdir"/usr/share/icons/
+  find ${pkgdir} -type f -exec chmod 644 {} \;
+  find ${pkgdir} -type d -exec chmod 755 {} \;
+}
+
+
