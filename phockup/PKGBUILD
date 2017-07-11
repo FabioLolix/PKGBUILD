@@ -22,7 +22,6 @@ package() {
   install -d ${pkgdir}/usr/bin
   ln -s /usr/share/${pkgname}/phockup.py ${pkgdir}/usr/bin/phockup
 
-  install -d ${pkgdir}/usr/share/licenses/${pkgname}
-  install ${srcdir}/${pkgname}-${pkgver}/license ${pkgdir}/usr/share/licenses/${pkgname}/MIT
+  install -D ${srcdir}/${pkgname}-${pkgver}/license ${pkgdir}/usr/share/licenses/${pkgname}/MIT
 }
 

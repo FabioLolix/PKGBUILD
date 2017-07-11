@@ -1,0 +1,43 @@
+pkgname=libav11
+_name=libav
+pkgver=11.10
+pkgrel=1
+pkgdesc="Open source audio and video processing tools forked from ffmpeg"
+arch=('i686' 'x86_64')
+url="http://www.libav.org/"
+license=('LGPL')
+depends=('alsa-lib' 'bzip2' 'libtheora' 'libvpx' 'x264' 'xvidcore' 'faac' 'lame' 'opus' 'libvorbis' 'freetype2' 'gnutls' 'openssl' 'rtmpdump')
+makedepends=('yasm')
+provides=('libav')
+source=(http://libav.org/releases/${_name}-$pkgver.tar.xz)
+md5sums=('00eeea3c716d31522266fd7c3cafb3ea')
+
+build() {
+  cd "$srcdir/${_name}-$pkgver"
+  ./configure \
+    --prefix=/usr/share \
+    --enable-shared \
+    --disable-static \
+    --disable-debug \
+    --enable-gpl \
+    --enable-nonfree \
+    --enable-libtheora  \
+    --enable-libvpx \
+    --enable-libx264 \
+    --enable-libxvid \
+    --enable-libfaac \
+    --enable-libmp3lame \
+    --enable-libopus \
+    --enable-libvorbis \
+    --enable-libfreetype \
+    --enable-gnutls \
+    --enable-librtmp
+  make
+  make doc/av{play,probe,conv}.1
+}
+
+package() {
+  cd "$srcdir/${_name}-$pkgver"
+  make DESTDIR="$pkgdir/" install install-man
+}
+

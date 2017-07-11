@@ -1,0 +1,23 @@
+pkgbase = selene-media-encoder
+	pkgdesc = A simple but powerful audio/video converter for many formats
+	pkgver = 2.5.2
+	pkgrel = 1
+	url = http://teejeetech.blogspot.in/p/selene-media-encoder.html
+	arch = i686
+	arch = x86_64
+	license = GPL
+	makedepends = bzr
+	depends = gtk3
+	depends = json-glib
+	depends = libgee06
+	depends = libsoup
+	depends = mediainfo
+	depends = vala
+	depends = libav
+	source = selene::bzr+https://code.launchpad.net/~teejee2008/selene/trunk#revision=185
+	source = 0001-fix-ambiguous-references.patch
+	md5sums = SKIP
+	md5sums = c330c93625c5a783c482aa80dfbbd1d1
+
+pkgname = selene-media-encoder
+
