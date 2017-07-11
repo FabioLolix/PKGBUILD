@@ -10,10 +10,10 @@ cd ..
 #    makepkg --printsrcinfo > .SRCINFO
 #cd ..
 
-cd $PWD/openage-git
-    makepkg -s
-    makepkg --printsrcinfo > .SRCINFO
-cd ..
+#cd $PWD/openage-git
+#    makepkg -s
+#    makepkg --printsrcinfo > .SRCINFO
+#cd ..
 
 cd $PWD/sacd-decoder-bzr
     makepkg -sc

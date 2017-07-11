@@ -9,8 +9,11 @@ pkgbase = twin-git
 	license = LGPL2.1
 	depends = gpm
 	depends = libxpm
+	provides = twin
+	conflicts = twin
+	conflicts = twin-git
 	options = !makeflags
-	source = git+https://github.com/cosmos72/twin
+	source = twin-git::git+https://github.com/cosmos72/twin
 	md5sums = SKIP
 
 pkgname = twin-git

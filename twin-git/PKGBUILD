@@ -10,17 +10,19 @@ arch=('i686' 'x86_64')
 url='http://sourceforge.net/projects/twin/'
 license=('GPL2' 'LGPL2.1')
 depends=('gpm' 'libxpm')
+provides=('twin')
+conflicts=('twin' 'twin-git')
 options=('!makeflags')
-source=("git+https://github.com/cosmos72/twin")
+source=("twin-git::git+https://github.com/cosmos72/twin")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "$_gitname"
+  cd "$pkgname"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  cd "$srcdir"/$_gitname
+  cd "$srcdir"/$pkgname
   LDFLAGS="-lX11" ./configure \
     --prefix=/usr \
     --sbindir=/usr/bin \
@@ -29,10 +31,10 @@ build() {
     --enable-tt-hw-twin-tunnel=yes \
     --enable-tt-hw-twin-detunnel=yes \
 	--enable-tt-hw-xml=yes
-  make -j 8
+  make
 }
 
 package() {
-  cd "$srcdir"/$_gitname
+  cd "$srcdir"/$pkgname
   make DESTDIR="$pkgdir" install
 }
