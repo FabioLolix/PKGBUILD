@@ -1,6 +1,8 @@
-_pkgname=libav
-pkgname=$_pkgname-git-no-libs
-pkgver=v12_dev0.r2989.ga8fce24
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=libav-no-libs-git
+pkgver=r127.b5f164a
 pkgrel=1
 pkgdesc='Open source audio and video processing tools'
 arch=('i686' 'x86_64')
@@ -8,7 +10,8 @@ url='https://libav.org/'
 license=('LGPL')
 depends=('zlib' 'bzip2' 'openssl')
 makedepends=('git' 'yasm')
-source=("$_pkgname"::'git://git.libav.org/libav.git')
+conflicts=('libav')
+source=($pkgname::git://git.libav.org/libav.git)
 sha256sums=('SKIP')
 
 pkgver() {
@@ -20,7 +23,7 @@ pkgver() {
 }
 
 build() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
 
   ./configure \
     --prefix=/usr \
@@ -31,9 +34,8 @@ build() {
 }
 
 package() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
 
   make DESTDIR="$pkgdir" install
-
   rm -r "$pkgdir"/usr/{include,lib}
 }

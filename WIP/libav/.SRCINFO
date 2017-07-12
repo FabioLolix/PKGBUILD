@@ -1,6 +1,6 @@
 pkgbase = libav
 	pkgdesc = Open source audio and video processing tools forked from ffmpeg
-	pkgver = 11
+	pkgver = 12.1
 	pkgrel = 1
 	url = http://www.libav.org/
 	arch = i686
@@ -21,9 +21,10 @@ pkgbase = libav
 	depends = gnutls
 	depends = openssl
 	depends = rtmpdump
-	provides = ffmpeg
-	conflicts = ffmpeg
-	source = http://libav.org/releases/libav-11.tar.xz
+	provides = libav
+	conflicts = libav
+	source = http://libav.org/releases/libav-12.1.tar.xz
+	md5sums = b611fd79ebcf90e3d0b8e66c4ea80a17
 
 pkgname = libav
 

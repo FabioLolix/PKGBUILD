@@ -1,28 +1,28 @@
 # Maintainer: ultraviolet <ultravioletnanokitty@gmail.com>
-pkgname=selene-media-encoder
-pkgver=2.5.2 # bzr revision 185
+pkgname=selene-media-converter
+pkgver=17.4.2
 pkgrel=1
 pkgdesc="A simple but powerful audio/video converter for many formats"
 arch=('i686' 'x86_64')
 url="http://teejeetech.blogspot.in/p/selene-media-encoder.html"
-license=('GPL')
-depends=('gtk3' 'json-glib' 'libgee06' 'libsoup' 'mediainfo' 'vala' 'libav')
-makedepends=('bzr')
-source=('selene::bzr+https://code.launchpad.net/~teejee2008/selene/trunk#revision=185' '0001-fix-ambiguous-references.patch')
-md5sums=('SKIP'
-         'c330c93625c5a783c482aa80dfbbd1d1')
-
-prepare() {
-  cd "$srcdir/selene"
-  patch -p1 < ../0001-fix-ambiguous-references.patch
-}
+license=('GPL3')
+depends=('gtk3' 'json-glib' 'libgee' 'libsoup' 'mediainfo' 'ffmpeg' 'libav-no-libs-git')
+optdepends=('neroaacenc'
+            'mkvtoolnix-cli')
+makedepends=('vala')
+provides=('selene-media-converter')
+conflicts=('selene-media-encoder' 'selene-media-encoder-bzr')
+replaces=('selene-media-encoder' 'selene-media-encoder-bzr')
+source=("https://github.com/teejee2008/${pkgname}/archive/v${pkgver}.tar.gz")
+md5sums=('99095ac0d9f9059ac78f540004823c23')
 
 build() {
-  cd "$srcdir/selene"
+  cd "$srcdir/${pkgname}-${pkgver}"
   make
 }
 
 package() {
-  cd "$srcdir/selene"
+  cd "$srcdir/${pkgname}-${pkgver}"
   make DESTDIR="$pkgdir/" install
+  rm ${pkgdir}/usr/bin/selene-uninstall
 }

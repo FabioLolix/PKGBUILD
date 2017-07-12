@@ -8,7 +8,8 @@ url="http://www.libav.org/"
 license=('LGPL')
 depends=('alsa-lib' 'bzip2' 'libtheora' 'libvpx' 'x264' 'xvidcore' 'faac' 'lame' 'opus' 'libvorbis' 'freetype2' 'gnutls' 'openssl' 'rtmpdump')
 makedepends=('yasm')
-provides=('libav')
+provides=('libav' 'ffmpeg')
+conflicts=('libav' 'ffmpeg')
 source=(http://libav.org/releases/${_name}-$pkgver.tar.xz)
 md5sums=('00eeea3c716d31522266fd7c3cafb3ea')
 
