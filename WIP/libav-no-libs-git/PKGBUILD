@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=libav-no-libs-git
-pkgver=r127.b5f164a
+pkgver=r128.1d987cd
 pkgrel=1
 pkgdesc='Open source audio and video processing tools'
 arch=('i686' 'x86_64')
@@ -10,7 +10,8 @@ url='https://libav.org/'
 license=('LGPL')
 depends=('zlib' 'bzip2' 'openssl')
 makedepends=('git' 'yasm')
-conflicts=('libav')
+conflicts=('libav' 'libav-no-libs' 'libav-no-libs-git' 'libav-git-no-libs')
+provides=('libav-no-libs')
 source=($pkgname::git://git.libav.org/libav.git)
 sha256sums=('SKIP')
 

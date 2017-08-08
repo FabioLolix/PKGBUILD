@@ -1,24 +1,31 @@
 #! /bin/bash
 
-cd $PWD/clementine-light-git
+cd $PWD/clementine-lite-git
     makepkg -s
     makepkg --printsrcinfo > .SRCINFO
 cd ..
 
-#cd $PWD/clementine-light-qt5-git
-#    makepkg -s
-#    makepkg --printsrcinfo > .SRCINFO
-#cd ..
-
-#cd $PWD/openage-git
-#    makepkg -s
-#    makepkg --printsrcinfo > .SRCINFO
-#cd ..
-
-cd $PWD/sacd-decoder-bzr
-    makepkg -sc
+cd $PWD/clementine-lite-qt5-git
+    makepkg -s
     makepkg --printsrcinfo > .SRCINFO
 cd ..
+
+cd $PWD/obsidian-icon-theme-git
+    makepkg -s
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/obsidian-icon-theme-git
+cd ..
+
+cd $PWD/openage-git
+    makepkg -s
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/openage-git
+cd ..
+
+#cd $PWD/sacd-decoder-bzr
+#    makepkg -sc
+#    makepkg --printsrcinfo > .SRCINFO
+#cd ..
 
 cd $PWD/upplay-qt5-git
     makepkg -s

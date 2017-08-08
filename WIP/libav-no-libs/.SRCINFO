@@ -1,4 +1,4 @@
-pkgbase = libav
+pkgbase = libav-no-libs
 	pkgdesc = Open source audio and video processing tools forked from ffmpeg
 	pkgver = 12.1
 	pkgrel = 1
@@ -31,5 +31,5 @@ pkgbase = libav
 	source = http://libav.org/releases/libav-12.1.tar.xz
 	md5sums = b611fd79ebcf90e3d0b8e66c4ea80a17
 
-pkgname = libav
+pkgname = libav-no-libs
 

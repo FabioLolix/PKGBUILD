@@ -3,7 +3,7 @@
 
 pkgname=twin-git
 _gitname="twin"
-pkgver=r171.d815403
+pkgver=r172.a877205
 pkgrel=1
 pkgdesc="A text-mode window environment"
 arch=('i686' 'x86_64')

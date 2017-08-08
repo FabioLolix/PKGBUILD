@@ -1,4 +1,6 @@
-# Maintainer: Lukas Jirkovsky <l.jirkovsky@gmail.com>
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: Lukas Jirkovsky <l.jirkovsky@gmail.com>
+
 pkgname=linux-test-project
 pkgver=20170516
 pkgrel=1

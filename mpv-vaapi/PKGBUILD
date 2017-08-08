@@ -6,7 +6,7 @@
 pkgname=mpv-vaapi
 _pkgname=mpv
 epoch=1
-pkgver=0.25.0
+pkgver=0.26.0
 pkgrel=3
 _waf_version=1.8.12
 pkgdesc='a free, open source, and cross-platform media player'
@@ -26,8 +26,8 @@ provides=('mpv')
 conflicts=('mpv')
 source=("$_pkgname-$pkgver.tar.gz::https://github.com/mpv-player/$_pkgname/archive/v$pkgver.tar.gz"
   "http://www.freehackers.org/~tnagy/release/waf-${_waf_version}")
-sha256sums=('07423ffad6921ec4da32f703cd7fbfb27012301dcb736ac8542ac8e6083b0bce'
-  '01bf2beab2106d1558800c8709bc2c8e496d3da4a2ca343fe091f22fca60c98b')
+sha256sums=('daf3ef358d5f260f2269f7caabce27f446c291457ec330077152127133b71b46'
+            '01bf2beab2106d1558800c8709bc2c8e496d3da4a2ca343fe091f22fca60c98b')
 
 prepare() {
   cd ${_pkgname}-${pkgver}

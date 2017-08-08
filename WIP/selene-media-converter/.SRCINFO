@@ -1,6 +1,6 @@
 pkgbase = selene-media-converter
 	pkgdesc = A simple but powerful audio/video converter for many formats
-	pkgver = 17.4.2
+	pkgver = 17.7
 	pkgrel = 1
 	url = http://teejeetech.blogspot.in/p/selene-media-encoder.html
 	arch = i686
@@ -13,7 +13,7 @@ pkgbase = selene-media-converter
 	depends = libsoup
 	depends = mediainfo
 	depends = ffmpeg
-	depends = libav-no-libs-git
+	depends = libav-no-libs
 	optdepends = neroaacenc
 	optdepends = mkvtoolnix-cli
 	provides = selene-media-converter
@@ -21,8 +21,8 @@ pkgbase = selene-media-converter
 	conflicts = selene-media-encoder-bzr
 	replaces = selene-media-encoder
 	replaces = selene-media-encoder-bzr
-	source = https://github.com/teejee2008/selene-media-converter/archive/v17.4.2.tar.gz
-	md5sums = 99095ac0d9f9059ac78f540004823c23
+	source = https://github.com/teejee2008/selene-media-converter/archive/v17.7.tar.gz
+	md5sums = 5e028327c64cadcf244b62baca17a92a
 
 pkgname = selene-media-converter
 

@@ -9,7 +9,6 @@ From AUR3:
 | Name       | status            |
 | ---------- | --------------- |
 | qcomicbook | updated version |
-| spe        | plain aur3 import |
 | squeezeplay | plain aur3 import |
 
 From AUR: 
@@ -28,8 +27,8 @@ Reworked from AUR or Arch:
 
 | Name                     | modified to                    |
 | ------------------------ | ----------------------- |
-| clementine-light-git     | disable plugins        |
-| clementine-light-qt5-git | disable plugins        |
+| clementine-lite-git     | disable plugins        |
+| clementine-lite-qt5-git | disable plugins        |
 | mpv-vaapi | enabled vaapi |
 | phoronix-test-suite-milestone   | build milestone version |
 | roonbridge | add 'armv7h' & 'aarch64' architectures |
@@ -49,7 +48,7 @@ Original:
 | qiviever              | QT image viewer                          |
 | qmultirecord          | Simultaneously burn multiple ISO files on several optical drives |
 | quickhash-gui-bin     | Graphical hashing utility, Debian binary version |
-| sacd-decoder          | Command line SACD decoder                |
+| sacd-decoder-bzr          | Command line SACD decoder                |
 
 ***
 

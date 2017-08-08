@@ -8,7 +8,7 @@ license=('LGPL')
 depends=('alsa-lib' 'bzip2' 'libtheora' 'libvpx' 'x264' 'xvidcore' 'faac' 'lame' 'opus' 'libvorbis' 'freetype2' 'gnutls' 'openssl' 'rtmpdump')
 makedepends=('yasm')
 provides=('libav' 'ffmpeg')
-conflicts=('libav' 'ffmpeg')
+conflicts=('libav' 'ffmpeg' 'libav-no-libs' 'libav-no-libs-git' 'libav-git-no-libs')
 source=(http://libav.org/releases/$pkgname-$pkgver.tar.xz)
 md5sums=('b611fd79ebcf90e3d0b8e66c4ea80a17')
 

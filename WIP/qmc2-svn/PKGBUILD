@@ -4,7 +4,7 @@
 # https://github.com/FabioLolix
 
 pkgname=qmc2-svn
-pkgver=0.188.8090
+pkgver=0.188.8093
 pkgrel=1
 pkgdesc="Qt 5 based UNIX MAME frontend supporting SDLMAME"
 url="http://qmc2.batcom-it.net/"
@@ -12,6 +12,8 @@ license=("GPL")
 arch=('i686' 'x86_64')
 depends=('qt5-webkit' 'qt5-svg' 'qt5-multimedia' 'phonon-qt5' 'sdl')
 makedepends=('rsync' 'mesa')
+provides=('qmc2')
+conflicts=('qmc2' 'qmc2-svn')
 source=("qmc2::svn://svn.code.sf.net/p/qmc2/code/trunk")
 sha256sums=('SKIP')
 
