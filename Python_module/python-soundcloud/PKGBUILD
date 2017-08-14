@@ -1,0 +1,27 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=python-soundcloud
+_module=soundcloud
+pkgver=0.5.0
+pkgrel=1
+pkgdesc="A friendly wrapper library for the Soundcloud API"
+url="https://github.com/soundcloud/soundcloud-python"
+depends=('python'
+         'python-simplejson'
+         'python-fudge')
+makedepends=('python-setuptools')
+license=('BSD')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/s/soundcloud/soundcloud-${pkgver}.tar.gz")
+md5sums=('40c1d32afd019ed11ec1fbee3e84e31f')
+
+build() {
+    cd "${srcdir}/${_module}-${pkgver}"
+    python setup.py build
+}
+
+package() {
+    cd "${srcdir}/${_module}-${pkgver}"
+    python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+}

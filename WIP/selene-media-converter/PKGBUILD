@@ -1,4 +1,7 @@
-# Maintainer: ultraviolet <ultravioletnanokitty@gmail.com>
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: ultraviolet <ultravioletnanokitty@gmail.com>
+# https://github.com/FabioLolix  
+
 pkgname=selene-media-converter
 pkgver=17.7
 pkgrel=1
@@ -6,9 +9,13 @@ pkgdesc="A simple but powerful audio/video converter for many formats"
 arch=('i686' 'x86_64')
 url="http://teejeetech.blogspot.in/p/selene-media-encoder.html"
 license=('GPL3')
-depends=('gtk3' 'json-glib' 'libgee' 'libsoup' 'mediainfo' 'ffmpeg' 'libav-no-libs')
-optdepends=('neroaacenc'
-            'mkvtoolnix-cli')
+depends=('gtk3' 'libgee' 'libsoup' 'mediainfo' 'ffmpeg')
+optdepends=('gpac: MP4Box muxer'
+            'neroaacenc'
+            'mkvtoolnix-cli'
+            'libav-no-libs'
+            'liboggz: oggz'
+            'libkate')
 makedepends=('vala')
 provides=('selene-media-converter')
 conflicts=('selene-media-encoder' 'selene-media-encoder-bzr')

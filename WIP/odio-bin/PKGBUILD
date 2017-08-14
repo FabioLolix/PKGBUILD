@@ -29,7 +29,5 @@ pkgver() {
 }
 
 package() {
-
-  bsdtar -xf odio_${pkgver}_${_pkgarch}.deb
   bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
 }

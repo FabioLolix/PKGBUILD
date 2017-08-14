@@ -4,7 +4,7 @@
 pkgname=gravit-designer
 pkgver=3.1
 pkgrel=1
-pkgdesc="Burn images to SD cards & USB drives, safe & easy"
+pkgdesc="A cross-platform, free design tool for the 21st century empowering everyone to design"
 arch=('x86_64')
 url="https://designer.io/"
 license=('custom')

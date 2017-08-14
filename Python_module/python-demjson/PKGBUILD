@@ -1,0 +1,28 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=python-demjson
+_module=demjson
+pkgver=2.2.4
+pkgrel=1
+pkgdesc="encoder, decoder, and lint/validator for JSON (JavaScript Object Notation) compliant with RFC 7159"
+url="http://deron.meranda.us/python/demjson/"
+depends=('python')
+makedepends=('python-setuptools')
+provides=('python-demjson' 'demjson')
+conflicts=('demjson')
+license=('GPL')
+arch=('any')
+source=("https://files.pythonhosted.org/packages/source/d/demjson/demjson-${pkgver}.tar.gz")
+md5sums=('8b535b073e0de95e63f83a93b98dbc48')
+
+build() {
+    cd "${srcdir}/${_module}-${pkgver}"
+    python setup.py build
+}
+
+package() {
+    depends+=()
+    cd "${srcdir}/${_module}-${pkgver}"
+    python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+}

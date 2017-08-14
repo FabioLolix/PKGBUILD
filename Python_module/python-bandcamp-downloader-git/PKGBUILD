@@ -1,0 +1,31 @@
+
+
+pkgname=python-bandcamp-downloader-git
+pkgver=r130.b8c78d7
+pkgrel=1
+pkgdesc="bandcamp-dl downloads albums and tracks from Bandcamp for you"
+url="https://github.com/iheanyi/bandcamp-dl"
+depends=('python'
+         'python-mock'
+         'python-unicode-slugify'
+         'python-beautifulsoup4'
+         'python-unidecode')
+makedepends=('python-setuptools')
+license=('custom:Public Domain')
+arch=('any')
+source=("git+https://github.com/iheanyi/bandcamp-dl.git")
+md5sums=('SKIP')
+
+pkgver() {
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd "${srcdir}/bandcamp-dl"
+    python setup.py build
+}
+
+package() {
+    cd "${srcdir}/bandcamp-dl"
+    python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+}

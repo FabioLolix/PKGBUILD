@@ -1,0 +1,30 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: Tristelune <tristelune@archlinux.info>
+
+pkgname=libupnpp
+pkgver=r130.b8c78d7
+pkgrel=1
+pkgdesc="A C++ wrapper for libupnp - used with upmpdcli or upplay"
+url="http://www.lesbonscomptes.com/upplay/downloads.html"
+arch=('x86_64' 'i686')
+license=('GPL2')
+depends=('libupnp' 'expat' 'curl')
+source=("git+https://@opensourceprojects.eu/git/p/libupnpp/code")
+md5sums=('SKIP')
+
+pkgver() {
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build(){
+  cd ${srcdir}/code
+  sh autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+package(){
+  cd ${srcdir}/code
+  make DESTDIR="$pkgdir" install
+  make clean
+}

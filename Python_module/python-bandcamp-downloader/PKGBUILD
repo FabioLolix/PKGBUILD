@@ -1,0 +1,19 @@
+
+
+pkgname=python-bandcamp-downloader
+_module=bandcamp-downloader
+pkgver=0.0.8.post6
+pkgrel=1
+pkgdesc="bandcamp-dl downloads albums and tracks from Bandcamp for you"
+url="https://github.com/iheanyi/bandcamp-dl"
+depends=('python')
+makedepends=('python-setuptools')
+license=('Public Domain')
+arch=('any')
+source=("https://pypi.python.org/packages/cf/e9/c484c4c27e1488fd389012abc3056e47cbec384ec28509f4fcf2bf7d6a2d/bandcamp_downloader-${pkgver}-py3-none-any.whl")
+md5sums=('0c72462a2f94a7760dadf62ca8b35fd7')
+noextract=('${_module}-${pkgver}-py3-none-any.whl')
+
+package() {
+  PIP_CONFIG_FILE=/dev/null pip install --isolated --root="$pkgdir" --ignore-installed --no-deps bandcamp_downloader-${pkgver}-py3-none-any.whl
+}
