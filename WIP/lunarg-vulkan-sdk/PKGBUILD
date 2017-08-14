@@ -1,33 +1,32 @@
 # Maintainer: Madotsuki <madotsuki@national.shitposting.agency>
 
 pkgname=lunarg-vulkan-sdk
-pkgver=1.0.3.1
+pkgver=1.0.57.0
 pkgrel=1
-pkgdesc="Vulkan loader for amdgpu-pro (It sucks, but you have to download it yourself and put it in the same directory as your PKGBUILD, see url), make sure you don't have dpkg installed"
+pkgdesc="Vulkan loader for amdgpu-pro, make sure you don't have dpkg installed"
 url='https://vulkan.lunarg.com'
-license=('custom')
-arch=('i686' 'x86_64')
-depends=('amdgpu-pro')
-conflicts=('dpkg' 'spirv-tools', 'vulkan-icd-loader', 'vulkan-validation-layers', 'vulkan-headers')
+license=('apache')
+arch=('x86_64')
+depends=('qt5-svg' 'python' 'amdgpu-pro')
+optdepends=('java-enviroment' 'cmake')
+conflicts=('dpkg' 'spirv-tools' 'vulkan-icd-loader' 'vulkan-validation-layers' 'vulkan-headers')
+source=("https://vulkan.lunarg.com/sdk/download/${pkgver}/linux/vulkansdk-linux-x86_64-${pkgver}.run")
+md5sums=('SKIP')
+options=(!strip)
+PKGEXT='.pkg.tar'
 
-build() {
-    sed -i -e '/\#\!\/bin\/sh/,+500d' ../vulkansdk-linux-x86_64-1.0.3.1.run
-    tar -C "${srcdir}" -xf ../vulkansdk-linux-x86_64-1.0.3.1.run
+prepare() {
+    sed -i -e '/\#\!\/bin\/sh/,+500d' ../vulkansdk-linux-x86_64-${pkgver}.run
 }
 
 package() {
-	cd 1.0.3.1/install
-	rm -Rf vulkan-loader_1.0.3.1_amd64 vulkan-sdk-headers_1.0.3.1_amd64 vulkan-sdk-runtime_1.0.3.1_amd64
-	mkdir vulkan-loader_1.0.3.1_amd64 vulkan-sdk-headers_1.0.3.1_amd64 vulkan-sdk-runtime_1.0.3.1_amd64
-	cd vulkan-loader_1.0.3.1_amd64
-	ar x ../vulkan-loader_1.0.3.1_amd64.deb
-	tar -C "${pkgdir}" -xf data.tar.xz
-	
-	cd ../vulkan-sdk-headers_1.0.3.1_amd64
-	ar x ../vulkan-sdk-headers_1.0.3.1_amd64.deb
-	tar -C "${pkgdir}" -xf data.tar.xz
-	
-	cd ../vulkan-sdk-runtime_1.0.3.1_amd64
-	ar x ../vulkan-sdk-runtime_1.0.3.1_amd64.deb
-	tar -C "${pkgdir}" -xf data.tar.xz
+  bsdtar -xf vulkansdk-linux-x86_64-${pkgver}.run -C ${srcdir}
+
+  rm -r ${srcdir}/${pkgver}/install
+  rm ${srcdir}/${pkgver}/config/ubuntu15.04_dri3.txt
+  mv ${srcdir}/${pkgver}/{Getting_Started,Release_Notes}.html ${srcdir}/${pkgver}/doc
+
+  install -d ${pkgdir}/usr/bin/${pkgname}
+  rsync -a ${srcdir}/${pkgver}/ ${pkgdir}/usr/bin/${pkgname}
+  chown -R root:root ${pkgdir}/usr/bin/${pkgname}
 }
