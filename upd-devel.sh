@@ -27,7 +27,7 @@ cd ..
 #    makepkg --printsrcinfo > .SRCINFO
 #cd ..
 
-cd $PWD/upplay-qt5-git
+cd $PWD/upplay-git
     makepkg -s
     makepkg --printsrcinfo > .SRCINFO
 cd ..
