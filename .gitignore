@@ -21,7 +21,7 @@ WIP/*/trunk
 */Clementine
 */git
 */madrigal
-*/openage
+*/openage-git
 */xf86-video-sisimedia
 */squeezeplay
 */twin
@@ -31,7 +31,8 @@ WIP/*/trunk
 */MIT
 */twin-git
 */ltp
-/*/iconpack*
+*/iconpack*
+*/qiviewer
 Python_module/*/bandcamp-dl
 WIP/*/squeezeplay
 WIP/*/satori

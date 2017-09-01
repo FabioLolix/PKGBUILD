@@ -2,7 +2,7 @@
 # Contributor: Lukas Jirkovsky <l.jirkovsky@gmail.com>
 
 pkgname=linux-test-project-git
-pkgver=r130.b8c78d7
+pkgver=20170516.r229.g75521a428
 pkgrel=1
 pkgdesc="A collection of tools for testing the Linux kernel and related features"
 arch=('i686' 'x86_64')
@@ -13,7 +13,8 @@ source=("git+https://github.com/linux-test-project/ltp.git")
 md5sums=('SKIP')
 
 pkgver() {
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "$srcdir/ltp"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {

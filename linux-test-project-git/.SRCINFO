@@ -1,6 +1,6 @@
-pkgbase = linux-test-project
+pkgbase = linux-test-project-git
 	pkgdesc = A collection of tools for testing the Linux kernel and related features
-	pkgver = 20170516
+	pkgver = 20170516.r229.g75521a428
 	pkgrel = 1
 	url = http://linux-test-project.github.io/
 	arch = i686
@@ -12,8 +12,10 @@ pkgbase = linux-test-project
 	depends = libcap
 	depends = libtirpc
 	depends = python2
-	source = https://github.com/linux-test-project/ltp/releases/download/20170516/ltp-full-20170516.tar.bz2
-	md5sums = 12e2d693e73acbfe7e04a7be176a26ff
+	depends = numactl
+	depends = libaio
+	source = git+https://github.com/linux-test-project/ltp.git
+	md5sums = SKIP
 
-pkgname = linux-test-project
+pkgname = linux-test-project-git
 
