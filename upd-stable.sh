@@ -107,7 +107,7 @@ cd ..
 VAR15=toptracker
 cd $PWD/$VAR15
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,toptracker.desktop} ~/Dev/Github/AUR/$VAR15
+    rsync {PKGBUILD,.SRCINFO,toptracker.desktop,LICENSE} ~/Dev/Github/AUR/$VAR15
 cd ..
 
 
