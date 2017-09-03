@@ -1,5 +1,6 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
-# Based on brother-dcpt500w by Samuel Fernando Mesa Giraldo - 
+# Based on brother-dcpt500w by Samuel Fernando Mesa Giraldo
+# https://github.com/FabioLolix
 
 pkgname=brother-dcpt700w
 pkgver=3.0.2
