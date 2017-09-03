@@ -1,6 +1,6 @@
 pkgbase = smbnetfs-git
 	pkgdesc = Small C program that mounts Microsoft network neighborhood in single directory, gnome keyring enabled. Git version
-	pkgver = r133.9c89c0d
+	pkgver = r134.263a3c8
 	pkgrel = 1
 	url = http://smbnetfs.sourceforge.net/
 	install = smbnetfs.install

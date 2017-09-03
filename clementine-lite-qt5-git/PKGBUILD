@@ -26,7 +26,7 @@ depends=('chromaprint'
 		 'libcdio' 
 		 'libplist' 
 		 'protobuf'
-		 'qjson'
+		 #'qjson'
 		 'qt5-base')
 optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
             'gst-plugins-bad: for use with "Bad" plugin libraries'

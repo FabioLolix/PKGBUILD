@@ -1,5 +1,7 @@
-# Maintainer: jyantis <yantis@yantis.net>
-# Improvements & Fixes added from suggestions of Tristelune
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: jyantis <yantis@yantis.net>
+# Contributor: Tristelune
+# https://github.com/FabioLolix
 
 pkgname=dvdae-bin
 pkgver=7.4.0
