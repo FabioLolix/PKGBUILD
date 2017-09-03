@@ -1,5 +1,5 @@
---- opt/brother/Printers/dcpt500w/inf/setupPrintcapij.old	2008-09-15 22:01:07.000000000 +0200
-+++ opt/brother/Printers/dcpt500w/inf/setupPrintcapij	2008-09-15 22:01:26.000000000 +0200
+--- opt/brother/Printers/dcpt700w/inf/setupPrintcapij.old	2008-09-15 22:01:07.000000000 +0200
++++ opt/brother/Printers/dcpt700w/inf/setupPrintcapij	2008-09-15 22:01:26.000000000 +0200
 @@ -34,7 +34,7 @@
  	if [ ! -d $SPOOLER_NAME ]; then
  	        mkdir $SPOOLER_NAME

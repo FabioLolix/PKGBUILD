@@ -102,3 +102,17 @@ cd $PWD/$VAR14
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR14
 cd ..
+
+
+VAR15=toptracker
+cd $PWD/$VAR15
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,toptracker.desktop} ~/Dev/Github/AUR/$VAR15
+cd ..
+
+
+VAR16=brother-dcpt700w
+cd $PWD/$VAR16
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE} ~/Dev/Github/AUR/$VAR16
+cd ..
