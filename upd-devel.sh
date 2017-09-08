@@ -22,6 +22,12 @@ cd $PWD/openage-git
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/openage-git
 cd ..
 
+cd $PWD/corebird-git
+    makepkg -s
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/corebird-git
+cd ..
+
 #cd $PWD/sacd-decoder-bzr
 #    makepkg -sc
 #    makepkg --printsrcinfo > .SRCINFO
