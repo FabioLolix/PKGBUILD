@@ -68,7 +68,7 @@ Update source info
 
 ***
 
-Extract .rpm .deb, avoid rpmextract, debtap, etc..
+Extract .rpm .deb with bsdtar, avoid rpmextract, debtap, alien etc..
 
     bsdtar -xf $packagename.*
 

@@ -4,7 +4,7 @@
 # https://github.com/FabioLolix
 
 pkgname=qmc2-svn
-pkgver=0.188.8093
+pkgver=0.189.8130
 pkgrel=1
 pkgdesc="Qt 5 based UNIX MAME frontend supporting SDLMAME"
 url="http://qmc2.batcom-it.net/"
