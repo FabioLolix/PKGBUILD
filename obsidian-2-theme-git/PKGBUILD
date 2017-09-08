@@ -1,0 +1,34 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: Matt Harrison <matt@harrison.us.com>
+# Contributor: scan
+
+pkgname=obsidian-2-theme-git
+pkgver=r12.8202473
+pkgrel=1
+pkgdesc="Obsidian 2 theme for Gnome 3.22+"
+arch=('any')
+url="https://www.gnome-look.org/p/1173113/"
+license=('GPL3')
+optdepends=('gnome-tweak-tool: A tool to customize advanced GNOME 3 options.')
+options=(!strip)
+source=("git+https://github.com/madmaxms/theme-obsidian-2.git"
+	    "https://github.com/madmaxms/theme-obsidian-2/archive/green.zip")
+md5sums=('SKIP'
+         'SKIP')
+
+pkgver() {
+  cd theme-obsidian-2
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  rm -r ${srcdir}/theme-obsidian-2/{.git,LICENSE,README.md,screenshot.jpg}
+  rm ${srcdir}/theme-obsidian-2-green/{LICENSE,README.md,screenshot.jpg}
+
+  install -d ${pkgdir}/usr/share/themes
+  cp -r ${srcdir}/theme-obsidian-2/Obsidian-2 ${pkgdir}/usr/share/themes/Obsidian-2/
+  cp -r ${srcdir}/theme-obsidian-2-green/Obsidian-2-green ${pkgdir}/usr/share/themes/Obsidian-2-green/
+
+  find ${pkgdir} -type f -exec chmod 644 {} \;
+  find ${pkgdir} -type d -exec chmod 755 {} \;
+}
