@@ -1,0 +1,46 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=github-desktop-bin
+pkgver=0.7.1
+_channel=beta4
+pkgrel=1
+pkgdesc="Client for Git and GitHub"
+arch=('x86_64')
+url="https://github.com/gengjiawen/desktop"
+license=('MIT')
+depends=('libsecret'
+         'python'
+         'curl'
+         'nss'
+         'alsa-lib'
+         'gcc-libs-multilib'
+         'libxss'
+         'gtk2'
+         'ruby'
+         'libxtst'
+         'gconf'
+         'nodejs')
+makedepends=()
+optdepends=()
+provides=('github-desktop')
+conflicts=('github-desktop')
+options=()
+PKGEXT='.pkg.tar'
+source=("https://github.com/gengjiawen/desktop/releases/download/v${pkgver}-${_channel}/desktop_${pkgver}-${_channel}_amd64.deb"
+        "MIT::https://raw.githubusercontent.com/desktop/desktop/master/LICENSE"
+        "terms.html::https://desktop.github.com/terms/")
+md5sums=('2d232e9856d9f658ba33ebc533e3505c'
+         'SKIP'
+         'SKIP')
+package() {
+
+  bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
+
+  install -d ${pkgdir}/usr/share/licenses/${pkgname}
+  install -Dm644 MIT ${pkgdir}/usr/share/licenses/${pkgname}/MIT
+  install -Dm644 terms.html ${pkgdir}/usr/share/licenses/${pkgname}/
+  mv ${pkgdir}/opt/GithubDesktop/LICENSE.electron.txt ${pkgdir}/usr/share/licenses/${pkgname}
+  mv ${pkgdir}/opt/GithubDesktop/LICENSES.chromium.html ${pkgdir}/usr/share/licenses/${pkgname}
+
+}

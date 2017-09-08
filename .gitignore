@@ -5,6 +5,7 @@
 *.zip
 *.run
 *.whl
+*.html
 solar2.png
 #*/*/*/*
 */pkg
@@ -17,6 +18,7 @@ WIP/*/pkg
 WIP/*/src
 WIP/*/code
 WIP/*/trunk
+WIP/*/MIT
 
 */Clementine
 */git
@@ -35,6 +37,7 @@ WIP/*/trunk
 */qiviewer
 */corebird*
 Python_module/*/bandcamp-dl
+WIP/*/LICENSE
 WIP/*/squeezeplay
 WIP/*/satori
 WIP/*/libav*
