@@ -9,8 +9,9 @@ pkgdesc="Driver for the Brother DCP-T700W wifi multifuncional printer"
 arch=('i686' 'x86_64')
 url="http://solutions.brother.com/linux/en_us/index.html"
 license=('custom:brother EULA')
-depends=('a2ps' 'cups')
+depends=('cups')
 depends_x86_64=('lib32-glibc')
+optdepends=('brscan4')
 install="brother-dcpt700w.install"
 source=('fix_lp.patch'
         'LICENSE'
@@ -24,10 +25,6 @@ md5sums=('9cd6cc312202017e2273a227d7dfc2ff'
 build() {
   cd "$srcdir"
   patch -Np0 < fix_lp.patch
-}
-
-post_install() {
-  /opt/brother/Printers/dcpt700w/cupswrapper/cupswrapperdcpt700w
 }
 
 package(){
