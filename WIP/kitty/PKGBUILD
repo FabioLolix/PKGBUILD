@@ -1,18 +1,17 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 # Contributor: Maximilian Kindshofer <maximilian@kindshofer.net>
-# https://github.com/FabioLolix
 
 pkgname=kitty
-pkgver=0.2.8
+pkgver=0.3.0
 pkgrel=1
 pkgdesc="A modern, hackable, featureful, OpenGL based terminal emulator"
 arch=('i686' 'x86_64')
 url="https://github.com/kovidgoyal/kitty"
 license=('GPL3')
-depends=('python3' 'glew' 'glfw-x11' 'freetype2' 'xorg-xdpyinfo' 'xsel')
+depends=('python3' 'glew' 'glfw-x11' 'freetype2' 'xorg-xdpyinfo' 'xsel' 'fontconfig')
 makedepends=('git' 'pkg-config' 'python-setuptools')
 source=("https://github.com/kovidgoyal/$pkgname/archive/v$pkgver.tar.gz")
-md5sums=('cebd46be620928b8d746cb339fc7b95b')
+md5sums=('41c944a49f3812ef890c7dd2eb5aef6c')
 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"

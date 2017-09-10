@@ -10,7 +10,7 @@ pkgbase = madrigal-git
 	depends = qt5-svg
 	depends = hicolor-icon-theme
 	provides = madrigal
-	source = git+https://github.com/CDrummond/madrigal
+	source = madrigal-git::git+https://github.com/CDrummond/madrigal.git
 	md5sums = SKIP
 
 pkgname = madrigal-git

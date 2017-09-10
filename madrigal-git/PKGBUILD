@@ -2,7 +2,6 @@
 # https://github.com/FabioLolix
 
 pkgname=madrigal-git
-_gitname="madrigal"
 pkgver=r192.8395a23
 pkgrel=3
 pkgdesc="Qt5 OpenHome control point, still in development"
@@ -12,17 +11,17 @@ license=('GPL3')
 depends=('qt5-svg' 'hicolor-icon-theme')
 makedepends=('git')
 provides=('madrigal')
-source=("git+https://github.com/CDrummond/madrigal")
+source=("${pkgname}::git+https://github.com/CDrummond/madrigal.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "$_gitname"
+  cd ${pkgname}
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-	install -d "$srcdir"/"$_gitname"/build
-	cd "$srcdir"/"$_gitname"/build
+	install -d ${srcdir}/${pkgname}/build
+	cd ${srcdir}/${pkgname}/build
 	cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
 	make
 	make DESTDIR=$pkgdir install
