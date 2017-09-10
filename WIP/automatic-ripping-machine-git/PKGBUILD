@@ -1,0 +1,34 @@
+
+pkgname=automatic-ripping-machine-git
+pkgver=v1.4.0.r14.g9c6efaf
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url="https://b3n.org/automatic-ripping-machine/"
+license=('MIT')
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+#install=
+#changelog=
+
+source=("git+https://github.com/ahnooie/automatic-ripping-machine.git"
+        "https://raw.githubusercontent.com/ahnooie/automatic-ripping-machine/master/LICENSE")
+md5sums=('SKIP'
+         'SKIP')
+
+pkgver() {
+  cd automatic-ripping-machine
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+  intsall -d suca
+}
