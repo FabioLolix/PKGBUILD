@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=libav-no-libs-git
-pkgver=r130.b8c78d7
+pkgver=v13_dev0.r1289.gb05128f3c
 pkgrel=1
 pkgdesc='Open source audio and video processing tools'
 arch=('i686' 'x86_64')
@@ -16,7 +16,7 @@ source=($pkgname::git://git.libav.org/libav.git)
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"

@@ -1,0 +1,29 @@
+pkgbase = cantata-no-vlc
+	pkgdesc = Qt5 client for the music player daemon (MPD)
+	pkgver = 2.1.0
+	pkgrel = 1
+	url = https://github.com/CDrummond/cantata
+	arch = i686
+	arch = x86_64
+	license = GPL
+	makedepends = cmake
+	makedepends = qt5-tools
+	makedepends = qt5-multimedia
+	makedepends = ffmpeg
+	depends = qt5-svg
+	depends = libmtp
+	depends = libmusicbrainz5
+	depends = taglib-extras
+	depends = media-player-info
+	depends = libcdio-paranoia
+	depends = udisks2
+	optdepends = perl-uri: dynamic playlist
+	optdepends = mpd: playback
+	optdepends = ffmpeg: ReplayGain support
+	optdepends = mpg123
+	optdepends = vlc
+	source = https://github.com/CDrummond/cantata/releases/download/v2.1.0/cantata-2.1.0.tar.bz2
+	md5sums = 392bf79e50429395ce8708b69c3de1c3
+
+pkgname = cantata-no-vlc
+

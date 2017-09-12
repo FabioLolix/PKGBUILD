@@ -2,22 +2,22 @@
 # https://github.com/FabioLolix
 
 pkgname=libav-no-libs
-_name=libav
+_pkgname=libav
 pkgver=12.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Open source audio and video processing tools forked from ffmpeg"
 arch=('i686' 'x86_64')
 url="http://www.libav.org/"
 license=('LGPL')
 depends=('alsa-lib' 'bzip2' 'libtheora' 'libvpx' 'x264' 'xvidcore' 'faac' 'lame' 'opus' 'libvorbis' 'freetype2' 'gnutls' 'openssl' 'rtmpdump')
 makedepends=('yasm')
-provides=('libav' 'ffmpeg')
+provides=('libav-no-libs')
 conflicts=('libav' 'ffmpeg' 'libav-no-libs' 'libav-no-libs-git' 'libav-git-no-libs')
-source=("http://libav.org/releases/${_name}-$pkgver.tar.xz")
+source=("http://libav.org/releases/${_pkgname}-$pkgver.tar.xz")
 md5sums=('b611fd79ebcf90e3d0b8e66c4ea80a17')
 
 build() {
-  cd "$srcdir/$_name-$pkgver"
+  cd "$srcdir/${_pkgname}-$pkgver"
 
   ./configure \
     --prefix=/usr \
@@ -29,7 +29,7 @@ build() {
 }
 
 package() {
-  cd "$srcdir/$_name-$pkgver"
+  cd "$srcdir/${_pkgname}-$pkgver"
 
   make DESTDIR="$pkgdir" install
   rm -r "$pkgdir"/usr/{include,lib}

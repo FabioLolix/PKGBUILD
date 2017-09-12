@@ -2,7 +2,7 @@
 
 _gitname=upplay
 pkgname=$_gitname-git
-pkgver=r471.34e1d1d
+pkgver=r478.44435fa
 pkgrel=1
 pkgdesc="A Qt5 based UPnP audio Control point"
 url="http://www.lesbonscomptes.com/upplay/"

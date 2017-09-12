@@ -1,6 +1,6 @@
 pkgbase = upplay-git
 	pkgdesc = A Qt5 based UPnP audio Control point
-	pkgver = r471.34e1d1d
+	pkgver = r478.44435fa
 	pkgrel = 1
 	url = http://www.lesbonscomptes.com/upplay/
 	arch = x86_64

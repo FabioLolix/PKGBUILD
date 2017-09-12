@@ -32,7 +32,7 @@ source=("https://github.com/gengjiawen/desktop/releases/download/v${pkgver}-${_c
 md5sums=('2d232e9856d9f658ba33ebc533e3505c'
          'SKIP'
          'SKIP')
-PKGEXT='.pkg.tar'
+#PKGEXT='.pkg.tar'
 package() {
 
   bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
