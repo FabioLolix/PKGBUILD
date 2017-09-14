@@ -1,7 +1,7 @@
 pkgbase = libav-no-libs
 	pkgdesc = Open source audio and video processing tools forked from ffmpeg
 	pkgver = 12.1
-	pkgrel = 2
+	pkgrel = 3
 	url = http://www.libav.org/
 	arch = i686
 	arch = x86_64
@@ -23,7 +23,6 @@ pkgbase = libav-no-libs
 	depends = rtmpdump
 	provides = libav-no-libs
 	conflicts = libav
-	conflicts = ffmpeg
 	conflicts = libav-no-libs
 	conflicts = libav-no-libs-git
 	conflicts = libav-git-no-libs

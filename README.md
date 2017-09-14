@@ -88,3 +88,8 @@ for **fs-uae** Amiga emulator add CXXFlags in build()
 	./configure --prefix=/usr
 	make 
 	}
+
+***
+
+* yaourt -S $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
+* pacaur -S --rebuild $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
