@@ -5,9 +5,8 @@
 
 pkgname=mpv-vaapi
 _pkgname=mpv
-epoch=1
-pkgver=0.26.0
-pkgrel=3
+pkgver=0.27.0
+pkgrel=1
 _waf_version=1.8.12
 pkgdesc='a free, open source, and cross-platform media player'
 arch=('i686' 'x86_64')
@@ -17,16 +16,16 @@ depends=(
   'ffmpeg' 'lcms2' 'libcdio-paranoia' 'libgl' 'libxss'
   'libxinerama' 'libxv' 'libxkbcommon' 'libva' 'wayland' 'libcaca'
   'desktop-file-utils' 'hicolor-icon-theme' 'xdg-utils' 'lua52' 'libdvdnav'
-  'libxrandr' 'jack' 'smbclient' 'rubberband' 'uchardet'
+  'libxrandr' 'jack' 'smbclient' 'uchardet'
 )
-makedepends=('mesa' 'python-docutils' 'ladspa' 'hardening-wrapper')
+makedepends=('mesa' 'python-docutils' 'ladspa')
 optdepends=('youtube-dl: for video-sharing websites playback')
 options=('!emptydirs' '!buildflags')
 provides=('mpv')
 conflicts=('mpv')
-source=("$_pkgname-$pkgver.tar.gz::https://github.com/mpv-player/$_pkgname/archive/v$pkgver.tar.gz"
+source=("$pkgname-$pkgver.tar.gz::https://github.com/mpv-player/$_pkgname/archive/v$pkgver.tar.gz"
   "http://www.freehackers.org/~tnagy/release/waf-${_waf_version}")
-sha256sums=('daf3ef358d5f260f2269f7caabce27f446c291457ec330077152127133b71b46'
+sha256sums=('341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c'
             '01bf2beab2106d1558800c8709bc2c8e496d3da4a2ca343fe091f22fca60c98b')
 
 prepare() {

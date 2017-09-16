@@ -1,0 +1,104 @@
+# Maintainer: Bruno Pagani <bruno.n.pagani@gmail.com>
+
+pkgname=mpv-lolix
+_pkgname=mpv
+pkgver=0.27.0
+pkgrel=1
+_waf_version=1.8.12
+pkgdesc="a free, open source, and cross-platform media player "
+url="https://mpv.io"
+license=('GPL')
+arch=('i686' 'x86_64')
+depends=('ffmpeg' 'libxss' 'libxinerama' 'libxrandr' 'libdvdread')
+makedepends=('mesa' 'python-docutils' 'ladspa')
+optdepends=('youtube-dl: for video-sharing websites playback')
+options=('!emptydirs' '!buildflags')
+provides=('mpv')
+conflicts=('mpv')
+source=(${pkgname}-${pkgver}.tar.gz::"https://github.com/mpv-player/${_pkgname}/archive/v${pkgver}.tar.gz"
+        "http://www.freehackers.org/~tnagy/release/waf-${_waf_version}")
+sha256sums=('341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c'
+            '01bf2beab2106d1558800c8709bc2c8e496d3da4a2ca343fe091f22fca60c98b')
+
+prepare() {
+  cd ${_pkgname}-${pkgver}
+
+  install -m755 "${srcdir}"/waf-${_waf_version} waf
+}
+
+build() {
+  cd ${_pkgname}-${pkgver}
+
+  ./waf configure --prefix=/usr \
+    --confdir=/etc/mpv \
+    --enable-dvdread \
+    --enable-encoding \
+    --enable-libmpv-shared \
+    --enable-zsh-comp \
+    --enable-vdpau \
+    --enable-vdpau-gl-x11 \
+    --enable-vaapi \
+    --enable-vaapi-x11 \
+    --enable-vaapi-drm \
+    --enable-vaapi-glx \
+    --enable-vaapi-x-egl \
+    --enable-vaapi-hwaccel \
+    --enable-vdpau-hwaccel \
+    --enable-alsa \
+    --enable-oss-audio \
+    --enable-jack \
+    \
+    --disable-cdda \
+    --disable-dvdnav \
+    --disable-termios \
+    --disable-shm \
+    --disable-pulse \
+    --disable-libbluray \
+    --disable-rubberband \
+    --disable-vapoursynth \
+    --disable-vapoursynth-lazy \
+    --disable-rsound \
+    --disable-opensles \
+    --disable-xv \
+    --disable-caca \
+    --disable-tv \
+    --disable-tv-v4l2 \
+    --disable-libv4l2 \
+    --disable-audio-input \
+    --disable-lua \
+    --disable-javascript \
+    --disable-libass \
+    --disable-libass-osd \
+    --disable-zlib \
+    --disable-uchardet \
+    --disable-lcms2 \
+    --disable-sdl2 \
+    --disable-sdl1 \
+    --disable-sndio \
+    --disable-openal \
+    --disable-wayland \
+    --disable-gl-wayland \
+    --disable-coreaudio \
+    --disable-audiounit \
+    \
+    --disable-clang-database \
+    --disable-uwp \
+    --disable-win32-internal-pthreads \
+    --disable-wasapi \
+    --disable-direct3d \
+    --disable-android \
+    --disable-rpi \
+    --disable-ios-gl \
+    --disable-mali-fbdev \
+    --disable-win32
+
+  ./waf build
+}
+
+package() {
+  cd ${_pkgname}-${pkgver}
+
+  ./waf install --destdir="${pkgdir}"
+
+  install -m644 DOCS/{encoding.rst,tech-overview.txt} "${pkgdir}"/usr/share/doc/mpv
+}
