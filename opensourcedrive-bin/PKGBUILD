@@ -1,0 +1,28 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# https://github.com/FabioLolix
+
+pkgname=opensourcedrive-bin
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="GUI client for Google Drive on linux based on Electron, pre-release"
+arch=('x86_64')
+url="https://github.com/liberodark/ODrive"
+license=('GPL3')
+depends=('nss'
+         'alsa-lib'
+         'gcc-libs-multilib'
+         'libxss'
+         'gtk2'
+         'libxtst'
+         'gconf'
+         'nodejs')
+provides=('opensourcedrive')
+conflicts=('opensourcedrive')
+source=("https://github.com/liberodark/ODrive/releases/download/${pkgver}/odrive-linux-x64.tar.gz")
+md5sums=('9018529536dded2d17513548b4411b46')
+PKGEXT='.pkg.tar'
+
+package() {
+  install -d ${pkgdir}/opt/opensourcedrive
+  cp -r $srcdir/odrive-linux-x64/* ${pkgdir}/opt/opensourcedrive/
+}
