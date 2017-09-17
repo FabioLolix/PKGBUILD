@@ -1,6 +1,6 @@
 # $Id$
 # Maintainer: Antonio Rojas <arojas@archlinux.org>
-# Contributor:  Federico Cinelli <cinelli@aur.archlinux.org>
+# Contributor: Federico Cinelli <cinelli@aur.archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 # Contributor: Mcder3 <mcder3[at]gmail[dot]com>
 # Contributor: MisterFred <mister.fred[at]free[dot]fr>
@@ -8,14 +8,14 @@
 pkgname=cantata-no-vlc
 _pkgname=cantata
 pkgver=2.1.0
-pkgrel=2
+pkgrel=4
 pkgdesc='Qt5 client for the music player daemon (MPD)'
 arch=(i686 x86_64)
 url='https://github.com/CDrummond/cantata'
 license=(GPL)
-depends=(qt5-svg libmtp libmusicbrainz5 taglib-extras media-player-info libcdio-paranoia udisks2)
-optdepends=('perl-uri: dynamic playlist' 'mpd: playback' 'ffmpeg: ReplayGain support' mpg123 vlc)
-makedepends=(cmake qt5-tools qt5-multimedia ffmpeg)
+depends=(qt5-svg libmtp libmusicbrainz5 taglib-extras media-player-info libcdio-paranoia udisks2 qt5-multimedia)
+optdepends=('perl-uri: dynamic playlist' 'mpd: playback')
+makedepends=(cmake qt5-tools ffmpeg)
 provides=(cantata)
 conflicts=(cantata)
 source=("https://github.com/CDrummond/cantata/releases/download/v$pkgver/${_pkgname}-$pkgver.tar.bz2")
@@ -30,7 +30,9 @@ build() {
   cmake ../${_pkgname}-$pkgver \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
-    -DENABLE_LIBVLC=OFF
+    -DENABLE_LIBVLC=OFF \
+    -DENABLE_FFMPEG=OFF \
+    -DENABLE_MPG123=OFF
   make
 }
 
