@@ -1,0 +1,29 @@
+pkgbase = widevine
+	pkgdesc = Standalone browser plugin designed for the viewing of premium video content. For Chromium, Vivaldi, Qt5-webengine, etc
+	pkgver = 1.4.8.1008
+	pkgrel = 1
+	url = http://www.widevine.com/
+	arch = i686
+	arch = x86_64
+	license = custom
+	depends = glib2
+	depends = nss
+	provides = widevine
+	provides = chromium-widevine
+	provides = vivaldi-widevine
+	conflicts = google-chrome
+	conflicts = chromium-widevine
+	conflicts = chromium-widevine-dev
+	conflicts = vivaldi-widevine
+	conflicts = qt5-webengine-widevine
+	conflicts = google-chrome-cn
+	conflicts = chromium-codecs
+	options = !strip
+	source_i686 = https://dl.google.com/widevine-cdm/1.4.8.1008-linux-ia32.zip
+	sha256sums_i686 = a8e65d5fd65587d1debecf6df855689805ea36b02034042de4d039f0519a1c88
+	source_x86_64 = https://dl.google.com/widevine-cdm/1.4.8.1008-linux-x64.zip
+	depends_x86_64 = gcc-libs-multilib
+	sha256sums_x86_64 = fe04a5b56eac6674f1eda2c8eb28a0183ec1a66d80f72db618291e33078eb17d
+
+pkgname = widevine
+
