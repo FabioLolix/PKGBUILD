@@ -3,30 +3,29 @@
 
 pkgname=polo-bin
 _name=polo-file-manager
-pkgver=17.7.1
-_channel=beta.9
+pkgver=17.9
+_channel=beta.10
 pkgrel=1
 pkgdesc="A modern, light-weight GTK file manager for Linux, currently in beta (.deb binary version)"
 arch=('i686' 'x86_64')
 url="http://www.teejeetech.in/"
 license=('GPL2')
-depends=('gtk3' 'libgee' 'vte3' 'rsync')
+depends=('gtk3' 'libgee' 'vte3' 'libsoup' 'rsync' 'rclone' 'gvfs')
 optdepends=('mediainfo: read media properties from audio and video files'
             'fish: terminal shell'
             'perl-image-exiftool: read EXIF properties from JPG/TIFF/PNG/PDF files'
-            'pv: get prograss info for compression and extraction'
-            'pdftk: converting PDF files'
+            'pv: get progress info for compression and extraction'
             'ffmpeg: generate thumbnails for video'
             'p7zip: read and extract multiple archive formats'
-            'ghostscript: converting PDF files'
-            'pngcrush: reduce file size of PNG files'
+            'gnome-disk-utility'
+            'lzop'
             'polo-donation-plugins')
 provides=('polo')
 conflicts=('polo' 'polo-bin')
-source_i686=("https://github.com/teejee2008/polo/releases/download/v${pkgver}-${_channel}/${_name}-${pkgver}-${_channel}-i386.deb")
-source_x86_64=("https://github.com/teejee2008/polo/releases/download/v${pkgver}-${_channel}/${_name}-${pkgver}-${_channel}-amd64.deb")
-md5sums_i686=('0e2e3c93ecffb92124520ea3cc6384d8')
-md5sums_x86_64=('8dc062afc6730fca3ae6e1a383d7d465')
+source_i686=("https://github.com/teejee2008/polo/releases/download/v${pkgver}-${_channel}/${_name}-v${pkgver}-${_channel}-i386.deb")
+source_x86_64=("https://github.com/teejee2008/polo/releases/download/v${pkgver}-${_channel}/${_name}-v${pkgver}-${_channel}-amd64.deb")
+md5sums_i686=('0a7f84cb890a0fcff1e58a60c4338372')
+md5sums_x86_64=('bb7530e7d0400c98bab3ac0365685c4a')
 
 package() {
 
