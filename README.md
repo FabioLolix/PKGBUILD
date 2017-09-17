@@ -68,7 +68,7 @@ Update source info
 
 ***
 
-Extract .rpm .deb with bsdtar, avoid rpmextract, debtap, alien etc..
+Extract .rpm .deb etc.. with bsdtar, avoid rpmextract, debtap, alien etc..
 
     bsdtar -xf $packagename.*
 
@@ -77,6 +77,23 @@ Extract .rpm .deb with bsdtar, avoid rpmextract, debtap, alien etc..
 Package which use rpmextarct
 
 * libstdc++296
+
+***
+
+#devel pkgver
+
+#Git with tags
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+# Git no tags
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 
 ***
 
