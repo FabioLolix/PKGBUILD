@@ -110,3 +110,10 @@ for **fs-uae** Amiga emulator add CXXFlags in build()
 
 * yaourt -S $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
 * pacaur -S --rebuild $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
+
+
+VAR=
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..

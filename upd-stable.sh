@@ -137,3 +137,17 @@ cd $PWD/$VAR19
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR19
 cd ..
+
+
+VAR20=gmusicproxy
+cd $PWD/$VAR20
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR20
+cd ..
+
+
+VAR21=gmusicbrowser-git
+cd $PWD/$VAR21
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR21
+cd ..
