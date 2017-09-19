@@ -123,3 +123,17 @@ cd $PWD/$VAR17
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR17
 cd ..
+
+
+VAR18=qomp
+cd $PWD/$VAR18
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR18
+cd ..
+
+
+VAR19=qomp-git
+cd $PWD/$VAR19
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR19
+cd ..
