@@ -70,11 +70,11 @@ cd $PWD/$VAR9
 cd ..
 
 
-VAR10=polo-bin
-cd $PWD/$VAR10
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR10
-cd ..
+#VAR10=polo-bin
+#cd $PWD/$VAR10
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR10
+#cd ..
 
 
 VAR11=polo-donation-plugins
@@ -111,8 +111,15 @@ cd $PWD/$VAR15
 cd ..
 
 
-VAR16=brother-dcpt700w
-cd $PWD/$VAR16
+#VAR16=brother-dcpt700w
+#cd $PWD/$VAR16
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE} ~/Dev/Github/AUR/$VAR16
+#cd ..
+
+
+VAR17=qjackrcd
+cd $PWD/$VAR17
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE} ~/Dev/Github/AUR/$VAR16
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR17
 cd ..

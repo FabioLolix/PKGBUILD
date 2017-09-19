@@ -5,15 +5,15 @@
 # Contributor: Mcder3 <mcder3[at]gmail[dot]com>
 # Contributor: MisterFred <mister.fred[at]free[dot]fr>
 
-pkgname=cantata-no-vlc
+pkgname=cantata-lolix
 _pkgname=cantata
 pkgver=2.1.0
-pkgrel=4
-pkgdesc='Qt5 client for the music player daemon (MPD)'
+pkgrel=5
+pkgdesc='Qt5 client for the music player daemon (MPD), disabled replay-gain and mpd http stream'
 arch=(i686 x86_64)
 url='https://github.com/CDrummond/cantata'
 license=(GPL)
-depends=(qt5-svg libmtp libmusicbrainz5 taglib-extras media-player-info libcdio-paranoia udisks2 qt5-multimedia)
+depends=(qt5-svg libmtp libmusicbrainz5 taglib-extras media-player-info libcdio-paranoia udisks2)
 optdepends=('perl-uri: dynamic playlist' 'mpd: playback')
 makedepends=(cmake qt5-tools ffmpeg)
 provides=(cantata)
@@ -32,7 +32,8 @@ build() {
     -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_LIBVLC=OFF \
     -DENABLE_FFMPEG=OFF \
-    -DENABLE_MPG123=OFF
+    -DENABLE_MPG123=OFF \
+    -DENABLE_HTTP_STREAM_PLAYBACK=OFF
   make
 }
 
