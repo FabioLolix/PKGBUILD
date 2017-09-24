@@ -151,3 +151,10 @@ cd $PWD/$VAR21
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR21
 cd ..
+
+
+VAR22=openage-git
+cd $PWD/$VAR22
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR22
+cd ..
