@@ -1,21 +1,21 @@
-# Maintainer: AudioLinux  <audiolinux AT fastmail DOT fm>
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Contributor: AudioLinux  <audiolinux AT fastmail DOT fm>
 
 pkgname=playbluray
-pkgver=1.1
-pkgrel=4
+pkgver=1.2
+pkgrel=1
 pkgdesc="Cross-Platform Blu-ray Playback Script"
-arch=('any')
+arch=('i686' 'x86_64')
 url="http://www.jaegertech.com/software/cross-platform-blu-ray-playback"
-license=('unknown')
+license=('unknown open source license')
 depends=('makemkv' 'vlc' 'curl')
-source=("http://www.tophifi.it/ftp/packages/playBluRay.tgz")
-sha256sums=('feeff80f445bb24e2ce5feb3bccf921ab0b1b854218377832c0f939ad0e340b1')
+source=('playBluRay.sh'
+        'playBluRay-icon.png')
+sha256sums=('769cdd57cbf1f03adbc2c5bf9b8feb0ad11656b4f20394b2431001c4f913bff6'
+            '2d09d8947104426f13878857467b196eb8e9b6894bd345a8e60265fb72332e70')
 
 package() {
-  tar xf playBluRay.tgz -C "$srcdir"
-   install -Dm644 "$srcdir/playBluRay/playBluRay.sh" \
-    "$pkgdir/usr/bin/playbluray.sh"
-   install -Dm644 "$srcdir/playBluRay/playBluRay-icon.png" \
-    "$pkgdir/usr/share/pixmaps/playbluray-icon.png"
-   chmod +x "$pkgdir/usr/bin/playbluray.sh"
+   install -Dm644 "$srcdir/playBluRay.sh" "$pkgdir/usr/bin/playbluray"
+   install -Dm644 "$srcdir/playBluRay-icon.png" "$pkgdir/usr/share/pixmaps/playbluray-icon.png"
+   chmod +x "$pkgdir/usr/bin/playbluray"
 }
