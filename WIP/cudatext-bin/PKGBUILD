@@ -2,25 +2,25 @@
 # https://github.com/FabioLolix
 
 pkgname=cudatext-bin
-pkgver=1.19.0.0
+pkgver=1.22.0.0
 pkgrel=1
 pkgdesc="Cross-platform code editor, with syntax highlight for 180+ languages. Has lite interface with tabs. Has JSON config files instead of options-dialog. Supports Python plugins"
 arch=('x86_64' 'i686' 'armv7h')
 url="https://sourceforge.net/projects/cudatext/"
-license=('MPL2.0')
+license=('MPL2')
 depends=('gtk2' 'python')
 provides=('cudatext')
-source=('MPL2.0'
+source=('MPL2'
         'icon.png')
 source_x86_64=("https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-amd64-${pkgver}.tar.xz")
 source_i686=("https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-i386-${pkgver}.tar.xz")
-source_armv7h=("https://sourceforge.net/projects/cudatext/files/release/Linux-arm/cudatext-linux-gtk2-arm-${pkgver}.tar.xz")
+#source_armv7h=("https://sourceforge.net/projects/cudatext/files/release/Linux-arm/cudatext-linux-gtk2-arm-${pkgver}.tar.xz")
 
 md5sums=('766150f4f81b0c078c0dfd4484d389ef'
          '074bd46ca67b959c91f1e14501853577')
-md5sums_x86_64=('9531df768fad341c8d7f68d866ea760a')
-md5sums_i686=('6293dfb0215fb2af2831a6a82b4cf850')
-md5sums_armv7h=('d4dbffb7551d17dac300365dee507ac7')
+md5sums_x86_64=('c6859cd0a3bd52a4c96060a049b162a1')
+md5sums_i686=('02c345eee526a8349fff1cb296e50dc6')
+#md5sums_armv7h=('d4dbffb7551d17dac300365dee507ac7')
 
 noextract=("cudatext-linux-gtk2-amd64-${pkgver}.tar.xz"
            "cudatext-linux-gtk2-i386-${pkgver}.tar.xz"
@@ -36,9 +36,9 @@ if [[ "${CARCH}" = 'i686' ]]; then
    _arch=i386
     fi
 
-if [[ "${CARCH}" = 'armv7h' ]]; then
-   _arch=arm
-    fi
+#if [[ "${CARCH}" = 'armv7h' ]]; then
+#   _arch=arm
+#    fi
 
   install -d ${pkgdir}/usr/share/${pkgname}
   bsdtar -xf ${srcdir}/cudatext-linux-gtk2-${_arch}-${pkgver}.tar.xz -C ${pkgdir}/usr/share/${pkgname}
@@ -47,6 +47,6 @@ if [[ "${CARCH}" = 'armv7h' ]]; then
   install -d ${pkgdir}/usr/bin
   ln -s /usr/share/${pkgname}/cudatext ${pkgdir}/usr/bin/cudatext
 
-  install -Dm644 MPL2.0 ${pkgdir}/usr/share/licenses/${pkgname}/MPL2.0
+  install -Dm644 MPL2 ${pkgdir}/usr/share/licenses/${pkgname}/MPL2
   mv ${pkgdir}/usr/share/${pkgname}/readme/license.txt ${pkgdir}/usr/share/licenses/${pkgname}/copyright.txt
 }

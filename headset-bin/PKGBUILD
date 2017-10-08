@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=headset-bin
-pkgver=1.5.4
+pkgver=1.6.0
 pkgrel=1
 pkgdesc="An Electron-based music player for the busy ones"
 arch=('x86_64')
@@ -19,10 +19,10 @@ depends=('alsa-lib'
 provides=('headset')
 conflicts=('headset')
 #options('!emptydirs')
-source=("https://github.com/headsetapp/headset-electron/releases/download/v${pkgver}-deb/Headset_${pkgver}_amd64.deb"
+source=("https://github.com/headsetapp/headset-electron/releases/download/v${pkgver}/headset_${pkgver}_amd64.deb"
         "MIT::https://github.com/headsetapp/headset-electron/raw/master/LICENSE")
-md5sums=('c0619b1508545ac25fa7722aa9b6a0c0'
-         'SKIP')
+md5sums=('718887f5200d2bf80a7c29e1b30efd39'
+         '63f69acde84223e3a5c9545b529e9e27')
 
 package() {
   bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
@@ -30,6 +30,6 @@ package() {
   chmod 755 -R ${pkgdir}/
   install -d ${pkgdir}/usr/share/licenses/${pkgname}
   install MIT ${pkgdir}/usr/share/licenses/${pkgname}
-  mv ${pkgdir}/usr/lib/Headset/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}
-  mv ${pkgdir}/usr/lib/Headset/LICENSES.chromium.html ${pkgdir}/usr/share/licenses/${pkgname}
+  mv ${pkgdir}/usr/lib/headset/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}
+  mv ${pkgdir}/usr/lib/headset/LICENSES.chromium.html ${pkgdir}/usr/share/licenses/${pkgname}
 }

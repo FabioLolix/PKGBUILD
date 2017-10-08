@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=obsidian-icon-theme-git
-pkgver=v3.1.1.r2.g6c64e3a
+pkgver=v3.2.r2.gf36dda28
 pkgrel=1
 pkgdesc="Gnome Icon Pack based upon Faenza, optimized for dark themes. All colors"
 arch=('any')
