@@ -1,18 +1,15 @@
 pkgbase = playbluray
 	pkgdesc = Cross-Platform Blu-ray Playback Script
-	pkgver = 1.2
-	pkgrel = 1
+	pkgver = 1.1
+	pkgrel = 4
 	url = http://www.jaegertech.com/software/cross-platform-blu-ray-playback
-	arch = i686
-	arch = x86_64
-	license = unknown open source license
+	arch = any
+	license = unknown
 	depends = makemkv
 	depends = vlc
 	depends = curl
-	source = playBluRay.sh
-	source = playBluRay-icon.png
-	sha256sums = 769cdd57cbf1f03adbc2c5bf9b8feb0ad11656b4f20394b2431001c4f913bff6
-	sha256sums = 2d09d8947104426f13878857467b196eb8e9b6894bd345a8e60265fb72332e70
+	source = http://www.tophifi.it/ftp/packages/playBluRay.tgz
+	sha256sums = feeff80f445bb24e2ce5feb3bccf921ab0b1b854218377832c0f939ad0e340b1
 
 pkgname = playbluray
 
