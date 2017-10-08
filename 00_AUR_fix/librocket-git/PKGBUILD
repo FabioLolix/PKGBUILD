@@ -3,8 +3,9 @@
 # Contributor: Eugene Tan <jmingtan at gmail dot com>
 
 pkgname=librocket-git
-pkgver=1.2.2
+pkgver=issue.137.r132.g40f43b9
 pkgrel=1
+epoch=1
 pkgdesc="The HTML/CSS User Interface library"
 arch=('i686' 'x86_64')
 url="http://librocket.com"
@@ -15,6 +16,11 @@ conflicts=('librocket')
 provides=('librocket' "$pkgname")
 source=("$pkgname::git+https://github.com/libRocket/libRocket.git")
 sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
 
 #prepare() {
 #  # fix samples folder
@@ -32,6 +38,9 @@ build() {
 package() {
   cd $pkgname
   make -C Build install DESTDIR="$pkgdir/usr"
+
+  mv $pkgdir/usr/lib64/* $pkgdir/usr/lib/
+  rm -r $pkgdir/usr/lib64
 
   # doc
   install -d "$pkgdir"/usr/share/doc/librocket

@@ -1,7 +1,8 @@
 pkgbase = librocket-git
 	pkgdesc = The HTML/CSS User Interface library
-	pkgver = 1.2.2
+	pkgver = issue.137.r132.g40f43b9
 	pkgrel = 1
+	epoch = 1
 	url = http://librocket.com
 	arch = i686
 	arch = x86_64
