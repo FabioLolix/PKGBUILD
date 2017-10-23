@@ -1,6 +1,6 @@
 pkgbase = clementine-qt5-lite-git
 	pkgdesc = A modern music player and library organiser, qt5 version, disabled plugins
-	pkgver = 1.3.1.r423.gfbc2f78f8
+	pkgver = 1.3.1.r425.g0a59257dc
 	pkgrel = 1
 	url = http://www.clementine-player.org/
 	arch = i686
@@ -10,6 +10,7 @@ pkgbase = clementine-qt5-lite-git
 	makedepends = boost
 	makedepends = cmake
 	makedepends = mesa
+	makedepends = qt5-tools
 	depends = chromaprint
 	depends = glew
 	depends = gst-plugins-base
@@ -18,6 +19,7 @@ pkgbase = clementine-qt5-lite-git
 	depends = libplist
 	depends = protobuf
 	depends = qt5-base
+	depends = crypto++
 	optdepends = gst-plugins-good: for use with "Good" plugin libraries
 	optdepends = gst-plugins-bad: for use with "Bad" plugin libraries
 	optdepends = gst-plugins-ugly: for use with "Ugly" plugin libraries
@@ -26,8 +28,6 @@ pkgbase = clementine-qt5-lite-git
 	provides = clementine
 	conflicts = clementine
 	conflicts = clementine-git
-	replaces = clementine
-	replaces = clementine-git
 	source = git+https://github.com/clementine-player/Clementine.git#branch=qt5
 	sha256sums = SKIP
 

@@ -2,8 +2,8 @@
 # https://github.com/FabioLolix
 
 pkgname=github-desktop-bin
-pkgver=0.7.1-beta4
-pkgrel=2
+pkgver=1.0.4_beta0
+pkgrel=1
 pkgdesc="Client for Git and GitHub, based on Electron"
 arch=('x86_64')
 url="https://github.com/gengjiawen/desktop"

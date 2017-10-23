@@ -44,6 +44,10 @@ WIP/*/MIT
 */gmusic*
 Python_module/*/bandcamp-dl
 
+00_AUR_fix/*/pkg
+00_AUR_fix/*/src
+00_AUR_fix/ion-git/ion*
+00_AUR_fix/ion-git/LICENSE
 00_AUR_fix/librocket-git/*
 
 WIP/*/LICENSE
@@ -54,3 +58,5 @@ WIP/*/qmc2*
 WIP/*/vkmark
 WIP/*/isodumper
 WIP/*/automatic-ripping-machine
+WIP/*/open*
+WIP/*/komorebi*

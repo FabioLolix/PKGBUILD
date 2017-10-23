@@ -1,6 +1,6 @@
 pkgbase = github-desktop-bin
 	pkgdesc = Client for Git and GitHub, based on Electron
-	pkgver = 0.7.1
+	pkgver = 1.0.4_beta0
 	pkgrel = 1
 	url = https://github.com/gengjiawen/desktop
 	arch = x86_64
@@ -19,12 +19,14 @@ pkgbase = github-desktop-bin
 	depends = nodejs
 	provides = github-desktop
 	conflicts = github-desktop
-	source = https://github.com/gengjiawen/desktop/releases/download/v0.7.1-beta4/desktop_0.7.1-beta4_amd64.deb
+	source = https://github.com/gengjiawen/desktop/releases/download/v1.0.4_beta0/desktop_1.0.4_beta0_amd64.deb
 	source = MIT::https://raw.githubusercontent.com/desktop/desktop/master/LICENSE
 	source = terms.html::https://desktop.github.com/terms/
+	source = githubdesktop.desktop
 	md5sums = 2d232e9856d9f658ba33ebc533e3505c
-	md5sums = SKIP
-	md5sums = SKIP
+	md5sums = af2f45ce99bf2ccb15917d5daa544532
+	md5sums = 5ba947165c9965255e5a45a1f85f18e5
+	md5sums = 1c24745009b2539696d507047b91da67
 
 pkgname = github-desktop-bin
 

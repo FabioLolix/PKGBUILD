@@ -1,0 +1,47 @@
+
+pkgname=openhorizion-git
+pkgver=r685.8101f36
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url=""
+license=(MIT)
+depends=()
+makedepends=('cmake' 'lua51' 'git')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=()
+#install=
+#changelog=
+
+source=("${pkgname}::git+https://github.com/undefined-darkness/open-horizon.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "$srcdir/$pkgname"
+  install -d convert-locations-cmake
+  git submodule init
+  git submodule update
+}
+
+build() {
+  cd "$srcdir/$pkgname/convert-locations-cmake"
+  cmake ../convert_locations 
+  make convert_locations
+}
+
+package() {
+  cd "$srcdir/$pkgname/convert-locations-cmake"
+  make DESTDIR="$pkgdir" install
+
+#mkdir convert-locations-cmake && cd convert-locations-cmake && cmake ../open-horizon/convert_locations && make convert_locations
+
+  rm -r "$srcdir/$pkgname/convert-locations-cmake"
+}
