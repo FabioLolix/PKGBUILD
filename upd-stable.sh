@@ -165,3 +165,9 @@ cd $PWD/$VAR23
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO,playBluRay.sh,playBluRay-icon.png} ~/Dev/Github/AUR/$VAR23
 cd ..
+
+VAR24=voltra
+cd $PWD/$VAR24
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR24
+cd ..
