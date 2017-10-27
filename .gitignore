@@ -50,6 +50,10 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/ion-git/LICENSE
 00_AUR_fix/librocket-git/*
 
+00_custom/*/pkg
+00_custom/*/src
+00_custom/*/qmc2*
+
 WIP/*/LICENSE
 WIP/*/squeezeplay
 WIP/*/satori

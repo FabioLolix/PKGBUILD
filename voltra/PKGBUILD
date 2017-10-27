@@ -1,24 +1,17 @@
-# Maintainer: Ali Ukani <ali.ukani@gmail.com>
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
+# Contributor: Ali Ukani <ali.ukani@gmail.com>
+
 pkgname=voltra
 pkgver=3.1.4
 pkgrel=1
-pkgdesc='Electron based material design music player'
+pkgdesc='Material design music player, based on Electron'
 arch=('x86_64')
 url='https://voltra.co'
-license=('custom')
+license=('unknown')
 depends=('desktop-file-utils')
 provides=('voltra')
 source=("https://s3.amazonaws.com/download.voltra.co/Voltra_${pkgver}_amd64.deb")
 md5sums=('0e27745efcbb2e2b0761cc9ef60043fd')
-
-#prepare() {
-#  cd "${srcdir}"
-#  tar xzf control.tar.gz
-#}
-
-#pkgver() {
-#  grep -i "Version" "${srcdir}"/control | cut -d ' ' -f 2
-#}
 
 package() {
   bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/

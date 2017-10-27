@@ -1,10 +1,10 @@
 pkgbase = voltra
-	pkgdesc = Electron based material design music player
+	pkgdesc = Material design music player, based on Electron
 	pkgver = 3.1.4
 	pkgrel = 1
 	url = https://voltra.co
 	arch = x86_64
-	license = custom
+	license = unknown
 	depends = desktop-file-utils
 	provides = voltra
 	source = https://s3.amazonaws.com/download.voltra.co/Voltra_3.1.4_amd64.deb

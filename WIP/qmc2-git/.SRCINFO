@@ -1,12 +1,12 @@
-pkgbase = qmc2-svn
+pkgbase = qmc2-git
 	pkgdesc = Qt 5 based UNIX MAME frontend supporting SDLMAME
-	pkgver = 0.189.8130
+	pkgver = mame0191.r96.g25a2a8bd27
 	pkgrel = 1
 	url = http://qmc2.batcom-it.net/
 	arch = i686
 	arch = x86_64
 	license = GPL
-	makedepends = subversion
+	makedepends = git
 	makedepends = rsync
 	makedepends = mesa
 	depends = qt5-webkit
@@ -17,8 +17,8 @@ pkgbase = qmc2-svn
 	provides = qmc2
 	conflicts = qmc2
 	conflicts = qmc2-svn
-	source = qmc2::svn://svn.code.sf.net/p/qmc2/code/trunk
+	source = qmc2-git::git+https://github.com/mamedev/mame.git
 	sha256sums = SKIP
 
-pkgname = qmc2-svn
+pkgname = qmc2-git
 
