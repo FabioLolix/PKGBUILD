@@ -1,0 +1,42 @@
+# Maintainer: 
+
+pkgname=-git
+pkgver=1
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url=""
+license=()
+depends=()
+makedepends=('git')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=()
+
+source=("${pkgname}::git+.git")
+
+md5sums=('SKIP')
+
+# Git with tags
+pkgver() {
+  cd ${pkgname}
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+# Git without tags
+#pkgver() {
+#  cd ${pkgname}
+#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+#}
+
+build() {
+  cd ${srcdir}/${pkgname}
+  make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}
+  make DESTDIR=${pkgdir} install
+}

@@ -1,0 +1,30 @@
+# Maintainer: 
+
+pkgname=
+pkgver=
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url=""
+license=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+options=()
+
+source=()
+
+md5sums=()
+
+build() {
+  cd ${srcdir}/${pkgname}
+  make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}
+  make DESTDIR=${pkgdir} install
+}

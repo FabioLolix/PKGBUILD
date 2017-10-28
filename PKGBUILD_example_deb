@@ -1,3 +1,4 @@
+# Maintainer: 
 
 pkgname=
 pkgver=
@@ -13,15 +14,11 @@ provides=()
 conflicts=()
 replaces=()
 options=()
-#install=
-#changelog=
 
 source=()
 
-
 md5sums=()
 
-
 package() {
-
+  bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
 }

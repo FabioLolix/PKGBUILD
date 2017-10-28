@@ -1,0 +1,23 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
+
+pkgname=lolix-manjaro-iso-profiles-custom-git
+pkgver=r19.1930ed5
+pkgrel=1
+pkgdesc="Lolix custom profiles, to use with Manjaro official profiles. No global customizations"
+arch=('any')
+url="https://github.com/FabioLolix/iso-profile-custom"
+license=('GPL')
+depends=('manjaro-iso-profiles-community')
+makedepends=('git')
+source=("${pkgname}::git+https://github.com/FabioLolix/iso-profile-custom.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  install -d ${pkgdir}/usr/share/manjaro-tools/iso-profiles/
+  cp -r ${srcdir}/${pkgname}/loli{x,x-experimental} ${pkgdir}/usr/share/manjaro-tools/iso-profiles/
+}
