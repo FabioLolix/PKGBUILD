@@ -82,15 +82,15 @@ Package which use rpmextarct
 
 #devel pkgver
 
-#Git with tags
+### Git with tags
 
-pkgver() {
+> pkgver() {
   cd "$pkgname"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-# Git no tags
-pkgver() {
+### Git no tags
+Z pkgver() {
   cd ${pkgname}
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
@@ -99,7 +99,7 @@ pkgver() {
 
 for **fs-uae** Amiga emulator add CXXFlags in build()
 
-	build() {
+>	build() {
 	cd $pkgname-$pkgver
 	XXFLAGS="${CXXFLAGS} -std=gnu++98"
 	./configure --prefix=/usr
@@ -112,8 +112,8 @@ for **fs-uae** Amiga emulator add CXXFlags in build()
 * pacaur -S --rebuild $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
 
 
-VAR=
-cd $PWD/$VAR
-    makepkg --printsrcinfo > .SRCINFO
+> VAR=
+ cd $PWD/$VAR
+     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..

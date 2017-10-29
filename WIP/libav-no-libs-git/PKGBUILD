@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=libav-no-libs-git
-pkgver=v13_dev0.r1289.gb05128f3c
+pkgver=v13_dev0.r1376.g91760a934
 pkgrel=1
 pkgdesc='Open source audio and video processing tools'
 arch=('i686' 'x86_64')
