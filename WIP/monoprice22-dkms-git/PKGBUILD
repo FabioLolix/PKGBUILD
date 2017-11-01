@@ -15,7 +15,7 @@ conflicts=('monoprice22')
 source=("${pkgname}::git+https://github.com/odysseywestra/Monoprice_22_linux_kernel_module.git"
         'dkms.conf')
 md5sums=('SKIP'
-         '626ef178613fb9e0f07b37d6a8586b45')
+         'e38937bfda6da8f69ddf7766161da811')
 
 pkgver() {
   cd ${pkgname}
@@ -29,7 +29,7 @@ package() {
   cp -pr * ${pkgdir}/usr/src/${_pkgname}-${pkgver}
   cp ${srcdir}/dkms.conf ${pkgdir}/usr/src/${_pkgname}-${pkgver}
   # Set name and version
-  sed -e "s/@PKGNAME@/${_pkgname}-dkms/" \
+  sed -e "s/@_PKGNAME@/${_pkgname}-dkms/" \
     -e "s/@PKGVER@/${pkgver}/" \
     -i "${pkgdir}"/usr/src/${_pkgname}-${pkgver}/dkms.conf
 }

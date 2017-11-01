@@ -1,19 +1,18 @@
-pkgbase = rtl8821au-dkms-git
-	pkgdesc = rtl8821AU, rtl8812AU and rtl8811AU chipset driver with firmware v5.1.5
-	pkgver = 5.1.5.r59.gb863326
-	pkgrel = 2
-	url = https://github.com/zebulon2/rtl8812au/tree/v5.1.5
-	arch = i686
+pkgbase = monoprice22-dkms-git
+	pkgdesc = Linux driver for Monoprice 22 aka MP22-HD display/tablet
+	pkgver = r20.3e9afc7
+	pkgrel = 1
+	url = https://github.com/odysseywestra/Monoprice_22_linux_kernel_module
 	arch = x86_64
-	license = GPL2
+	license = GPL
 	makedepends = git
-	makedepends = bc
 	depends = dkms
-	conflicts = rtl8821au
-	source = git+https://github.com/zebulon2/rtl8812au.git
+	provides = monoprice22
+	conflicts = monoprice22
+	source = monoprice22-dkms-git::git+https://github.com/odysseywestra/Monoprice_22_linux_kernel_module.git
 	source = dkms.conf
-	sha256sums = SKIP
-	sha256sums = ac5685acf0457773a6a8f83ef2ec84184be3bf26e6472e4b76e31d660964eb6d
+	md5sums = SKIP
+	md5sums = e38937bfda6da8f69ddf7766161da811
 
-pkgname = rtl8821au-dkms-git
+pkgname = monoprice22-dkms-git
 
