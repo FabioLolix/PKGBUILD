@@ -7,6 +7,7 @@ pkgbase = monoprice22-dkms-git
 	license = GPL
 	makedepends = git
 	depends = dkms
+	depends = linux-headers
 	provides = monoprice22
 	conflicts = monoprice22
 	source = monoprice22-dkms-git::git+https://github.com/odysseywestra/Monoprice_22_linux_kernel_module.git
