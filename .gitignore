@@ -6,6 +6,8 @@
 *.run
 *.whl
 *.html
+waf*
+MIT
 solar2.png
 #*/*/*/*
 */pkg
@@ -28,9 +30,7 @@ WIP/*/MIT
 */squeezeplay
 */twin
 */upplay
-*/waf*
 */satori
-*/MIT
 */twin-git
 */ltp
 */obsidian*

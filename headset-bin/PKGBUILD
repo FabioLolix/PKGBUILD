@@ -2,7 +2,7 @@
 # https://github.com/FabioLolix
 
 pkgname=headset-bin
-pkgver=1.6.0
+pkgver=1.6.1
 pkgrel=1
 pkgdesc="An Electron-based music player for the busy ones"
 arch=('x86_64')
@@ -10,18 +10,16 @@ url="http://headsetapp.co/"
 license=(MIT)
 depends=('alsa-lib'
          'gconf'
-         'gnuplot'
-         'nodejs'
+         'gtk2'
          'nss'
          'libxtst'
          'libxss'
          'gcc-libs-multilib')
 provides=('headset')
 conflicts=('headset')
-#options('!emptydirs')
 source=("https://github.com/headsetapp/headset-electron/releases/download/v${pkgver}/headset_${pkgver}_amd64.deb"
         "MIT::https://github.com/headsetapp/headset-electron/raw/master/LICENSE")
-md5sums=('718887f5200d2bf80a7c29e1b30efd39'
+md5sums=('1c8b4b0ad5641c1c8da185ed33f9bec2'
          '63f69acde84223e3a5c9545b529e9e27')
 
 package() {
@@ -30,6 +28,7 @@ package() {
   chmod 755 -R ${pkgdir}/
   install -d ${pkgdir}/usr/share/licenses/${pkgname}
   install MIT ${pkgdir}/usr/share/licenses/${pkgname}
-  mv ${pkgdir}/usr/lib/headset/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}
   mv ${pkgdir}/usr/lib/headset/LICENSES.chromium.html ${pkgdir}/usr/share/licenses/${pkgname}
+  mv ${pkgdir}/usr/share/doc/headset/copyright ${pkgdir}/usr/share/licenses/${pkgname}
+  rm -r ${pkgdir}/usr/share/doc
 }

@@ -1,7 +1,7 @@
 pkgbase = mpv-lolix
 	pkgdesc = a free, open source, and cross-platform media player
 	pkgver = 0.27.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://mpv.io
 	arch = i686
 	arch = x86_64
