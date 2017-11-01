@@ -1,0 +1,35 @@
+# Maintainer: 
+
+pkgname=monoprice22-dkms-git
+_pkgname=monoprice22
+pkgver=r20.3e9afc7
+pkgrel=1
+pkgdesc="Linux driver for Monoprice 22 aka MP22-HD display/tablet"
+arch=('x86_64')
+url="https://github.com/odysseywestra/Monoprice_22_linux_kernel_module"
+license=('GPL')
+depends=('dkms')
+makedepends=('git')
+provides=('monoprice22')
+conflicts=('monoprice22')
+source=("${pkgname}::git+https://github.com/odysseywestra/Monoprice_22_linux_kernel_module.git"
+        'dkms.conf')
+md5sums=('SKIP'
+         '626ef178613fb9e0f07b37d6a8586b45')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd ${srcdir}/${pkgname}
+  rm ${srcdir}/${pkgname}/{LICENSE,README,README.md}
+  install -d ${pkgdir}/usr/src/${_pkgname}-${pkgver}
+  cp -pr * ${pkgdir}/usr/src/${_pkgname}-${pkgver}
+  cp ${srcdir}/dkms.conf ${pkgdir}/usr/src/${_pkgname}-${pkgver}
+  # Set name and version
+  sed -e "s/@PKGNAME@/${_pkgname}-dkms/" \
+    -e "s/@PKGVER@/${pkgver}/" \
+    -i "${pkgdir}"/usr/src/${_pkgname}-${pkgver}/dkms.conf
+}

@@ -42,6 +42,8 @@ WIP/*/MIT
 #*/cantata*
 */qomp
 */gmusic*
+*/ptxconf*
+
 Python_module/*/bandcamp-dl
 
 00_AUR_fix/*/pkg
@@ -65,3 +67,4 @@ WIP/*/isodumper
 WIP/*/automatic-ripping-machine
 WIP/*/open*
 WIP/*/komorebi*
+WIP/*/monoprice22*
