@@ -171,3 +171,15 @@ cd $PWD/$VAR24
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR24
 cd ..
+
+VAR25=corebird-git
+cd $PWD/$VAR25
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR25
+cd ..
+
+VAR26=green-recorder
+cd $PWD/$VAR26
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR26
+cd ..

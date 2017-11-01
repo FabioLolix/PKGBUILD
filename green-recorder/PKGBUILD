@@ -1,0 +1,29 @@
+pkgname=green-recorder
+pkgver=3.0.4
+pkgrel=1
+pkgdesc="A simple yet functional desktop recorder for Linux systems."
+arch=('any')
+url="https://github.com/foss-project/green-recorder"
+license=('GPL3')
+depends=('python2-pydbus'
+         'libappindicator-gtk3'
+         'gawk'
+         'python2-gobject'
+         'python2-urllib3'
+         'xorg-xdpyinfo'
+         'xorg-xwininfo'
+         'ffmpeg')
+optdepends=('gnome-shell: Gnome on Wayland desktop recording.')
+makedepends=('python2-setuptools')
+options=(!emptydirs)
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/green-project/${pkgname}/archive/${pkgver}.tar.gz")
+sha256sums=('2364b7d149c65e24b18b530068d46db7a9d5062bfa4caf35689fb2d85d3e80c0')
+ 
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+ 
+  # desktop file is 755 for some reason
+  chmod 644 data/${pkgname}.desktop
+ 
+  python2 setup.py install --root="$pkgdir/" --optimize=1
+}
