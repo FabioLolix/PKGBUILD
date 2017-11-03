@@ -2,7 +2,7 @@
 
 pkgname=ptxconf-git
 pkgver=r35.70d2e20
-pkgrel=1
+pkgrel=2
 pkgdesc="Pen tablet and Touch screen Xinput Configuration tool (PTXConf). Configures touch/pen devices to work with extended desktops and multiple screens on Linux"
 arch=('i686' 'x86_64')
 url="https://github.com/wenhsinjen/ptxconf"

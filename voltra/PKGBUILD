@@ -16,6 +16,7 @@ depends=('gtk2'
          'libxtst')
 makedepends=('chrpath')
 provides=('voltra')
+#changelog=https://docs.voltra.co/desktop/release.html
 source=("https://s3.amazonaws.com/download.voltra.co/Voltra_${pkgver}_amd64.deb"
         'voltra.desktop')
 md5sums=('0e27745efcbb2e2b0761cc9ef60043fd'
