@@ -11,8 +11,10 @@ depends=('xorg-xinput' 'python2-libappindicator' 'python2' 'pygtk')
 makedepends=('git')
 provides=('ptxconf')
 conflicts=('ptxconf')
-source=("${pkgname}::git+https://github.com/wenhsinjen/ptxconf.git")
-md5sums=('SKIP')
+source=("${pkgname}::git+https://github.com/wenhsinjen/ptxconf.git"
+        'ptxconf.desktop')
+md5sums=('SKIP'
+         'ea437e99722a1ce37f0893ddac76afe4')
 
 pkgver() {
   cd ${pkgname}
@@ -23,4 +25,5 @@ package() {
   cd ${srcdir}/${pkgname}
   python2 setup.py install --root=${pkgdir}/ --optimize=1
   mv ${pkgdir}/usr/bin/ptxconf.py ${pkgdir}/usr/bin/ptxconf
+  install -D ${srcdir}/ptxconf.desktop ${pkgdir}/usr/share/applications/ptxconf.desktop
 }

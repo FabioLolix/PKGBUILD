@@ -14,7 +14,9 @@ pkgbase = ptxconf-git
 	provides = ptxconf
 	conflicts = ptxconf
 	source = ptxconf-git::git+https://github.com/wenhsinjen/ptxconf.git
+	source = ptxconf.desktop
 	md5sums = SKIP
+	md5sums = ea437e99722a1ce37f0893ddac76afe4
 
 pkgname = ptxconf-git
 
