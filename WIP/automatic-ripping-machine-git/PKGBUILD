@@ -1,34 +1,50 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
 
 pkgname=automatic-ripping-machine-git
-pkgver=v1.4.0.r14.g9c6efaf
+pkgver=v1.4.0.r31.g3b03122
 pkgrel=1
-pkgdesc=""
+pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
 arch=('x86_64')
 url="https://b3n.org/automatic-ripping-machine/"
 license=('MIT')
-groups=()
-depends=()
-makedepends=()
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
+depends=('at' 'glyr' 'python-pycurl' 'python-requests' 'python-urllib3' 'python-xmltodict' 'python-pydvdid'
+         'flac' 'imagemagick'
+         'abcde' 'handbrake-cli' 'libdvdcss' )
+makedepends=('git')
+optdepends=('makemkv'
+            'makemkv-cli'
+            'plex-media-server: Plex support'
+            'emby-server: Emby support')
+provides=('automatic-ripping-machine')
+conflicts=('automatic-ripping-machine')
+#backup=(root/.abcde.conf)
 #install=
 #changelog=
 
-source=("git+https://github.com/ahnooie/automatic-ripping-machine.git"
-        "https://raw.githubusercontent.com/ahnooie/automatic-ripping-machine/master/LICENSE")
-md5sums=('SKIP'
-         'SKIP')
+source=("${pkgname}::git+https://github.com/ahnooie/automatic-ripping-machine.git")
+md5sums=('SKIP')
 
 pkgver() {
-  cd automatic-ripping-machine
+  cd ${pkgname}
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 package() {
-  intsall -d suca
+  install -d ${pkgdir}/root/
+  install -d ${pkgdir}/opt/arm/
+  install -d ${pkgdir}/usr/lib/udev/rules.d/
+  install -d ${pkgdir}/usr/lib/systemd/system/
+  install -d ${pkgdir}/usr/share/{licenses,doc}/${pkgname}
+
+  cp -r ${srcdir}/${pkgname}/* ${pkgdir}/opt/arm/
+  mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/
+  mv ${pkgdir}/opt/arm/{CONTRIBUTING.md,README.md,README-OMDBAPI.txt,CHANGELOG.md} ${pkgdir}/usr/share/doc/${pkgname}/
+  mv ${pkgdir}/opt/arm/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
+  mv ${pkgdir}/opt/arm/arm@.service ${pkgdir}/usr/lib/systemd/system/arm.service
+  cp ${pkgdir}/opt/arm/config.sample ${pkgdir}/opt/arm/config
+  install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
+  ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
+  chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
+  chmod -R 750 ${pkgdir}/root/.abcde.conf
+  rm -R ${pkgdir}/opt/arm/requirements.txt
 }
