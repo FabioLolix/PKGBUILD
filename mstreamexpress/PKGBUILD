@@ -1,3 +1,4 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
 
 pkgname=mstreamexpress-bin
 pkgver=0.4.3
@@ -11,19 +12,13 @@ depends=('alsa-lib'
          'libxtst'
          'gconf'
          'libxss'
-         'nodejs'
          'gcc-libs-multilib'
          'nss')
-makedepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
+conflicts=('mstreamexpress')
+replaces=('mstreamexpress')
 source=("https://github.com/IrosTheBeggar/mStream/releases/download/v3.0.7/mstreamExpress-linux-v${pkgver}.tar.gz")
 md5sums=('eb14e68bc67fe44ca7cbf209729c0c42')
-#PKGEXT='.pkg.tar'
+PKGEXT='.pkg.tar'
 
 package() {
   install -d ${pkgdir}/usr/share/licenses/${pkgname}

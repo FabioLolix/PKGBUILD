@@ -16,6 +16,7 @@ pkgbase = kitty
 	depends = xorg-xdpyinfo
 	depends = xsel
 	depends = fontconfig
+	depends = libunistring
 	source = https://github.com/kovidgoyal/kitty/archive/v0.4.2.tar.gz
 	md5sums = a5c506d8cf13085fe589d459a8568657
 

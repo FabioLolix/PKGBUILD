@@ -39,10 +39,10 @@ WIP/*/MIT
 */iconpack*
 */theme-obsidian-2/*
 */gource-git
-#*/cantata*
 */qomp
-*/gmusic*
+*/gmusicbr*
 */ptxconf*
+*/alsaplayer*
 
 Python_module/*/bandcamp-dl
 
@@ -51,6 +51,7 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/ion-git/ion*
 00_AUR_fix/ion-git/LICENSE
 00_AUR_fix/librocket-git/*
+00_AUR_fix/*/libav*
 
 00_custom/*/pkg
 00_custom/*/src
@@ -60,7 +61,6 @@ Python_module/*/bandcamp-dl
 WIP/*/LICENSE
 WIP/*/squeezeplay
 WIP/*/satori
-WIP/*/libav*
 WIP/*/qmc2*
 WIP/*/vkmark
 WIP/*/isodumper

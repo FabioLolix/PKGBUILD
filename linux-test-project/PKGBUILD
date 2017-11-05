@@ -2,15 +2,15 @@
 # Contributor: Lukas Jirkovsky <l.jirkovsky@gmail.com>
 
 pkgname=linux-test-project
-pkgver=20170516
+pkgver=20170929
 pkgrel=1
 pkgdesc="A collection of tools for testing the Linux kernel and related features"
 arch=('i686' 'x86_64')
 license=('GPL2')
 url="http://linux-test-project.github.io/"
-depends=('acl' 'bash' 'gawk' 'libcap' 'libtirpc' 'python2')
+depends=('acl' 'bash' 'gawk' 'libcap' 'libtirpc' 'python2' 'libaio')
 source=("https://github.com/linux-test-project/ltp/releases/download/$pkgver/ltp-full-$pkgver.tar.bz2")
-md5sums=('12e2d693e73acbfe7e04a7be176a26ff')
+md5sums=('68ee7d940f349e176b778411cbfd33e4')
 
 prepare() {
   cd "$srcdir/ltp-full-$pkgver"
