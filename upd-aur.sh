@@ -198,7 +198,7 @@ cd ..
 VAR29=ptxconf-git
  cd $PWD/$VAR29
      makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,ptxconf.desktop} ~/Dev/Github/AUR/$VAR29
+    rsync {PKGBUILD,.SRCINFO,ptxconf.desktop,ptxconf.sh} ~/Dev/Github/AUR/$VAR29
 cd ..
 
 
@@ -276,4 +276,11 @@ VAR40=voltra
 cd $PWD/$VAR40
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT} ~/Dev/Github/AUR/$VAR40
+cd ..
+
+
+VAR41=chromium-ffmpeg-codecs-bin
+cd $PWD/$VAR41
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT} ~/Dev/Github/AUR/$VAR41
 cd ..
