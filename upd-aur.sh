@@ -282,5 +282,5 @@ cd ..
 VAR41=chromium-ffmpeg-codecs-bin
 cd $PWD/$VAR41
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT} ~/Dev/Github/AUR/$VAR41
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR41
 cd ..
