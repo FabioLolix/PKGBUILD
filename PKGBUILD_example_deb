@@ -21,4 +21,8 @@ md5sums=()
 
 package() {
   bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
+
+# install -d ${pkgdir}/usr/share/licenses/${pkgname}
+# install -d ${pkgdir}/usr/share/doc/${pkgname}
+# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }
