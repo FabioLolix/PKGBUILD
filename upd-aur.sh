@@ -10,7 +10,7 @@ cd ..
 VAR2=brother-dcpt700w
 cd $PWD/$VAR2
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE} ~/Dev/Github/AUR/$VAR2
+    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE,brother-dcpt700w.install} ~/Dev/Github/AUR/$VAR2
 cd ..
 
 
@@ -19,7 +19,6 @@ cd $PWD/$VAR3
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR3
 cd ..
-
 
 
 VAR4=dvdae-bin
@@ -53,7 +52,7 @@ cd ..
 VAR8=gravit-designer-bin
  cd $PWD/$VAR8
      makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR8
+    rsync {PKGBUILD,.SRCINFO,gravitdesigner.desktop} ~/Dev/Github/AUR/$VAR8
 cd ..
 
 
@@ -199,7 +198,7 @@ cd ..
 VAR29=ptxconf-git
  cd $PWD/$VAR29
      makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR29
+    rsync {PKGBUILD,.SRCINFO,ptxconf.desktop} ~/Dev/Github/AUR/$VAR29
 cd ..
 
 
@@ -255,7 +254,7 @@ cd ..
 VAR37=sonerezh
  cd $PWD/$VAR37
      makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR37
+    rsync {PKGBUILD,.SRCINFO,example_nginx_vhost.conf} ~/Dev/Github/AUR/$VAR37
 cd ..
 
 
@@ -276,5 +275,5 @@ cd ..
 VAR40=voltra
 cd $PWD/$VAR40
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR40
+    rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT} ~/Dev/Github/AUR/$VAR40
 cd ..

@@ -10,9 +10,10 @@ pkgbase = mstreamexpress-bin
 	depends = libxtst
 	depends = gconf
 	depends = libxss
-	depends = nodejs
 	depends = gcc-libs-multilib
 	depends = nss
+	conflicts = mstreamexpress
+	replaces = mstreamexpress
 	source = https://github.com/IrosTheBeggar/mStream/releases/download/v3.0.7/mstreamExpress-linux-v0.4.3.tar.gz
 	md5sums = eb14e68bc67fe44ca7cbf209729c0c42
 

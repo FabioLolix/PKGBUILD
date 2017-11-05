@@ -13,6 +13,7 @@ pkgbase = linux-test-project
 	depends = libtirpc
 	depends = python2
 	depends = libaio
+	depends = numactl
 	source = https://github.com/linux-test-project/ltp/releases/download/20170929/ltp-full-20170929.tar.bz2
 	md5sums = 68ee7d940f349e176b778411cbfd33e4
 

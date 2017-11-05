@@ -12,7 +12,7 @@ license=('custom:brother EULA')
 depends=('cups')
 depends_x86_64=('lib32-glibc')
 optdepends=('brscan4')
-install="brother-dcpt700w.install"
+install="${pkgname}.install"
 source=('fix_lp.patch'
         'LICENSE'
         "http://download.brother.com/welcome/dlf101950/dcpt700wlpr-$pkgver-0.i386.rpm"
