@@ -12,7 +12,6 @@ depends=('at' 'glyr' 'python-pycurl' 'python-requests' 'python-urllib3' 'python-
          'abcde' 'handbrake-cli' 'libdvdcss' )
 makedepends=('git')
 optdepends=('makemkv'
-            'makemkv-cli'
             'plex-media-server: Plex support'
             'emby-server: Emby support')
 provides=('automatic-ripping-machine')

@@ -30,17 +30,17 @@ pkgver() {
 
 build() {
   cd $pkgname/Build
-  cmake -DCMAKE_INSTALL_PREFIX="" -DBUILD_SAMPLES=ON \
-    -DBUILD_PYTHON_BINDINGS=ON -DPYTHON_EXECUTABLE=/usr/bin/python2 .
+  cmake -DCMAKE_INSTALL_PREFIX='/usr' \
+        -DCMAKE_INSTALL_LIBDIR='/usr/lib' \
+        -DBUILD_SAMPLES=ON \
+        -DBUILD_PYTHON_BINDINGS=ON \
+        -DPYTHON_EXECUTABLE=/usr/bin/python2 .
   make
 }
 
 package() {
   cd $pkgname
-  make -C Build install DESTDIR="$pkgdir/usr"
-
-  mv $pkgdir/usr/lib64/* $pkgdir/usr/lib/
-  rm -r $pkgdir/usr/lib64
+  make -C Build install DESTDIR="$pkgdir/"
 
   # doc
   install -d "$pkgdir"/usr/share/doc/librocket

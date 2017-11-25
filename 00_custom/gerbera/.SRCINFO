@@ -1,7 +1,7 @@
 pkgbase = gerbera
 	pkgdesc = UPnP Media Server
 	pkgver = 1.1.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/v00d00/gerbera
 	arch = i686
 	arch = x86_64

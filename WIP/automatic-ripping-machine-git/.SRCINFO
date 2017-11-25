@@ -19,7 +19,6 @@ pkgbase = automatic-ripping-machine-git
 	depends = handbrake-cli
 	depends = libdvdcss
 	optdepends = makemkv
-	optdepends = makemkv-cli
 	optdepends = plex-media-server: Plex support
 	optdepends = emby-server: Emby support
 	provides = automatic-ripping-machine

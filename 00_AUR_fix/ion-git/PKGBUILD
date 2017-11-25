@@ -1,7 +1,7 @@
 # Maintainer: Luca Weiss <luca (at) z3ntu (dot) xyz>
 
 pkgname=ion-git
-pkgver=1.0.5.r281.ga864df7
+pkgver=1.0.5.r317.gb8b813a
 pkgrel=1
 pkgdesc="The Ion Shell. Compatible with Redox and Linux. (Git version)"
 arch=("x86_64" "i686")
@@ -25,7 +25,7 @@ build() {
   cd $srcdir/${pkgname}
   cargo build --release
 
-  cd $srcdir/$_pkgname/manual
+  cd $srcdir/${pkgname}/manual
   mdbook build
 }
 
@@ -39,5 +39,6 @@ package() {
   install -Dm755 target/release/ion $pkgdir/usr/bin/ion
 
   install -Dm644 ${srcdir}/MIT $pkgdir/usr/share/licenses/${pkgname}/MIT
-  cp -r ${srcdir}/ion/manual/book ${pkgdir}/usr/share/doc/${_pkgname}
+  install -d ${pkgdir}/usr/share/doc/${pkgname}
+  cp -r ${srcdir}/${pkgname}/manual/book ${pkgdir}/usr/share/doc/${pkgname}
 }
