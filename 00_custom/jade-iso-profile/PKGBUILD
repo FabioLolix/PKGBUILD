@@ -1,0 +1,19 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
+
+pkgname=jade-iso-profile
+pkgver=0.1
+pkgrel=2
+pkgdesc="Lolix custom profiles, to use with Manjaro official profiles. No global customizations"
+arch=('any')
+url="https://github.com/FabioLolix/iso-profile-custom"
+license=('GPL')
+depends=('manjaro-iso-profiles-community')
+#makedepends=('git')
+options=('!strip')
+source=("local://webdad.zip")
+md5sums=('54c9fdf27a44afb87e836517c2de7e78')
+
+package() {
+  install -d ${pkgdir}/usr/share/manjaro-tools/iso-profiles/community/
+  cp -r ${srcdir}/webdad ${pkgdir}/usr/share/manjaro-tools/iso-profiles/community/
+}
