@@ -1,0 +1,39 @@
+# $Id$
+# Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+# Contributor: Yosef Or Boczko <yoseforb@gnome.org>
+
+pkgname=gnome-software
+pkgver=3.26.3
+pkgrel=1
+pkgdesc="GNOME Software Tools"
+arch=(x86_64)
+license=(GPL2)
+url="https://wiki.gnome.org/Apps/Software/"
+depends=(gtk3 appstream-glib libsoup gsettings-desktop-schemas gnome-desktop flatpak
+         packagekit archlinux-appstream-data gtkspell3 libgudev fwupd liboauth)
+makedepends=(python docbook-xsl git valgrind meson gobject-introspection gtk-doc)
+_commit=f38f46c22d7be15f0415925e06c4cc2b94950fbc  # tags/GNOME_SOFTWARE_3_26_3^0
+source=("git+https://git.gnome.org/browse/gnome-software#commit=$_commit")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd $pkgname
+  git describe --tags | sed 's/^GNOME_SOFTWARE_//;s/_/./g;s/-/+/g'
+}
+
+prepare() {
+  mkdir build
+  cd $pkgname
+}
+
+build() {
+  cd build
+  arch-meson ../$pkgname -Denable-rpm=false
+  ninja
+}
+
+package() {
+  cd build
+  DESTDIR="$pkgdir" ninja install
+}

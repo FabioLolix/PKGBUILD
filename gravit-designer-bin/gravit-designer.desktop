@@ -6,3 +6,4 @@ Terminal=false
 Type=Application
 Icon=gravit-designer.png
 Categories=Graphics;VectorGraphics;GTK;
+Name[it_IT]=gravit-designer.desktop

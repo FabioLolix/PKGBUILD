@@ -1,7 +1,7 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
 
 pkgname=gravit-designer-bin
-pkgver=3.2.5
+pkgver=3.2.6
 pkgrel=1
 pkgdesc="A cross-platform, free design tool for the 21st century empowering everyone to design"
 arch=('x86_64')
@@ -13,26 +13,31 @@ depends=('alsa-lib'
          'gconf'
          'libxtst'
          'nss')
-source=("https://designer.gravit.io/_downloads/linux/GravitDesigner.zip"
-        "gravitdesigner.desktop")
+makedepends=('p7zip')
+source=("${pkgname}-${pkgver}.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip"
+        "gravit-designer.desktop"
+        "gravit-designer.png")
 #changelog=https://discuss.gravit.io/t/changelog-for-gravit-designer/71
-md5sums=('b2f9ca124af0794b6416c47b5faff0aa'
-         '377dce4a55e955ffd58e67731a82c745')
+md5sums=('b9f59627273275c5a3283a64e9e69714'
+         '50b7bfcc88c76370a96ed07b5f2c5ddd'
+         'a9c256cb9eb6bc9a280c5dccee2ad9af')
 PKGEXT='.pkg.tar'
 
 package() {
-  bsdtar -xf GravitDesigner.AppImage -C ${srcdir}/
+  install -d ${srcdir}/appimage
+  7z x -y ${srcdir}/GravitDesigner.AppImage -o${srcdir}/appimage
 
   install -d ${pkgdir}/opt/${pkgname}
-  cp -r ${srcdir}/usr/bin/* ${pkgdir}/opt/${pkgname}/
+  cp -r ${srcdir}/appimage/app/* ${pkgdir}/opt/${pkgname}/
 
   install -d ${pkgdir}/usr/share/applications/
-  install -D ${srcdir}/gravitdesigner.desktop ${pkgdir}/usr/share/applications/gravitdesigner.desktop
+  install -D ${srcdir}/gravit-designer.desktop ${pkgdir}/usr/share/applications/gravit-designer.desktop
   install -d ${pkgdir}/usr/bin
   ln -s /opt/${pkgname}/gravit-designer ${pkgdir}/usr/bin/gravit-designer
-  chown root:root -R ${pkgdir}/
+  chmod +x ${pkgdir}/opt/gravit-designer-bin/gravit-designer
+#  chown root:root -R ${pkgdir}/
 
-  install -D ${srcdir}/usr/share/icons/default/64x64/apps/gravit-designer.png ${pkgdir}/usr/share/pixmaps/gravit-designer.png
+  install -D ${srcdir}/gravit-designer.png ${pkgdir}/usr/share/pixmaps/gravit-designer.png
 
   install -d ${pkgdir}/usr/share/licenses/${pkgname}
   mv  ${pkgdir}/opt/${pkgname}/{LICENSE.electron.txt,LICENSES.chromium.html} ${pkgdir}/usr/share/licenses/${pkgname}/

@@ -12,7 +12,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-qt5-lite-git
-pkgver=1.3.1.r425.g0a59257dc
+pkgver=1.3.1.r426.gb8381321c
 pkgrel=1
 pkgdesc="A modern music player and library organiser, qt5 version, disabled plugins"
 arch=('i686' 'x86_64')

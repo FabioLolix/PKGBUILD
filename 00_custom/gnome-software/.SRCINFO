@@ -1,0 +1,31 @@
+pkgbase = gnome-software
+	pkgdesc = GNOME Software Tools
+	pkgver = 3.26.3
+	pkgrel = 1
+	url = https://wiki.gnome.org/Apps/Software/
+	arch = x86_64
+	license = GPL2
+	makedepends = python
+	makedepends = docbook-xsl
+	makedepends = git
+	makedepends = valgrind
+	makedepends = meson
+	makedepends = gobject-introspection
+	makedepends = gtk-doc
+	depends = gtk3
+	depends = appstream-glib
+	depends = libsoup
+	depends = gsettings-desktop-schemas
+	depends = gnome-desktop
+	depends = flatpak
+	depends = packagekit
+	depends = archlinux-appstream-data
+	depends = gtkspell3
+	depends = libgudev
+	depends = fwupd
+	depends = liboauth
+	source = git+https://git.gnome.org/browse/gnome-software#commit=f38f46c22d7be15f0415925e06c4cc2b94950fbc
+	sha256sums = SKIP
+
+pkgname = gnome-software
+

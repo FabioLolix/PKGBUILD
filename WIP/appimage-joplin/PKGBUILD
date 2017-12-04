@@ -1,0 +1,29 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
+
+pkgname=joplin-appimage
+pkgver=0.10.30
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url=""
+license=()
+depends=()
+source=("https://github.com/laurent22/joplin/releases/download/v${pkgver}/Joplin-${pkgver}-x86_64.AppImage")
+#        ".desktop")
+md5sums=('cfe5e1253e1d0f930aeb697e138cae35')
+#         '377dce4a55e955ffd58e67731a82c745')
+PKGEXT='.pkg.tar'
+
+package() {
+  install -d ${pkgdir}/opt/joplin
+  install -d ${pkgdir}/usr/bin
+  install -d ${pkgdir}/usr/share/applications/
+
+  7z x -y Joplin-${pkgver}-x86_64.AppImage -o${pkgdir}/opt/joplin
+
+#  install -D ${srcdir}/${pkgname}.desktop ${pkgdir}/usr/share/applications/${pkgname}.desktop
+
+#  ln -s /opt/${pkgname}/NAME ${pkgdir}/usr/bin/NAME
+#  install -d ${pkgdir}/usr/share/pixmaps/
+#  install -d ${pkgdir}/usr/share/licenses/${pkgname}
+}

@@ -6,6 +6,7 @@
 *.run
 *.whl
 *.html
+*.AppImage
 waf*
 MIT
 solar2.png
