@@ -5,14 +5,16 @@
 
 pkgname=gnome-software
 pkgver=3.26.3
-pkgrel=1
+pkgrel=4
 pkgdesc="GNOME Software Tools"
 arch=(x86_64)
 license=(GPL2)
 url="https://wiki.gnome.org/Apps/Software/"
-depends=(gtk3 appstream-glib libsoup gsettings-desktop-schemas gnome-desktop flatpak
-         packagekit archlinux-appstream-data gtkspell3 libgudev fwupd liboauth)
-makedepends=(python docbook-xsl git valgrind meson gobject-introspection gtk-doc)
+depends=('gtk3' 'appstream-glib' 'libsoup' 'gsettings-desktop-schemas' 'gnome-desktop' 'flatpak' 'gtkspell3' 'json-glib' 'sqlite3')
+
+# packagekit archlinux-appstream-data libgudev fwupd liboauth
+
+makedepends=('python' 'docbook-xsl' 'git' 'valgrind' 'meson' 'gobject-introspection' 'gtk-doc')
 _commit=f38f46c22d7be15f0415925e06c4cc2b94950fbc  # tags/GNOME_SOFTWARE_3_26_3^0
 source=("git+https://git.gnome.org/browse/gnome-software#commit=$_commit")
 sha256sums=('SKIP')
@@ -29,7 +31,21 @@ prepare() {
 
 build() {
   cd build
-  arch-meson ../$pkgname -Denable-rpm=false
+  arch-meson ../$pkgname \
+    -Denable-rpm=false \
+    -Denable-packagekit=false \
+    -Denable-tests=false \
+    -Denable-limba=false \
+    -Denable-rpm-ostree=false \
+    -Denable-shell-extensions=false \
+    -Denable-odrs=false \
+    -Denable-ubuntuone=false \
+    -Denable-ubuntu-reviews=false \
+    -Denable-webapps=false \
+    -Denable-gudev=false \
+    -Denable-snap=false \
+    -Denable-external-appstream=false \
+    -Denable-fwupd=false
   ninja
 }
 
