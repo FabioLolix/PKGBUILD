@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Categories=Audio;Player;Qt;
+Comment=UPnP audio Control Point
+Exec=bash -c "export LANG=C; /opt/eezUPnP/CP"
+GenericName=UPnP audio Control Point
+Icon=/opt/eezUPnP/icon.xpm
+Name=eezUPnP
+StartupNotify=true
+Terminal=false
+Type=Application
+Keywords=audio;upnp;
+
