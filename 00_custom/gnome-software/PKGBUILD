@@ -5,8 +5,8 @@
 
 pkgname=gnome-software
 pkgver=3.26.3
-pkgrel=4
-pkgdesc="GNOME Software Tools"
+pkgrel=5
+pkgdesc="Flatpak only. Lolix. GNOME Software Tools"
 arch=(x86_64)
 license=(GPL2)
 url="https://wiki.gnome.org/Apps/Software/"

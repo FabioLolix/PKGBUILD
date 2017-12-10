@@ -1,7 +1,7 @@
 pkgbase = gnome-software
-	pkgdesc = GNOME Software Tools
+	pkgdesc = Flatpak only. Lolix. GNOME Software Tools
 	pkgver = 3.26.3
-	pkgrel = 4
+	pkgrel = 5
 	url = https://wiki.gnome.org/Apps/Software/
 	arch = x86_64
 	license = GPL2

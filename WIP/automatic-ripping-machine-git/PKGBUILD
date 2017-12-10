@@ -2,7 +2,7 @@
 
 pkgname=automatic-ripping-machine-git
 pkgver=v1.4.0.r31.g3b03122
-pkgrel=1
+pkgrel=2
 pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
 arch=('x86_64')
 url="https://b3n.org/automatic-ripping-machine/"
@@ -44,6 +44,6 @@ package() {
   install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
   ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
   chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
-  chmod -R 750 ${pkgdir}/root/.abcde.conf
+  #chmod -R 750 ${pkgdir}/root/.abcde.conf
   rm -R ${pkgdir}/opt/arm/requirements.txt
 }

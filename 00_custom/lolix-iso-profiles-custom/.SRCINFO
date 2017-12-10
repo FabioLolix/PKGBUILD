@@ -1,6 +1,6 @@
 pkgbase = lolix-manjaro-iso-profiles-remix-git
 	pkgdesc = Lolix custom profiles, to use with Manjaro official profiles. No global customizations
-	pkgver = r21.9303d75
+	pkgver = r23.6c6ad98
 	pkgrel = 1
 	url = https://github.com/FabioLolix/iso-profile-custom
 	arch = any

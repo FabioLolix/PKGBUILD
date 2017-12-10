@@ -1,7 +1,7 @@
 pkgbase = automatic-ripping-machine-git
 	pkgdesc = Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray
 	pkgver = v1.4.0.r31.g3b03122
-	pkgrel = 1
+	pkgrel = 2
 	url = https://b3n.org/automatic-ripping-machine/
 	arch = x86_64
 	license = MIT

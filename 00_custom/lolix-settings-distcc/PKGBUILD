@@ -1,0 +1,21 @@
+# Maintainer: 
+
+pkgname=lolix-settings-distcc
+pkgver=
+pkgrel=1
+pkgdesc=""
+arch=('any')
+url="https://github.com/FabioLolix/PKGBUILD"
+license=('none')
+depends=('distcc')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+
+source=()
+
+md5sums=()
