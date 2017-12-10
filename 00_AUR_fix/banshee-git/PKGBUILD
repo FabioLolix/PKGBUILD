@@ -34,12 +34,12 @@ source=("$pkgname::git+https://github.com/arfbtwn/banshee.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "pkgname"
+  cd "$pkgname"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd "pkgname"
+  cd "$pkgname"
 #  autoreconf -fvi
   NOCONFIGURE=1 ./autogen.sh
   export MONO_SHARED_DIR="$srcdir/.wabi"
@@ -74,7 +74,7 @@ build() {
   export MONO_SHARED_DIR="$srcdir/.wabi"
   mkdir -p "$MONO_SHARED_DIR"
   export LIBGPODSHARP='-r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll'
-  cd "$srcdir/pkgname"
+  cd "$srcdir/$pkgname"
   make
 }
 
@@ -82,7 +82,7 @@ package() {
   export MONO_SHARED_DIR="$srcdir/.wabi"
   mkdir -p "$MONO_SHARED_DIR"
 
-  cd "$srcdir/pkgname"
+  cd "$srcdir/$pkgname"
   make DESTDIR="$pkgdir" install
 
   install -D -m644 COPYING "$pkgdir/usr/share/licenses/$_pkgbase/COPYING"
