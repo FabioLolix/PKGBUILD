@@ -8,14 +8,14 @@ pkgdesc="Music management and playback for GNOME (fork by arfbtwn)"
 arch=('i686' 'x86_64')
 url="https://github.com/arfbtwn/banshee"
 license=('MIT')
-depends=(libxxf86vm gst-plugins-base-libs mono-addins dbus-sharp-glib libsoup \
-taglib-sharp-git gconf-sharp libmtp hicolor-icon-theme \
-media-player-info gst-plugins-bad mono-upnp-git gst-plugins-good gvfs libgpod)
+depends=(libxxf86vm gst-plugins-base-libs mono-addins dbus-sharp-glib libsoup
+taglib-sharp gconf-sharp libmtp hicolor-icon-theme
+media-player-info gst-plugins-bad gst-plugins-good gvfs libgpod gtk-sharp-3)
 makedepends=('intltool' 'gnome-doc-utils' 'gnome-common')
 optdepends=('gst-plugins-ugly: Extra media codecs'
             'gst-libav: Extra media codecs'
             'brasero: CD burning')
-conflicts=($_pkgbase)
+conflicts=('banshee')
 source=(git+https://github.com/arfbtwn/banshee.git)
 md5sums=(SKIP)
 
@@ -37,9 +37,11 @@ build() {
   -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll
   -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll' \
   LIBGPODSHARP_LIBS=$(echo $hackyhack) MCS=/usr/bin/mcs ./configure \
-               --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
-              --disable-gst_sharp \
+              --prefix=/usr \
+              --sysconfdir=/etc \
+              --localstatedir=/var \
               --enable-gst-native \
+              --disable-gst_sharp \
               --disable-docs \
               --disable-static \
               --disable-scrollkeeper \
@@ -47,7 +49,12 @@ build() {
               --disable-user-help \
               --disable-youtube \
               --disable-gio-hardware \
-              --enable-treeview \
+              --disable-upnp \
+              --disable-clutter \
+              --disable-daap \
+              --disable-appledevice \
+              --disable-mtp \
+              --disable-gio \
               --with-vendor-build-id=ArchLinux
 
   export MONO_SHARED_DIR="$srcdir/.wabi"
