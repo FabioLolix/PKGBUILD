@@ -8,8 +8,8 @@ pkgdesc="Qt Modern Music Player with collection browse based on cover art"
 arch=('i686' 'x86_64')
 url="https://launchpad.net/yarock"
 license=('GPL3')
-depends=('htmlcxx' 'qt5-x11extras' 'taglib>=1.10' 'mpv')
-makedepends=('cmake' 'qt5-tools')
+depends=('htmlcxx' 'taglib>=1.10' 'mpv' 'gcc-libs')
+makedepends=('cmake' 'qt5-tools' 'qt5-x11extras')
 provides=('yarock')
 conflicts=('yarock' 'yarock-qt5')
 source=("https://launchpad.net/yarock/1.x/${pkgver}/+download/Yarock_${pkgver}_Sources.tar.gz")

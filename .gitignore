@@ -1,3 +1,4 @@
+*.log
 *.rpm
 *.deb
 *.tar*
@@ -44,6 +45,7 @@ WIP/*/MIT
 */gmusicbr*
 */ptxconf*
 */alsaplayer*
+*/libbacktrace*
 
 Python_module/*/bandcamp-dl
 

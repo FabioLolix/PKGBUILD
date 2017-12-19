@@ -8,6 +8,7 @@ pkgdesc='C library that may be linked into a C or C++ program to produce symboli
 arch=('x86_64' 'i686')
 url='https://github.com/ianlancetaylor/libbacktrace'
 license=('BSD')
+makedepends=('git')
 source=('backtrace.pc' "git://github.com/ianlancetaylor/libbacktrace#commit=ba79a27")
 md5sums=('2487a9df01f61894bad455138cfd81d3'
          'SKIP')

@@ -10,6 +10,7 @@ arch=('i686' 'x86_64')
 url="https://github.com/samkpo/qiviewer"
 license=('GPL2')
 depends=('qt4')
+makedepends=('git' 'cmake')
 #changelog=https://github.com/samkpo/qiviewer/blob/master/ChangeLog
 source=("git+https://github.com/samkpo/qiviewer.git")
 md5sums=('SKIP')

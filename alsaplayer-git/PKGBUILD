@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 url="http://alsaplayer.sourceforge.net/"
 license=('GPL')
 depends=('desktop-file-utils')
-makedepends=('gtk2' 'libid3tag' 'libvorbis' 'libmad' 'libmikmod' 'jack' 'mesa' 'audiofile' 'doxygen' 'git')
+makedepends=('gtk2' 'libid3tag' 'libvorbis' 'libmad' 'libmikmod' 'jack' 'mesa' 'audiofile' 'doxygen' 'git' 'intltool')
 optdepends=('gtk2: for the gtk2 GUI interface'
             'libgl: for the OpenGL visual plugins'
             'jack: for JACK audio server output support'

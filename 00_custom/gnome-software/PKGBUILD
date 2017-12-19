@@ -5,12 +5,12 @@
 
 pkgname=gnome-software
 pkgver=3.26.3
-pkgrel=5
+pkgrel=1.1
 pkgdesc="Flatpak only. Lolix. GNOME Software Tools"
 arch=(x86_64)
 license=(GPL2)
 url="https://wiki.gnome.org/Apps/Software/"
-depends=('gtk3' 'appstream-glib' 'libsoup' 'gsettings-desktop-schemas' 'gnome-desktop' 'flatpak' 'gtkspell3' 'json-glib' 'sqlite3')
+depends=('gtk3' 'appstream-glib' 'libsoup' 'gsettings-desktop-schemas' 'gnome-desktop' 'flatpak' 'gtkspell3' 'json-glib' 'sqlite3' 'liboauth')
 
 # packagekit archlinux-appstream-data libgudev fwupd liboauth
 
