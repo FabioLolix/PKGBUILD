@@ -16,6 +16,7 @@ pkgbase = alsaplayer-git
 	makedepends = audiofile
 	makedepends = doxygen
 	makedepends = git
+	makedepends = intltool
 	depends = desktop-file-utils
 	optdepends = gtk2: for the gtk2 GUI interface
 	optdepends = libgl: for the OpenGL visual plugins

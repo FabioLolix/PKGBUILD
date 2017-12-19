@@ -90,7 +90,7 @@ Package which use rpmextarct
 }
 
 ### Git no tags
-Z pkgver() {
+> pkgver() {
   cd ${pkgname}
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
