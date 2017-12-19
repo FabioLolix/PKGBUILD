@@ -1,20 +1,22 @@
 # Maintainer: Maximilian Kindshofer <maximilian@kindshofer.net>
 pkgname=kitty-git
-pkgver=r696.0d38a2e
+pkgver=v0.6.0.r2.g8d94285
 pkgrel=1
 pkgdesc="A modern, hackable, featureful, OpenGL based terminal emulator"
 arch=('i686' 'x86_64')
 url="https://github.com/kovidgoyal/kitty"
 license=('GPL3')
-depends=('python3' 'glew' 'glfw-x11' 'freetype2' 'xorg-xdpyinfo' 'xsel')
+depends=('python' 'glew' 'glfw-x11' 'freetype2' 'xorg-xdpyinfo' 'xsel' 'fontconfig' 'libunistring' 'libxkbcommon' 'libxkbcommon-x11')
 makedepends=('git' 'pkg-config' 'python-setuptools')
+provides=('kitty')
+conflicts=('kitty' 'kitty-git')
 source=('git+https://github.com/kovidgoyal/kitty.git')
 md5sums=('SKIP')
 
 pkgver() {
     cd kitty
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-    }
+    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
 
 build() {
 	cd "$srcdir/kitty"
@@ -29,4 +31,8 @@ package() {
     cp -r bin/* $pkgdir/usr/bin
     cp -r share/* $pkgdir/usr/share/
     cp -r lib/* $pkgdir/usr/lib/
+
+    install -d ${pkgdir}/usr/share/pixmaps/
+    mv ${pkgdir}/usr/share/icons/hicolor/256x256/apps/kitty.png ${pkgdir}/usr/share/pixmaps/kitty.png
+    rm -R ${pkgdir}/usr/share/icons
     }
