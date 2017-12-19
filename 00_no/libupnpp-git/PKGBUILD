@@ -9,6 +9,7 @@ url="http://www.lesbonscomptes.com/upplay/downloads.html"
 arch=('x86_64' 'i686')
 license=('GPL2')
 depends=('libupnp' 'expat' 'curl')
+makedepends=('git')
 source=("git+https://@opensourceprojects.eu/git/p/libupnpp/code")
 md5sums=('SKIP')
 
