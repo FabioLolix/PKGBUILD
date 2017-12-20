@@ -1,19 +1,19 @@
 pkgbase = thunarx-python
 	pkgdesc = Thunarx Python Bindings
-	pkgver = 0.3.0
-	pkgrel = 2
+	pkgver = 0.4.0
+	pkgrel = 1
 	url = http://rabbitvcs.org/
 	arch = i686
 	arch = x86_64
 	license = GPL
 	depends = python2
-	depends = thunar>=0.4.0
+	depends = thunar-gtk3
 	depends = pygtk>=2.6.0
-	depends = pygobject>=2.6.0
-	source = http://archive.xfce.org/src/bindings/thunarx-python/0.3/thunarx-python-0.3.0.tar.bz2
+	depends = pygobject-devel
+	source = http://archive.xfce.org/src/bindings/thunarx-python/0.4/thunarx-python-0.4.0.tar.bz2
 	source = python2.patch
-	md5sums = 86a28c4c34cae534f2793133b4755794
-	md5sums = 6144a91d626ad14b52723edc471369c2
+	md5sums = abd87dce13eb3f7f62badc8f0c0df47d
+	md5sums = 1080ad80c523f4ab042e84a6c14cbf9f
 
 pkgname = thunarx-python
 
