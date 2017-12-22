@@ -37,5 +37,5 @@ package() {
 	install -Dm0644 "$srcdir"/gerbera.sysusers "$pkgdir"/usr/lib/sysusers.d/gerbera.conf
 	install -Dm0644 "$srcdir"/gerbera.service "$pkgdir"/usr/lib/systemd/system/gerbera.service
 
-    chown -R gerbera:gerbera /var/lib/gerbera
+#    chown -R gerbera:gerbera /var/lib/gerbera
 }
