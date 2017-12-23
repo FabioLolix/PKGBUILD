@@ -1,0 +1,41 @@
+# Maintainer: 
+
+pkgname=sshtron-git
+pkgver=r110.bb2e5e7
+pkgrel=1
+pkgdesc="Play Tron over SSH, written in Go"
+arch=('x86_64')
+url="http://sshtron.zachlatta.com/"
+license=('MIT')
+depends=('glibc')
+makedepends=('git' 'go')
+provides=('sshtron')
+conflicts=('sshtron')
+
+prepare() {
+  export GOPATH=$srcdir
+    go get github.com/zachlatta/sshtron
+
+  cd ${srcdir}/src/github.com/zachlatta/sshtron
+    ssh-keygen -t rsa -f id_rsa
+}
+
+pkgver() {
+  cd ${srcdir}/src/github.com/zachlatta/sshtron
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  export GOPATH=$srcdir
+    cd ${srcdir}/src/github.com/zachlatta/sshtron
+    go build
+}
+
+package() {
+  cd ${srcdir}/${pkgname}
+
+    install -D ${srcdir}/bin/sshtron ${pkgdir}/usr/bin/sshtron/sshtron
+    cp -r ${srcdir}/src/github.com/zachlatta/sshtron/{id_rsa,id_rsa.pub} ${pkgdir}/usr/bin/sshtron/
+
+    install -D ${srcdir}/${pkgname}/LICENSE  ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
+}

@@ -1,6 +1,6 @@
 # Maintainer: Michael Straube <straubem@gmx.de>
 
-pkgname=bluemindo
+pkgname=bluemindo-svn
 pkgver=r215
 pkgrel=1
 pkgdesc='Ergonomic and modern music player designed for audiophiles'
@@ -14,7 +14,9 @@ optdepends=('pulseaudio: PulseAudio support'
             'gst-plugins-ugly: additional codecs'
             'gst-libav: libav codec')
 makedepends=('subversion')
-source=("svn+http://svn.codingteam.net/bluemindo"
+provides=('bluemindo')
+conflicts=('bluemindo')
+source=("${pkgname}::svn+http://svn.codingteam.net/bluemindo"
         "bluemindo.patch")
 sha256sums=('SKIP'
             '3f8758bd2255966af796937902e1ff5064df3f34283172eaee8b28d855fb0747')

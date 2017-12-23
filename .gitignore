@@ -61,11 +61,11 @@ Python_module/*/bandcamp-dl
 00_custom/*/pkg
 00_custom/*/src
 00_custom/*/qmc2*
-00_custom/*/lolix*
 00_custom/*/gnome*
 
 01_settings/*/pkg
 01_settings/*/src
+01_settings/*/lolix*
 
 WIP/*/LICENSE
 WIP/*/squeezeplay
@@ -78,4 +78,4 @@ WIP/*/open*
 WIP/*/komorebi*
 WIP/*/monoprice22*
 WIP/*/bash-insulter*
-WIP/*/bluemindo
+WIP/*/bluemindo*
