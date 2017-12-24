@@ -4,20 +4,21 @@ pkgbase = gravit-designer-bin
 	pkgrel = 1
 	url = https://designer.io/
 	arch = x86_64
-	license = unknow
-	makedepends = p7zip
+	license = custom:freeware
 	depends = alsa-lib
 	depends = libxss
 	depends = gtk2
 	depends = gconf
 	depends = libxtst
 	depends = nss
-	source = local://gravit-designer-bin-3.2.6.zip
+	source = gravit-designer-bin-3.2.6.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip
 	source = gravit-designer.desktop
 	source = gravit-designer.png
+	source = LICENSE
 	md5sums = d89d94a2f3eaa368e9c78fa6a2838b56
-	md5sums = 50b7bfcc88c76370a96ed07b5f2c5ddd
+	md5sums = 689ceb636418b52236edd98207fb9387
 	md5sums = a9c256cb9eb6bc9a280c5dccee2ad9af
+	md5sums = 021ccafc0993d3c34265ae59048d4bf2
 
 pkgname = gravit-designer-bin
 
