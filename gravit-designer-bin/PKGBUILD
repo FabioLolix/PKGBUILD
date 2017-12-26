@@ -22,10 +22,6 @@ PKGEXT='.pkg.tar'
 package() {
   chmod +x GravitDesigner.AppImage
   ./GravitDesigner.AppImage --appimage-extract
-  mv squashfs-root/app ${srcdir}/
-  mv squashfs-root/usr ${srcdir}/
-  rm -r squashfs-root
-  find ${srcdir}/app -type d -exec chmod 755 {} +
   install -d ${pkgdir}/opt/${pkgname}
   cp -r ${srcdir}/app/* ${pkgdir}/opt/${pkgname}/
   install -D ${srcdir}/gravit-designer.desktop ${pkgdir}/usr/share/applications/gravitdesigner.desktop
