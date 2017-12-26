@@ -8,12 +8,12 @@ arch=('x86_64')
 url="https://designer.io/"
 license=('custom:freeware')
 depends=('alsa-lib' 'libxss' 'gtk2' 'gconf' 'libxtst' 'nss')
-source=("${pkgname}-${pkgver}.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip"
+source=("${pkgname}-${pkgver}.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip?v=${pkgver}"
         "gravit-designer.desktop"
         "gravit-designer.png"
         "LICENSE")
 #changelog=https://discuss.gravit.io/t/changelog-for-gravit-designer/71
-md5sums=('d89d94a2f3eaa368e9c78fa6a2838b56'
+md5sums=('b9f59627273275c5a3283a64e9e69714'
          '689ceb636418b52236edd98207fb9387'
          'a9c256cb9eb6bc9a280c5dccee2ad9af'
          '021ccafc0993d3c34265ae59048d4bf2')
