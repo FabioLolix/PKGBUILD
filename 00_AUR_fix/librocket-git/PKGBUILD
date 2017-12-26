@@ -11,9 +11,9 @@ arch=('i686' 'x86_64')
 url="http://librocket.com"
 license=('MIT')
 depends=('boost' 'freetype2' 'python2' 'libgl' 'glu')
-makedepends=('cmake' 'mesa')
+makedepends=('cmake' 'mesa' 'git')
 conflicts=('librocket')
-provides=('librocket' "$pkgname")
+provides=('librocket')
 source=("$pkgname::git+https://github.com/libRocket/libRocket.git")
 sha256sums=('SKIP')
 
