@@ -20,16 +20,15 @@ md5sums=('d89d94a2f3eaa368e9c78fa6a2838b56'
 PKGEXT='.pkg.tar'
 
 package() {
-  chmod +x GravitDesigner.AppImage
   ./GravitDesigner.AppImage --appimage-extract
   install -d ${pkgdir}/opt/${pkgname}
-  cp -r ${srcdir}/app/* ${pkgdir}/opt/${pkgname}/
-  install -D ${srcdir}/gravit-designer.desktop ${pkgdir}/usr/share/applications/gravitdesigner.desktop
+  cp -r --no-preserve=all ${srcdir}/squashfs-root/app/* ${pkgdir}/opt/${pkgname}/
+  chmod +x ${pkgdir}/opt/${pkgname}/gravit-designer
   install -d ${pkgdir}/usr/bin
   ln -s /opt/${pkgname}/gravit-designer ${pkgdir}/usr/bin/gravit-designer
-  chown root:root -R ${pkgdir}/
-  install -D ${srcdir}/gravit-designer.png ${pkgdir}/usr/share/pixmaps/gravit-designer.png
 
+  install -D ${srcdir}/gravit-designer.desktop ${pkgdir}/usr/share/applications/gravitdesigner.desktop
+  install -D ${srcdir}/gravit-designer.png ${pkgdir}/usr/share/pixmaps/gravit-designer.png
   install -D ${srcdir}/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
   mv  ${pkgdir}/opt/${pkgname}/{LICENSE.electron.txt,LICENSES.chromium.html} ${pkgdir}/usr/share/licenses/${pkgname}/
 }
