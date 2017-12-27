@@ -48,8 +48,6 @@ build() {
    
   cmake $srcdir/$pkgname
   make
-  rm $srcdir/$pkgname/resources
-  cp -r $srcdir/$pkgname/resources .
 }
 
 package() {
@@ -59,24 +57,19 @@ package() {
     install -Dm755 $srcdir/build/$_f "$pkgdir"/usr/bin/"$_pkgname"-$_f
   done
   # data
-  install -d "$pkgdir"/usr/share/"$_pkgname"
   install -d "$pkgdir"/usr/share/"$_pkgname"/resources
   cp -r $srcdir/build/resources "$pkgdir"/usr/share/"$_pkgname"/resources
   # doc
   install -Dm644 $srcdir/$pkgname/readme.md "$pkgdir"/usr/share/doc/"$_pkgname"/readme.md
   # shorcuts
-  mkdir -p "$pkgdir"/usr/share/applications
-  install -m755 freeablo.desktop "$pkgdir"/usr/share/applications
+  install -Dm755 freeablo.desktop "$pkgdir"/usr/share/applications/freeablo.desktop
   #### I(Eden) Created this Icon. It is LICENSED(GPL).
-  mkdir -p "$pkgdir"/usr/share/icons
-  install -m755 freeablo_icon.svg "$pkgdir"/usr/share/icons
-  #install -m755 freeablo_icon.png "$pkgdir"/usr/share/icons
-  #install -m755 freeablo_icon.xcf "$pkgdir"/usr/share/"$_pkgname"
+  install -Dm755 freeablo_icon.svg "$pkgdir"/usr/share/icons/freeablo_icon.svg
   install -Dm755 freeablo.sh "$pkgdir"/usr/bin/freeablo
   #### NOTE: DIABLO 1, is ABANDONWARE. Please NOTE: This Game is still licensed by Blizzard. Please ...
   #### Support future Releases.
   
-  install -m755 "$srcdir"/'Diablo-files'/Diabdat.mpq "$pkgdir"/usr/share/freeablo/resources/DIABDAT.MPQ
-  install -m755 "$srcdir"/'Diablo-files'/Diablo.exe "$pkgdir"/usr/share/freeablo/resources/Diablo.exe
+  install -m755 "$srcdir"/DIABDAT.MPQ "$pkgdir"/usr/share/freeablo/resources/DIABDAT.MPQ
+  install -m755 "$srcdir"/Diablo.exe "$pkgdir"/usr/share/freeablo/resources/Diablo.exe
   
 }

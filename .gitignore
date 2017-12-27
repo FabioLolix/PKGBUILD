@@ -57,6 +57,7 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/*/libav*
 00_AUR_fix/*/banshee*
 00_AUR_fix/*/kitty
+00_AUR_fix/*/freeablo*
 
 00_custom/*/pkg
 00_custom/*/src
