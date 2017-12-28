@@ -275,5 +275,5 @@ cd ..
 VAR40=voltra
 cd $PWD/$VAR40
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT,voltra.png} ~/Dev/Github/AUR/$VAR40
+    rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT,voltra.png,*.html} ~/Dev/Github/AUR/$VAR40
 cd ..

@@ -6,7 +6,6 @@
 *.zip
 *.run
 *.whl
-*.html
 *.AppImage
 waf*
 MIT
