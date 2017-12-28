@@ -11,11 +11,11 @@ pkgbase = gravit-designer-bin
 	depends = gconf
 	depends = libxtst
 	depends = nss
-	source = gravit-designer-bin-3.2.6.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip
+	source = gravit-designer-bin-3.2.6.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip?v=3.2.6
 	source = gravit-designer.desktop
 	source = gravit-designer.png
 	source = LICENSE
-	md5sums = d89d94a2f3eaa368e9c78fa6a2838b56
+	md5sums = b9f59627273275c5a3283a64e9e69714
 	md5sums = 689ceb636418b52236edd98207fb9387
 	md5sums = a9c256cb9eb6bc9a280c5dccee2ad9af
 	md5sums = 021ccafc0993d3c34265ae59048d4bf2

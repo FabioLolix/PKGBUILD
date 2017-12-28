@@ -52,7 +52,7 @@ cd ..
 VAR8=gravit-designer-bin
  cd $PWD/$VAR8
      makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,gravitdesigner.desktop} ~/Dev/Github/AUR/$VAR8
+    rsync {PKGBUILD,.SRCINFO,gravit-designer.desktop,gravit-designer.png,LICENSE} ~/Dev/Github/AUR/$VAR8
 cd ..
 
 
@@ -276,11 +276,4 @@ VAR40=voltra
 cd $PWD/$VAR40
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT,voltra.png} ~/Dev/Github/AUR/$VAR40
-cd ..
-
-
-VAR41=chromium-ffmpeg-codecs-bin
-cd $PWD/$VAR41
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR41
 cd ..
