@@ -3,7 +3,7 @@
 pkgname=banshee-git
 _pkgbase=banshee
 pkgver=2.9.1.r355.g10da4d618
-pkgrel=2
+pkgrel=1
 pkgdesc="Music management and playback for GNOME (fork by arfbtwn)"
 arch=('i686' 'x86_64')
 url="https://github.com/arfbtwn/banshee"
@@ -24,7 +24,7 @@ depends=('libxxf86vm'
          'gtk-sharp-3'
          'clutter')
 # libmtp libgpod mono-zeroconf-git gio-sharp
-makedepends=('intltool' 'gnome-doc-utils' 'gnome-common')
+makedepends=('intltool' 'gnome-doc-utils' 'gnome-common' 'git')
 optdepends=('gst-plugins-ugly: Extra media codecs'
             'gst-libav: Extra media codecs'
             'brasero: CD burning')
