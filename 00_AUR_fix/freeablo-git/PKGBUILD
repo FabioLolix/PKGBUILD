@@ -3,28 +3,27 @@
 
 pkgname=freeablo-git
 _pkgname=freeablo
-pkgver=v0.3.r700.gb02f26ad
+pkgver=v0.3.r704.g978ffa59
 pkgrel=1
 pkgdesc='Modern, FLOSS reimplementation of the Diablo 1 game engine. GIT-Version *(Engine and Game Data Installer)*'
 arch=('i686' 'x86_64')
 url="http://freeablo.org/"
 license=('GPL3')
-depends=('sdl2_image' 'sdl2_mixer' 'zlib' 'enet' 'bzip2' 'boost-libs' 'librocket-git' 'libgl' 'qt5-base')
+depends=('enet' 'librocket-git' 'libgl' 'qt5-base' 'sndio')
 makedepends=('cmake' 'boost' 'git')
 install=$_pkgname.install
-source=("$pkgname::git+https://github.com/wheybags/freeablo.git"
+source=("$_pkgname::git+https://github.com/wheybags/freeablo.git"
         'freeablo.sh'
         'freeablo.desktop'
-        'freeablo_icon.svg'
-        'diablo-files.tar.xz::https://www.dropbox.com/s/ljshg2kwdxly66s/Diablo_FreeAblo_files.tar.xz?dl=0')
+        'freeablo_icon.svg')
+        #'diablo-files.tar.xz::https://www.dropbox.com/s/ljshg2kwdxly66s/Diablo_FreeAblo_files.tar.xz?dl=0'
 sha256sums=('SKIP'
             '96d7434be63aa095dc0187e3b3ec9f1c9a9169118905a65dd562f8a888a16dbb'
             '95ea4757e1f373e54cf899d6bef6efcf28798e6eca30d904e3710963cdd856df'
-            'abdd045f931a51ddbac3ac2f5bed6564e76865dd5f57869f65bfa06779bb3869'
-            'a9689afd44b67d3dac281209e78dd63757511a0d9b1853273d0ed4f6d553679e')
+            'abdd045f931a51ddbac3ac2f5bed6564e76865dd5f57869f65bfa06779bb3869')
 
 pkgver() {
-  cd $srcdir/$pkgname
+  cd $srcdir/$_pkgname
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
@@ -33,20 +32,19 @@ prepare() {
   rm -rf build
   mkdir build
   
-  if [ -e $srcdir/$pkgname ]; then
-  	ln -s $pkgname $_pkgname
-  fi
+  #if [ -e $srcdir/$pkgname ]; then
+  #	ln -s $pkgname $_pkgname
+  #fi
 
-  cd $srcdir/$pkgname
+  cd $srcdir/$_pkgname
   git submodule update --init
-
 }
 
 build() {
   cd $srcdir/build
-  ln -s $srcdir/$pkgname/resources
+  #ln -s $srcdir/$pkgname/resources
    
-  cmake $srcdir/$pkgname
+  cmake $srcdir/$_pkgname
   make
 }
 
@@ -57,10 +55,10 @@ package() {
     install -Dm755 $srcdir/build/$_f "$pkgdir"/usr/bin/"$_pkgname"-$_f
   done
   # data
-  install -d "$pkgdir"/usr/share/"$_pkgname"/resources
-  cp -r $srcdir/build/resources "$pkgdir"/usr/share/"$_pkgname"/resources
+  install -d $pkgdir/usr/share/$_pkgname/resources
+  cp -r $srcdir/$_pkgname/resources/* $pkgdir/usr/share/$_pkgname/resources/
   # doc
-  install -Dm644 $srcdir/$pkgname/readme.md "$pkgdir"/usr/share/doc/"$_pkgname"/readme.md
+  install -Dm644 $srcdir/$_pkgname/readme.md "$pkgdir"/usr/share/doc/"$_pkgname"/readme.md
   # shorcuts
   install -Dm755 freeablo.desktop "$pkgdir"/usr/share/applications/freeablo.desktop
   #### I(Eden) Created this Icon. It is LICENSED(GPL).
@@ -69,7 +67,6 @@ package() {
   #### NOTE: DIABLO 1, is ABANDONWARE. Please NOTE: This Game is still licensed by Blizzard. Please ...
   #### Support future Releases.
   
-  install -m755 "$srcdir"/DIABDAT.MPQ "$pkgdir"/usr/share/freeablo/resources/DIABDAT.MPQ
-  install -m755 "$srcdir"/Diablo.exe "$pkgdir"/usr/share/freeablo/resources/Diablo.exe
-  
+  #install -m755 "$srcdir"/DIABDAT.MPQ "$pkgdir"/usr/share/freeablo/resources/DIABDAT.MPQ
+  #install -m755 "$srcdir"/Diablo.exe "$pkgdir"/usr/share/freeablo/resources/Diablo.exe
 }
