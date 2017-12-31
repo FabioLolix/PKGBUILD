@@ -7,6 +7,7 @@
 *.run
 *.whl
 *.AppImage
+*.jar
 waf*
 MIT
 solar2.png
@@ -23,6 +24,7 @@ WIP/*/code
 WIP/*/trunk
 WIP/*/MIT
 WIP/*/gmame*
+WIP/*/fltk
 
 */Clementine
 */git
@@ -58,6 +60,8 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/*/banshee*
 00_AUR_fix/*/kitty
 00_AUR_fix/*/freeablo*
+00_AUR_fix/*/bubble*
+00_AUR_fix/*/nyan*
 
 00_custom/*/pkg
 00_custom/*/src

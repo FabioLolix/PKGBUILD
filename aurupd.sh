@@ -31,7 +31,7 @@ cd ..
 VAR5=gimagereader
 cd $PWD/$VAR5
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,gimagereader.install} ~/Dev/Github/AUR/$VAR5
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR5
 cd ..
 
 
