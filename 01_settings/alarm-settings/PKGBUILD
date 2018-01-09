@@ -1,0 +1,21 @@
+# Maintainer: 
+
+pkgname=
+pkgver=
+pkgrel=1
+pkgdesc=""
+arch=('any')
+url=""
+license=()
+depends=('sudo' 'nano' 'rsync')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+
+source=()
+
+md5sums=()

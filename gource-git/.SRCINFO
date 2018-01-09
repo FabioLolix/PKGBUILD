@@ -1,6 +1,6 @@
 pkgbase = gource-git
 	pkgdesc = software version control visualization
-	pkgver = gource.0.47.r1.gb227b93
+	pkgver = gource.0.47.r2.g11c5230
 	pkgrel = 1
 	url = http://gource.io/
 	arch = i686

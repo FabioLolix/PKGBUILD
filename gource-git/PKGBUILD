@@ -4,7 +4,7 @@
 # Contributor: Olivier Ramonat <olivier at ramonat dot fr>
 
 pkgname=gource-git
-pkgver=gource.0.47.r1.gb227b93
+pkgver=gource.0.47.r2.g11c5230
 pkgrel=1
 pkgdesc="software version control visualization"
 license=('GPL3')

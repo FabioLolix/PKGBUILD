@@ -91,11 +91,11 @@ VAR13=libav-no-libs
 cd ..
 
 
-#VAR14=libupnpp
-#cd $PWD/$VAR14
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR14
-#cd ..
+VAR14=libupnpp
+cd $PWD/$VAR14
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR14
+cd ..
 
 
 VAR15=linux-test-project
@@ -265,11 +265,11 @@ cd $PWD/$VAR38
 cd ..
 
 
-#VAR39=upplay
-#cd $PWD/$VAR39
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR39
-#cd ..
+VAR39=upplay
+cd $PWD/$VAR39
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR39
+cd ..
 
 
 VAR40=voltra

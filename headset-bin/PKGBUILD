@@ -5,7 +5,7 @@ pkgver=1.6.1
 pkgrel=1
 pkgdesc="An Electron-based music player for the busy ones"
 arch=('x86_64')
-url="http://headsetapp.co/"
+url="https://headsetapp.co/"
 license=(MIT)
 depends=('alsa-lib'
          'gconf'

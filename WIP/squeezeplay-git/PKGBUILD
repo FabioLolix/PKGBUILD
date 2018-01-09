@@ -1,6 +1,6 @@
 # Maintainer: Michal Malek <michalm@jabster.pl>
 
-pkgname=squeezeplay
+pkgname=squeezeplay-git
 #_majorver_=7.8
 pkgver=7.8.r9704
 pkgrel=1
@@ -11,7 +11,7 @@ depends=('alsa-lib' 'bzip2' 'flac' 'libmad' 'libogg' 'lua51' 'lua51-expat' 'lua5
 conflicts=('luajson')
 arch=('i686' 'x86_64' 'arm')
 makedepends=('git' 'scons')
-source=("git+https://github.com/ralph-irving/squeezeplay.git"
+source=("$pkgname::git+https://github.com/ralph-irving/squeezeplay.git"
         'squeezeplay.desktop')
 sha1sums=(SKIP
           '8d8b30d73e11ab092c2a1b7f7a8dcd474ffc6672')
@@ -20,8 +20,9 @@ sha1sums=(SKIP
 #	local ver="$(svnversion)"
 #	printf "%s.r%s" "${_majorver_}" "${ver//[[:alpha:]]}"
 #}
+
 package() {
   cd $srcdir/$pkgname/src
-  make -f Makefile.linux
+  make -f Makefile.linux-pulse
 	install -D -m644 "${srcdir}/squeezeplay.desktop" ${pkgdir}/usr/share/applications/squeezeplay.desktop
 }

@@ -48,6 +48,7 @@ WIP/*/fltk
 */ptxconf*
 */alsaplayer*
 */libbacktrace*
+*/kitty*
 
 Python_module/*/bandcamp-dl
 
@@ -73,7 +74,7 @@ Python_module/*/bandcamp-dl
 01_settings/*/lolix*
 
 WIP/*/LICENSE
-WIP/*/squeezeplay
+WIP/*/squeezeplay*
 WIP/*/satori
 WIP/*/qmc2*
 WIP/*/vkmark

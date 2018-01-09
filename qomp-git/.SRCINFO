@@ -1,8 +1,8 @@
 pkgbase = qomp-git
 	pkgdesc = Quick(Qt) Online Music Player
-	pkgver = 1.2.1.r59.gbb0cdba
+	pkgver = 1.3.1.r1.g758b053
 	pkgrel = 1
-	url = http://qomp.sourceforge.net/
+	url = https://qomp.sourceforge.net/
 	arch = i686
 	arch = x86_64
 	license = GPL2
