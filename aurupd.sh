@@ -63,11 +63,11 @@ cd $PWD/$VAR9
 cd ..
 
 
-#VAR10=gtkspellmm
-#cd $PWD/$VAR10
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR10
-#cd ..
+VAR10=gtkspellmm
+cd $PWD/$VAR10
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR10
+cd ..
 
 
 VAR11=headset-bin
@@ -278,9 +278,18 @@ cd $PWD/$VAR40
     rsync {PKGBUILD,.SRCINFO,voltra.desktop,COPYRIGHT,voltra.png,*.html} ~/Dev/Github/AUR/$VAR40
 cd ..
 
+
 VAR41=kitty-git
 cd $PWD/$VAR41
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR41
 cd ..
+
+
+VAR42=ambiance-rw
+cd $PWD/$VAR42
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR42
+cd ..
+
 
