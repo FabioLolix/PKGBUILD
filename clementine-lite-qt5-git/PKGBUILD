@@ -12,7 +12,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-qt5-lite-git
-pkgver=1.3.1.r427.g902c22ef1
+pkgver=1.3.1.r428.gabf390729
 pkgrel=1
 pkgdesc="A modern music player and library organiser, qt5 version, disabled plugins"
 arch=('i686' 'x86_64')
@@ -60,7 +60,6 @@ build() {
         -DCMAKE_BUILD_TYPE=Debug \
         -DENABLE_VISUALISATIONS=OFF \
         -DENABLE_SPOTIFY_BLOB=OFF \
-        -DENABLE_SPOTIFY=OFF \
         -DENABLE_SKYDRIVE=OFF \
         -DENABLE_GOOGLE_DRIVE=OFF \
         -DENABLE_DROPBOX=OFF \

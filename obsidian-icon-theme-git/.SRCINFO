@@ -1,6 +1,6 @@
 pkgbase = obsidian-icon-theme-git
 	pkgdesc = Gnome Icon Pack based upon Faenza, optimized for dark themes. All colors
-	pkgver = v3.4.r6.g45a7cfe9
+	pkgver = v3.5.r2.g3e3ab0fb
 	pkgrel = 1
 	url = https://www.gnome-look.org/p/1169579
 	arch = any

@@ -3,7 +3,7 @@
 pkgname=banshee-git
 _pkgbase=banshee
 pkgver=2.9.1.r355.g10da4d618
-pkgrel=1
+pkgrel=2
 pkgdesc="Music management and playback for GNOME (fork by arfbtwn)"
 arch=('i686' 'x86_64')
 url="https://github.com/arfbtwn/banshee"
@@ -21,9 +21,8 @@ depends=('libxxf86vm'
          'hicolor-icon-theme'
          'media-player-info'
          'gvfs'
-         'gtk-sharp-3'
-         'clutter')
-# libmtp libgpod mono-zeroconf-git gio-sharp
+         'gtk-sharp-3')
+# libmtp libgpod mono-zeroconf-git gio-sharp clutter
 makedepends=('intltool' 'gnome-doc-utils' 'gnome-common' 'git')
 optdepends=('gst-plugins-ugly: Extra media codecs'
             'gst-libav: Extra media codecs'
@@ -64,7 +63,7 @@ build() {
               --disable-youtube \
               --disable-gio-hardware \
               --disable-upnp \
-              --enable-clutter \
+              --disable-clutter \
               --disable-daap \
               --disable-appledevice \
               --disable-mtp \
