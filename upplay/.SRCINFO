@@ -6,7 +6,7 @@ pkgbase = upplay
 	arch = x86_64
 	license = GPL2
 	makedepends = qt5-script
-	depends = libupnpp>=0.15.3
+	depends = libupnpp>=0.16.1
 	depends = qt5-webkit
 	depends = hicolor-icon-theme
 	provides = upplay

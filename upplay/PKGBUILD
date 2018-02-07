@@ -10,7 +10,7 @@ arch=('x86_64')
 license=('GPL2')
 provides=('upplay')
 conflicts=('upplay' 'upplay-git')
-depends=('libupnpp>=0.15.3'
+depends=('libupnpp>=0.16.1'
          'qt5-webkit'
          'hicolor-icon-theme')
 makedepends=('qt5-script')

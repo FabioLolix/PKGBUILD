@@ -6,7 +6,7 @@
 
 pkgname=gimagereader
 pkgver=3.2.3
-pkgrel=2
+pkgrel=3
 pkgdesc="A graphical frontend to tesseract-ocr"
 arch=('i686' 'x86_64')
 url="https://sourceforge.net/projects/gimagereader/"

@@ -1,7 +1,7 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
 
 pkgname=lolix-manjaro-iso-profiles-remix-git
-pkgver=r26.b95ca09
+pkgver=r27.02918cc
 pkgrel=1
 pkgdesc="Lolix custom profiles, to use with Manjaro official profiles. No global customizations"
 arch=('any')

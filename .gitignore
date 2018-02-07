@@ -11,6 +11,7 @@
 waf*
 MIT
 solar2.png
+*.pdf
 #*/*/*/*
 */pkg
 */src
