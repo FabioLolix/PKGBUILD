@@ -10,7 +10,7 @@
 *.jar
 waf*
 MIT
-solar2.png
+s*.png
 *.pdf
 #*/*/*/*
 */pkg
