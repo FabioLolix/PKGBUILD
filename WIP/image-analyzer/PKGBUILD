@@ -1,24 +1,15 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
 
 pkgname=image-analyzer
 pkgver=3.1.0
 pkgrel=1
-pkgdesc=""
-arch=('x86_64')
-url=""
-license=()
-depends=('python' 'libmirage')
-makedepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-options=()
-#install=
-#changelog=
-
-source=("local://${pkgname}-${pkgver}.tar.bz2")
-
-
+pkgdesc="simple Gtk+ application that displays tree structure of disc image created by libMirage"
+arch=('x86_64' 'i686')
+url="http://cdemu.sourceforge.net/about/analyzer/"
+license=(GPL)
+depends=('python' 'libmirage' 'python-matplotlib' 'libxml2')
+optdepends=('gnuplot')
+source=("http://downloads.sourceforge.net/cdemu/${pkgname}-${pkgver}.tar.bz2")
 md5sums=('e8b638fb92a4b6fda9e9e8d38cc50a01')
 
 prepare() {
@@ -26,10 +17,14 @@ prepare() {
   install -d build
 }
 
+build() {
+  cd ${srcdir}/${pkgname}-${pkgver}/build
+  cmake .. \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr
+}
+
 package() {
   cd ${srcdir}/${pkgname}-${pkgver}/build
-
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ..
   make install DESTDIR=${pkgdir}
-
 }

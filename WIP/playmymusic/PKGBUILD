@@ -1,0 +1,35 @@
+
+
+pkgname=playmymusic
+pkgver=0.5.1
+pkgrel=1
+pkgdesc='The Pantheon Music Player'
+arch=('x86_64')
+url='https://artemanufrij.github.io/'
+license=('GPL3')
+depends=('granite' 'libsoup' 'gst-plugins-base-libs' 'taglib' 'gtk3')
+makedepends=('cmake' 'vala') #'gobject-introspection' 'intltool' 
+#optdepends=('gst-plugins-base: "Base" plugin libraries'
+#            'gst-plugins-good: "Good" plugin libraries'
+#            'gst-plugins-bad: "Bad" plugin libraries'
+#            'gst-plugins-ugly: "Ugly" plugin libraries')
+source=("https://github.com/artemanufrij/playmymusic/archive/${pkgver}.tar.gz")
+sha256sums=('524f4134f60cce489c2423fb21eb8274e24db3de8adbf8778b012910fa430484')
+
+prepare() {
+  cd ${srcdir}/${pkgname}-${pkgver}
+  install -d build
+}
+
+build() {
+  cd ${srcdir}/${pkgname}-${pkgver}/build
+  cmake .. \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr
+  make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-${pkgver}/build
+  make DESTDIR="${pkgdir}" install
+}

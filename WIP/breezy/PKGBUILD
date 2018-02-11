@@ -1,0 +1,30 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
+
+pkgname=breezy
+_pkgver1=3.0.0
+_pkgver2=6852
+pkgver="${_pkgver1}.${_pkgver2}"
+pkgrel=1
+pkgdesc="A decentralized revision control system (breezy) from launchpad"
+arch=('i686' 'x86_64')
+url="https://launchpad.net/brz"
+license=('GPL')
+depends=('python')
+#optdepends=('python2-paramiko: SFTP support')
+makedepends=('cython')
+provides=('breezy' 'brz')
+conflicts=('breezy' 'brz')
+source=("https://launchpad.net/ubuntu/+archive/primary/+files/${pkgname}_${_pkgver1}~bzr${_pkgver2}.orig.tar.gz")
+md5sums=('5f20804a76b223634f73a84d1a8bd6f5')
+
+build() {
+  cd ${srcdir}/${pkgname}-${_pkgver1}~bzr${_pkgver2}
+  python setup.py build
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-${_pkgver1}~bzr${_pkgver2}
+  python setup.py install --allow-python-fallback --prefix='/usr' --root="${pkgdir}" --optimize='1'
+#  install -dm 755 "${pkgdir}"/usr/share/bash-completion/completions
+#  install -m 644 contrib/bash/bzr "${pkgdir}"/usr/share/bash-completion/completions/
+}

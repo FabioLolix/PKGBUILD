@@ -1,0 +1,18 @@
+pkgbase = image-analyzer
+	pkgdesc = simple Gtk+ application that displays tree structure of disc image created by libMirage
+	pkgver = 3.1.0
+	pkgrel = 1
+	url = http://cdemu.sourceforge.net/about/analyzer/
+	arch = x86_64
+	arch = i686
+	license = GPL
+	depends = python
+	depends = libmirage
+	depends = python-matplotlib
+	depends = libxml2
+	optdepends = gnuplot
+	source = http://downloads.sourceforge.net/cdemu/image-analyzer-3.1.0.tar.bz2
+	md5sums = e8b638fb92a4b6fda9e9e8d38cc50a01
+
+pkgname = image-analyzer
+
