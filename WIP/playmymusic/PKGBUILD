@@ -3,7 +3,7 @@
 pkgname=playmymusic
 pkgver=0.5.1
 pkgrel=1
-pkgdesc='The Pantheon Music Player'
+pkgdesc="Music player for Pantheon"
 arch=('x86_64')
 url='https://artemanufrij.github.io/'
 license=('GPL3')

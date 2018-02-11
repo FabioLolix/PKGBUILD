@@ -313,3 +313,16 @@ cd $PWD/$VAR45
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR45
 cd ..
 
+
+VAR46=openwmail-bin
+cd $PWD/$VAR46
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR46
+cd ..
+
+
+VAR47=elisa-git
+cd $PWD/$VAR47
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR47
+cd ..
