@@ -17,15 +17,6 @@ solar2.png
 */src
 */code
 */trunk
-Python_module/*/pkg
-Python_module/*/src
-WIP/*/pkg
-WIP/*/src
-WIP/*/code
-WIP/*/trunk
-WIP/*/MIT
-WIP/*/gmame*
-WIP/*/fltk
 
 */Clementine
 */git
@@ -51,6 +42,8 @@ WIP/*/fltk
 */libbacktrace*
 */kitty*
 
+Python_module/*/pkg
+Python_module/*/src
 Python_module/*/bandcamp-dl
 
 00_AUR_fix/*/pkg
@@ -74,12 +67,19 @@ Python_module/*/bandcamp-dl
 01_settings/*/src
 01_settings/*/lolix*
 
+WIP/*/pkg
+WIP/*/src
+WIP/*/code
+WIP/*/trunk
+WIP/*/MIT
+WIP/*/gmame*
+WIP/*/fltk
 WIP/*/LICENSE
 WIP/*/squeezeplay*
 WIP/*/satori
 WIP/*/qmc2*
 WIP/*/vkmark
-WIP/*/isodumper
+WIP/*/isodumper*
 WIP/*/automatic-ripping-machine*
 WIP/*/open*
 WIP/*/komorebi*

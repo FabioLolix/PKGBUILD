@@ -2,12 +2,12 @@
 
 pkgname=libav-no-libs
 pkgver=12.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Open source audio and video processing tools forked from ffmpeg"
 arch=('i686' 'x86_64')
 url="https://www.libav.org/"
 license=('LGPL')
-depends=('sdl' 'ffmpeg')
+depends=('sdl' 'ffmpeg' 'libavcodec.so' 'libavformat.so')
 makedepends=('yasm')
 provides=('libav-no-libs')
 conflicts=('libav' 'libav-no-libs' 'libav-no-libs-git' 'libav-git-no-libs')
@@ -20,8 +20,8 @@ build() {
   ./configure \
     --prefix=/usr \
     --enable-nonfree \
-    --disable-static \
     --enable-shared \
+    --disable-static \
     --disable-debug \
     --disable-pthreads
   make

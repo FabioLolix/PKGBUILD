@@ -293,3 +293,23 @@ cd $PWD/$VAR42
 cd ..
 
 
+VAR43=textilosaurus
+cd $PWD/$VAR43
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR43
+cd ..
+
+
+VAR44=qimgv
+cd $PWD/$VAR44
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR44
+cd ..
+
+
+VAR45=delft-icon-theme
+cd $PWD/$VAR45
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR45
+cd ..
+

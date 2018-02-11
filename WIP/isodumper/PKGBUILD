@@ -1,7 +1,7 @@
 
 
 pkgname=isodumper-git
-pkgver=r607.f08e66c
+pkgver=r622.604e013
 pkgrel=1
 pkgdesc="A tool for writing ISO images on a USB stick, a fork of usb-imagewriter"
 arch=('i686' 'x86_64')
@@ -10,7 +10,8 @@ license=('GPL' 'LGPL2.1')
 depends=('hicolor-icon-theme' 'udisks2' 'xterm')
 makedepends=('git')
 provides=('isodumper')
-source=("${pkgname}::git://git.mageia.org/software/${isodumper}")
+conflicts=('isodumper')
+source=("${pkgname}::git://git.mageia.org/software/isodumper")
 md5sums=('SKIP')
 
 pkgver() {
@@ -18,8 +19,12 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-package() {
+build() {
   cd ${srcdir}/${pkgname}
   make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}
   make DESTDIR=${pkgdir} install
 }

@@ -1,5 +1,4 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
-# https://github.com/FabioLolix
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
 
 pkgname=sacd-decoder-bzr
 pkgver=r31
@@ -12,12 +11,18 @@ depends=('gcc-libs')
 makedepends=('bzr')
 source=("bzr+lp:/sacd/trunk")
 md5sums=('SKIP')
+
 pkgver() {
   cd $srcdir/trunk
   echo "r$(bzr revno)"
 }
-package() {
+
+build() {
   cd $srcdir/trunk
   make
+}
+
+package() {
+  cd $srcdir/trunk
   make DESTDIR="${pkgdir}" install
 }
