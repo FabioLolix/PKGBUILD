@@ -41,7 +41,7 @@ s*.png
 */alsaplayer*
 */libbacktrace*
 */kitty*
-*/*-git
+*/elisa*
 
 Python_module/*/pkg
 Python_module/*/src
@@ -53,7 +53,6 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/ion-git/LICENSE
 00_AUR_fix/librocket-git/*
 00_AUR_fix/*/libav*
-00_AUR_fix/*/banshee*
 00_AUR_fix/*/kitty
 00_AUR_fix/*/freeablo*
 00_AUR_fix/*/bubble*
@@ -63,6 +62,7 @@ Python_module/*/bandcamp-dl
 00_custom/*/src
 00_custom/*/qmc2*
 00_custom/*/gnome*
+00_custom/*/banshee*
 
 01_settings/*/pkg
 01_settings/*/src

@@ -16,12 +16,11 @@ depends=('glfw'
          'freetype2'
          'lcms2'
          'libexif'
-         'imlib2'
-         'openexr'
          'libxrandr'
          'libxcursor')
-#optdepends=('imlib2' 'openexr')
-makedepends=('cmake')
+optdepends=('imlib2: Common formats support'
+            'openexr: OpenEXR support')
+makedepends=('cmake' 'imlib2' 'openexr')
 provides=('simple-viewer-gl')
 conflicts=('simple-viewer-gl' 'simple-viewer-gl-git')
 source=("https://bitbucket.org/andreyu/simple-viewer-gl/get/v${pkgver}.tar.gz")

@@ -22,7 +22,7 @@ depends=('libxxf86vm'
          'media-player-info'
          'gvfs'
          'gtk-sharp-3')
-# libmtp libgpod mono-zeroconf-git gio-sharp clutter
+# libmtp libgpod mono-zeroconf-git gio-sharp clutter taglib-sharp-git mono-zeroconf-git
 makedepends=('intltool' 'gnome-doc-utils' 'gnome-common' 'git')
 optdepends=('gst-plugins-ugly: Extra media codecs'
             'gst-libav: Extra media codecs'
@@ -55,11 +55,12 @@ build() {
               --localstatedir=/var \
               --enable-docs \
               --enable-gst-native \
+              --enable-user-help \
               --disable-gst_sharp \
               --disable-static \
+              --enable-treeview \
               --disable-scrollkeeper \
               --disable-schemas-install \
-              --disable-user-help \
               --disable-youtube \
               --disable-gio-hardware \
               --disable-upnp \
