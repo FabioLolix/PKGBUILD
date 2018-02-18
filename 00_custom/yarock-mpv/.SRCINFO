@@ -1,6 +1,6 @@
 pkgbase = yarock-mpv
 	pkgdesc = Qt Modern Music Player with collection browse based on cover art
-	pkgver = 1.2.0
+	pkgver = 1.3.0
 	pkgrel = 1
 	url = https://launchpad.net/yarock
 	arch = i686
@@ -8,15 +8,16 @@ pkgbase = yarock-mpv
 	license = GPL3
 	makedepends = cmake
 	makedepends = qt5-tools
+	makedepends = qt5-x11extras
+	depends = qt5-base
 	depends = htmlcxx
-	depends = qt5-x11extras
 	depends = taglib>=1.10
 	depends = mpv
 	provides = yarock
 	conflicts = yarock
 	conflicts = yarock-qt5
-	source = https://launchpad.net/yarock/1.x/1.2.0/+download/Yarock_1.2.0_Sources.tar.gz
-	md5sums = b705564249bbd277e4dba34c731a33bc
+	source = https://launchpad.net/yarock/1.x/1.3.0/+download/Yarock_1.3.0_Sources.tar.gz
+	md5sums = 0469cb59dd3665a816f2538f017d7cc1
 
 pkgname = yarock-mpv
 

@@ -63,6 +63,7 @@ Python_module/*/bandcamp-dl
 00_custom/*/qmc2*
 00_custom/*/gnome*
 00_custom/*/banshee*
+00_custom/htmlcxx
 
 01_settings/*/pkg
 01_settings/*/src
