@@ -1,6 +1,6 @@
 # Maintainer:  Νικόλαος Κυριάκος Φυτίλης <n-fit@live.com>
 
-pkgname=banshee-git
+pkgname=banshee-lolix-git
 _pkgbase=banshee
 pkgver=2.9.1.r355.g10da4d618
 pkgrel=2

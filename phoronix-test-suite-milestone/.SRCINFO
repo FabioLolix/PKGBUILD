@@ -7,7 +7,6 @@ pkgbase = phoronix-test-suite-milestone
 	arch = any
 	license = GPL3
 	depends = php
-	optdepends = php-gtk
 	optdepends = php-gd
 	optdepends = sqlite3: required when running a Phoromatic server.
 	optdepends = gcc-fortran: required for universe-cli test suite

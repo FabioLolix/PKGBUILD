@@ -326,3 +326,9 @@ cd $PWD/$VAR47
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR47
 cd ..
+
+VAR48=mirage2iso
+cd $PWD/$VAR48
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR48
+cd ..
