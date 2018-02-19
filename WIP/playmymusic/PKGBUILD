@@ -8,7 +8,7 @@ arch=('x86_64')
 url='https://artemanufrij.github.io/'
 license=('GPL3')
 depends=('granite' 'libsoup' 'gst-plugins-base-libs' 'taglib' 'gtk3')
-makedepends=('cmake' 'vala') #'gobject-introspection' 'intltool' 
+makedepends=('cmake' 'vala' 'cmake-modules-elementary-git') #'gobject-introspection' 'intltool' 
 #optdepends=('gst-plugins-base: "Base" plugin libraries'
 #            'gst-plugins-good: "Good" plugin libraries'
 #            'gst-plugins-bad: "Bad" plugin libraries'
