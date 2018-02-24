@@ -14,7 +14,7 @@ depends=('libexif' 'gvfs' 'dconf' 'desktop-file-utils' 'exempi' 'python'
 optdepends=('ffmpegthumbnailer: support for video thumbnails')
 makedepends=('gtk-doc' 'gobject-introspection' 'intltool' 'gnome-common'
              'python-gobject' 'python-polib' 'python2-gobject')
-options=('!emptydirs')
+options=('!emptydirs' 'debug' '!strip')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/linuxmint/nemo/tarball/$pkgver")
 sha512sums=('f224cc5749e39f477594c1eb3133454db7838f1f62b924f1ad868038026318cfdc52c23d65e1be309e71c0fae046cff0bdc908003235630b986c897820217d4e')
 
@@ -35,6 +35,7 @@ build() {
       --disable-tracker \
       --disable-gtk-doc-html \
       --disable-schemas-compile \
+      --enable-debug \
       --disable-selinux
 
   #https://bugzilla.gnome.org/show_bug.cgi?id=656231
