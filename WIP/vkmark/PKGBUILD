@@ -1,8 +1,8 @@
 # Maintainer: Fabio Loli <loli_fabio@protonmail.com>
 # https://github.com/FabioLolix
 
-pkgname=vkmark
-pkgver=r128.1d987cd
+pkgname=vkmark-git
+pkgver=2017.08.r10.g68b6f23
 pkgrel=1
 pkgdesc=""
 arch=('x86_64')
@@ -16,18 +16,21 @@ provides=()
 conflicts=()
 replaces=()
 options=()
-source=(git+https://github.com/vkmark/vkmark.git)
+source=("${pkgname}::git+https://github.com/vkmark/vkmark.git")
 md5sums=('SKIP')
 
 pkgver() {
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd ${pkgname}
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+  cd ${srcdir}/${pkgname}
+  meson build
+  ninja -C build
 }
 
 package() {
   cd $srcdir/$pkgname
-
-  meson build
-  mesonconf [-Dopt=val] build
-  ninja -C build
-  ninja -C build install [DESTDIR=${pkgdir}]
+  DESTDIR=${pkgdir} ninja -C build install
 }
