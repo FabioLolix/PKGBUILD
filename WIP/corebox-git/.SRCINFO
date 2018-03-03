@@ -1,0 +1,21 @@
+pkgbase = corebox-git
+	pkgdesc = Combination of some common desktop apps with Bookmark
+	pkgver = r9.389a177
+	pkgrel = 1
+	url = https://github.com/rahmanshaber/corebox
+	arch = x86_64
+	license = unkown
+	makedepends = git
+	depends = libmagick
+	depends = qt5-base
+	depends = qt5-multimedia
+	depends = qt5-charts
+	depends = qt5-x11extras
+	depends = engrampa
+	provides = corebox
+	conflicts = corebox
+	source = corebox-git::git+https://github.com/rahmanshaber/corebox.git
+	md5sums = SKIP
+
+pkgname = corebox-git
+
