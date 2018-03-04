@@ -2,7 +2,6 @@
 # https://github.com/FabioLolix
 
 pkgname=twin-git
-_gitname="twin"
 pkgver=r172.a877205
 pkgrel=1
 pkgdesc="A text-mode window environment"
@@ -13,16 +12,16 @@ depends=('gpm' 'libxpm')
 provides=('twin')
 conflicts=('twin' 'twin-git')
 options=('!makeflags')
-source=("twin-git::git+https://github.com/cosmos72/twin")
+source=("${pkgname}::git+https://github.com/cosmos72/twin")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "$pkgname"
+  cd "${pkgname}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  cd "$srcdir"/$pkgname
+  cd "${srcdir}"/$pkgname
   LDFLAGS="-lX11" ./configure \
     --prefix=/usr \
     --sbindir=/usr/bin \
@@ -35,6 +34,6 @@ build() {
 }
 
 package() {
-  cd "$srcdir"/$pkgname
+  cd "${srcdir}"/$pkgname
   make DESTDIR="$pkgdir" install
 }
