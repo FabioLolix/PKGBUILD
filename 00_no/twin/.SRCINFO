@@ -1,0 +1,18 @@
+pkgbase = twin
+	pkgdesc = A text-mode window environment
+	pkgver = 0.7.4
+	pkgrel = 1
+	url = https://github.com/cosmos72/twin
+	arch = x86_64
+	license = GPL2
+	license = LGPL2.1
+	makedepends = git
+	depends = gpm
+	depends = zlib
+	depends = libxpm
+	options = !makeflags
+	source = git+https://github.com/cosmos72/twin.git#commit=9ec799d0ac03e90b12b8030b097d20aa61c40b5a
+	md5sums = SKIP
+
+pkgname = twin
+
