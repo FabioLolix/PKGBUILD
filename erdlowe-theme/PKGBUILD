@@ -1,0 +1,23 @@
+# Maintainer: Fabio Loli <loli_fabio@protonmail.com> -> https://github.com/FabioLolix
+
+pkgname=erdlowe-theme
+_pkgver1=1.1
+_pkgver2=20180131
+pkgver=${_pkgver1}.${_pkgver2}
+pkgrel=1
+pkgdesc="GNOME theme based on Materia with openSUSE® color palette"
+arch=('any')
+url="https://github.com/DarthWound/erdlowe-gtk-theme"
+license=(GPL2)
+depends=('gtk-engine-murrine' 'gtk3')
+optdepends=('adobe-source-sans-pro-fonts: suggested font')
+provides=('erdlowe-theme')
+conflicts=('erdlowe-theme' 'erdlowe-theme-git')
+options=('!strip')
+source=("https://github.com/DarthWound/erdlowe-gtk-theme/releases/download/v${_pkgver1}-${_pkgver2}/erdlowe.tar.gz")
+md5sums=('c79c88dc01926088b71e108ee2435452')
+
+package() {
+  install -d ${pkgdir}/usr/share/themes
+  cp -r ${srcdir}/Erdlowe* ${pkgdir}/usr/share/themes
+}
