@@ -11,6 +11,7 @@ url='http://invisible-island.net/cdk/'
 license=('custom')
 options=('!emptydirs')
 source=('http://invisible-island.net/datafiles/release/cdk.tar.gz')
+# ftp://ftp.invisible-island.net/cdk/cdk-5.0-20171209.tgz
 sha256sums=('9e7558cb8850ca5c7ab4cc38e0612b0e8c4aad680d2a2511f31d62f239e35fad')
 
 build() {

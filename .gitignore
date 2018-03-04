@@ -42,6 +42,7 @@ s*.png
 */libbacktrace*
 */kitty*
 */elisa*
+*/faience-ng*
 
 Python_module/*/pkg
 Python_module/*/src

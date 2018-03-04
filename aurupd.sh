@@ -332,3 +332,17 @@ cd $PWD/$VAR48
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR48
 cd ..
+
+
+VAR49=faience-ng-icon-theme
+cd $PWD/$VAR49
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR49
+cd ..
+
+
+VAR50=faience-ng-icon-theme-git
+cd $PWD/$VAR50
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR50
+cd ..
