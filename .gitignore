@@ -41,6 +41,7 @@ s*.png
 */kitty*
 */elisa*
 */faience-ng*
+*/textosaurus-git
 
 Python_module/*/pkg
 Python_module/*/src
