@@ -42,6 +42,7 @@ s*.png
 */elisa*
 */faience-ng*
 */textosaurus-git
+*/inxi-dev-git
 
 Python_module/*/pkg
 Python_module/*/src

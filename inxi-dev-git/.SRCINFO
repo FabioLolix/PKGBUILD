@@ -1,0 +1,33 @@
+pkgbase = inxi-dev-git
+	pkgdesc = Pinxi (perl-inxi), development branch of inxi, a full featured CLI system information tool
+	pkgver = r639.c24e5182
+	pkgrel = 1
+	url = http://inxi.org
+	arch = any
+	license = GPL3
+	depends = coreutils
+	depends = gawk
+	depends = grep
+	depends = pciutils
+	depends = procps-ng
+	depends = sed
+	depends = perl
+	optdepends = dmidecode: inxi -M if no sys machine data
+	optdepends = file: inxi -o unmounted file system
+	optdepends = hddtemp: inxi -Dx show hdd temp
+	optdepends = net-tools: inxi -i ip lan-deprecated
+	optdepends = iproute2: inxi -i ip lan
+	optdepends = lm_sensors: inxi -s sensors output
+	optdepends = usbutils: inxi -A usb audio;-N usb networking
+	optdepends = kmod: inxi -Ax,-Nx module version
+	optdepends = systemd-sysvcompat: inxi -I runlevel
+	optdepends = sudo: inxi -Dx hddtemp-user;-o file-user
+	optdepends = mesa-demos: inxi -G glx info
+	optdepends = xorg-xdpyinfo: inxi -G multi screen resolution
+	optdepends = xorg-xprop: inxi -S desktop data
+	optdepends = xorg-xrandr: inxi -G single screen resolution
+	source = inxi-dev-git::git+https://github.com/smxi/inxi.git#branch=inxi-perl
+	md5sums = SKIP
+
+pkgname = inxi-dev-git
+
