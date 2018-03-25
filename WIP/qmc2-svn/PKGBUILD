@@ -1,7 +1,6 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 # Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: JJDaNiMoTh <jjdanimoth@gmail.com>
-# https://github.com/FabioLolix
 
 pkgname=qmc2-svn
 pkgver=0.193.8265

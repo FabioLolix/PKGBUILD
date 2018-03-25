@@ -1,4 +1,5 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Maintainer: Luca Weiss <luca (at) z3ntu (dot) xyz>
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 # Contributor: Antonio Rojas <arojas@archlinux.org>
 
 pkgname=elisa-git

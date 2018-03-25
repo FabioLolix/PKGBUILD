@@ -1,5 +1,6 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
-# https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: G_Syme <demichan(at)mail(dot)upb(dot)de>
 
 pkgname=twin-git
 pkgver=r172.a877205

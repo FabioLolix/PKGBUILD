@@ -1,6 +1,5 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 # Based on brother-dcpt500w by Samuel Fernando Mesa Giraldo
-# https://github.com/FabioLolix
 
 pkgname=brother-dcpt700w
 pkgver=3.0.2

@@ -1,5 +1,4 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
-# https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=github-desktop-bin
 pkgver=1.0.4_beta0

@@ -1,5 +1,4 @@
-# $Id$
-# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 # Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 
 pkgname=smbnetfs-git

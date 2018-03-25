@@ -1,10 +1,10 @@
-# Maintainer: 
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=cmake-modules-elementary-git
 pkgver=r37.319ec53
 pkgrel=1
 pkgdesc=""
-arch=('x86_64')
+arch=('any')
 url="https://github.com/elementary/cmake-modules"
 license=()
 makedepends=('cmake' 'git')
