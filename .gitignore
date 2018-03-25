@@ -42,7 +42,8 @@ s*.png
 */elisa*
 */faience-ng*
 */textosaurus-git
-*/inxi-dev-git
+*/phoronix-test-suite-milestone/*
+*/phoronix-test-suite-milestone/phoronix-test-suite/*
 
 Python_module/*/pkg
 Python_module/*/src
@@ -80,13 +81,11 @@ WIP/*/gmame*
 WIP/*/fltk
 WIP/*/LICENSE
 WIP/*/squeezeplay*
-WIP/*/satori
 WIP/*/qmc2*
 WIP/*/vkmark
 WIP/*/isodumper*
 WIP/*/automatic-ripping-machine*
 WIP/*/open*
-WIP/*/komorebi*
 WIP/*/monoprice22*
 WIP/*/bash-insulter*
 WIP/*/bluemindo*

@@ -2,7 +2,7 @@
 # Contributor: Florian Pritz <f-p@gmx.at>
 
 pkgname=inxi-dev-git
-pkgver=r639.c24e5182
+pkgver=r752.a15d9a93
 pkgrel=1
 pkgdesc="Pinxi (perl-inxi), development branch of inxi, a full featured CLI system information tool"
 arch=('any')
@@ -36,5 +36,5 @@ pkgver() {
 package() {
   cd "${srcdir}/${pkgname}"
   install -D -m755 pinxi "$pkgdir/usr/bin/pinxi"
-  install -D -m755 inxi.1 "$pkgdir/usr/share/man/man1/pinxi.1.gz"
+  install -D -m755 pinxi.1 "$pkgdir/usr/share/man/man1/pinxi.1.gz"
 }

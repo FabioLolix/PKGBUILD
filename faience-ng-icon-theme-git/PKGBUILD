@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=faience-ng-icon-theme-git
-pkgver=20180217.r0.g15c909e
+pkgver=20180320.r1.gc114d5b
 pkgrel=1
 pkgdesc="Continued development of Faenza\Faience Icon Theme"
 arch=('any')
