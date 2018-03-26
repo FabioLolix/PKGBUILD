@@ -2,7 +2,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=kitty-git
-pkgver=0.8.0.r38.g54ed08c
+pkgver=0.8.2.r18.g90cc785
 pkgrel=1
 pkgdesc="A modern, hackable, featureful, OpenGL based terminal emulator"
 arch=('i686' 'x86_64')

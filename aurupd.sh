@@ -293,11 +293,11 @@ cd $PWD/$VAR42
 cd ..
 
 
-VAR43=textilosaurus
-cd $PWD/$VAR43
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR43
-cd ..
+#VAR43=textilosaurus
+#cd $PWD/$VAR43
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR43
+#cd ..
 
 
 VAR44=qimgv
@@ -327,6 +327,7 @@ cd $PWD/$VAR47
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR47
 cd ..
 
+
 VAR48=mirage2iso
 cd $PWD/$VAR48
     makepkg --printsrcinfo > .SRCINFO
@@ -345,4 +346,11 @@ VAR50=faience-ng-icon-theme-git
 cd $PWD/$VAR50
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR50
+cd ..
+
+
+VAR51=perl-webservice-musicbrainz
+cd $PWD/$VAR51
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR51
 cd ..
