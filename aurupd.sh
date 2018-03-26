@@ -354,3 +354,10 @@ cd $PWD/$VAR51
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR51
 cd ..
+
+
+VAR52=inxi
+cd $PWD/$VAR52
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR52
+cd ..
