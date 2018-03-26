@@ -361,3 +361,17 @@ cd $PWD/$VAR52
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR52
 cd ..
+
+
+VAR53=twin-git
+cd $PWD/$VAR53
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR53
+cd ..
+
+
+VAR54=gimagereader-beta
+cd $PWD/$VAR54
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR54
+cd ..
