@@ -1,35 +1,25 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
-pkgname=corebox-git
-pkgver=2.0.0.r0.gb395803
+pkgname=corebox
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="Combination of some common desktop apps with Bookmark"
 arch=('x86_64' 'i686' 'arm' 'armv6h' 'armv7h' 'aarch64')
 url="https://github.com/rahmanshaber/corebox"
 license=('GPL2')
 depends=('file' 'qt5-base' 'qt5-multimedia' 'qt5-charts' 'qt5-x11extras' 'engrampa')
-makedepends=('git' )
 provides=('corebox')
 conflicts=('corebox')
-source=("${pkgname}::git+https://github.com/rahmanshaber/corebox.git")
-md5sums=('SKIP')
-
-pkgver() {
-  cd ${pkgname}
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
-}
-
-prepare() {
-  mkdir -p build
-}
+source=("https://github.com/rahmanshaber/corebox/archive/v${pkgver}.tar.gz")
+md5sums=('ba9d0bc5c8f31d91fa6ee495188f55df')
 
 build() {
-  cd build
-  qmake-qt5 ../$pkgname PREFIX=/usr
+  cd "${pkgname}-${pkgver}"
+  qmake-qt5 PREFIX=/usr
   make
 }
 
 package() {
-  cd build
-  make INSTALL_ROOT="$pkgdir" install
+  cd "${pkgname}-${pkgver}"
+  make INSTALL_ROOT="${pkgdir}" install
 }

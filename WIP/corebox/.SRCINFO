@@ -1,6 +1,6 @@
-pkgbase = corebox-git
+pkgbase = corebox
 	pkgdesc = Combination of some common desktop apps with Bookmark
-	pkgver = 2.0.0.r0.gb395803
+	pkgver = 2.0.0
 	pkgrel = 1
 	url = https://github.com/rahmanshaber/corebox
 	arch = x86_64
@@ -10,7 +10,6 @@ pkgbase = corebox-git
 	arch = armv7h
 	arch = aarch64
 	license = GPL2
-	makedepends = git
 	depends = file
 	depends = qt5-base
 	depends = qt5-multimedia
@@ -19,8 +18,8 @@ pkgbase = corebox-git
 	depends = engrampa
 	provides = corebox
 	conflicts = corebox
-	source = corebox-git::git+https://github.com/rahmanshaber/corebox.git
-	md5sums = SKIP
+	source = https://github.com/rahmanshaber/corebox/archive/v2.0.0.tar.gz
+	md5sums = ba9d0bc5c8f31d91fa6ee495188f55df
 
-pkgname = corebox-git
+pkgname = corebox
 
