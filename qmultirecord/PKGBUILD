@@ -12,14 +12,19 @@ provides=('qmultirecord')
 conflicts=('qmultirecord')
 source=("https://dl.opendesktop.org/api/files/download/id/1466643061/106254-qmultirecord-0.2.7.tar.bz2")
 md5sums=('0f8aeff121a1d009c16747f00f88e182')
-package() {
-  cd $srcdir/$pkgname-$pkgver/src
-  qmake
+
+build () {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  qmake-qt5 PREFIX=/usr
   make
-  make DESTDIR=$pkgdir install
-  install -d $pkgdir/usr/share/{applications,icons/hicolor/48x48/apps}
-  install -Dm 755 $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/bin/qmultirecord
-  install -m 644 $srcdir/$pkgname-$pkgver/src/qmultirecord.desktop $pkgdir/usr/share/applications/
-  install -m 644 $srcdir/$pkgname-$pkgver/src/icons/*.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make INSTALL_ROOT="${pkgdir}" install
+#  install -d $pkgdir/usr/share/{applications,icons/hicolor/48x48/apps}
+#  install -Dm 755 $srcdir/$pkgname-$pkgver/bin/qmultirecord $pkgdir/usr/bin/qmultirecord
+#  install -m 644 $srcdir/$pkgname-$pkgver/src/qmultirecord.desktop $pkgdir/usr/share/applications/
+#  install -m 644 $srcdir/$pkgname-$pkgver/src/icons/*.png $pkgdir/usr/share/icons/hicolor/48x48/apps/
 }
 
