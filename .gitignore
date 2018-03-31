@@ -44,6 +44,7 @@ s*.png
 */textosaurus-git
 */phoronix-test-suite-milestone/*
 */phoronix-test-suite-milestone/phoronix-test-suite/*
+*/textosaurus/*
 
 Python_module/*/pkg
 Python_module/*/src
@@ -91,4 +92,5 @@ WIP/*/bash-insulter*
 WIP/*/bluemindo*
 WIP/*/cmake*
 WIP/*/corebox-git
+WIP/*/newbreeze-git
 

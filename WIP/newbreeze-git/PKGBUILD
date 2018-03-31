@@ -1,0 +1,34 @@
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=newbreeze-git
+pkgver=v3.beta2.r24.ge47fe2c
+pkgrel=1
+pkgdesc="File Manager based on Qt"
+arch=('x86_64')
+url="https://github.com/marcusbritanicus/NewBreeze"
+license=(GPL3)
+depends=('qt5-base' 'poppler-qt5')
+makedepends=('git' 'qscintilla-qt5')
+optdepends=('qscintilla-qt5')
+provides=('newbreeze')
+conflicts=('newbreeze')
+options=()
+source=("${pkgname}::git+https://github.com/marcusbritanicus/NewBreeze.git")
+md5sums=('SKIP')
+
+# Git with tags
+pkgver() {
+  cd ${pkgname}
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+  cd ${srcdir}/${pkgname}
+  qmake-qt5
+  make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}
+  make install INSTALL_ROOT="${pkgdir}/"
+}

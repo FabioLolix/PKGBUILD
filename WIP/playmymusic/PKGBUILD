@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=playmymusic
-pkgver=0.5.1
+pkgver=0.6.9
 pkgrel=1
 pkgdesc="Music player for Pantheon"
 arch=('x86_64')
@@ -14,7 +14,7 @@ makedepends=('cmake' 'vala' 'cmake-modules-elementary-git') #'gobject-introspect
 #            'gst-plugins-bad: "Bad" plugin libraries'
 #            'gst-plugins-ugly: "Ugly" plugin libraries')
 source=("https://github.com/artemanufrij/playmymusic/archive/${pkgver}.tar.gz")
-sha256sums=('524f4134f60cce489c2423fb21eb8274e24db3de8adbf8778b012910fa430484')
+sha256sums=('0415edeaf48b4f4e500ba16b501f4b64db6a05e6e5db53ab6bf147a14fcfc1b0')
 
 prepare() {
   cd ${srcdir}/${pkgname}-${pkgver}
