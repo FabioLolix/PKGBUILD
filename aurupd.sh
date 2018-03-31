@@ -293,11 +293,18 @@ cd $PWD/$VAR42
 cd ..
 
 
-#VAR43=textilosaurus
-#cd $PWD/$VAR43
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR43
-#cd ..
+VAR43=textosaurus
+cd $PWD/$VAR43
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR43
+cd ..
+
+
+VAR55=textosaurus-git
+cd $PWD/$VAR55
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR55
+cd ..
 
 
 VAR44=qimgv
@@ -375,3 +382,5 @@ cd $PWD/$VAR54
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR54
 cd ..
+
+# VAR55->Textosaurus-git
