@@ -44,11 +44,11 @@ build() {
   export MONO_SHARED_DIR="$srcdir/.wabi"
   mkdir -p "$MONO_SHARED_DIR"
   hackyhack='-r:/usr/lib/libgpod/libgpod-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll' \
+             -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll
+             -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll
+             -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll
+             -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll
+             -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll' \
   LIBGPODSHARP_LIBS=$(echo $hackyhack) MCS=/usr/bin/mcs ./configure \
               --prefix=/usr \
               --sysconfdir=/etc \
@@ -58,7 +58,6 @@ build() {
               --enable-user-help \
               --disable-gst_sharp \
               --disable-static \
-              --enable-treeview \
               --disable-scrollkeeper \
               --disable-schemas-install \
               --disable-youtube \
@@ -69,20 +68,26 @@ build() {
               --disable-appledevice \
               --disable-mtp \
               --disable-gio \
-              --with-vendor-build-id=ArchLinux
+              --with-vendor-build-id=ArchLinux \
+              --disable-torrent \
+              --disable-ubuntuone
 
   export MONO_SHARED_DIR="$srcdir/.wabi"
   mkdir -p "$MONO_SHARED_DIR"
-  export LIBGPODSHARP='-r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll'
-  cd "$srcdir/$pkgname"
+  export LIBGPODSHARP='-r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll
+                       -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll
+                       -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll
+                       -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll
+                       -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll'
+  cd "${srcdir}/${pkgname}"
   make
 }
 
 package() {
-  export MONO_SHARED_DIR="$srcdir/.wabi"
+  export MONO_SHARED_DIR="${srcdir}/.wabi"
   mkdir -p "$MONO_SHARED_DIR"
 
-  cd "$srcdir/$pkgname"
+  cd "${srcdir}/${pkgname}"
   make DESTDIR="$pkgdir" install
 
   install -D -m644 COPYING "$pkgdir/usr/share/licenses/$_pkgbase/COPYING"

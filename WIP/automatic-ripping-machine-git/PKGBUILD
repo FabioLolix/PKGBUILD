@@ -1,8 +1,8 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=automatic-ripping-machine-git
-pkgver=v1.4.0.r31.g3b03122
-pkgrel=2
+pkgver=v1.4.0.r41.g46940ca
+pkgrel=1
 pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
 arch=('x86_64')
 url="https://b3n.org/automatic-ripping-machine/"
