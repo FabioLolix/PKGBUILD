@@ -11,11 +11,14 @@ url='https://www.videolan.org/vlc/'
 arch=('x86_64')
 license=('LGPL2.1' 'GPL2')
 depends=('a52dec' 'libdvbpsi' 'libxpm' 'libdca' 'libproxy' 'libtiger' 'lua'
-         'libmatroska' 'taglib' 'libmpcdec' 'ffmpeg' 'faad2' 'libupnp' 'libmad'
+         'libmatroska' 'taglib' 'libmpcdec' 'faad2' 'libupnp' 'libmad'
          'libmpeg2' 'xcb-util-keysyms' 'libtar' 'libxinerama' 'libsecret'
          'libarchive' 'qt5-base' 'qt5-x11extras' 'qt5-svg' 'freetype2'
          'fribidi' 'harfbuzz' 'fontconfig' 'libxml2' 'gnutls' 'libplacebo'
-         'wayland-protocols')
+         'wayland-protocols'
+         'ffmpeg-lolix'
+
+)
 makedepends=('gst-plugins-base-libs' 'live-media' 'libnotify' 'libbluray'
              'flac' 'kdelibs' 'libdc1394' 'libavc1394' 'libcaca' 'gtk3'
              'librsvg' 'libgme' 'xosd' 'twolame' 'aalib' 'avahi' 'libsystemd'

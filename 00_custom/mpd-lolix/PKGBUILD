@@ -12,11 +12,12 @@ pkgdesc='Flexible, powerful, server-side application for playing music'
 url='https://www.musicpd.org/'
 license=('GPL')
 arch=('x86_64')
-depends=('libao' 'ffmpeg' 'libmodplug' 'audiofile' 'libshout' 'libmad' 'curl'
-	 'faad2' 'sqlite' 'jack' 'libmms' 'wavpack' 'avahi' 'libid3tag' 'yajl'
+depends=('libao' 'audiofile' 'sqlite' 'libmms' 'wavpack' 'avahi' 'libid3tag' 'yajl'
 	 'libmpdclient' 'icu' 'libupnp' 'libnfs' 'libsamplerate' 'libsoxr'
-	 'smbclient' 'libgme' 'zziplib' 'libsystemd')
+	 'libsystemd')
 makedepends=('boost' 'doxygen')
+provides=('mpd')
+conflicts=('mpd')
 validpgpkeys=('0392335A78083894A4301C43236E8A58C6DB4512')
 #source=("https://www.musicpd.org/download/${pkgname}/${pkgver}/${pkgname}-${pkgver}.tar.xz"{,.sig}
 source=("https://www.musicpd.org/download/${pkgname}/${pkgver%.*}/${pkgname}-${pkgver}.tar.xz"{,.sig}
@@ -36,16 +37,33 @@ build() {
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc \
-		--enable-jack \
 		--enable-libmpdclient \
 		--enable-pipe-output \
 		--enable-pulse \
-		--enable-soundcloud \
-		--enable-zzip \
-		--disable-sidplay \
+        --enable-flac \
+        --enable-wavpack \
 		--enable-systemd-daemon \
 		--with-systemduserunitdir=/usr/lib/systemd/user \
 		--with-systemdsystemunitdir=/usr/lib/systemd/system \
+        \
+        --disable-jack \
+		--disable-soundcloud \
+        --disable-ffmpeg \
+        --disable-gme \
+        --disable-mad \
+        --disable-mikmod \
+        --disable-modplug \
+        --disable-mpc \
+        --disable-mpg123 \
+        --disable-opus \
+        --disable-sidplay \
+        --disable-sndfile \
+        --disable-vorbis \
+        --disable-wildmidi \
+		--disable-zzip \
+        --disable-oss \
+        --disable-shout \
+        --disable-curl
 
 	make
 }

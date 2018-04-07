@@ -68,6 +68,16 @@ Python_module/*/bandcamp-dl
 00_custom/*/gnome*
 00_custom/*/banshee*
 00_custom/htmlcxx
+00_custom/mpc-qt
+00_custom/logitechmediaserver
+00_custom/logitechmediaserver-git
+00_custom/gst-plugins-bad/*
+00_custom/perl-net-upnp
+00_custom/perl-glib-object-introspection
+00_custom/perl-musicbrainz-discid
+00_custom/perl-webservice-musicbrainz0
+00_custom/gmusicbrowser-git
+
 
 01_settings/*/pkg
 01_settings/*/src

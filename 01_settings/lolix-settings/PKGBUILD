@@ -1,0 +1,22 @@
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=lolix-settings
+pkgver=1
+pkgrel=4
+pkgdesc="lolix stuff"
+arch=('any')
+url="https://github.com/FabioLolix/PKGBUILD"
+license=('none')
+depends=('distcc')
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+source=(customav.list customav2.list)
+md5sums=('SKIP' 'SKIP')
+package() {
+  install -Dm644 customav.list ${pkgdir}/etc/manjaro-tools/pkg.list.d/customav.list
+  install -Dm644 customav2.list ${pkgdir}/etc/manjaro-tools/pkg.list.d/customav2.list
+}
