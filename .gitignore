@@ -61,6 +61,7 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/*/bubble*
 00_AUR_fix/*/nyan*
 00_AUR_fix/*/viewnior-git
+00_AUR_fix/*/sunxi-tools-git
 
 00_custom/*/pkg
 00_custom/*/src
