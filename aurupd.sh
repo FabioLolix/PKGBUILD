@@ -391,3 +391,10 @@ cd $PWD/$VAR56
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR56
 cd ..
+
+
+VAR57=simple-scan-git
+cd $PWD/$VAR57
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR57
+cd ..
