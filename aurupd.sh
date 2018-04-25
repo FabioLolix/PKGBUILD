@@ -384,3 +384,10 @@ cd $PWD/$VAR54
 cd ..
 
 # VAR55->Textosaurus-git
+
+
+VAR56=twin
+cd $PWD/$VAR56
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR56
+cd ..
