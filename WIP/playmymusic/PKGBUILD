@@ -1,35 +1,28 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=playmymusic
-pkgver=0.6.9
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="Music player for Pantheon"
 arch=('x86_64')
-url='https://artemanufrij.github.io/'
+url='http://anufrij.org/melody/'
 license=('GPL3')
-depends=('granite' 'libsoup' 'gst-plugins-base-libs' 'taglib' 'gtk3')
-makedepends=('cmake' 'vala' 'cmake-modules-elementary-git') #'gobject-introspection' 'intltool' 
+depends=('libgranite.so' 'libsoup' 'gst-plugins-base-libs' 'taglib' 'gtk3')
+makedepends=('cmake' 'vala' 'cmake-modules-elementary-git')
 #optdepends=('gst-plugins-base: "Base" plugin libraries'
 #            'gst-plugins-good: "Good" plugin libraries'
 #            'gst-plugins-bad: "Bad" plugin libraries'
 #            'gst-plugins-ugly: "Ugly" plugin libraries')
 source=("https://github.com/artemanufrij/playmymusic/archive/${pkgver}.tar.gz")
-sha256sums=('0415edeaf48b4f4e500ba16b501f4b64db6a05e6e5db53ab6bf147a14fcfc1b0')
-
-prepare() {
-  cd ${srcdir}/${pkgname}-${pkgver}
-  install -d build
-}
+sha256sums=('1e7e1dd9df44d46e6148c75636cb76e3944b38d0f8b868a2dee83c832e677355')
 
 build() {
-  cd ${srcdir}/${pkgname}-${pkgver}/build
-  cmake .. \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr
-  make
+  cd ${srcdir}/${pkgname}-${pkgver}
+  meson build --prefix=/usr
+  ninja -C build
 }
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}/build
-  make DESTDIR="${pkgdir}" install
+  cd ${srcdir}/${pkgname}-${pkgver}
+  DESTDIR="${pkgdir}" ninja -C build install
 }

@@ -27,7 +27,7 @@ pkgbase = inxi
 	optdepends = xorg-xprop: inxi -S desktop data
 	optdepends = xorg-xrandr: inxi -G single screen resolution
 	options = zipman
-	source = inxi-3.0.07::https://github.com/smxi/inxi/archive/3.0.07-1.tar.gz
+	source = inxi-3.0.07.tar.gz::https://github.com/smxi/inxi/archive/3.0.07-1.tar.gz
 	sha256sums = 72ed009c882d25f7324e3d51ad61407d639b6fbfe9c50be97122b7dda0eb7b9e
 
 pkgname = inxi
