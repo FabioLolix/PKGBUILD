@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=newbreeze-git
-pkgver=v3.beta2.r24.ge47fe2c
+pkgver=v3.rc1.r4.g4de8219
 pkgrel=1
 pkgdesc="File Manager based on Qt"
 arch=('x86_64')
@@ -24,7 +24,7 @@ pkgver() {
 
 build() {
   cd ${srcdir}/${pkgname}
-  qmake-qt5
+  qmake-qt5 NewBreeze.pro
   make
 }
 

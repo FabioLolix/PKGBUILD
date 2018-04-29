@@ -63,6 +63,7 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/*/nyan*
 00_AUR_fix/*/viewnior-git
 00_AUR_fix/*/sunxi-tools-git
+00_AUR_fix/*/libwebp-git
 
 00_custom/*/pkg
 00_custom/*/src
@@ -105,4 +106,5 @@ WIP/*/bluemindo*
 WIP/*/cmake*
 WIP/*/corebox-git
 WIP/*/newbreeze-git
+WIP/*/vkmark-git
 
