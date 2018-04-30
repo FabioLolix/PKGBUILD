@@ -46,6 +46,7 @@ s*.png
 */phoronix-test-suite-milestone/phoronix-test-suite/*
 */textosaurus/*
 */simple-scan-git/*
+*/rclone-git/*
 
 Python_module/*/pkg
 Python_module/*/src
