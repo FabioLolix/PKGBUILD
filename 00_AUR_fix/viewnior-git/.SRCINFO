@@ -1,6 +1,6 @@
 pkgbase = viewnior-git
 	pkgdesc = Simple, fast, elegant and minimalistic image viewer, written in C(GTK+) with a new GtkImageView library. Git Version
-	pkgver = 1.6.r17.g3a95e3c
+	pkgver = 1.6.r36.gdc9c62e
 	pkgrel = 1
 	url = http://siyanpanayotov.com/project/viewnior
 	arch = i686

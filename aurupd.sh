@@ -300,13 +300,6 @@ cd $PWD/$VAR43
 cd ..
 
 
-VAR55=textosaurus-git
-cd $PWD/$VAR55
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR55
-cd ..
-
-
 VAR44=qimgv
 cd $PWD/$VAR44
     makepkg --printsrcinfo > .SRCINFO
@@ -383,7 +376,12 @@ cd $PWD/$VAR54
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR54
 cd ..
 
-# VAR55->Textosaurus-git
+
+VAR55=textosaurus-git
+cd $PWD/$VAR55
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR55
+cd ..
 
 
 VAR56=twin
@@ -397,4 +395,11 @@ VAR57=simple-scan-git
 cd $PWD/$VAR57
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR57
+cd ..
+
+
+VAR58=rclone-git
+cd $PWD/$VAR58
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR58
 cd ..

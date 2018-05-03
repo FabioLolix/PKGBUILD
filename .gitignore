@@ -80,6 +80,8 @@ Python_module/*/bandcamp-dl
 00_custom/perl-glib-object-introspection
 00_custom/perl-musicbrainz-discid
 00_custom/perl-webservice-musicbrainz0
+00_custom/perl-webservice-musicbrainz
+00_custom/perl-mojolicious 
 00_custom/gmusicbrowser-git
 
 
