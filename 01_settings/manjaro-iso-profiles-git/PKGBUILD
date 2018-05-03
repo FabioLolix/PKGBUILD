@@ -1,0 +1,34 @@
+
+_mt_pkgver=0.15.6
+
+pkgname=manjaro-iso-profiles-git
+pkgver=r800.d3ba459
+pkgrel=1
+arch=('any')
+url="https://github.com/manjaro/iso-profiles"
+license=('GPL')
+provides=('manjaro-iso-profiles-base'
+        'manjaro-iso-profiles-official'
+        'manjaro-iso-profiles-community')
+conflicts=('manjaro-iso-profiles-base'
+        'manjaro-iso-profiles-official'
+        'manjaro-iso-profiles-community')
+source=("${pkgname}::git+https://github.com/FabioLolix/iso-profiles.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+_inst_dir() {
+    install -d $pkgdir/usr/share/manjaro-tools/iso-profiles
+    cp -a $srcdir/$pkgname/$1 $pkgdir/usr/share/manjaro-tools/iso-profiles/
+}
+
+package() {
+    _inst_dir 'shared'
+    cp $srcdir/$pkgname/repo_info $pkgdir/usr/share/manjaro-tools/iso-profiles/
+    _inst_dir 'manjaro'
+    _inst_dir 'community'
+}
