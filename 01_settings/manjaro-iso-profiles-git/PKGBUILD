@@ -2,7 +2,7 @@
 _mt_pkgver=0.15.6
 
 pkgname=manjaro-iso-profiles-git
-pkgver=r800.d3ba459
+pkgver=r801.7dcdb16
 pkgrel=1
 arch=('any')
 url="https://github.com/manjaro/iso-profiles"
