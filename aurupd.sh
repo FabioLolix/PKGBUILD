@@ -403,3 +403,34 @@ cd $PWD/$VAR58
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR58
 cd ..
+
+
+VAR=hashit
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=imageburner
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=playmymusic
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=playmyvideos
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=showmypictures
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
