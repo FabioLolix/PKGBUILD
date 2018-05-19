@@ -41,10 +41,16 @@ s*.png
 */kitty*
 */elisa*
 */faience-ng*
-*/textosaurus-git
+*/textosaurus-git/
+*/transka/*
+*/7za/*
+*/nsis/*
+*/scintilla/*
+*/sed/*
+#*/textosaurus/*
 */phoronix-test-suite-milestone/*
 */phoronix-test-suite-milestone/phoronix-test-suite/*
-*/textosaurus/*
+*/textosaurus/textosaurus/*
 */simple-scan-git/*
 */rclone-git/*
 

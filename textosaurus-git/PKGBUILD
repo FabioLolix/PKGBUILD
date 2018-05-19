@@ -2,7 +2,7 @@
 
 pkgname=textosaurus-git
 epoch=1
-pkgver=0.9.3.1.r13.g768cabb
+pkgver=0.9.5.r15.g41d9ffd
 pkgrel=1
 pkgdesc="Simple cross-platform text editor based on Qt and Scintilla"
 arch=('x86_64' 'i686' 'arm' 'armv6h' 'armv7h' 'aarch64')
@@ -22,19 +22,18 @@ pkgver() {
 
 prepare() { 
   cd "${srcdir}/${pkgname}"
-  install -d build
 
   git submodule init
   git submodule update
 }
  
 build() { 
-  cd "${srcdir}/${pkgname}/build"
-  qmake ../textosaurus.pro -r CONFIG+=release PREFIX=/usr 
+  cd "${srcdir}/${pkgname}"
+  qmake build.pro -r CONFIG+=release PREFIX=/usr 
   make 
 } 
  
 package() { 
-  cd "${srcdir}/${pkgname}/build"
+  cd "${srcdir}/${pkgname}"
   make install INSTALL_ROOT=${pkgdir}/ 
 } 

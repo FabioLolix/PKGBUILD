@@ -1,6 +1,6 @@
 pkgbase = textosaurus-git
 	pkgdesc = Simple cross-platform text editor based on Qt and Scintilla
-	pkgver = 0.9.3.1.r13.g768cabb
+	pkgver = 0.9.5.r15.g41d9ffd
 	pkgrel = 1
 	epoch = 1
 	url = https://github.com/martinrotter/textosaurus
