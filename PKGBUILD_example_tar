@@ -12,11 +12,8 @@ makedepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=()
 options=()
-
 source=()
-
 md5sums=()
 
 package() {

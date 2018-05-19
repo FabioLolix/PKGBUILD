@@ -12,11 +12,8 @@ makedepends=('git')
 optdepends=()
 provides=()
 conflicts=()
-replaces=()
 options=()
-
-source=("${pkgname}::git+.git")
-
+source=("${pkgname}::git+${url}.git")
 md5sums=('SKIP')
 
 # Git with tags

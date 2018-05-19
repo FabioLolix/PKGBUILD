@@ -8,15 +8,11 @@ arch=('x86_64')
 url=""
 license=()
 depends=()
-makedepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=()
 options=()
-
 source=()
-
 md5sums=()
 
 package() {

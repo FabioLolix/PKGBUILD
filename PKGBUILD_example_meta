@@ -14,8 +14,3 @@ conflicts=()
 replaces=()
 backup=()
 options=()
-install=
-
-source=()
-
-md5sums=()

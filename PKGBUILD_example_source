@@ -12,20 +12,17 @@ makedepends=()
 optdepends=()
 provides=()
 conflicts=()
-replaces=()
 options=()
-
 source=()
-
 md5sums=()
 
 build() {
-  cd ${srcdir}/${pkgname}
+  cd ${srcdir}/${pkgname}-${pkgver}
   make
 }
 
 package() {
-  cd ${srcdir}/${pkgname}
+  cd ${srcdir}/${pkgname}-${pkgver}
   make DESTDIR=${pkgdir} install
 
 # install -d ${pkgdir}/usr/share/licenses/${pkgname}
