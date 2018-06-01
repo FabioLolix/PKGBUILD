@@ -4,7 +4,7 @@
 
 pkgname=inxi
 pkgver=3.0.10
-pkgrel=1
+pkgrel=2
 pkgdesc="Full featured CLI system information tool"
 arch=('any')
 url="https://github.com/smxi/inxi"
@@ -24,7 +24,6 @@ optdepends=(
   "perl-cpanel-json-xs: --output json - required for export"
   "perl-json-xs: --output json - required for export (legacy)"
   "perl-xml-dumper: --output xml - Crude and raw"
-  "perl-xml-parser: dependency for perl-xml-dumper"
   "systemd-sysvcompat: inxi -I runlevel"
   "sudo: inxi -Dx hddtemp-user;-o file-user"
   "tree: --debugger 20,21 /sys tree"
