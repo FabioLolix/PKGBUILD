@@ -1,5 +1,5 @@
 pkgbase = playmyvideos
-	pkgdesc = Cinema is a video player for Pantheon
+	pkgdesc = Cinema is a video player for Pantheon, developed by Artem Anufrij
 	pkgver = 1.0.0
 	pkgrel = 1
 	url = http://anufrij.org/cinema

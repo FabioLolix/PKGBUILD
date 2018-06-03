@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=lolix-manjaro-iso-profiles-custom-testing-git
-pkgver=r38.5304f3f
+pkgver=r40.9d9a602
 pkgrel=1
 pkgdesc="Lolix custom profiles, testing branch to use with Manjaro official profiles. No global customizations"
 arch=('any')
