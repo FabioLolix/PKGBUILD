@@ -53,6 +53,7 @@ s*.png
 */textosaurus/textosaurus/*
 */simple-scan-git/*
 */rclone-git/*
+*/inxi-git/*
 
 Python_module/*/pkg
 Python_module/*/src

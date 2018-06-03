@@ -434,3 +434,24 @@ cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
+
+
+VAR=inxi-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+
+VAR=mdbook-bin
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+
+VAR=mdbook-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
