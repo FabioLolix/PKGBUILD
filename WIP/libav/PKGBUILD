@@ -1,5 +1,5 @@
 pkgname=libav
-pkgver=12.1
+pkgver=12.3
 pkgrel=1
 pkgdesc="Open source audio and video processing tools forked from ffmpeg"
 arch=('i686' 'x86_64')
@@ -10,7 +10,7 @@ makedepends=('yasm')
 provides=('libav' 'ffmpeg')
 conflicts=('libav' 'ffmpeg' 'libav-no-libs' 'libav-no-libs-git' 'libav-git-no-libs')
 source=(http://libav.org/releases/$pkgname-$pkgver.tar.xz)
-md5sums=('b611fd79ebcf90e3d0b8e66c4ea80a17')
+md5sums=('753ec26481b0582eb737383bd8a350a5')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"

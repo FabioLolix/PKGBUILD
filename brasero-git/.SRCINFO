@@ -39,7 +39,7 @@ pkgbase = brasero-git
 	conflicts = brasero
 	replaces = nautilus-cd-burner
 	options = !emptydirs
-	source = git+https://git.gnome.org/browse/brasero.git
+	source = brasero-git::git+https://git.gnome.org/browse/brasero.git
 	sha256sums = SKIP
 
 pkgname = brasero-git

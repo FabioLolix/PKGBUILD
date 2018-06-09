@@ -54,6 +54,8 @@ s*.png
 */simple-scan-git/*
 */rclone-git/*
 */inxi-git/*
+textosaurus/textosaurus/
+*/brasero-git/*
 
 Python_module/*/pkg
 Python_module/*/src
@@ -72,6 +74,7 @@ Python_module/*/bandcamp-dl
 00_AUR_fix/*/viewnior-git
 00_AUR_fix/*/sunxi-tools-git
 00_AUR_fix/*/libwebp-git
+00_AUR_fix/handbrake-gtk-git
 
 00_custom/*/pkg
 00_custom/*/src
@@ -119,4 +122,5 @@ WIP/*/corebox-git
 WIP/*/newbreeze-git
 WIP/*/vkmark-git
 WIP/*/nx*
+WIP/*/rs232monitor-git
 

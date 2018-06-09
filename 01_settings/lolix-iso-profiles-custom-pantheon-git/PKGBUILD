@@ -1,0 +1,25 @@
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=lolix-manjaro-iso-profiles-custom-pantheon-git
+pkgver=r41.25225cf
+pkgrel=1
+pkgdesc="Lolix custom profiles, testing branch to use with Manjaro official profiles. No global customizations"
+arch=('any')
+url="https://github.com/FabioLolix/iso-profile-custom"
+license=('GPL')
+depends=('manjaro-iso-profiles-official')
+makedepends=('git')
+provides=('lolix-manjaro-iso-profiles-custom-pantheon')
+conflicts=('lolix-manjaro-iso-profiles-custom-pantheon')
+source=("${pkgname}::git+https://github.com/FabioLolix/iso-profile-custom.git#branch=pantheon")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  install -d ${pkgdir}/usr/share/manjaro-tools/iso-profiles/lolix
+  cp -r ${srcdir}/${pkgname}/lolix/remix-pantheon ${pkgdir}/usr/share/manjaro-tools/iso-profiles/lolix/
+}

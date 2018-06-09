@@ -2,7 +2,7 @@
 
 pkgname=lolix-manjaro-iso-profiles-custom-testing-git
 pkgver=r40.9d9a602
-pkgrel=1
+pkgrel=2
 pkgdesc="Lolix custom profiles, testing branch to use with Manjaro official profiles. No global customizations"
 arch=('any')
 url="https://github.com/FabioLolix/iso-profile-custom"
@@ -22,4 +22,5 @@ pkgver() {
 package() {
   install -d ${pkgdir}/usr/share/manjaro-tools/iso-profiles/
   cp -r ${srcdir}/${pkgname}/lolix ${pkgdir}/usr/share/manjaro-tools/iso-profiles/
+  rm -R ${pkgdir}/usr/share/manjaro-tools/iso-profiles/lolix/remix-pantheon
 }

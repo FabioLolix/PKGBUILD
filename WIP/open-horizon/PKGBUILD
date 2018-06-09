@@ -26,12 +26,16 @@ pkgver() {
 
 prepare() {
   cd "$srcdir/$pkgname"
-  install -d convert-locations-cmake
+  install -d {convert-locations-cmake,open-horizon-cmake}
   git submodule init
   git submodule update
 }
 
 build() {
+  cd "$srcdir/$pkgname/open-horizon-cmake"
+  cmake ../open-horizon
+  make open_horizon
+
   cd "$srcdir/$pkgname/convert-locations-cmake"
   cmake ../convert_locations 
   make convert_locations
