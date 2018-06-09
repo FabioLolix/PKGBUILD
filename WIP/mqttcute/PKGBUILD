@@ -1,0 +1,29 @@
+# Maintainer: 
+
+pkgname=mqttcute
+pkgver=0.2
+_channel=alpha
+pkgrel=1
+pkgdesc="A desktop MQTT client aimed at binary protocol development and monitoring"
+arch=('x86_64' 'i686')
+url="https://github.com/MayaPosch/MQTTCute"
+license=(custom:BSD)
+depends=('qt5-base' 'mosquitto')
+provides=('mqttcute')
+conflicts=('mqttcute')
+source=("${pkgname}-${pkgver}-${_channel}.tar.gz::https://github.com/MayaPosch/MQTTCute/archive/v${pkgver}-${_channel}.tar.gz")
+md5sums=('0b526adce97c29ff3a5426fa4d63fc9d')
+
+build() {
+  cd "MQTTCute-${pkgver}-${_channel}"
+
+  qmake-qt5 MQTTCute.pro
+  make
+}
+
+package() {
+  cd "MQTTCute-${pkgver}-${_channel}"
+
+  make INSTALL_ROOT="${pkgdir}" install
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
