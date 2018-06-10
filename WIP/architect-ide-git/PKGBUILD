@@ -1,0 +1,37 @@
+# Maintainer: 
+
+pkgname=architect-ide-git
+pkgver=r446.db6c877
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url="https://github.com/openanalytics/architect"
+license=()
+depends=()
+makedepends=('git' 'maven')
+optdepends=()
+provides=()
+conflicts=()
+options=()
+
+source=("${pkgname}::git+${url}.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+#build() {
+#  cd ${srcdir}/${pkgname}
+#  make
+#}
+
+package() {
+  cd ${srcdir}/${pkgname}
+  mvn clean verify
+
+# install -d ${pkgdir}/usr/share/licenses/${pkgname}
+# install -d ${pkgdir}/usr/share/doc/${pkgname}
+# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
+}

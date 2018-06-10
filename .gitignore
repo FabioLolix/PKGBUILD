@@ -8,6 +8,7 @@
 *.whl
 *.AppImage
 *.jar
+*.tgz
 waf*
 MIT
 s*.png
@@ -123,4 +124,6 @@ WIP/*/newbreeze-git
 WIP/*/vkmark-git
 WIP/*/nx*
 WIP/*/rs232monitor-git
+WIP/*/architect-ide
+WIP/*/architect-ide-git
 

@@ -1,0 +1,35 @@
+# Maintainer: 
+
+pkgname=architect-ide-bin
+pkgver=0.9.10
+_pkgname=architect
+_channel=stable
+_pkgver=20170518095416
+pkgrel=2
+pkgdesc="IDE for data scientist includes an integrated R console, "
+arch=('x86_64')
+url="https://www.getarchitect.io/"
+license=()
+depends=('r')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+options=()
+source=("https://www.getarchitect.io/downloads/${_pkgname}-${_channel}_${_pkgver}_amd64.deb")
+md5sums=('4e4d651003a97d015707ebe067bf0d49')
+PKGEXT='.pkg.tar'
+
+package() {
+  bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
+
+  chmod +x ${pkgdir}/opt/${_pkgname}/${_channel}/${_pkgver}/${_pkgname}
+
+  install -d ${pkgdir}/usr/{bin,lib}
+  ln -s /opt/${_pkgname}/${_channel}/${_pkgver}/${_pkgname} ${pkgdir}/usr/bin/${_pkgname}-ide
+  ln -s /usr/lib/libreadline.so ${pkgdir}/usr/lib/libreadline.so.6
+
+# install -d ${pkgdir}/usr/share/licenses/${pkgname}
+# install -d ${pkgdir}/usr/share/doc/${pkgname}
+# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
+}
