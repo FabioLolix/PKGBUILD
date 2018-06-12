@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://designer.io/"
 license=('custom:freeware')
 depends=('alsa-lib' 'libxss' 'gtk2' 'gconf' 'libxtst' 'nss')
-source=("https://designer.gravit.io/_downloads/linux/GravitDesigner.zip"
+source=("${pkgname}-${pkgver}.zip::https://designer.gravit.io/_downloads/linux/GravitDesigner.zip"
         "gravit-designer.desktop"
         "gravit-designer.png"
         "LICENSE")
