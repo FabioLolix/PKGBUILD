@@ -182,9 +182,9 @@ cd ..
 
 
 VAR=polo-git
-cd $PWD/$VAR26
+cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,*.patch} ~/Dev/Github/AUR/$VAR26
+    rsync {PKGBUILD,.SRCINFO,*.patch} ~/Dev/Github/AUR/$VAR
 cd ..
 
 
