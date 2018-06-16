@@ -1,0 +1,22 @@
+# Maintainer: 
+
+pkgname=sparky-dashboard
+pkgver=0.1.2
+pkgrel=1
+pkgdesc="The Sparky dashboard displays applications from /usr/share/applications dir into yad based window"
+arch=('any')
+url="https://github.com/sparkylinux/sparky-dashboard"
+license=(GPL3)
+depends=('yad')
+makedepends=('git')
+provides=()
+conflicts=()
+options=()
+_commit=43e95acc368bc23eb32ab243393ee3aabfd271c1
+source=("${pkgname}::git+${url}.git#commit=$_commit")
+md5sums=('SKIP')
+
+package() {
+  install -Dm775 ${srcdir}/${pkgname}/bin/${pkgname} ${pkgdir}/usr/bin/${pkgname}
+  install -Dm775 ${srcdir}/${pkgname}/share/${pkgname}.desktop  ${pkgdir}/usr/share/applications/${pkgname}.desktop
+}

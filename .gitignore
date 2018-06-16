@@ -57,6 +57,21 @@ s*.png
 */inxi-git/*
 textosaurus/textosaurus/
 */brasero-git/*
+*/ambiance-rw-git/*
+*/easyssh-git/
+*/hashit-git/
+*/imageburner-git/
+*/playmymusic-git/
+*/playmyvideos-git/
+*/showmypictures-git/
+*/qomp-git/
+*/SingleApplication/
+*/themes/
+*/translations/
+*/sparky-dashboard/*
+*/sparky-dashboard-git/
+*/squeezelite-git/*
+*/polo-git/*
 
 Python_module/*/pkg
 Python_module/*/src

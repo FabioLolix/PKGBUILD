@@ -1,0 +1,68 @@
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=automatic-ripping-machine-devel-git
+pkgver=v1.4.0.r165.ga5a8084
+pkgrel=1
+pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
+arch=('x86_64')
+url="https://b3n.org/automatic-ripping-machine/"
+license=('MIT')
+depends=('at' 'glyr' 'python-pycurl' 'python-requests' 'python-urllib3' 'python-xmltodict' 'python-pydvdid'
+         'flac' 'imagemagick'
+         'abcde' 'handbrake-cli' 'libdvdcss' )
+makedepends=('git')
+optdepends=('makemkv'
+            'plex-media-server: Plex support'
+            'emby-server: Emby support')
+provides=('automatic-ripping-machine')
+conflicts=('automatic-ripping-machine')
+#backup=(root/.abcde.conf)
+#install=
+#changelog=
+
+source=("${pkgname}::git+https://github.com/ahnooie/automatic-ripping-machine.git#branch=v2_master")
+md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+  install -d ${pkgdir}/root/
+  install -d ${pkgdir}/opt/arm/
+  install -d ${pkgdir}/usr/lib/udev/rules.d/
+  install -d ${pkgdir}/usr/lib/systemd/system/
+  install -d ${pkgdir}/usr/share/{licenses,doc}/${pkgname}
+
+#  chown arm:arm ${pkgdir}/opt/arm/
+#  chmod 775 ${pkgdir}/opt/arm/
+
+  cp -r ${srcdir}/${pkgname}/* ${pkgdir}/opt/arm/
+  mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/
+  mv ${pkgdir}/opt/arm/{CONTRIBUTING.md,README.md,README-OMDBAPI.txt,CHANGELOG.md} ${pkgdir}/usr/share/doc/${pkgname}/
+  mv ${pkgdir}/opt/arm/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
+  mv ${pkgdir}/opt/arm/arm@.service ${pkgdir}/usr/lib/systemd/system/arm.service
+  cp ${pkgdir}/opt/arm/config.sample ${pkgdir}/opt/arm/config
+  install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
+  ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
+  chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
+  #chmod -R 750 ${pkgdir}/root/.abcde.conf
+  rm -R ${pkgdir}/opt/arm/requirements.txt
+
+
+
+cd /opt
+sudo mkdir arm
+sudo chown arm:arm arm
+sudo chmod 775 arm
+git clone https://github.com/automatic-ripping-machine/automatic-ripping-machine.git arm
+cd arm
+
+sudo ln -s /opt/arm/setup/51-automedia.rules /lib/udev/rules.d/
+sudo cp /opt/arm/setup/arm@.service /etc/systemd/system/
+ln -s /opt/arm/setup/.abcde.conf ~/
+cp docs/arm.yaml.sample arm.yaml
+sudo mkdir /etc/arm/
+sudo ln -s /opt/arm/arm.yaml /etc/arm/
+}

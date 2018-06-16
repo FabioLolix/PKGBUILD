@@ -2,7 +2,7 @@
 #      Ralph Irving 2015-2016, ralph_irving@hotmail.com
 
 pkgname=squeezelite-git
-pkgver=v1.9.0_1098.b2ed99e
+pkgver=v1.9.0_1104.c56dbb0
 pkgrel=1
 pkgdesc='Lightweight headless squeezebox emulator'
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h' 'aarch64')
@@ -12,23 +12,26 @@ makedepends=('git')
 depends=('alsa-lib' 'faad2' 'flac' 'libmad' 'libvorbis' 'mpg123' 'libsoxr' 'ffmpeg')
 provides=('squeezelite')
 conflicts=('squeezelite')
-source=('git+https://github.com/ralph-irving/squeezelite'
+install=${pkgname}.install
+source=("${pkgname}::git+git+https://github.com/ralph-irving/squeezelite'
 	'service'
 	'conffile'
-	'install'
+	'squeezelite-git.install'
 	)
-
-install=install
+sha256sums=('SKIP'
+            '15695d9dbb94e41f7aae7450dcfa9fbba83f25f4d8f2427e872c20c302e486cc'
+            'f0753a1cbd0194119226587ff9c12257438674d9b8e0179d22f0d5461ad3a70a'
+            '2c52ea3b2916f9d67e3029506eabba2dabb3193c2833bcc7d2ff268d3a9ab5b9')
 
 pkgver() {
-	cd squeezelite
+  cd "${pkgname}"
 
 	# printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 	printf "%s.%s" "$(cat squeezelite.h|grep VERSION | awk '{print $3}' | sed 's/\"//g;s/-/_/g')" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-	cd squeezelite
+  cd "${pkgname}"
 
 	export LDFLAGS="${LDFLAGS} -lasound -lpthread -lm -lrt"
 	export OPTS="${OPTS} -DDSD -DRESAMPLE -DVISEXPORT -DFFMPEG -DLINKALL"
@@ -36,7 +39,7 @@ build() {
 }
 
 package() {
-	cd squeezelite
+	cd   cd "${pkgname}"
 
 	# Main binary
 	install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
@@ -44,10 +47,4 @@ package() {
 	install -Dm644 ../service "${pkgdir}/usr/lib/systemd/system/squeezelite.service"
 	install -Dm644 LICENSE.txt "${pkgdir}"/usr/share/licenses/squeezelite.LICENSE
 }
-
-
-sha256sums=('SKIP'
-            '15695d9dbb94e41f7aae7450dcfa9fbba83f25f4d8f2427e872c20c302e486cc'
-            'f0753a1cbd0194119226587ff9c12257438674d9b8e0179d22f0d5461ad3a70a'
-            '2c52ea3b2916f9d67e3029506eabba2dabb3193c2833bcc7d2ff268d3a9ab5b9')
 

@@ -5,7 +5,7 @@
 # Contributor: William Rea <sillywilly@gmail.com>
 
 pkgname=brasero-git
-pkgver=3.12.2+45+g6c45f9e7
+pkgver=3.12.2.r45.g6c45f9e7
 pkgrel=1
 pkgdesc="CD/DVD mastering tool"
 arch=(i686 x86_64)
@@ -22,14 +22,16 @@ optdepends=('libburn: alternative back-end'
             'libisofs: libburn back-end'
             'dvdauthor: video project'
             'vcdimager: video project')
+provides=(brasero)
+conflicts=(brasero)
 replaces=(nautilus-cd-burner)
 groups=(gnome-extra)
-source=("${pkgname}::git+https://git.gnome.org/browse/brasero.git")
+source=("${pkgname}::git+https://gitlab.gnome.org/GNOME/brasero.git/")
 sha256sums=('SKIP')
 
 pkgver() {
   cd "${pkgname}"
-  git describe --tags | sed 's/-/+/g'
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
