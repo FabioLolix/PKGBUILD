@@ -7,25 +7,18 @@ pkgdesc="CD/DVD check tools"
 arch=('x86_64' 'i686')
 url="http://swaj.net/unix/index.html#cdck"
 license=(GPL2)
-depends=('gnuplot')
-makedepends=()
-optdepends=()
-provides=('cdck')
-conflicts=('cdck' 'cdck-bin')
+optdepends=(gnuplot)
+conflicts=(cdck-bin)
 source=("http://swaj.net/unix/cdck/${pkgname}-${pkgver}.tar.gz")
 md5sums=('15029d54b99f2e5cf8aae28077669d3f')
 
 build() {
-  cd ${srcdir}/${pkgname}-${pkgver}
+  cd "${srcdir}/${pkgname}-${pkgver}"
   ./configure
   make
 }
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}
+  cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR=${pkgdir} install
-
-# install -d ${pkgdir}/usr/share/licenses/${pkgname}
-# install -d ${pkgdir}/usr/share/doc/${pkgname}
-# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }

@@ -3,28 +3,29 @@
 pkgname=image-analyzer
 pkgver=3.1.0
 pkgrel=1
-pkgdesc="simple Gtk+ application that displays tree structure of disc image created by libMirage"
+pkgdesc="Simple Gtk+ application that displays tree structure of disc image created by libMirage"
 arch=('x86_64' 'i686')
 url="http://cdemu.sourceforge.net/about/analyzer/"
 license=(GPL)
-depends=('python' 'libmirage' 'python-matplotlib' 'libxml2')
+depends=('python' 'libmirage' 'python-matplotlib' 'libxml2' 'pygobject-devel' 'gtk3')
+makedepends=('cmake' 'intltool')
 optdepends=('gnuplot')
 source=("http://downloads.sourceforge.net/cdemu/${pkgname}-${pkgver}.tar.bz2")
 md5sums=('e8b638fb92a4b6fda9e9e8d38cc50a01')
 
 prepare() {
-  cd ${srcdir}/${pkgname}-${pkgver}
+  cd "${srcdir}/${pkgname}-${pkgver}"
   install -d build
 }
 
 build() {
-  cd ${srcdir}/${pkgname}-${pkgver}/build
+  cd "${srcdir}/${pkgname}-${pkgver}/build"
   cmake .. \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr
 }
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}/build
+  cd "${srcdir}/${pkgname}-${pkgver}/build"
   make install DESTDIR=${pkgdir}
 }
