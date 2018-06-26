@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 url="https://teejee2008.github.io/polo/"
 license=('GPL2')
 depends=('gtk3' 'libgee' 'libsoup' 'vte3' 'rsync' 'gvfs' 'p7zip')
-makedepends=('vala' 'chrpath')
+makedepends=('vala')
 optdepends=('mediainfo: read media properties from audio and video files'
             'fish: terminal shell'
             'perl-image-exiftool: read EXIF properties from JPG/TIFF/PNG/PDF files'
@@ -40,7 +40,6 @@ package() {
   cd "$srcdir/${pkgname}-${pkgver}-${_channel}"
   make DESTDIR="${pkgdir}" install
 
-  chrpath --delete "${pkgdir}"/usr/bin/polo-gtk
   ln -s /usr/bin/polo-gtk "${pkgdir}"/usr/bin/polo
   rm "${pkgdir}"/usr/bin/polo-uninstall
 }
