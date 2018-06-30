@@ -1,0 +1,31 @@
+From 7f3c451d629aa85f33ecb084235ca1cc3c4cd54e Mon Sep 17 00:00:00 2001
+From: Rok Mandeljc <rok.mandeljc@gmail.com>
+Date: Wed, 27 Jun 2018 11:53:08 +0200
+Subject: [PATCH] Image analyzer: display about dialog via run() instead of
+ present()
+
+And after run(), explicitly destroy() the dialog. This should fix
+the issue with "Close" button not working in cases when this button
+is displayed on the dialog.
+---
+ image-analyzer/src/image-analyzer | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/image-analyzer/src/image-analyzer b/image-analyzer/src/image-analyzer
+index f1fa8adb..ee1be877 100755
+--- a/image-analyzer/src/image-analyzer
++++ b/image-analyzer/src/image-analyzer
+@@ -2540,7 +2540,9 @@ class ImageAnalyzer (Gtk.Application):
+         about_dialog.set_website_label(_("The CDEmu project website"))
+         about_dialog.set_authors([ "Rok Mandeljc <rok.mandeljc@gmail.com>" ])
+         about_dialog.set_translator_credits(_("translator-credits"))
+-        about_dialog.present()
++
++        about_dialog.run()
++        about_dialog.destroy()
+ 
+     def on_quit (self, action, param):
+         self.quit()
+-- 
+2.17.1
+
