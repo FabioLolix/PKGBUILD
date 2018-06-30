@@ -19,7 +19,7 @@ prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   install -d build
 
-  patch -Np1 -i ../0001-Image-analyzer-display-about-dialog-via-run-instead-.patch
+  patch -Np2 -i ../0001-Image-analyzer-display-about-dialog-via-run-instead-.patch
 }
 
 build() {
