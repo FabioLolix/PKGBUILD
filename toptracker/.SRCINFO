@@ -1,6 +1,6 @@
 pkgbase = toptracker
 	pkgdesc = Time tracking software for remote teams and individuals
-	pkgver = 1.5.2
+	pkgver = 1.5.2.198
 	pkgrel = 1
 	url = https://www.toptal.com/tracker/
 	arch = x86_64
