@@ -1,14 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=easyssh-git
-pkgver=1.2.2.r7.g8c97e26
+pkgver=1.2.6.r2.g6531249
 pkgrel=1
 pkgdesc="SSH connection manager for Pantheon"
 arch=('x86_64')
 url='https://github.com/muriloventuroso/easyssh'
 license=('GPL3')
 depends=('libgranite.so' 'gtk3')
-makedepends=('vala' 'cmake' 'git')
+makedepends=('vala' 'meson' 'ninja' 'git')
 provides=(easyssh)
 conflicts=(easyssh)
 source=("${pkgname}::git+${url}.git")

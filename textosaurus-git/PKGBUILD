@@ -2,7 +2,7 @@
 
 pkgname=textosaurus-git
 epoch=1
-pkgver=0.9.7.r18.g4538d20
+pkgver=0.9.7.r35.gbbb11ed
 pkgrel=1
 pkgdesc="Simple cross-platform text editor based on Qt and Scintilla"
 arch=('x86_64' 'i686' 'arm' 'armv6h' 'armv7h' 'aarch64')
