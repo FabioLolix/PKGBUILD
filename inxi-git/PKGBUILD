@@ -2,7 +2,7 @@
 # Contributor: FadeMind <fademind@gmail.com>
 
 pkgname=inxi-git
-pkgver=3.0.17.r0.g19ad57b6
+pkgver=3.0.18.r0.g94b1315b
 pkgrel=1
 pkgdesc="script to get system information (git version)"
 arch=('any')

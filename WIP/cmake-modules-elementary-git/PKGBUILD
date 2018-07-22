@@ -5,12 +5,10 @@ pkgver=r37.319ec53
 pkgrel=1
 pkgdesc=""
 arch=('any')
-url="https://github.com/elementary/cmake-modules"
-license=()
+url="https://github.com/elementary/junk/tree/cmake-modules"
+license=(GPL3)
 makedepends=('cmake' 'git')
-provides=()
-conflicts=()
-source=("${pkgname}::git+https://github.com/elementary/cmake-modules.git")
+source=("${pkgname}::git+https://github.com/elementary/junk.git#branch=cmake-modules")
 md5sums=('SKIP')
 
 pkgver() {

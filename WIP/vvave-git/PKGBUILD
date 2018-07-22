@@ -1,0 +1,54 @@
+# Maintainer: Josip Ponjavic <josipponjavic at gmail dot com>
+ 
+pkgname=vvave-git
+pkgver=r243.6922682
+pkgrel=1
+pkgdesc='Tiny Qt Music Player to keep your favorite songs at hand'
+arch=(x86_64)
+url="https://vvave.kde.org/"
+license=(GPL3)
+depends=(ki18n knotifications qt5-quickcontrols2 qt5-webengine qt5-websockets taglib)
+makedepends=(extra-cmake-modules git python)
+optdepends=('youtube-dl: youtube support')
+provides=(vvave)
+conflicts=(vvave babe babe-git babe-qt)
+replaces=(babe babe-qt)
+source=("${pkgname}::git://anongit.kde.org/vvave.git"
+        "git+https://github.com/maui-project/mauikit"
+        "git://anongit.kde.org/breeze-icons"
+        "git://anongit.kde.org/kirigami"
+        "git+https://github.com/Nitrux/luv-icon-theme")
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "$pkgname"
+  mkdir -p build
+
+  git submodule init
+#  git config 'submodule.mauikit.url' "${srcdir}/mauikit"
+  git config 'submodule.3rdparty/breeze-icons.url' "${srcdir}/breeze-icons"
+  git config 'submodule.3rdparty/kirigami.url' "${srcdir}/kirigami"
+  git config 'submodule.3rdparty/luv.url' "${srcdir}/luv-icon-theme"
+  git submodule update
+}
+
+build() {
+  cd "$pkgname/build"
+  cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/usr
+  make
+}
+ 
+package() {
+  cd "$pkgname/build"
+  make DESTDIR="$pkgdir" install
+}

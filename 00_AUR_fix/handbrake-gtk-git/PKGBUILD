@@ -6,8 +6,8 @@
 # Maintainer: Stefan Husmann <stefan-husmann@t-online.de>
 
 pkgbase=handbrake-git
-pkgname=('handbrake-gtk-git' 'handbrake-cli-git')
-pkgver=1.1.0.r110.gb8c1375e6
+pkgname=('handbrake-git' 'handbrake-cli-git')
+pkgver=1.1.0.r295.gf039027f7
 pkgrel=1
 pkgdesc="Multiplatform, multithreaded DVD to MPEG-4/H264/Theora converter"
 arch=('i686' 'x86_64')
@@ -60,9 +60,9 @@ prepare() {
 build() {
   cd "$srcdir"/"$_gitname"
 
-  ./configure --launch --build="build" --prefix=/usr --enable-fdk \
+  ./configure --launch --build="build" --prefix=/usr \
 	      --disable-gtk-update-checks --launch-jobs=0 \
-	      --enable-x265 --force
+	      --enable-nvenc --enable-qsv --force
 
   # Create build-specific temporary directory for ffmpeg
   install -d -m755 "build/build_tmp"
@@ -72,7 +72,7 @@ build() {
   /usr/lib/paxtest/execstack -c "$srcdir/$_gitname/build/gtk/src/ghb"
 }
 
-package_handbrake-gtk-git() {
+package_handbrake-git() {
   pkgdesc="Multiplatform, multithreaded DVD to MPEG-4/H264/Theora converter (GUI version)"
   depends=('opus' 'jansson' 'libsamplerate' 'libx264' 'libtheora' 'lame' 'libass' 'gtk3'
 	   'dbus-glib' 'gst-plugins-base-libs' 'libgudev' 'libnotify')
