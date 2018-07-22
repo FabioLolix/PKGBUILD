@@ -1,0 +1,65 @@
+pkgbase = lumina-desktop-utils
+	pkgver = 1.4.0p1
+	pkgrel = 1
+	url = https://github.com/trueos/lumina
+	arch = x86_64
+	license = BSD
+	makedepends = qt5-svg
+	makedepends = qt5-tools
+	makedepends = qt5-x11extras
+	makedepends = qt5-multimedia
+	makedepends = poppler-qt5
+	depends = qt5-base
+	conflicts = lumina-desktop
+	conflicts = lumina-desktop-git
+	source = lumina-desktop-1.4.0p1.tar.gz::https://github.com/trueos/lumina/archive/v1.4.0-p1.tar.gz
+	sha512sums = 340079832f4f6c9c9c70f11d7743b7c7db6772897f6411a966bf2bd77124bab1fbac8f5751164fb8a08a12c4443f515aaee76b117b4f959263eeaa98dbcbe41e
+
+pkgname = lumina-icon-theme
+	pkgdesc = Icon theme for Lumina desktop applications
+	options = !strip
+
+pkgname = lumina-archiver
+	pkgdesc = Archivier for the lumina desktop environment
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-calculator
+	pkgdesc = Calculator for the lumina desktop environment
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-fileinfo
+	pkgdesc = File property manager for the lumina desktop environment
+	depends = qt5-base
+	depends = qt5-multimedia
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-fm
+	pkgdesc = File manager for the lumina desktop environment
+	depends = qt5-base
+	depends = qt5-x11extras
+	depends = qt5-multimedia
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-mediaplayer
+	pkgdesc = Mediaplayer for the lumina desktop environment
+	depends = qt5-base
+	depends = qt5-x11extras
+	depends = qt5-multimedia
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-pdf
+	pkgdesc = PDF viewver for the lumina desktop environment
+	depends = qt5-base
+	depends = poppler-qt5
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-screenshot
+	pkgdesc = Screenshot utility for the lumina desktop environment
+	depends = qt5-base
+	depends = qt5-x11extras
+	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-textedit
+	pkgdesc = Text editor for the lumina desktop environment
+	optdepends = lumina-icon-theme: for completeting icon set
+
