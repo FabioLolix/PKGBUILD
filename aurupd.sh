@@ -549,3 +549,15 @@ cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
+
+VAR=easyssh
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=easyssh-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
