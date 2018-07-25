@@ -450,6 +450,13 @@ cd $PWD/$VAR
 cd ..
 
 
+VAR=mdbook
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+
 VAR=mdbook-bin
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
