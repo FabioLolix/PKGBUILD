@@ -1,14 +1,14 @@
-# $Id$
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 # Contributor: Jochem Kossen <j.kossen@home.nl>
 # Contributor: Kevin Piche <kevin@archlinux.org>
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
-# Maintainer: schuay <jakob.gruber@gmail.com>
+# Contributor: schuay <jakob.gruber@gmail.com>
 
 pkgname=abcde-musicbrainz
 _pkgname=abcde
 pkgver=2.9.1
-pkgrel=1
-pkgdesc='Frontend command-line utility that grabs tracks off a CD, encodes them to ogg or mp3 format, and tags them, all in one go'
+pkgrel=2
+pkgdesc='Command-line CD ripping, encoding and tagging utility in one go, with default musicbrainz support'
 arch=('any')
 url='https://abcde.einval.com/'
 license=('GPL')
@@ -19,8 +19,8 @@ optdepends=('cdparanoia: Paranoia ripping support'
             'lame: MP3 encoding support'
             'python-eyed3: ID3 tag support'
             'vorbisgain: Ogg Vorbis normalization support')
-provides=('abcde')
-provides=('conflicts')
+provides=(abcde)
+conflicts=(abcde)
 backup=("etc/${_pkgname}.conf")
 source=("https://abcde.einval.com/download/abcde-${pkgver}.tar.gz"{,.sign})
 validpgpkeys=('CEBB52301D617E910390FE16587979573442684E'
