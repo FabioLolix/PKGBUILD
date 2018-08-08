@@ -21,7 +21,7 @@ optdepends=('mediainfo: read media properties from audio and video files'
             'polo-donation-plugins')
 provides=('polo')
 conflicts=('polo' 'polo-bin')
-source=("https://github.com/teejee2008/polo/archive/v${pkgver}-${_channel}.tar.gz"
+source=("${pkgname}-${pkgver}-${_channel}.tar.gz::https://github.com/teejee2008/polo/archive/v${pkgver}-${_channel}.tar.gz"
         '0001-Fixed-build-with-recent-vala-version.patch')
 sha256sums=('38ce401f607af3e77b3cd099efc6aea73410361d35771be3563b0f99f147a352'
             '97d78f7879eb913dc4b9574e6854553e956f5a883beef2335887d1d12061d0b2')

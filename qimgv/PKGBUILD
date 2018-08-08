@@ -9,9 +9,7 @@ url="https://github.com/easymodo/qimgv"
 license=(GPL3)
 depends=('qt5-base' 'qt5-imageformats' 'qt5-svg' 'mpv')
 makedepends=('cmake' 'qt5-tools')
-provides=('qimgv')
-conflicts=('qimgv')
-source=("https://github.com/easymodo/qimgv/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/easymodo/qimgv/archive/v${pkgver}.tar.gz")
 md5sums=('ab8056ccefda185f685fecb86d109e59')
 
 prepare() {

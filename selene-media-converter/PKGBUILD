@@ -31,7 +31,7 @@ optdepends=('gpac: MP4Box muxer'
 makedepends=('vala' 'chrpath')
 provides=('selene-media-converter' 'selene-media-encoder')
 conflicts=('selene-media-converter' 'selene-media-encoder' 'selene-media-encoder-bzr')
-source=("https://github.com/teejee2008/${pkgname}/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/teejee2008/${pkgname}/archive/v${pkgver}.tar.gz")
 md5sums=('8af31e921872c102d54c0db3b1d1c8fc')
 
 build() {
