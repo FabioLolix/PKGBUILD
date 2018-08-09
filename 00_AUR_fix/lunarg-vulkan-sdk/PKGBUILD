@@ -1,32 +1,28 @@
 # Maintainer: Madotsuki <madotsuki@national.shitposting.agency>
 
 pkgname=lunarg-vulkan-sdk
-pkgver=1.0.57.0
+pkgver=1.1.82.0
 pkgrel=1
 pkgdesc="Vulkan loader for amdgpu-pro, make sure you don't have dpkg installed"
 url='https://vulkan.lunarg.com'
 license=('apache')
 arch=('x86_64')
-depends=('qt5-svg' 'python' 'amdgpu-pro')
-optdepends=('java-enviroment' 'cmake')
-conflicts=('dpkg' 'spirv-tools' 'vulkan-icd-loader' 'vulkan-validation-layers' 'vulkan-headers')
-source=("https://vulkan.lunarg.com/sdk/download/${pkgver}/linux/vulkansdk-linux-x86_64-${pkgver}.run")
-md5sums=('SKIP')
+depends=('qt5-svg' 'python')
+optdepends=(java-enviroment cmake amdgpu-pro)
+conflicts=(vulkan-icd-loader vulkan-trace vulkan-tools vulkan-extra-layers vulkan-validation-layers)
+provides=(vulkan-icd-loader vulkan-trace vulkan-tools vulkan-extra-layers vulkan-validation-layers)
+source=("https://sdk.lunarg.com/sdk/download/${pkgver}/linux/vulkansdk-linux-x86_64-${pkgver}.tar.gz?u=")
+md5sums=('2e1cbe538661352f158526cd4975feb2')
 options=(!strip)
 PKGEXT='.pkg.tar'
 
-prepare() {
-    sed -i -e '/\#\!\/bin\/sh/,+500d' ../vulkansdk-linux-x86_64-${pkgver}.run
-}
-
 package() {
-  bsdtar -xf vulkansdk-linux-x86_64-${pkgver}.run -C ${srcdir}
 
-  rm -r ${srcdir}/${pkgver}/install
-  rm ${srcdir}/${pkgver}/config/ubuntu15.04_dri3.txt
-  mv ${srcdir}/${pkgver}/{Getting_Started,Release_Notes}.html ${srcdir}/${pkgver}/doc
+  install -d ${pkgdir}/usr/{bin,lib}
+  rsync -a "${srcdir}/${pkgver}/x86_64/" ${pkgdir}/
 
-  install -d ${pkgdir}/usr/bin/${pkgname}
-  rsync -a ${srcdir}/${pkgver}/ ${pkgdir}/usr/bin/${pkgname}
-  chown -R root:root ${pkgdir}/usr/bin/${pkgname}
+  mv ${pkgdir}/bin/* ${pkgdir}/usr/bin/
+  mv ${pkgdir}/lib/* ${pkgdir}/usr/lib/
+
+  rm -r ${pkgdir}/{bin,lib}
 }

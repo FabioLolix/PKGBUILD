@@ -73,6 +73,7 @@ textosaurus/textosaurus/
 */squeezelite-git/*
 */polo-git/*
 */launchar-git/*
+*/mdbook-git/*
 
 Python_module/*/pkg
 Python_module/*/src

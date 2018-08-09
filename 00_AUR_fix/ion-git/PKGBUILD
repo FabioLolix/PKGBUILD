@@ -1,13 +1,13 @@
 # Maintainer: Luca Weiss <luca (at) z3ntu (dot) xyz>
 
 pkgname=ion-git
-pkgver=1.0.5.r484.g48a00d4
+pkgver=1.0.5.r676.g2a1a507
 pkgrel=1
 pkgdesc="The Ion Shell. Compatible with Redox and Linux. (Git version)"
 arch=("x86_64" "i686")
 url="https://github.com/redox-os/ion"
 license=(MIT)
-makedepends=(git mdbook rust-nightly)
+makedepends=(git mdbook rust)
 provides=(ion)
 conflicts=(ion)
 install=${pkgname}.install

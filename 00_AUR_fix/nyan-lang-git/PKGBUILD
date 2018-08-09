@@ -1,7 +1,7 @@
 # Maintainer: Eric Bailey <nerflad@gmail.com>
 
 pkgname=nyan-lang-git
-pkgver=r120.debef45
+pkgver=r162.702984f
 pkgrel=1
 pkgdesc="A data description language designed for openage"
 arch=('i686' 'x86_64')
