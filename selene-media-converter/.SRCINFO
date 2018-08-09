@@ -38,7 +38,7 @@ pkgbase = selene-media-converter
 	conflicts = selene-media-converter
 	conflicts = selene-media-encoder
 	conflicts = selene-media-encoder-bzr
-	source = https://github.com/teejee2008/selene-media-converter/archive/v17.7.tar.gz
+	source = selene-media-converter-17.7.tar.gz::https://github.com/teejee2008/selene-media-converter/archive/v17.7.tar.gz
 	md5sums = 8af31e921872c102d54c0db3b1d1c8fc
 
 pkgname = selene-media-converter

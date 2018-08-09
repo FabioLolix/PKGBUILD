@@ -12,9 +12,7 @@ pkgbase = qimgv
 	depends = qt5-imageformats
 	depends = qt5-svg
 	depends = mpv
-	provides = qimgv
-	conflicts = qimgv
-	source = https://github.com/easymodo/qimgv/archive/v0.6.3.tar.gz
+	source = qimgv-0.6.3.tar.gz::https://github.com/easymodo/qimgv/archive/v0.6.3.tar.gz
 	md5sums = ab8056ccefda185f685fecb86d109e59
 
 pkgname = qimgv

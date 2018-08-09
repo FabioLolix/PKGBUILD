@@ -14,7 +14,7 @@ pkgbase = qcomicbook
 	optdepends = unace
 	optdepends = unrar
 	optdepends = rar
-	source = https://github.com/stolowski/QComicBook/archive/0.9.1.tar.gz
+	source = qcomicbook-0.9.1.tar.gz::https://github.com/stolowski/QComicBook/archive/0.9.1.tar.gz
 	md5sums = d8762ff0698652cd2c383dbaa30cc132
 
 pkgname = qcomicbook

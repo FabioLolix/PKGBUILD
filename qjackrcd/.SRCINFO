@@ -9,7 +9,7 @@ pkgbase = qjackrcd
 	makedepends = qt5-tools
 	depends = qt5-base
 	depends = jack
-	source = https://github.com/orouits/qjackrcd/archive/v1.2.3.tar.gz
+	source = qjackrcd-1.2.3.tar.gz::https://github.com/orouits/qjackrcd/archive/v1.2.3.tar.gz
 	md5sums = b97516da380ca5826fc6029a00bcd277
 
 pkgname = qjackrcd
