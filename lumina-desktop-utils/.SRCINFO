@@ -1,6 +1,7 @@
 pkgbase = lumina-desktop-utils
+	pkgdesc = Desktop applications from Lumina project
 	pkgver = 1.4.0p1
-	pkgrel = 1
+	pkgrel = 3
 	url = https://github.com/trueos/lumina
 	arch = x86_64
 	license = BSD
@@ -17,6 +18,7 @@ pkgbase = lumina-desktop-utils
 
 pkgname = lumina-icon-theme
 	pkgdesc = Icon theme for Lumina desktop applications
+	arch = any
 	options = !strip
 
 pkgname = lumina-archiver
