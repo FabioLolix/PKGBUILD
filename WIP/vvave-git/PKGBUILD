@@ -1,15 +1,16 @@
 # Maintainer: Josip Ponjavic <josipponjavic at gmail dot com>
  
 pkgname=vvave-git
-pkgver=r243.6922682
+pkgver=r295.e5ceeb5
 pkgrel=1
 pkgdesc='Tiny Qt Music Player to keep your favorite songs at hand'
-arch=(x86_64)
+arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://vvave.kde.org/"
 license=(GPL3)
-depends=(ki18n knotifications qt5-quickcontrols2 qt5-webengine qt5-websockets taglib)
-makedepends=(extra-cmake-modules git python)
-optdepends=('youtube-dl: youtube support')
+depends=(ki18n knotifications qt5-quickcontrols2 qt5-svg qt5-webengine qt5-websockets taglib kio )
+makedepends=(git)
+optdepends=('youtube-dl: youtube support'
+            gst-plugins-base gst-libav)
 provides=(vvave)
 conflicts=(vvave babe babe-git babe-qt)
 replaces=(babe babe-qt)
@@ -34,7 +35,7 @@ prepare() {
   mkdir -p build
 
   git submodule init
-#  git config 'submodule.mauikit.url' "${srcdir}/mauikit"
+  git config 'submodule.mauikit.url' "${srcdir}/mauikit"
   git config 'submodule.3rdparty/breeze-icons.url' "${srcdir}/breeze-icons"
   git config 'submodule.3rdparty/kirigami.url' "${srcdir}/kirigami"
   git config 'submodule.3rdparty/luv.url' "${srcdir}/luv-icon-theme"
@@ -43,8 +44,7 @@ prepare() {
 
 build() {
   cd "$pkgname/build"
-  cmake .. \
-    -DCMAKE_INSTALL_PREFIX=/usr
+  qmake-qt5 -o Makefile ../vvave.pro
   make
 }
  

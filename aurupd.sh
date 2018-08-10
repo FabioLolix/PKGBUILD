@@ -575,3 +575,21 @@ cd $PWD/$VAR
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
 
+
+VAR=strawberry
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=strawberry-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=strawberry-full-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..

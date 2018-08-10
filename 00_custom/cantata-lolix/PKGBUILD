@@ -7,7 +7,7 @@
 
 pkgname=cantata-lolix
 _pkgname=cantata
-pkgver=2.2.0
+pkgver=2.3.1
 pkgrel=1
 pkgdesc='Qt5 client for the music player daemon (MPD), disabled replay-gain and mpd http stream'
 arch=(i686 x86_64)

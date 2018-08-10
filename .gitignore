@@ -74,6 +74,8 @@ textosaurus/textosaurus/
 */polo-git/*
 */launchar-git/*
 */mdbook-git/*
+*/strawberry-full-git/*
+*/strawberry-git/*
 
 Python_module/*/pkg
 Python_module/*/src
@@ -143,4 +145,5 @@ WIP/*/nx*
 WIP/*/rs232monitor-git
 WIP/*/architect-ide
 WIP/*/architect-ide-git
+WIP/vvave-git/*
 
