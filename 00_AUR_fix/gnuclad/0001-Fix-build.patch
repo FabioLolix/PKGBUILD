@@ -1,0 +1,25 @@
+From 0cac2b6088d279dd495949a5305ff55b77737da1 Mon Sep 17 00:00:00 2001
+From: FabioLolix <fabio.lolix@gmail.com>
+Date: Sun, 12 Aug 2018 21:03:23 +0200
+Subject: [PATCH] Fix build
+
+---
+ src/gnuclad.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/gnuclad.cpp b/src/gnuclad.cpp
+index a80df95..0d0defe 100644
+--- a/src/gnuclad.cpp
++++ b/src/gnuclad.cpp
+@@ -142,7 +142,7 @@ int main(int argc, char ** argv) {
+     cout << "\nError: " << err;
+   } catch(string err) {
+     cout << "\nError: " << err;
+-  } catch(exception e) {
++  } catch(exception& e) {
+     cout << "\nError: " << e.what();
+   } catch(...) {
+     cout << "\nError: unknown reason";
+-- 
+2.18.0
+
