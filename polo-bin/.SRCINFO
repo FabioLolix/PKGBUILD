@@ -1,6 +1,6 @@
 pkgbase = polo-bin
 	pkgdesc = A modern, light-weight GTK file manager for Linux, currently in beta (.deb binary version)
-	pkgver = 18.3
+	pkgver = 18.8
 	pkgrel = 1
 	url = https://teejee2008.github.io/polo/
 	arch = i686
@@ -9,6 +9,7 @@ pkgbase = polo-bin
 	depends = gtk3
 	depends = libgee
 	depends = libsoup
+	depends = vte3
 	depends = rsync
 	depends = gvfs
 	depends = p7zip
@@ -24,10 +25,10 @@ pkgbase = polo-bin
 	provides = polo
 	conflicts = polo
 	conflicts = polo-bin
-	source_i686 = https://github.com/teejee2008/polo/releases/download/v18.3-beta/polo-file-manager-v18.3.1-i386.deb
-	sha256sums_i686 = b8ba3b9bcb70ce82a9ff3d899297daefeb58599b97800d285294f393b331501c
-	source_x86_64 = https://github.com/teejee2008/polo/releases/download/v18.3-beta/polo-file-manager-v18.3.1-amd64.deb
-	sha256sums_x86_64 = 27fb082c2c410f48f22e44e05dbe27ce2d1accb8ce72120581046fb9e37cbdca
+	source_i686 = https://github.com/teejee2008/polo/releases/download/v18.8-beta/polo-file-manager-v18.8-i386.deb
+	sha256sums_i686 = 296135f206679c446c8977931d6309d79495a77e51a20fed10436439b93fd586
+	source_x86_64 = https://github.com/teejee2008/polo/releases/download/v18.8-beta/polo-file-manager-v18.8-amd64.deb
+	sha256sums_x86_64 = 24262a0a68478567319a27a6974a26d46dba1f7b6c5a259110be8b2e9c7374f1
 
 pkgname = polo-bin
 
