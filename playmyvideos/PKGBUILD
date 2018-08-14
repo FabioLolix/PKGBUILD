@@ -2,7 +2,7 @@
 
 pkgname=playmyvideos
 pkgver=1.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Cinema is a video player for Pantheon, developed by Artem Anufrij"
 arch=(x86_64)
 url="http://anufrij.org/cinema"
