@@ -7,13 +7,13 @@
 
 pkgbase=handbrake-git
 pkgname=('handbrake-git' 'handbrake-cli-git')
-pkgver=1.1.0.r295.gf039027f7
+pkgver=1.1.0.r329.g7b31141ee
 pkgrel=1
 pkgdesc="Multiplatform, multithreaded DVD to MPEG-4/H264/Theora converter"
 arch=('i686' 'x86_64')
 url="http://handbrake.fr/"
 license=('GPL')
-source=("git+https://github.com/HandBrake/HandBrake.git"
+source=("${pkgname}::git+https://github.com/HandBrake/HandBrake.git"
 	'https://download.handbrake.fr/handbrake/contrib/fdk-aac-0.1.5.tar.gz'
 	'https://download.handbrake.fr/handbrake/contrib/ffmpeg-4.0.tar.bz2'
 	'https://download.handbrake.fr/handbrake/contrib/libbluray-1.0.2.tar.bz2'
@@ -21,7 +21,8 @@ source=("git+https://github.com/HandBrake/HandBrake.git"
 	'https://download.handbrake.fr/handbrake/contrib/libvpx-1.7.0.tar.gz'
 	'https://download.handbrake.fr/handbrake/contrib/x265_2.8.tar.gz'
 	'https://download.handbrake.fr/handbrake/contrib/libdvdread-5.0.3.tar.bz2')
-makedepends=('git' 'cmake' 'intltool' 'python2' 'gettext' 'yasm' 'paxtest' 'lame' 'opus' 'jansson' 'libvorbis' 'libx264' 'libass' 'gtk3' 'libnotify' 'dbus-glib' 'libsamplerate' 'libtheora')
+makedepends=('git' 'cmake' 'intltool' 'python2' 'gettext' 'nasm' 'paxtest' 'lame' 'opus' 'jansson' 'libvorbis' 'libx264' 'libass' 'gtk3' 'libsamplerate' 'libtheora' libva speex)
+optdepends=("intel-media-server-studio: for QSV" "nvidia-utils: for nvenc")
 sha256sums=('SKIP'
             '2164592a67b467e5b20fdcdaf5bd4c50685199067391c6fcad4fa5521c9b4dd7'
             '318a39d906c9107d49766c63787798dd078d2a36e6670a9dfeda3c55be4573b8'
@@ -37,15 +38,14 @@ noextract=('fdk-aac-0.1.5.tar.gz'
 	   'x265_2.8.tar.gz'
 	   'libdvdread-5.0.3.tar.bz2'
 	   'libvpx-1.7.0.tar.gz')
-_gitname="HandBrake"
 
 pkgver() {
-  cd "$srcdir"/"$_gitname"
+  cd "$srcdir/$pkgname"
   git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "$srcdir/$_gitname"
+  cd "$srcdir/$pkgname"
 
   # python2 substitutions
   sed -i -e '1c#! /usr/bin/python2' "gtk/src/makedeps.py"
@@ -58,7 +58,7 @@ prepare() {
 }
 
 build() {
-  cd "$srcdir"/"$_gitname"
+  cd "$srcdir/$pkgname"
 
   ./configure --launch --build="build" --prefix=/usr \
 	      --disable-gtk-update-checks --launch-jobs=0 \
@@ -67,23 +67,23 @@ build() {
   # Create build-specific temporary directory for ffmpeg
   install -d -m755 "build/build_tmp"
 
-  make -C "build" TMPDIR="$srcdir/$_gitname/build/build_tmp"
-  /usr/lib/paxtest/execstack -c "$srcdir/$_gitname/build/HandBrakeCLI"
-  /usr/lib/paxtest/execstack -c "$srcdir/$_gitname/build/gtk/src/ghb"
+  make -C "build" TMPDIR="$srcdir/$pkgname/build/build_tmp"
+  /usr/lib/paxtest/execstack -c "$srcdir/$pkgname/build/HandBrakeCLI"
+  /usr/lib/paxtest/execstack -c "$srcdir/$pkgname/build/gtk/src/ghb"
 }
 
 package_handbrake-git() {
   pkgdesc="Multiplatform, multithreaded DVD to MPEG-4/H264/Theora converter (GUI version)"
   depends=('opus' 'jansson' 'libsamplerate' 'libx264' 'libtheora' 'lame' 'libass' 'gtk3'
 	   'dbus-glib' 'gst-plugins-base-libs' 'libgudev' 'libnotify')
-  optdepends=('gst-plugins-bad: For Preview Window'
+  optdepends+=('gst-plugins-bad: For Preview Window'
               'gst-plugins-good: For Preview Window'
               'gst-plugins-ugly: For Preview Window'
               'gst-libav: For Preview Window')
   provides=('handbrake-gtk' 'handbrake')
   conflicts=('handbrake-gtk' 'handbrake')
 
-  cd "$srcdir"/"$_gitname"
+  cd "$srcdir/$pkgname"
   make -C "build" DESTDIR="$pkgdir/" install
 
   rm -f "$pkgdir/usr/bin/HandBrakeCLI"
@@ -97,5 +97,5 @@ package_handbrake-cli-git() {
   depends=('opus' 'jansson' 'libsamplerate' 'libx264' 'libtheora' 'lame' 'libass' 'libxml2')
   provides=('handbrake-cli')
   conflicts=('handbrake-cli')
-  install -D -m755 "$srcdir/$_gitname/build/HandBrakeCLI" "$pkgdir/usr/bin/HandBrakeCLI"
+  install -D -m755 "$srcdir/$pkgname/build/HandBrakeCLI" "$pkgdir/usr/bin/HandBrakeCLI"
 }

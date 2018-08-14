@@ -10,10 +10,8 @@ pkgbase = twin
 	depends = gpm
 	depends = zlib
 	depends = libxpm
-	provides = twin
-	conflicts = twin
 	options = !makeflags
-	source = https://github.com/cosmos72/twin/archive/v0.8.0.tar.gz
+	source = twin-0.8.0.tar.gz::https://github.com/cosmos72/twin/archive/v0.8.0.tar.gz
 	md5sums = 35ca4512dceaff97e700b06665c3c8dc
 
 pkgname = twin

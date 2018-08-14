@@ -593,3 +593,8 @@ cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
+
+VAR=strawberry-alsa
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+cd ..

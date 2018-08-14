@@ -1,26 +1,21 @@
 pkgbase = cudatext-bin
 	pkgdesc = Cross-platform code editor, with syntax highlight for 180+ languages. Has lite interface with tabs. Has JSON config files instead of options-dialog. Supports Python plugins
-	pkgver = 1.22.0.0
+	pkgver = 1.57.0.0
 	pkgrel = 1
-	url = https://sourceforge.net/projects/cudatext/
+	url = http://uvviewsoft.com/
 	arch = x86_64
-	arch = i686
 	arch = armv7h
 	license = MPL2
 	depends = gtk2
 	depends = python
 	provides = cudatext
-	noextract = cudatext-linux-gtk2-amd64-1.22.0.0.tar.xz
-	noextract = cudatext-linux-gtk2-i386-1.22.0.0.tar.xz
-	noextract = cudatext-linux-gtk2-arm-1.22.0.0.tar.xz
-	source = MPL2
-	source = icon.png
-	md5sums = 766150f4f81b0c078c0dfd4484d389ef
-	md5sums = 074bd46ca67b959c91f1e14501853577
-	source_x86_64 = https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-amd64-1.22.0.0.tar.xz
-	md5sums_x86_64 = c6859cd0a3bd52a4c96060a049b162a1
-	source_i686 = https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-i386-1.22.0.0.tar.xz
-	md5sums_i686 = 02c345eee526a8349fff1cb296e50dc6
+	options = !strip
+	source = cudatext.desktop
+	md5sums = 6fdd90c89f2c97fd0f7a4a21a5e624ad
+	source_x86_64 = https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-amd64-1.57.0.0.tar.xz
+	md5sums_x86_64 = 6cd0fd0b93a545220e9c5747baf1e3d9
+	source_armv7h = https://sourceforge.net/projects/cudatext/files/release/Linux-arm/cudatext-linux-gtk2-arm-1.57.0.0.tar.xz
+	md5sums_armv7h = 341c89067ed7c06111fa1a91b1dc1259
 
 pkgname = cudatext-bin
 

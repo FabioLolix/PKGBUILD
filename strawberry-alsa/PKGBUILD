@@ -1,36 +1,31 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
-pkgname=strawberry-git
-pkgver=0.2.1.r39.g1a55b7f
+pkgname=strawberry-alsa
+pkgver=0.2.1
 pkgrel=2
 pkgdesc="Bitperfect audio player and music collection organizer, fork of Clementine. gstreamer engine only"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="http://www.strawbs.org/"
 license=(GPL3)
 depends=(chromaprint protobuf gst-plugins-base gst-plugins-good qt5-base qt5-x11extras
-         sqlite3 udisks2 pulseaudio dbus alsa-lib
+         sqlite3 udisks2 dbus alsa-lib
          libcdio taglib)
 #depends+=(libimobiledevice libplist libusbmuxd libgpod libmtp phonon-qt5 vlc xine-lib) #customize deps and flags at your needs
-makedepends=(git cmake boost)
+makedepends=(cmake boost)
 optdepends=(gst-plugins-bad
             gst-plugins-ugly)
 provides=(strawberry)
-conflicts=(strawberry strawberry-full-git)
-source=("${pkgname}::git+https://github.com/jonaski/strawberry.git")
-sha256sums=('SKIP')
-
-pkgver() {
-  cd "${pkgname}"
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
-}
+conflicts=(strawberry)
+source=("strawberry-${pkgver}.tar.gz::https://github.com/jonaski/strawberry/archive/${pkgver}.tar.gz")
+sha256sums=('ebc04e47f2f006092bbae7ecb327576fad34e3d90d911590456adba4439cbb46')
 
 prepare() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/strawberry-${pkgver}"
   install -d strawberry-build
 }
 
 build() {
-  cd "${srcdir}/${pkgname}/strawberry-build"
+  cd "${srcdir}/strawberry-${pkgver}/strawberry-build"
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DUSE_SYSTEM_TAGLIB=ON \
@@ -38,6 +33,7 @@ build() {
     -DENABLE_LIBGPOD=OFF \
     -DENABLE_LIBMTP=OFF \
     -DENABLE_LIBLASTFM=OFF \
+    -DENABLE_LIBPULSE=OFF \
     -DENABLE_PHONON=OFF \
     -DENABLE_SPARKLE=OFF \
     -DENABLE_VLC=OFF \
@@ -46,6 +42,6 @@ build() {
 }
 
 package() {
-  cd "${srcdir}/${pkgname}/strawberry-build"
+  cd "${srcdir}/strawberry-${pkgver}/strawberry-build"
   make DESTDIR="${pkgdir}" install
 }

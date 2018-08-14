@@ -1,11 +1,10 @@
 
-_mt_pkgver=0.15.6
-
 pkgname=manjaro-iso-profiles-git
-pkgver=r801.7dcdb16
+pkgver=r1038.ecda1bb
 pkgrel=1
+pkgdesc="ISO profiles for Manjaro Linux based distros, latest git commits"
 arch=('any')
-url="https://github.com/manjaro/iso-profiles"
+url="https://gitlab.manjaro.org/profiles-and-settings/iso-profiles"
 license=('GPL')
 provides=('manjaro-iso-profiles-base'
         'manjaro-iso-profiles-official'
@@ -13,7 +12,7 @@ provides=('manjaro-iso-profiles-base'
 conflicts=('manjaro-iso-profiles-base'
         'manjaro-iso-profiles-official'
         'manjaro-iso-profiles-community')
-source=("${pkgname}::git+https://github.com/FabioLolix/iso-profiles.git")
+source=("${pkgname}::git+https://gitlab.manjaro.org/profiles-and-settings/iso-profiles.git")
 sha256sums=('SKIP')
 
 pkgver() {

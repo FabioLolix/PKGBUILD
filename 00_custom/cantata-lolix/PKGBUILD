@@ -7,19 +7,19 @@
 
 pkgname=cantata-lolix
 _pkgname=cantata
-pkgver=2.3.1
+pkgver=2.3.2
 pkgrel=1
 pkgdesc='Qt5 client for the music player daemon (MPD), disabled replay-gain and mpd http stream'
 arch=(i686 x86_64)
 url='https://github.com/CDrummond/cantata'
 license=(GPL)
-depends=(qt5-svg libmtp libmusicbrainz5 taglib-extras media-player-info libcdio-paranoia udisks2)
-optdepends=('perl-uri: dynamic playlist' 'mpd: playback')
-makedepends=(cmake qt5-tools ffmpeg)
+depends=(qt5-svg libmusicbrainz5 taglib-extras media-player-info udisks2 avahi) # libmtp libcdio-paranoia qt5-multimedia ffmpeg
+optdepends=('perl-uri: dynamic playlist' 'mpd: playback' 'sshfs: remote devices support')
+makedepends=(cmake qt5-tools)
 provides=(cantata)
 conflicts=(cantata)
 source=("https://github.com/CDrummond/cantata/releases/download/v$pkgver/${_pkgname}-$pkgver.tar.bz2")
-md5sums=('d56ab9f0cebd944c592273022adad80e')
+md5sums=('28d195388d8627d3ad168e7c1916d0ea')
 
 prepare() {
   mkdir -p build
@@ -33,6 +33,12 @@ build() {
     -DENABLE_LIBVLC=OFF \
     -DENABLE_FFMPEG=OFF \
     -DENABLE_MPG123=OFF \
+    -DENABLE_MTP=OFF \
+    -DENABLE_PROXY_CONFIG=OFF \
+    -DENABLE_DEVICES_SUPPORT=OFF \
+    -DENABLE_CDDB=OFF \
+    -DENABLE_CDIOPARANOIA=OFF \
+    -DENABLE_CDPARANOIA=OFF \
     -DENABLE_HTTP_STREAM_PLAYBACK=OFF
   make
 }

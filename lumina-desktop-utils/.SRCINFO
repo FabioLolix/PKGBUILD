@@ -41,6 +41,8 @@ pkgname = lumina-fm
 	depends = qt5-x11extras
 	depends = qt5-multimedia
 	optdepends = lumina-icon-theme: for completeting icon set
+	optdepends = lumina-fileinfo
+	optdepends = lumina-open
 
 pkgname = lumina-mediaplayer
 	pkgdesc = Mediaplayer for the lumina desktop environment
@@ -64,4 +66,7 @@ pkgname = lumina-screenshot
 pkgname = lumina-textedit
 	pkgdesc = Text editor for the lumina desktop environment
 	optdepends = lumina-icon-theme: for completeting icon set
+
+pkgname = lumina-open
+	pkgdesc = Application launcher for the lumina desktop environment
 

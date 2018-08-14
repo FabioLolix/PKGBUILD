@@ -1,7 +1,7 @@
 # Maintainer: E5ten
 
 pkgbase=lumina-desktop-utils
-pkgname=(lumina-icon-theme lumina-archiver lumina-calculator lumina-fileinfo lumina-fm lumina-mediaplayer lumina-pdf lumina-screenshot lumina-textedit) #lumina-screencast lumina-terminal
+pkgname=(lumina-icon-theme lumina-archiver lumina-calculator lumina-fileinfo lumina-fm lumina-mediaplayer lumina-pdf lumina-screenshot lumina-textedit lumina-open) #lumina-screencast lumina-terminal
 _pkgver=1.4.0-p1
 pkgver=1.4.0p1
 pkgrel=3
@@ -69,8 +69,7 @@ package_lumina-fm() {
   pkgname=lumina-fm
   pkgdesc="File manager for the lumina desktop environment"
   depends+=(qt5-x11extras qt5-multimedia)
-  optdepends=("lumina-icon-theme: for completeting icon set")
-
+  optdepends=("lumina-icon-theme: for completeting icon set" lumina-fileinfo lumina-open)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -153,3 +152,15 @@ package_lumina-terminal() {
     make INSTALL_ROOT="${pkgdir}" install
     install -D "${srcdir}/lumina-${_pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
+
+package_lumina-open() {
+  pkgname=lumina-open
+  pkgdesc="Application launcher for the lumina desktop environment"
+
+    cd "${srcdir}/lumina-${_pkgver}/src-qt5/core/$pkgname"
+    qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
+    make
+    make INSTALL_ROOT="${pkgdir}" install
+    install -D "${srcdir}/lumina-${_pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+

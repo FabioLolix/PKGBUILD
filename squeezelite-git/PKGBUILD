@@ -13,7 +13,7 @@ depends=('alsa-lib' 'faad2' 'flac' 'libmad' 'libvorbis' 'mpg123' 'libsoxr' 'ffmp
 provides=('squeezelite')
 conflicts=('squeezelite')
 install=${pkgname}.install
-source=("${pkgname}::git+git+https://github.com/ralph-irving/squeezelite'
+source=("${pkgname}::git+https://github.com/ralph-irving/squeezelite"
 	'service'
 	'conffile'
 	'squeezelite-git.install'
@@ -39,7 +39,7 @@ build() {
 }
 
 package() {
-	cd   cd "${pkgname}"
+  cd "${pkgname}"
 
 	# Main binary
 	install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"

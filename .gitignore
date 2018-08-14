@@ -76,6 +76,8 @@ textosaurus/textosaurus/
 */mdbook-git/*
 */strawberry-full-git/*
 */strawberry-git/*
+*/aplay-git/*
+*/cuppa-git/*
 
 Python_module/*/pkg
 Python_module/*/src

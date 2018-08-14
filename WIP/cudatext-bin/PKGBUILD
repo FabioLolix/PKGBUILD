@@ -1,15 +1,16 @@
-# Maintainer: Fabio Loli <loli_fabio@protonmail.com>
-# https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=cudatext-bin
 pkgver=1.57.0.0
 pkgrel=1
 pkgdesc="Cross-platform code editor, with syntax highlight for 180+ languages. Has lite interface with tabs. Has JSON config files instead of options-dialog. Supports Python plugins"
-arch=('x86_64' 'i686' 'armv7h')
+arch=(x86_64 armv7h) #i686
 url="http://uvviewsoft.com/"
 license=(MPL2)
-depends=('gtk2' 'python')
-provides=('cudatext')
+depends=(gtk2 python)
+provides=(cudatext)
+provides=(cudatext)
+options=(!strip)
 source=(cudatext.desktop)
 source_x86_64=("https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-amd64-${pkgver}.tar.xz")
 #source_i686=("https://sourceforge.net/projects/cudatext/files/release/Linux/cudatext-linux-gtk2-i386-${pkgver}.tar.xz")
