@@ -1,6 +1,6 @@
 pkgbase = linux-test-project-git
 	pkgdesc = A collection of tools for testing the Linux kernel and related features
-	pkgver = 20180118.r188.g83ee53589
+	pkgver = 20180515.r199.g81d83c4e2
 	pkgrel = 1
 	url = http://linux-test-project.github.io/
 	arch = i686

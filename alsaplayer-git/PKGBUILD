@@ -2,7 +2,7 @@
 # Contributor: Eric Bélanger <eric@archlinux.org>
 
 pkgname=alsaplayer-git
-pkgver=r1456.47670c7
+pkgver=r1461.ece53f6
 pkgrel=1
 pkgdesc="A heavily multi-threaded PCM player that tries to excercise the ALSA library and driver quite a bit"
 arch=('i686' 'x86_64')
