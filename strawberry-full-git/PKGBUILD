@@ -2,7 +2,7 @@
 
 pkgname=strawberry-full-git
 pkgver=0.2.1.r39.g1a55b7f
-pkgrel=2
+pkgrel=3
 pkgdesc="Bitperfect audio player and music collection organizer, fork of Clementine. gstreamer, xine and vlc engines"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="http://www.strawbs.org/"

@@ -7,37 +7,42 @@
 
 pkgbase=handbrake-git
 pkgname=('handbrake-git' 'handbrake-cli-git')
-pkgver=1.1.0.r329.g7b31141ee
-pkgrel=1
+pkgver=1.1.0.r339.g4b7a96048
+pkgrel=2
 pkgdesc="Multiplatform, multithreaded DVD to MPEG-4/H264/Theora converter"
 arch=('i686' 'x86_64')
 url="http://handbrake.fr/"
 license=('GPL')
 source=("${pkgname}::git+https://github.com/HandBrake/HandBrake.git"
-	'https://download.handbrake.fr/handbrake/contrib/fdk-aac-0.1.5.tar.gz'
-	'https://download.handbrake.fr/handbrake/contrib/ffmpeg-4.0.tar.bz2'
+	'https://download.handbrake.fr/handbrake/contrib/ffmpeg-4.0.1.tar.bz2'
 	'https://download.handbrake.fr/handbrake/contrib/libbluray-1.0.2.tar.bz2'
 	'https://download.handbrake.fr/handbrake/contrib/libdvdnav-5.0.3.tar.bz2'
+	'https://download.handbrake.fr/handbrake/contrib/libdvdread-5.0.3.tar.bz2'
 	'https://download.handbrake.fr/handbrake/contrib/libvpx-1.7.0.tar.gz'
-	'https://download.handbrake.fr/handbrake/contrib/x265_2.8.tar.gz'
-	'https://download.handbrake.fr/handbrake/contrib/libdvdread-5.0.3.tar.bz2')
+	'https://download.handbrake.fr/handbrake/contrib/mfx_dispatch-5d6f1b6.tar.gz'
+	'https://download.handbrake.fr/handbrake/contrib/nv-codec-headers-8.1.24.2.tar.gz'
+	'https://download.handbrake.fr/handbrake/contrib/x265_2.8.tar.gz')
 makedepends=('git' 'cmake' 'intltool' 'python2' 'gettext' 'nasm' 'paxtest' 'lame' 'opus' 'jansson' 'libvorbis' 'libx264' 'libass' 'gtk3' 'libsamplerate' 'libtheora' libva speex)
 optdepends=("intel-media-server-studio: for QSV" "nvidia-utils: for nvenc")
 sha256sums=('SKIP'
-            '2164592a67b467e5b20fdcdaf5bd4c50685199067391c6fcad4fa5521c9b4dd7'
-            '318a39d906c9107d49766c63787798dd078d2a36e6670a9dfeda3c55be4573b8'
+            '7ee591b1e7fb66f055fa514fbd5d98e092ddb3dbe37d2e50ea5c16ab51c21670'
             '6d9e7c4e416f664c330d9fa5a05ad79a3fb39b95adfc3fd6910cbed503b7aeff'
             '5097023e3d2b36944c763f1df707ee06b19dc639b2b68fb30113a5f2cbf60b6d'
+            '321cdf2dbdc83c96572bc583cd27d8c660ddb540ff16672ecb28607d018ed82b'
             '1fec931eb5c94279ad219a5b6e0202358e94a93a90cfb1603578c326abfc1238'
-            '6e59f9afc0c2b87a46f98e33b5159d56ffb3558a49d8e3d79cb7fdc6b7aaa863'
-            '321cdf2dbdc83c96572bc583cd27d8c660ddb540ff16672ecb28607d018ed82b')
-noextract=('fdk-aac-0.1.5.tar.gz'
-	   'ffmpeg-4.0.tar.bz2'
-       'libbluray-1.0.2.tar.bz2'
-	   'libdvdnav-5.0.3.tar.bz2'
-	   'x265_2.8.tar.gz'
-	   'libdvdread-5.0.3.tar.bz2'
-	   'libvpx-1.7.0.tar.gz')
+            '45d8ae5e525a51bfcb924c91b7153b5f0899c94d87d933913e4297b2ae7a3f8e'
+            '2b339b2493f5b63b285dd660be05102af7d4ff2de9fcf3af94e48b5f91a3ca57'
+            '6e59f9afc0c2b87a46f98e33b5159d56ffb3558a49d8e3d79cb7fdc6b7aaa863')
+noextract=(
+    'ffmpeg-4.0.1.tar.bz2'
+    'libbluray-1.0.2.tar.bz2'
+    'libdvdnav-5.0.3.tar.bz2'
+    'libdvdread-5.0.3.tar.bz2'
+    'libvpx-1.7.0.tar.gz'
+    'mfx_dispatch-5d6f1b6.tar.gz'
+    'nv-codec-headers-8.1.24.2.tar.gz'
+    'x265_2.8.tar.gz'
+    )
 
 pkgver() {
   cd "$srcdir/$pkgname"
