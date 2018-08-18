@@ -1,7 +1,7 @@
 pkgbase = abcde-musicbrainz
 	pkgdesc = Command-line CD ripping, encoding and tagging utility in one go, with default musicbrainz support
-	pkgver = 2.9.1
-	pkgrel = 2
+	pkgver = 2.9.2
+	pkgrel = 1
 	url = https://abcde.einval.com/
 	arch = any
 	license = GPL
@@ -20,11 +20,11 @@ pkgbase = abcde-musicbrainz
 	provides = abcde
 	conflicts = abcde
 	backup = etc/abcde.conf
-	source = https://abcde.einval.com/download/abcde-2.9.1.tar.gz
-	source = https://abcde.einval.com/download/abcde-2.9.1.tar.gz.sign
+	source = https://abcde.einval.com/download/abcde-2.9.2.tar.gz
+	source = https://abcde.einval.com/download/abcde-2.9.2.tar.gz.sign
 	validpgpkeys = CEBB52301D617E910390FE16587979573442684E
 	validpgpkeys = 742D444A5AFAF2951EF33E7BF8FB375D9CC820B3
-	sha256sums = 70ec6e06b791115fbe88dee313f58f691f9b559ee992f2af5ed64fe6ad2e55d7
+	sha256sums = 34356c6ea4cc39b33c807261bfdf8e8da8905b2ed50313147c78b283eef6858d
 	sha256sums = SKIP
 
 pkgname = abcde-musicbrainz
