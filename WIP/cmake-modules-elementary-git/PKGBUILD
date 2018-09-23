@@ -2,7 +2,7 @@
 
 pkgname=cmake-modules-elementary-git
 pkgver=r37.319ec53
-pkgrel=1
+pkgrel=2
 pkgdesc=""
 arch=('any')
 url="https://github.com/elementary/junk/tree/cmake-modules"

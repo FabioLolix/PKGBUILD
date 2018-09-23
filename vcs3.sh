@@ -28,3 +28,7 @@ cd ..
 cd $PWD/rclone-git
     makepkg -sCc
 cd ..
+
+cd $PWD/textosaurus-git
+    makepkg -sCc
+cd ..

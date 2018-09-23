@@ -45,16 +45,16 @@ optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
 makedepends=('git' 'boost' 'cmake' 'mesa' 'qt5-tools' 'qt5-x11extras')
 provides=('clementine')
 conflicts=('clementine' 'clementine-git')
-source=('git+https://github.com/clementine-player/Clementine.git#branch=qt5')
+source=('clementine-qt5-git::git+https://github.com/clementine-player/Clementine.git#branch=qt5')
 sha256sums=('SKIP')
 
 pkgver() {
-  cd Clementine
+  cd clementine-qt5-git
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    cd "$srcdir/Clementine/bin"
+    cd "$srcdir/clementine-qt5-git/bin"
     
     cmake .. \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -83,6 +83,6 @@ make
 }
 
 package() {
-    cd "$srcdir/Clementine/bin"
+    cd "$srcdir/clementine-qt5-git/bin"
     make DESTDIR="$pkgdir" install
 }

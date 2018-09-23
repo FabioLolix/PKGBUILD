@@ -44,16 +44,16 @@ makedepends=('git' 'boost' 'cmake' 'mesa')
 provides=('clementine')
 conflicts=('clementine' 'clementine-git')
 replaces=('clementine' 'clementine-git')
-source=('git+https://github.com/clementine-player/Clementine.git')
+source=('clementine-git::git+https://github.com/clementine-player/Clementine.git')
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/Clementine"
+  cd "$srcdir/clementine-git"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    cd "$srcdir/Clementine/bin"
+    cd "$srcdir/clementine-git/bin"
 
     cmake .. \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -83,6 +83,6 @@ make
 }
 
 package() {
-    cd "$srcdir/Clementine/bin"
+    cd "$srcdir/clementine-git/bin"
     make DESTDIR="$pkgdir" install
 }

@@ -5,7 +5,7 @@
 pkgname=perl-webservice-musicbrainz
 _pkgname=WebService-MusicBrainz
 pkgver=1.0.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Web service API to MusicBrainz database"
 arch=('any')
 url="http://search.cpan.org/dist/WebService-MusicBrainz"

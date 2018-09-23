@@ -2,7 +2,7 @@
 
 pkgname=showmypictures
 pkgver=0.3.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Memories is an photo manager for Pantheon, developed by Artem Anufrij"
 arch=(x86_64)
 url="http://anufrij.org/memories"

@@ -1,7 +1,7 @@
 pkgbase = perl-webservice-musicbrainz
 	pkgdesc = Web service API to MusicBrainz database
 	pkgver = 1.0.4
-	pkgrel = 1
+	pkgrel = 2
 	url = http://search.cpan.org/dist/WebService-MusicBrainz
 	arch = any
 	license = PerlArtistic

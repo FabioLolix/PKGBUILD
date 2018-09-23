@@ -1,7 +1,7 @@
 # Maintainer: Josip Ponjavic <josipponjavic at gmail dot com>
  
 pkgname=vvave-git
-pkgver=r295.e5ceeb5
+pkgver=r310.40f6db2
 pkgrel=1
 pkgdesc='Tiny Qt Music Player to keep your favorite songs at hand'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -40,6 +40,8 @@ prepare() {
   git config 'submodule.3rdparty/kirigami.url' "${srcdir}/kirigami"
   git config 'submodule.3rdparty/luv.url' "${srcdir}/luv-icon-theme"
   git submodule update
+  mv mauikit MauiKit
+  cp "$srcdir/$pkgname"/MauiKit/src/fm/* "$srcdir/$pkgname"/MauiKit
 }
 
 build() {

@@ -184,7 +184,7 @@ cd ..
 VAR=polo-git
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,*.patch} ~/Dev/Github/AUR/$VAR
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
 
 
@@ -496,18 +496,17 @@ cd $PWD/$VAR
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
 
-#VAR=easyssh
-#cd $PWD/$VAR
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
-#cd ..
+VAR=easyssh
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,*.patch} ~/Dev/Github/AUR/$VAR
+cd ..
 
-
-#VAR=easyssh-git
-#cd $PWD/$VAR
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
-#cd ..
+VAR=easyssh-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,*.patch} ~/Dev/Github/AUR/$VAR
+cd ..
 
 VAR=hashit-git
 cd $PWD/$VAR
@@ -557,18 +556,6 @@ cd $PWD/$VAR
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
 
-VAR=easyssh
-cd $PWD/$VAR
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
-cd ..
-
-VAR=easyssh-git
-cd $PWD/$VAR
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
-cd ..
-
 VAR=launchar-git
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
@@ -597,4 +584,16 @@ cd ..
 VAR=strawberry-alsa
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
+cd ..
+
+VAR=flare-game
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=flare-engine
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..

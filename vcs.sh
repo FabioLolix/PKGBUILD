@@ -1,6 +1,14 @@
 #! /bin/bash
 # clementine-lite-qt5-git
 
+cd $PWD/inxi-git
+    makepkg -sCc
+cd ..
+
+cd $PWD/inxi-perl-git
+    makepkg -sCc
+cd ..
+
 cd $PWD/easyssh-git
     makepkg -sCc
 cd ..
@@ -38,10 +46,6 @@ cd $PWD/sparky-dashboard-git
 cd ..
 
 cd $PWD/squeezelite-git
-    makepkg -sCc
-cd ..
-
-cd $PWD/textosaurus-git
     makepkg -sCc
 cd ..
 
