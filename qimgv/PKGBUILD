@@ -10,7 +10,7 @@ license=(GPL3)
 depends=(qt5-base qt5-imageformats qt5-svg mpv)
 makedepends=(cmake qt5-tools)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/easymodo/qimgv/archive/v${pkgver}.tar.gz")
-md5sums=('f919ba5c0647b62a7e0118746ec846f0')
+sha256sums=('ce47987c835068230eeb8512ee5e3f9751e4c7d3f94785ebe386e4484da417d6')
 
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
