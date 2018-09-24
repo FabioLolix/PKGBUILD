@@ -1,25 +1,21 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=image-analyzer
-pkgver=3.1.0
-pkgrel=2
+pkgver=3.2.0
+pkgrel=1
 pkgdesc="Simple Gtk+ application that displays tree structure of disc image created by libMirage"
-arch=('x86_64' 'i686')
+arch=(x86_64 i686)
 url="http://cdemu.sourceforge.net/about/analyzer/"
 license=(GPL)
-depends=('python' 'libmirage' 'python-matplotlib' 'libxml2' 'pygobject-devel' 'gtk3')
-makedepends=('cmake' 'intltool')
-optdepends=('gnuplot')
-source=("http://downloads.sourceforge.net/cdemu/${pkgname}-${pkgver}.tar.bz2"
-         0001-Image-analyzer-display-about-dialog-via-run-instead-.patch)
-md5sums=('e8b638fb92a4b6fda9e9e8d38cc50a01'
-         'd4f1515873f500a6785af224c0120142')
+depends=(python libmirage python-matplotlib libxml2 pygobject-devel gtk3)
+makedepends=(cmake intltool)
+optdepends=(gnuplot)
+source=("http://downloads.sourceforge.net/cdemu/${pkgname}-${pkgver}.tar.bz2")
+md5sums=('2cb747a9f2fed0e0dabceaecc0ad36aa')
 
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   install -d build
-
-  patch -Np2 -i ../0001-Image-analyzer-display-about-dialog-via-run-instead-.patch
 }
 
 build() {
