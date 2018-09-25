@@ -7,11 +7,11 @@ VAR1=alsaplayer-git
 cd ..
 
 
-VAR2=brother-dcpt700w
-cd $PWD/$VAR2
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE,brother-dcpt700w.install} ~/Dev/Github/AUR/$VAR2
-cd ..
+#VAR2=brother-dcpt700w
+#cd $PWD/$VAR2
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO,fix_lp.patch,LICENSE,brother-dcpt700w.install} ~/Dev/Github/AUR/$VAR2
+#cd ..
 
 
 VAR3=corebird-git
@@ -49,11 +49,11 @@ VAR7=gource-git
 cd ..
 
 
-VAR8=gravit-designer-bin
- cd $PWD/$VAR8
-     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,gravit-designer.desktop,gravit-designer.png,LICENSE} ~/Dev/Github/AUR/$VAR8
-cd ..
+#VAR8=gravit-designer-bin
+# cd $PWD/$VAR8
+#     makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO,gravit-designer.desktop,gravit-designer.png,LICENSE} ~/Dev/Github/AUR/$VAR8
+#cd ..
 
 
 VAR9=green-recorder
@@ -77,11 +77,11 @@ cd $PWD/$VAR11
 cd ..
 
 
-VAR12=kitty
- cd $PWD/$VAR12
-     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR12
-cd ..
+#VAR12=kitty
+# cd $PWD/$VAR12
+#     makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR12
+#cd ..
 
 
 VAR13=libav-no-libs
@@ -391,11 +391,11 @@ cd $PWD/$VAR55
 cd ..
 
 
-VAR56=twin
-cd $PWD/$VAR56
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR56
-cd ..
+#VAR56=twin
+#cd $PWD/$VAR56
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR56
+#cd ..
 
 
 VAR57=simple-scan-git
@@ -593,6 +593,18 @@ cd $PWD/$VAR
 cd ..
 
 VAR=flare-engine
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=mauikit-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=vvave-git
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR

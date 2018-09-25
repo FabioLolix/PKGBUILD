@@ -3,18 +3,17 @@
 pkgname=architect-ide-git
 pkgver=r446.db6c877
 pkgrel=1
-pkgdesc=""
-arch=('x86_64')
-url="https://github.com/openanalytics/architect"
+pkgdesc="IDE for Data Science"
+arch=(x86_64)
+url="https://www.getarchitect.io/"
 license=()
 depends=()
-makedepends=('git' 'maven')
+makedepends=(git maven)
 optdepends=()
 provides=()
 conflicts=()
 options=()
-
-source=("${pkgname}::git+${url}.git")
+source=("${pkgname}::git+https://github.com/openanalytics/architect.git")
 md5sums=('SKIP')
 
 pkgver() {
@@ -29,7 +28,8 @@ pkgver() {
 
 package() {
   cd ${srcdir}/${pkgname}
-  mvn clean verify
+  mvn -e clean compile
+#  mvn -e clean verify
 
 # install -d ${pkgdir}/usr/share/licenses/${pkgname}
 # install -d ${pkgdir}/usr/share/doc/${pkgname}
