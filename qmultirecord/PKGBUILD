@@ -10,7 +10,7 @@ license=('GPL2')
 depends=('libburn' 'qt5-base' 'hicolor-icon-theme')
 provides=('qmultirecord')
 conflicts=('qmultirecord')
-source=("${pkgname}-${pkgver}.tar.bz2::https://dl.opendesktop.org/api/files/download/id/1466643061/106254-qmultirecord-0.2.7.tar.bz2")
+source=("${pkgname}-${pkgver}.tar.bz2::https://dl.opendesktop.org/api/files/download/id/1466643061/106254-${pkgname}-${pkgver}.tar.bz2")
 md5sums=('0f8aeff121a1d009c16747f00f88e182')
 
 build () {

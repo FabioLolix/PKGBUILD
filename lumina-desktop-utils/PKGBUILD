@@ -1,10 +1,10 @@
-# Maintainer: E5ten
+
 
 pkgbase=lumina-desktop-utils
 pkgname=(lumina-icon-theme lumina-archiver lumina-calculator lumina-fileinfo lumina-fm lumina-mediaplayer lumina-pdf lumina-screenshot lumina-textedit lumina-open) #lumina-screencast lumina-terminal
 _pkgver=1.4.0-p1
 pkgver=1.4.0p1
-pkgrel=3
+pkgrel=4
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64)
 url='https://github.com/trueos/lumina'
@@ -19,6 +19,7 @@ package_lumina-icon-theme() {
   pkgname=lumina-icon-theme
   pkgdesc="Icon theme for Lumina desktop applications"
   arch=(any)
+  depends=()
   options=(!strip)
 
     cd "${srcdir}/lumina-${_pkgver}/icon-theme"
@@ -31,7 +32,7 @@ package_lumina-icon-theme() {
 package_lumina-archiver() {
   pkgname=lumina-archiver
   pkgdesc="Archivier for the lumina desktop environment"
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -43,7 +44,7 @@ package_lumina-archiver() {
 package_lumina-calculator() {
   pkgname=lumina-calculator
   pkgdesc="Calculator for the lumina desktop environment"
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -55,8 +56,7 @@ package_lumina-calculator() {
 package_lumina-fileinfo() {
   pkgname=lumina-fileinfo
   pkgdesc="File property manager for the lumina desktop environment"
-  depends+=(qt5-multimedia)
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(qt5-multimedia lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -68,8 +68,7 @@ package_lumina-fileinfo() {
 package_lumina-fm() {
   pkgname=lumina-fm
   pkgdesc="File manager for the lumina desktop environment"
-  depends+=(qt5-x11extras qt5-multimedia)
-  optdepends=("lumina-icon-theme: for completeting icon set" lumina-fileinfo lumina-open)
+  depends+=(qt5-x11extras qt5-multimedia lumina-icon-theme lumina-open lumina-fileinfo)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -81,8 +80,7 @@ package_lumina-fm() {
 package_lumina-mediaplayer() {
   pkgname=lumina-mediaplayer
   pkgdesc="Mediaplayer for the lumina desktop environment"
-  depends+=(qt5-x11extras qt5-multimedia)
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(qt5-x11extras qt5-multimedia lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -94,8 +92,7 @@ package_lumina-mediaplayer() {
 package_lumina-pdf() {
   pkgname=lumina-pdf
   pkgdesc="PDF viewver for the lumina desktop environment"
-  depends+=(poppler-qt5)
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(poppler-qt5 lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -107,8 +104,7 @@ package_lumina-pdf() {
 package_lumina-screenshot() {
   pkgname=lumina-screenshot
   pkgdesc="Screenshot utility for the lumina desktop environment"
-  depends+=(qt5-x11extras)
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(qt5-x11extras lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -120,7 +116,7 @@ package_lumina-screenshot() {
 package_lumina-textedit() {
   pkgname=lumina-textedit
   pkgdesc="Text editor for the lumina desktop environment"
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/desktop-utils/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -132,7 +128,7 @@ package_lumina-textedit() {
 package_lumina-screencast() {
   pkgname=lumina-screencast
   pkgdesc="(experimental)"
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/experimental/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
@@ -144,7 +140,7 @@ package_lumina-screencast() {
 package_lumina-terminal() {
   pkgname=lumina-terminal
   pkgdesc="(experimental)"
-  optdepends=("lumina-icon-theme: for completeting icon set")
+  depends+=(lumina-icon-theme)
 
     cd "${srcdir}/lumina-${_pkgver}/src-qt5/experimental/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"

@@ -293,13 +293,6 @@ cd $PWD/$VAR41
 cd ..
 
 
-VAR42=ambiance-rw
-cd $PWD/$VAR42
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR42
-cd ..
-
-
 VAR43=textosaurus
 cd $PWD/$VAR43
     makepkg --printsrcinfo > .SRCINFO

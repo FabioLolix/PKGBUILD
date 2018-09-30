@@ -14,12 +14,12 @@ provides=()
 conflicts=()
 options=()
 _commit=f7d994167d09012b469af24dfb66e031eebdfd76
-source=("${pkgname}::git+${url}.git#commit=$_commit")
+source=("architect-ide-git::git+${url}.git#commit=$_commit")
 md5sums=('SKIP')
 
 package() {
-  cd ${srcdir}/${pkgname}
-  mvn clean verify
+  cd "${srcdir}/architect-ide-git"
+  mvn -e clean verify
 
 # install -d ${pkgdir}/usr/share/licenses/${pkgname}
 # install -d ${pkgdir}/usr/share/doc/${pkgname}
