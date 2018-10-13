@@ -9,10 +9,6 @@ cd $PWD/alsaplayer-git
     makepkg -sCc
 cd ..
 
-cd $PWD/elisa-git
-    makepkg -sCc
-cd ..
-
 cd $PWD/linux-test-project-git
     makepkg -sCc
 cd ..

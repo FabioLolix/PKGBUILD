@@ -14,11 +14,11 @@ cd ..
 #cd ..
 
 
-VAR3=corebird-git
-cd $PWD/$VAR3
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR3
-cd ..
+#VAR3=corebird-git
+#cd $PWD/$VAR3
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR3
+#cd ..
 
 
 VAR4=dvdae-bin
@@ -77,13 +77,6 @@ cd $PWD/$VAR11
 cd ..
 
 
-#VAR12=kitty
-# cd $PWD/$VAR12
-#     makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR12
-#cd ..
-
-
 VAR13=libav-no-libs
  cd $PWD/$VAR13
      makepkg --printsrcinfo > .SRCINFO
@@ -128,7 +121,7 @@ cd ..
 VAR19=neobarok
 cd $PWD/$VAR19
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR19
+    rsync {PKGBUILD,.SRCINFO,neobarok-LICENSE} ~/Dev/Github/AUR/$VAR19
 cd ..
 
 
@@ -167,13 +160,6 @@ cd $PWD/$VAR24
 cd ..
 
 
-#VAR25=playbluray
-#cd $PWD/$VAR25
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO,playBluRay.sh,playBluRay-icon.png} ~/Dev/Github/AUR/$VAR25
-#cd ..
-
-
 VAR26=polo
 cd $PWD/$VAR26
     makepkg --printsrcinfo > .SRCINFO
@@ -188,11 +174,11 @@ cd $PWD/$VAR
 cd ..
 
 
-#VAR27=polo-bin
-#cd $PWD/$VAR27
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR27
-#cd ..
+VAR27=polo-bin
+cd $PWD/$VAR27
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR27
+cd ..
 
 
 VAR28=polo-donation-plugins
@@ -268,7 +254,7 @@ cd ..
 VAR38=toptracker
 cd $PWD/$VAR38
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,toptracker.desktop,LICENSE} ~/Dev/Github/AUR/$VAR38
+    rsync {PKGBUILD,.SRCINFO,toptracker.desktop,toptracker-LICENSE} ~/Dev/Github/AUR/$VAR38
 cd ..
 
 
@@ -342,13 +328,6 @@ cd $PWD/$VAR49
 cd ..
 
 
-VAR50=faience-ng-icon-theme-git
-cd $PWD/$VAR50
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR50
-cd ..
-
-
 VAR51=perl-webservice-musicbrainz
 cd $PWD/$VAR51
     makepkg --printsrcinfo > .SRCINFO
@@ -382,13 +361,6 @@ cd $PWD/$VAR55
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR55
 cd ..
-
-
-#VAR56=twin
-#cd $PWD/$VAR56
-#    makepkg --printsrcinfo > .SRCINFO
-#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR56
-#cd ..
 
 
 VAR57=simple-scan-git

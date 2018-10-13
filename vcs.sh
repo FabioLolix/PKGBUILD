@@ -68,3 +68,15 @@ cd ..
 cd $PWD/madrigal-git
     makepkg -sCc
 cd ..
+
+cd $PWD/mauikit-git
+    makepkg -sCc
+cd ..
+
+cd $PWD/vvave-git
+    makepkg -sCc
+cd ..
+
+cd $PWD/elisa-git
+    makepkg -sCc
+cd ..
