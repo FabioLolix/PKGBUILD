@@ -1,0 +1,15 @@
+20,21d19
+< taglib_sources_in = AssemblyInfo.cs.in
+< taglib_generated_sources = $(taglib_sources_in:.in=)
+26,28c24,26
+< $(ASSEMBLY): $(TAGLIB_CSFILES) $(taglib_generated_sources) taglib-sharp.snk
+< 	$(CSC) /target:library $(LIBFLAGS) $(DOCFLAGS) /define:SIGN /out:$@ $(TAGLIB_CSFILES) $(taglib_generated_sources)
+< 
+---
+> $(ASSEMBLY): $(TAGLIB_CSFILES) taglib-sharp.snk
+> 	$(CSC) /target:library $(LIBFLAGS) $(DOCFLAGS) /define:SIGN /keyfile:taglib-sharp.snk /out:$@ $(TAGLIB_CSFILES)
+>  
+62c60
+< 	for FILE in $(TAGLIB_CSFILES) $(taglib_generated_sources);		\
+---
+> 	for FILE in $(TAGLIB_CSFILES);		\
