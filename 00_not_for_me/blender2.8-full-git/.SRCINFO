@@ -1,9 +1,8 @@
-pkgbase = blender-2.8-git
+pkgbase = blender2.8-full-git
 	pkgdesc = Development version of Blender 2.8 branch
-	pkgver = 2.8_r78999.c86b5fa820d
+	pkgver = 2.8.r81564.3bc8bc0709a
 	pkgrel = 1
 	url = http://blender.org/
-	install = blender.install
 	arch = i686
 	arch = x86_64
 	license = GPL
@@ -17,8 +16,6 @@ pkgbase = blender-2.8-git
 	depends = python
 	depends = python-numpy
 	depends = openjpeg
-	depends = desktop-file-utils
-	depends = hicolor-icon-theme
 	depends = ffmpeg
 	depends = fftw
 	depends = openal
@@ -32,14 +29,17 @@ pkgbase = blender-2.8-git
 	depends = openshadinglanguage
 	depends = libtiff
 	depends = libpng
-	optdepends = cuda: CUDA support in Cycles
+	depends = libspnav
+	depends = jack
+	depends = libsndfile
+	depends = cuda
 	provides = blender-2.8
 	conflicts = blender-2.8
-	source = git://git.blender.org/blender.git#branch=blender2.8
-	source = blender-addons.git::git://git.blender.org/blender-addons.git
-	source = blender-addons-contrib.git::git://git.blender.org/blender-addons-contrib.git
-	source = blender-translations.git::git://git.blender.org/blender-translations.git
-	source = blender-dev-tools.git::git://git.blender.org/blender-dev-tools.git
+	source = blender2.8-git::git://git.blender.org/blender.git#branch=blender2.8
+	source = git://git.blender.org/blender-addons.git
+	source = git://git.blender.org/blender-addons-contrib.git
+	source = git://git.blender.org/blender-translations.git
+	source = git://git.blender.org/blender-dev-tools.git
 	source = blender-2.8.desktop
 	source = SelectCudaComputeArch.patch
 	source = ffmpeg.patch
@@ -52,5 +52,5 @@ pkgbase = blender-2.8-git
 	md5sums = 9454ff7e994f72ead5027356e227cbd2
 	md5sums = 9d4bfb5b3dd33e95b13cc6c7d9d2d2e1
 
-pkgname = blender-2.8-git
+pkgname = blender2.8-full-git
 
