@@ -11,10 +11,10 @@ pkgbase = headset-bin
 	depends = libxss
 	provides = headset
 	conflicts = headset
-	source = https://github.com/headsetapp/headset-electron/releases/download/v2.0.1/headset_2.0.1_amd64.deb
-	source = MIT::https://github.com/headsetapp/headset-electron/raw/master/LICENSE
-	md5sums = dd802476ffe47029ae5343ccc0880e96
+	source = headset-bin-MIT::https://github.com/headsetapp/headset-electron/raw/master/LICENSE
 	md5sums = 4b21e50f5ba66d18a93fab87d11d67e0
+	source_x86_64 = https://github.com/headsetapp/headset-electron/releases/download/v2.0.1/headset_2.0.1_amd64.deb
+	md5sums_x86_64 = dd802476ffe47029ae5343ccc0880e96
 
 pkgname = headset-bin
 

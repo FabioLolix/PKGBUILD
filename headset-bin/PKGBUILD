@@ -10,15 +10,15 @@ license=(MIT)
 depends=(gconf gtk3 nss libxss)
 provides=(headset)
 conflicts=(headset)
-source=("https://github.com/headsetapp/headset-electron/releases/download/v${pkgver}/headset_${pkgver}_amd64.deb"
-        "MIT::https://github.com/headsetapp/headset-electron/raw/master/LICENSE")
-md5sums=('dd802476ffe47029ae5343ccc0880e96'
-         '4b21e50f5ba66d18a93fab87d11d67e0')
+source_x86_64=("https://github.com/headsetapp/headset-electron/releases/download/v${pkgver}/headset_${pkgver}_amd64.deb")
+source=("$pkgname-MIT::https://github.com/headsetapp/headset-electron/raw/master/LICENSE")
+sha256sums=('721aa17f2b130970b6d149fa6373c4350118d85e46fae0820304af7317eb2405')
+sha256sums_x86_64=('011f9341892fc6ae753f1633223e49935339180c047ca363c7c0076dc14746e8')
 PKGEXT='.pkg.tar'
 
 package() {
   bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
-  install -Dm644 MIT ${pkgdir}/usr/share/licenses/${pkgname}/MIT
+  install -Dm644 $pkgname-MIT ${pkgdir}/usr/share/licenses/${pkgname}/MIT
   mv ${pkgdir}/usr/lib/headset/LICENSES.chromium.html ${pkgdir}/usr/share/licenses/${pkgname}
   mv ${pkgdir}/usr/share/doc/headset/copyright ${pkgdir}/usr/share/licenses/${pkgname}
   rm -r ${pkgdir}/usr/share/{doc,lintian}
