@@ -1,0 +1,27 @@
+# Maintainer: 
+
+pkgname=fontfinder
+pkgver=1.4.1
+pkgrel=1
+pkgdesc="A Google font browser for your GTK desktop, written in Rust"
+arch=(x86_64 i686 arm armv6h armv7h aarch64)
+url="https://gitlab.com/mmstick/fontfinder/"
+license=(MIT)
+depends=(gtk3 webkit2gtk)
+makedepends=(git rust)
+source=("https://gitlab.com/mmstick/fontfinder/-/archive/$pkgver/$pkgname-$pkgver.tar.gz"
+        $pkgname-LICENSE::https://gitlab.com/mmstick/fontfinder/raw/master/LICENSE)
+sha256sums=('ca37b974b30b9788e21f2301d0aac46f1db58aa43044db9017ef9c666512384e'
+            '94fac0507f1027bc7b9ab32e34b29eb3873f587d4162de986d5310b7e8cd116b')
+
+build() {
+  cd "$pkgname-$pkgver"
+  make
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+
+  make DESTDIR="${pkgdir}" install
+  install -D $srcdir/$pkgname-LICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}

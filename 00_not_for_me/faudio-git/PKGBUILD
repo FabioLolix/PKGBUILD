@@ -1,0 +1,34 @@
+# Maintainer: 
+
+pkgname=faudio-git
+pkgver=r879.e27553c
+pkgrel=1
+pkgdesc="Accuracy-focused XAudio reimplementation for open platforms"
+arch=(x86_64 i686 arm armv6h armv7h aarch64)
+url="https://fna-xna.github.io/"
+license=(zlib)
+depends=(sdl2)
+makedepends=(git)
+provides=(faudio)
+conflicts=(faudio)
+source=("${pkgname}::git+https://github.com/FNA-XNA/FAudio"
+        ${pkgname}-LICENSE::https://raw.githubusercontent.com/FNA-XNA/FAudio/master/LICENSE)
+sha256sums=('SKIP'
+            '454df8a26fc40573877329e59df59324347ae9da59ddf774501a6a795da6c4f1')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "${pkgname}"
+  make
+}
+
+package() {
+  cd "${pkgname}"
+#  make DESTDIR="${pkgdir}" install
+#  install libFAudio.so ?
+  install -D $srcdir/$pkgname-LICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
