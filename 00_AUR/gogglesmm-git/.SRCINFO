@@ -1,0 +1,40 @@
+pkgbase = gogglesmm-git
+	pkgdesc = Music Manager and Player
+	pkgver = 1.2.0
+	pkgrel = 1
+	url = https://gogglesmm.github.io
+	arch = x86_64
+	license = GPL3
+	makedepends = cmake
+	makedepends = pkgconfig
+	makedepends = alsa-lib
+	makedepends = libpulse
+	depends = libepoxy
+	depends = glu
+	depends = libsm
+	depends = libxcursor
+	depends = libxrandr
+	depends = libxi
+	depends = libxft
+	depends = libvorbis
+	depends = libwebp
+	depends = libjpeg-turbo
+	depends = openssl
+	depends = libmad
+	depends = flac
+	depends = faad2
+	depends = opus
+	depends = taglib>=1.9.0
+	depends = sqlite
+	depends = dbus
+	depends = hicolor-icon-theme
+	optdepends = python2: import utilities
+	optdepends = libpulse: PulseAudio Output
+	optdepends = alsa-lib: ALSA Output
+	conflicts = musicmanager
+	replaces = musicmanager
+	source = gogglesmm-git::git+https://github.com/gogglesmm/gogglesmm.git
+	md5sums = SKIP
+
+pkgname = gogglesmm-git
+
