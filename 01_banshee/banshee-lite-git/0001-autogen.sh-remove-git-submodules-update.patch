@@ -1,0 +1,27 @@
+From e4704bb6c50b4c2fe771db2ddb9fb771d5b263ce Mon Sep 17 00:00:00 2001
+From: FabioLolix <fabio.lolix@gmail.com>
+Date: Sat, 29 Sep 2018 10:49:42 +0200
+Subject: [PATCH] autogen.sh remove git submodules update
+
+---
+ autogen.sh | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/autogen.sh b/autogen.sh
+index 9f8aeed24..c2a9eb00e 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -73,10 +73,6 @@ check_autotool_version $LIBTOOLIZE 1.4.3
+ check_autotool_version intltoolize 0.35.0
+ check_autotool_version pkg-config 0.14.0
+ 
+-if git --help &>/dev/null; then
+-	git submodule update --init
+-fi
+-
+ run intltoolize --force --copy
+ run $LIBTOOLIZE --force --copy --automake
+ run aclocal -I build/m4/banshee -I build/m4/shamrock -I build/m4/shave $ACLOCAL_FLAGS
+-- 
+2.18.0
+

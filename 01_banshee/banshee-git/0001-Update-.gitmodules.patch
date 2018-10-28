@@ -1,0 +1,21 @@
+From 57b7d0f33bb8c990178c1cf1cdf39388fab8bc92 Mon Sep 17 00:00:00 2001
+From: FabioLolix <fabio.lolix@gmail.com>
+Date: Sat, 29 Sep 2018 11:41:18 +0200
+Subject: [PATCH] Update .gitmodules
+
+---
+ .gitmodules | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/.gitmodules b/.gitmodules
+index d091b1c6f..57f5957e0 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -1,4 +1,3 @@
+ [submodule "src/Hyena"]
+ 	path = src/Hyena
+ 	url = https://github.com/arfbtwn/hyena.git
+-	branch = gtk3
+-- 
+2.18.0
+

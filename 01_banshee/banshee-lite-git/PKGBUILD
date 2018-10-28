@@ -1,69 +1,83 @@
 # Maintainer:  Νικόλαος Κυριάκος Φυτίλης <n-fit@live.com>
 
-pkgname=banshee-git
-_pkgbase=banshee
+pkgname=banshee-lite-git
 pkgver=2.9.1.r355.g10da4d618
-pkgrel=2
+pkgrel=1
 pkgdesc="Music management and playback for GNOME (fork by arfbtwn)"
-arch=('i686' 'x86_64')
+arch=(i686 x86_64)
 url="https://github.com/arfbtwn/banshee"
-license=('MIT')
-depends=(libxxf86vm gst-plugins-base-libs mono-addins dbus-sharp-glib libsoup
-taglib-sharp-git gconf-sharp libmtp hicolor-icon-theme
-media-player-info gst-plugins-bad mono-upnp-git gst-plugins-good gvfs libgpod
-mono-zeroconf-git gtk-sharp-3-mono-git)
-makedepends=('intltool' 'gnome-doc-utils' 'gnome-common')
-optdepends=('gst-plugins-ugly: Extra media codecs'
+license=(MIT)
+depends=(gconf-sharp dbus-sharp-glib gtk-sharp-3-mono-git taglib-sharp mono-addins gvfs
+         gst-plugins-base gst-plugins-good media-player-info libxxf86vm)
+    # libsoup libsecret
+    # mono-zeroconf-git mono-upnp-git taglib-sharp-git
+    # libmtp libgpod  gio-sharp clutter 
+makedepends=(intltool gnome-doc-utils gnome-common git)
+optdepends=('gst-plugins-bad: Extra media codecs'
+            'gst-plugins-ugly: Extra media codecs'
             'gst-libav: Extra media codecs'
             'brasero: CD burning')
-conflicts=($_pkgbase)
-source=(git+https://github.com/arfbtwn/banshee.git)
-md5sums=(SKIP)
+provides=(banshee)
+conflicts=(banshee)
+source=("banshee-git::git+https://github.com/arfbtwn/banshee.git"
+        "Hyena::git+https://github.com/arfbtwn/hyena"
+        0001-Update-.gitmodules.patch
+        0001-autogen.sh-remove-git-submodules-update.patch)
+md5sums=('SKIP'
+         'SKIP'
+         'fafd310ab3ee7d94a4de9fce33bd0f66'
+         'd2af5bfbe6ed19896d7e1b9bb1461498')
 
 pkgver() {
-  cd "$_pkgbase"
+  cd "banshee-git"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-build() {
-  cd $_pkgbase
-#  autoreconf -fvi
-  NOCONFIGURE=1 ./autogen.sh
-  export MONO_SHARED_DIR="$srcdir/.wabi"
-  mkdir -p "$MONO_SHARED_DIR"
-  hackyhack='-r:/usr/lib/libgpod/libgpod-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll
-  -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll' \
-  LIBGPODSHARP_LIBS=$(echo $hackyhack) MCS=/usr/bin/mcs ./configure \
-               --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
-              --disable-gst_sharp \
-              --enable-gst-native \
-              --disable-docs \
-              --disable-static \
-              --disable-scrollkeeper \
-              --disable-schemas-install \
-              --disable-user-help \
-              --disable-youtube \
-              --disable-gio-hardware \
-              --enable-treeview \
-              --with-vendor-build-id=ArchLinux
+prepare() {
+  cd "banshee-git"
 
-  export MONO_SHARED_DIR="$srcdir/.wabi"
-  mkdir -p "$MONO_SHARED_DIR"
-  export LIBGPODSHARP='-r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/pango-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/atk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gdk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/gtk-sharp.dll -r:/usr/lib/pkgconfig/../../lib/mono/gtk-sharp-3.0/glib-sharp.dll'
-  cd "$srcdir/$_pkgbase"
+  patch -p1 -i ../0001-autogen.sh-remove-git-submodules-update.patch
+  patch -p1 -i ../0001-Update-.gitmodules.patch
+
+  git submodule init
+  git config 'submodule.src/Hyena.url' "${srcdir}/Hyena"
+  git submodule update
+
+  NOCONFIGURE=1 ./autogen.sh
+}
+
+build() {
+  cd "banshee-git"
+
+  ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --enable-docs \
+    --enable-gst-native \
+    --enable-user-help \
+    --disable-gst_sharp \
+    --disable-static \
+    --disable-scrollkeeper \
+    --disable-schemas-install \
+    --disable-youtube \
+    --disable-gio-hardware \
+    --disable-upnp \
+    --disable-clutter \
+    --disable-daap \
+    --disable-appledevice \
+    --disable-mtp \
+    --disable-gio \
+    --disable-torrent \
+    --disable-remote-audio \
+    --disable-ubuntuone \
+    --with-vendor-build-id=ArchLinux
   make
 }
 
 package() {
-  export MONO_SHARED_DIR="$srcdir/.wabi"
-  mkdir -p "$MONO_SHARED_DIR"
+  cd "${srcdir}/banshee-git"
 
-  cd "$srcdir/$_pkgbase"
   make DESTDIR="$pkgdir" install
-
-  install -D -m644 COPYING "$pkgdir/usr/share/licenses/$_pkgbase/COPYING"
+  install -D -m644 COPYING "$pkgdir/usr/share/licenses/banshee/COPYING"
 }

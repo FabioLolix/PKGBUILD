@@ -1,41 +1,36 @@
-# $Id$
 # Maintainer: Daniel Isenmann <daniel@archlinux.org>
 
-_pkgbase=Mono.Zeroconf
 pkgname=mono-zeroconf-git
-pkgver=Mono.Zeroconf.0.9.0.r9.g6132666
-pkgrel=3
+pkgver=0.9.0.r9.g6132666
+pkgrel=1
 pkgdesc="A cross platform Zero Configuration Networking library for Mono and .NET."
 url="http://www.mono-project.com/Mono.Zeroconf"
-license=('GPL')
-arch=('any')
-depends=('mono' 'avahi' 'dbus-sharp')
-options=('!makeflags')
-source=("git+https://github.com/arfbtwn/Mono.Zeroconf#branch=feature/dbus-sharp")
-md5sums=('SKIP')
-replaces=(mono-zeroconf)
+license=(GPL)
+arch=(any)
+depends=(mono avahi dbus-sharp)
+makedepends=(git)
+provides=(mono-zeroconf)
 conflicts=(mono-zeroconf)
+source=("$pkgname::git+https://github.com/arfbtwn/Mono.Zeroconf#branch=feature/dbus-sharp")
+md5sums=('SKIP')
 
 pkgver() {
-  cd ${srcdir}/${_pkgbase}
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  cd "$pkgname"
+  git describe --long --tags | sed 's/^Mono.Zeroconf.//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd "$pkgname"
+  ./autogen.sh
 }
 
 build() {
-    export MONO_SHARED_DIR=${srcdir}/.wabi
-    mkdir -p "${MONO_SHARED_DIR}"
-
-    cd ${srcdir}/${_pkgbase}
-    NOCONFIGURE=1 ./autogen.sh
-
+  cd "$pkgname"
     ./configure --prefix=/usr --disable-docs --disable-mdnsresponder
-    make hicolordir=/usr/share/icons/hicolor
+    make hicolordir=/usr/share/icons/hicolor GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 }
 
 package() {
-    cd ${srcdir}/${_pkgbase}
-    make hicolordir=/usr/share/icons/hicolor \
-    GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 \
-        DESTDIR=${pkgdir} install
-    rm -rf "${MONO_SHARED_DIR}"
+  cd "$pkgname"
+  make DESTDIR=${pkgdir} install
 }
