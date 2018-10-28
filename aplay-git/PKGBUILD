@@ -1,0 +1,29 @@
+# Maintainer: 
+
+pkgname=aplay-git
+pkgver=r46.47ecb1a
+pkgrel=1
+pkgdesc="a simple BitPerfect player"
+arch=('x86_64')
+url="https://github.com/yui0/aplay-"
+license=(unknown)
+makedepends=(git)
+provides=()
+conflicts=()
+source=("${pkgname}::git+${url}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}"
+  install -Dm755 aplay+ ${pkgdir}/usr/bin/aplay+
+}

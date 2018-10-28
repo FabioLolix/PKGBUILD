@@ -1,0 +1,42 @@
+# Maintainer: 
+
+pkgname=torque3d-duion-dev-git
+pkgver=3.7.rc.r8.g6e681dd8
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url="http://torque3d.org/"
+license=(MIT)
+depends=()
+makedepends=(git)
+optdepends=()
+provides=()
+conflicts=()
+options=()
+source=("${pkgname}::git+https://github.com/Duion/Torque3D#branch=development"
+        "$pkgname-LICENSE::https://raw.githubusercontent.com/Duion/Torque3D/ueberengine-master/LICENSE.md")
+sha256sums=('SKIP'
+            '9ea51f5fd567246c1a49e6b1db51711129bd1d90ef1f184a4036361245eef785')
+
+pkgver() {
+  cd "${pkgname}"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd "${pkgname}"
+  install -d build
+}
+
+build() {
+  cd "$pkgname/build"
+  cmake .. -DTORQUE_APP_NAME=LinuxTest -G Ninja
+
+  cd ..
+  ninja -C build
+}
+
+package() {
+  cd "$pkgname"
+  DESTDIR="${pkgdir}" ninja -C build install
+}

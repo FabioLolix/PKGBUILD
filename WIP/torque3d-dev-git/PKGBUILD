@@ -1,0 +1,40 @@
+# Maintainer: 
+
+pkgname=torque3d-dev-git
+pkgver=3.10.rc.r617.g0b9ac4574
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url="http://torque3d.org/"
+license=(MIT)
+depends=()
+makedepends=(git)
+optdepends=()
+provides=()
+conflicts=()
+options=()
+source=("$pkgname::git+https://github.com/GarageGames/Torque3D#branch=development")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$pkgname"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd "$pkgname"
+  install -d build
+}
+
+build() {
+  cd "$pkgname/build"
+  cmake .. -DTORQUE_APP_NAME=LinuxTest -G Ninja
+
+  cd ..
+  ninja -C build
+}
+
+package() {
+  cd "$pkgname"
+  DESTDIR="${pkgdir}" ninja -C build install
+}
