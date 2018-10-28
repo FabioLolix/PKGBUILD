@@ -1,0 +1,48 @@
+# Maintainer: Eric DeStefano <eric at ericdestefano dot com>
+
+pkgname=sheepshaver-git
+pkgver=r2588.ddf1bcf0
+pkgrel=1
+pkgdesc="An Open Source PowerMac Emulator"
+arch=(x86_64)
+url="http://sheepshaver.cebix.net"
+license=(GPL)
+depends=(gtk2 sdl)
+makedepends=(git)
+provides=(sheepshaver)
+conflicts=(sheepshaver)
+install=sheepshaver.install
+source=("${pkgname}::git+https://github.com/cebix/macemu"
+        '99-sheepshaver.conf'
+        'SheepShaver.desktop'
+        'SheepShaver.png')
+sha256sums=('SKIP'
+            'a4aa858b95d29906873693988d5db42d5a4da8aa94a72c79374f59fc488efd51'
+            'cb002e73e864a6ca271e0bbaa6df6eb89dc1df86856fc575c20bf79367458c39'
+            'b7f67b1f8424f3e0ffa1a5e57597f368c4c4f93ea1f871ec0a76700b7519b241')
+
+pkgver() {
+  cd "$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "$srcdir/$pkgname/SheepShaver/src/Unix"
+  ./autogen.sh --prefix=/usr --enable-sdl-audio --enable-sdl-video --with-bincue
+}
+
+build() {
+  cd "$srcdir/$pkgname/SheepShaver/src/Unix"
+  make
+}
+
+package() {
+  install -Dm755 "$srcdir/$pkgname/SheepShaver/src/Unix/SheepShaver" "${pkgdir}/usr/bin/SheepShaver"
+  install -Dm644 "$srcdir/99-sheepshaver.conf" "${pkgdir}/etc/sysctl.d/99-sheepshaver.conf"
+
+  install -d "$pkgdir/usr/share/doc/$pkgname"
+  cp -a "$srcdir/$pkgname"/SheepShaver/doc/Linux/* "$pkgdir/usr/share/doc/$pkgname"
+
+  install -Dm644 "$srcdir/SheepShaver.png" "$pkgdir/usr/share/pixmaps/SheepShaver.png"
+  install -Dm644 "$srcdir/SheepShaver.desktop" "$pkgdir/usr/share/applications/SheepShaver.desktop"
+}
