@@ -1,0 +1,38 @@
+# Maintainer: easymodo <easymodofrf@gmail.com>
+
+pkgname=qimgv-git
+pkgver=0.7.1.r0.g7dd7e08
+pkgrel=1
+pkgdesc="Simple image viewer written in qt. Supports webm playback."
+arch=(i686 x86_64)
+url="http://github.com/easymodo/qimgv"
+license=(GPL3)
+depends=(qt5-base qt5-imageformats qt5-svg mpv)
+makedepends=(git cmake qt5-tools)
+provides=(qimgv)
+conflicts=(qimgv)
+source=("qimgv-git::git+https://github.com/easymodo/qimgv.git")
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$pkgname"
+	git describe --long --tags | sed -r 's/([^-]*-g)/r\1/;s/-/./g;s/v//g'
+}
+
+prepare() {
+	cd "$pkgname"
+    install -d build
+}
+
+build() {
+	cd "$pkgname/build"
+    cmake .. \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr
+    make
+}
+
+package() {
+    cd "$pkgname/build"
+    make DESTDIR=${pkgdir} install
+}

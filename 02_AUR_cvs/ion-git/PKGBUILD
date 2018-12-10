@@ -1,7 +1,7 @@
 # Maintainer: Luca Weiss <luca (at) z3ntu (dot) xyz>
 
 pkgname=ion-git
-pkgver=1.0.5.r676.g2a1a507
+pkgver=1.0.5.r724.ged1250c
 pkgrel=1
 pkgdesc="The Ion Shell. Compatible with Redox and Linux. (Git version)"
 arch=("x86_64" "i686")
