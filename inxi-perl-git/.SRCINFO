@@ -1,10 +1,10 @@
-pkgbase = inxi-git
-	pkgdesc = script to get system information (git version)
-	pkgver = 3.0.18.r0.g94b1315b
+pkgbase = inxi-perl-git
+	pkgdesc = Pinxi (perl-inxi), development branch of inxi, a full featured CLI system information tool
+	pkgver = r2715.5e52d18d
 	pkgrel = 1
 	url = https://github.com/smxi/inxi
 	arch = any
-	license = GPL
+	license = GPL3
 	makedepends = git
 	depends = coreutils
 	depends = pciutils
@@ -31,11 +31,9 @@ pkgbase = inxi-git
 	optdepends = xorg-xdpyinfo: inxi -G multi screen resolution
 	optdepends = xorg-xprop: inxi -S desktop data
 	optdepends = xorg-xrandr: inxi -G single screen resolution
-	provides = inxi
-	conflicts = inxi
 	options = zipman
-	source = inxi-git::git+https://github.com/smxi/inxi.git
+	source = git+https://github.com/smxi/inxi.git#branch=inxi-perl
 	sha256sums = SKIP
 
-pkgname = inxi-git
+pkgname = inxi-perl-git
 
