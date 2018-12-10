@@ -4,8 +4,8 @@
 # Contributor: joel schaerer <joel.schaerer@laposte.net>
 
 pkgname=insight-toolkit
-pkgver=4.13.0
-pkgrel=9
+pkgver=4.13.1
+pkgrel=1
 pkgdesc='Cross-platform system that provides developers with an extensive suite of software tools for image analysis'
 arch=('i686' 'x86_64')
 url='http://www.itk.org/'
@@ -23,17 +23,19 @@ optdepends=('python2: build python wrapping'
 	    'castxml-git: for ITK')
 makedepends=('cmake')
 source=("http://downloads.sourceforge.net/project/itk/itk/${pkgver:0:4}/InsightToolkit-${pkgver}.tar.xz")
-sha512sums=('5ab7b411f70c39a937baee03e75df18fdd53479691b7829c37637163314c26a01cf50628ce3c9503f952eb02c1746688719fdca525650f0747af184117680006')
+sha512sums=('faeb33875e00fb8380192a6772ecab2e713a0a5dd2879a15e862690f25302627c7370b646eea68367d215bf4eb6f7eb06b32cd05e18d031e853229fc23943d8b')
 
 _usepython=false
 
-build() {
-  cd "$srcdir"
-  rm -rf build
-  mkdir build
-  cd build
+prepare() {
+  cd "InsightToolkit-${pkgver}"
+  install -d build
+}
 
-  cmake \
+build() {
+  cd "InsightToolkit-${pkgver}/build"
+
+  cmake .. \
     -DCMAKE_BUILD_TYPE:STRING=Release \
     -DBUILD_TESTING:BOOL=OFF \
     -DBUILD_EXAMPLES:BOOL=OFF \
@@ -56,14 +58,13 @@ build() {
     -DITK_USE_SYSTEM_FFTW:BOOL=ON \
     -DITK_USE_SYSTEM_HDF5:BOOL=ON \
     -DModule_ITKIOMINC:BOOL=ON \
-    -DModule_ITKIOTransformMINC:BOOL=ON \
-    ../InsightToolkit-${pkgver}
+    -DModule_ITKIOTransformMINC:BOOL=ON
 
   make
 }
 
 package() {
-  cd "$srcdir"/build
+  cd "InsightToolkit-${pkgver}/build"
 
   make DESTDIR="${pkgdir}" install
 }
