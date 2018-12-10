@@ -1,17 +1,15 @@
-# Maintainer:  Νικόλαος Κυριάκος Φυτίλης <n-fit@live.com>
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Contributor:  Νικόλαος Κυριάκος Φυτίλης <n-fit@live.com>
 
 pkgname=banshee-lite-git
 pkgver=2.9.1.r355.g10da4d618
-pkgrel=1
+pkgrel=2
 pkgdesc="Music management and playback for GNOME (fork by arfbtwn)"
 arch=(i686 x86_64)
 url="https://github.com/arfbtwn/banshee"
 license=(MIT)
-depends=(gconf-sharp dbus-sharp-glib gtk-sharp-3-mono-git taglib-sharp mono-addins gvfs
+depends=(gconf-sharp dbus-sharp-glib gtk-sharp-3-mono-git taglib-sharp-git mono-addins gvfs
          gst-plugins-base gst-plugins-good media-player-info libxxf86vm)
-    # libsoup libsecret
-    # mono-zeroconf-git mono-upnp-git taglib-sharp-git
-    # libmtp libgpod  gio-sharp clutter 
 makedepends=(intltool gnome-doc-utils gnome-common git)
 optdepends=('gst-plugins-bad: Extra media codecs'
             'gst-plugins-ugly: Extra media codecs'
@@ -19,22 +17,22 @@ optdepends=('gst-plugins-bad: Extra media codecs'
             'brasero: CD burning')
 provides=(banshee)
 conflicts=(banshee)
-source=("banshee-git::git+https://github.com/arfbtwn/banshee.git"
+source=("git+https://github.com/arfbtwn/banshee.git"
         "Hyena::git+https://github.com/arfbtwn/hyena"
-        0001-Update-.gitmodules.patch
-        0001-autogen.sh-remove-git-submodules-update.patch)
+        "https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/banshee-Update-.gitmodules.patch"
+        "https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/banshee-autogen.sh-remove-git-submodules-update.patch")
 md5sums=('SKIP'
          'SKIP'
          'fafd310ab3ee7d94a4de9fce33bd0f66'
          'd2af5bfbe6ed19896d7e1b9bb1461498')
 
 pkgver() {
-  cd "banshee-git"
+  cd "$srcdir/${pkgname/-git/}"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "banshee-git"
+  cd "$srcdir/${pkgname/-git/}"
 
   patch -p1 -i ../0001-autogen.sh-remove-git-submodules-update.patch
   patch -p1 -i ../0001-Update-.gitmodules.patch
@@ -47,7 +45,7 @@ prepare() {
 }
 
 build() {
-  cd "banshee-git"
+  cd "$srcdir/${pkgname/-git/}"
 
   ./configure \
     --prefix=/usr \
@@ -76,7 +74,7 @@ build() {
 }
 
 package() {
-  cd "${srcdir}/banshee-git"
+  cd "$srcdir/${pkgname/-git/}"
 
   make DESTDIR="$pkgdir" install
   install -D -m644 COPYING "$pkgdir/usr/share/licenses/banshee/COPYING"
