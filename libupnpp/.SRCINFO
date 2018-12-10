@@ -11,7 +11,6 @@ pkgbase = libupnpp
 	license = GPL2
 	depends = libupnp
 	depends = expat
-	depends = curl
 	source = http://www.lesbonscomptes.com/upmpdcli/downloads/libupnpp-0.16.1.tar.gz
 	md5sums = df663e0dbd460e0377a0ee575c96b1b8
 
