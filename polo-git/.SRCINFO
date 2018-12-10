@@ -26,8 +26,7 @@ pkgbase = polo-git
 	optdepends = polo-donation-plugins
 	provides = polo
 	conflicts = polo
-	conflicts = polo-bin
-	source = polo-git::git+https://github.com/teejee2008/polo.git
+	source = git+https://github.com/teejee2008/polo.git
 	sha256sums = SKIP
 
 pkgname = polo-git
