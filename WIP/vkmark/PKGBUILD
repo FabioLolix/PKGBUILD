@@ -1,35 +1,31 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=vkmark-git
-pkgver=2017.08.r10.g68b6f23
+pkgver=2017.08.r11.g1ebd493
 pkgrel=1
 pkgdesc=""
-arch=('x86_64')
+arch=(x86_64)
 url="https://github.com/vkmark/vkmark"
 license=(GPL3 LGPL)
 depends=()
-makedepends=('meson' 'ninja' 'glm' 'assimp' 'vulkan-headers' 'vulkan-intel')
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-options=()
-source=("${pkgname}::git+https://github.com/vkmark/vkmark.git")
+makedepends=(meson ninja glm assimp vulkan-headers vulkan-intel)
+provides=(vkmark)
+conflicts=(vkmark)
+source=("git+https://github.com/vkmark/vkmark.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname}
+  cd "$srcdir/${pkgname/-git/}"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd ${srcdir}/${pkgname}
+  cd "$srcdir/${pkgname/-git/}"
   meson build
   ninja -C build
 }
 
 package() {
-  cd $srcdir/$pkgname
+  cd "$srcdir/${pkgname/-git/}"
   DESTDIR=${pkgdir} ninja -C build install
 }

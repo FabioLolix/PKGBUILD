@@ -11,23 +11,23 @@ depends=(gtk3 webkit2gtk)
 makedepends=(git rust)
 provides=(fontfinder)
 conflicts=(fontfinder)
-source=("${pkgname}::git+${url}"
+source=("git+${url}"
         $pkgname-LICENSE::https://gitlab.com/mmstick/fontfinder/raw/master/LICENSE)
 sha256sums=('SKIP'
             '94fac0507f1027bc7b9ab32e34b29eb3873f587d4162de986d5310b7e8cd116b')
 
 pkgver() {
-  cd "${pkgname}"
+  cd "$srcdir/${pkgname/-git/}"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd "${pkgname}"
+  cd "$srcdir/${pkgname/-git/}"
   make
 }
 
 package() {
-  cd "${pkgname}"
+  cd "$srcdir/${pkgname/-git/}"
 
   make DESTDIR="${pkgdir}" install
   install -D $srcdir/$pkgname-LICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE

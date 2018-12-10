@@ -1,41 +1,52 @@
 # Maintainer: 
 
 pkgname=nx-software-center-git
-pkgver=r301.abc427d
+pkgver=r393.da2e2cf
 pkgrel=1
 pkgdesc=""
-arch=('x86_64')
+arch=(x86_64)
 url="https://github.com/nomad-desktop/nx-software-center"
 license=(LGPL2.1)
-depends=()
-makedepends=('cmake' 'git' 'qt5-tools' 'extra-cmake-modules' 'plasma-framework' 'wget' 'vim' 'fuse' 'appimage-git')
+depends=(qt5-base)
+makedepends=(cmake git qt5-tools extra-cmake-modules xxd boost)
 optdepends=()
 provides=()
 conflicts=()
-source=("${pkgname}::git+${url}.git")
-md5sums=('SKIP')
+source=("git+${url}.git#branch=development"
+        "git+https://github.com/google/googletest.git"
+        "git+https://github.com/azubieta/AppImageInfo.git")
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP')
 
 pkgver() {
-  cd ${pkgname}
+  cd "${pkgname}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 #  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd ${srcdir}/${pkgname}
+  cd "${pkgname}"
   install -d build
+
+  git submodule init
+  git config 'submodule.lib/AppImageInfo.url' "${srcdir}/AppImageInfo"
+  git submodule update
+
+  cd "${srcdir}/${pkgname}/lib/AppImageInfo"
+  git submodule init
+  git config 'submodule.thirdparty/googletest.url' "${srcdir}/googletest"
+  git submodule update
 }
 
 build() {
-  cd ${srcdir}/${pkgname}
-  cmake -DCMAKE_BUILD_PREFIX=Release -DCMAKE_INSTALL_PREFIX=/usr
+  cd "${srcdir}/${pkgname}/build"
+  cmake .. \
+    -DLIBBFD_BFD_LIBRARY=/usr/lib \
+    -DCMAKE_INSTALL_PREFIX=/usr
 }
 
 package() {
-  cd ${srcdir}/${pkgname}
+  cd "${srcdir}/${pkgname}/build"
   make DESTDIR=${pkgdir} install
-
-# install -d ${pkgdir}/usr/share/licenses/${pkgname}
-# install -d ${pkgdir}/usr/share/doc/${pkgname}
-# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }

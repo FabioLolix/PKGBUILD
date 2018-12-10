@@ -21,17 +21,9 @@ pkgver() {
 build() {
     cd "$srcdir/$pkgname"
 
-    # archive_read_data_into_buffer() is deprecated in libarchive
-    #/bin/sed -i 's/archive_read_data_into_buffer/archive_read_data/' src/gmameui-zip-utils.c
-
-    # replace individual glib headers with glib.h
-    #/bin/sed -i '34,36d' src/gmameui.c
-    #/bin/sed -i '33 a\#include <glib.h>' src/gmameui.c
-
   autoreconf -fiv
   intltoolize
 
-    #sh autogen.sh 
     ./configure --prefix=/usr --disable-libgnome --enable-joystick
     make
 }

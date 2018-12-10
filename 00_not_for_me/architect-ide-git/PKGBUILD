@@ -13,25 +13,16 @@ optdepends=()
 provides=()
 conflicts=()
 options=()
-source=("${pkgname}::git+https://github.com/openanalytics/architect.git")
+source=("git+https://github.com/openanalytics/architect.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname}
+  cd "$srcdir/${pkgname/-ide-git/}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-#build() {
-#  cd ${srcdir}/${pkgname}
-#  make
-#}
-
 package() {
-  cd ${srcdir}/${pkgname}
+  cd "$srcdir/${pkgname/-ide-git/}"
   mvn -e clean compile
 #  mvn -e clean verify
-
-# install -d ${pkgdir}/usr/share/licenses/${pkgname}
-# install -d ${pkgdir}/usr/share/doc/${pkgname}
-# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }

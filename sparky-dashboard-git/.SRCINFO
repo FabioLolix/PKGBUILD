@@ -9,7 +9,7 @@ pkgbase = sparky-dashboard-git
 	depends = yad
 	provides = sparky-dashboard
 	conflicts = sparky-dashboard
-	source = sparky-dashboard-git::git+https://github.com/sparkylinux/sparky-dashboard.git
+	source = git+https://github.com/sparkylinux/sparky-dashboard.git
 	md5sums = SKIP
 
 pkgname = sparky-dashboard-git

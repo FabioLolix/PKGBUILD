@@ -4,18 +4,18 @@ pkgname=sparky-dashboard-git
 pkgver=r4.46912d8
 pkgrel=1
 pkgdesc="The Sparky dashboard displays applications from /usr/share/applications dir into yad based window"
-arch=('any')
+arch=(any)
 url="https://github.com/sparkylinux/sparky-dashboard"
 license=(GPL3)
-depends=('yad')
-makedepends=('git')
-provides=('sparky-dashboard')
-conflicts=('sparky-dashboard')
-source=("${pkgname}::git+${url}.git")
+depends=(yad)
+makedepends=(git)
+provides=(sparky-dashboard)
+conflicts=(sparky-dashboard)
+source=("git+${url}.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "${pkgname}"
+  cd "${pkgname/-git/}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 

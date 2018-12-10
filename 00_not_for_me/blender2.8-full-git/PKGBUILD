@@ -1,7 +1,7 @@
 # Maintainer : bartus <arch-user-repoᘓbartus.33mail.com>
 
 pkgname=blender2.8-full-git
-pkgver=2.8.r81564.3bc8bc0709a
+pkgver=2.8.r83217.bfb9680e9e5
 pkgrel=1
 pkgdesc="Development version of Blender 2.8 branch"
 arch=(i686 x86_64)
@@ -14,7 +14,7 @@ makedepends=(git cmake boost mesa llvm)
 provides=(blender-2.8)
 conflicts=(blender-2.8)
 license=(GPL)
-source=("blender2.8-git::git://git.blender.org/blender.git#branch=blender2.8"
+source=("git://git.blender.org/blender.git#branch=blender2.8"
         "git://git.blender.org/blender-addons.git"
         "git://git.blender.org/blender-addons-contrib.git"
         "git://git.blender.org/blender-translations.git"
@@ -33,12 +33,12 @@ md5sums=('SKIP'
          '9d4bfb5b3dd33e95b13cc6c7d9d2d2e1')
 
 pkgver() {
-  cd "$srcdir/blender2.8-git"
+  cd "$srcdir/blender"
   printf "2.8.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-  cd "$srcdir/blender2.8-git"
+  cd "$srcdir/blender"
 
   git submodule init
   git config submodule."release/scripts/addons".url ${srcdir}/blender-addons
@@ -59,7 +59,7 @@ build() {
   export CFLAGS="${CFLAGS} -DOPENVDB_3_ABI_COMPATIBLE"
   export CXXFLAGS="${CXXFLAGS} -DOPENVDB_3_ABI_COMPATIBLE"
 
-  cmake "$srcdir/blender2.8-git" \
+  cmake "$srcdir/blender" \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DWITH_INSTALL_PORTABLE=OFF \
         -DWITH_ALEMBIC=ON \

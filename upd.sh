@@ -244,13 +244,6 @@ VAR36=selene-media-converter
 cd ..
 
 
-VAR37=sonerezh
- cd $PWD/$VAR37
-     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,example_nginx_vhost.conf} ~/Dev/Github/AUR/$VAR37
-cd ..
-
-
 VAR38=toptracker
 cd $PWD/$VAR38
     makepkg --printsrcinfo > .SRCINFO
@@ -349,11 +342,11 @@ cd $PWD/$VAR53
 cd ..
 
 
-VAR54=gimagereader-beta
-cd $PWD/$VAR54
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR54
-cd ..
+#VAR54=gimagereader-beta
+#cd $PWD/$VAR54
+#    makepkg --printsrcinfo > .SRCINFO
+#    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR54
+#cd ..
 
 
 VAR55=textosaurus-git
@@ -573,4 +566,16 @@ VAR=vvave-git
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=squeezelite
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,conffile,service,squeezelite.install} ~/Dev/Github/AUR/$VAR
+cd ..
+
+VAR=squeezelite-git
+cd $PWD/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,conffile,service,squeezelite.install} ~/Dev/Github/AUR/$VAR
 cd ..

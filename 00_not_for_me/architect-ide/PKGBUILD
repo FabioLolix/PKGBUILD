@@ -4,24 +4,20 @@ pkgname=architect-ide
 pkgver=0.9.10
 pkgrel=1
 pkgdesc=""
-arch=('x86_64')
+arch=(x86_64)
 url="https://github.com/openanalytics/architect"
 license=()
 depends=()
-makedepends=('git' 'maven')
+makedepends=(git maven)
 optdepends=()
 provides=()
 conflicts=()
 options=()
 _commit=f7d994167d09012b469af24dfb66e031eebdfd76
-source=("architect-ide-git::git+${url}.git#commit=$_commit")
+source=("git+${url}.git#commit=$_commit")
 md5sums=('SKIP')
 
 package() {
-  cd "${srcdir}/architect-ide-git"
+  cd "$srcdir/${pkgname/-ide}"
   mvn -e clean verify
-
-# install -d ${pkgdir}/usr/share/licenses/${pkgname}
-# install -d ${pkgdir}/usr/share/doc/${pkgname}
-# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }
