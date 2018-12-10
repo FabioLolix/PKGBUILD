@@ -3,7 +3,7 @@
 # Contributor: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Lubosz Sarnecki <lubosz@gmail.com>
 
-pkgname=libgee
+pkgname=libgee-git
 pkgver=0.20.1.r0.g57e4c8a
 pkgrel=1
 pkgdesc="A collection library providing GObject-based interfaces and classes for commonly used data structures"
