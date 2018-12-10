@@ -9,9 +9,9 @@ pkgbase = mdbook-bin
 	provides = mdbook
 	conflicts = mdbook
 	source_x86_64 = https://github.com/rust-lang-nursery/mdBook/releases/download/v0.2.1/mdBook-v0.2.1-x86_64-unknown-linux-gnu.tar.gz
-	md5sums_x86_64 = abb927ab28b0605564c50e2bc006c9f3
+	sha256sums_x86_64 = 6b3a3193e5518a33cf42be67dae0142627b8e2d0b8ecfc28d11fdc52f0a3093f
 	source_i686 = https://github.com/rust-lang-nursery/mdBook/releases/download/v0.2.1/mdBook-v0.2.1-i686-unknown-linux-gnu.tar.gz
-	md5sums_i686 = 292a85ed9d8460f92e60ca9c03bc1170
+	sha256sums_i686 = d484e97dc998c41fdadfdda6e6d8093f37ab50cf89f68ef404bbcaa87e9f50fc
 
 pkgname = mdbook-bin
 
