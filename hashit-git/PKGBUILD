@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=hashit-git
-pkgver=0.2.0.r14.gf62d36a
+pkgver=1.0.0.r2.gaee4f09
 pkgrel=1
 pkgdesc="Checksum tool for Pantheon, developed by Artem Anufrij"
 arch=('x86_64')
