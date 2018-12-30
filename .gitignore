@@ -10,7 +10,6 @@
 *.jar
 *.tgz
 waf*
-MIT
 s*.png
 *.pdf
 */pkg
@@ -21,6 +20,5 @@ s*.png
 */*/src
 */*/pkg
 
-*/00_AUR/.SRCINFO
-*/00_AUR_fix_2/.SRCINFO
+02_AUR_vcs/*/.SRCINFO
 squeezeplay.desktop
