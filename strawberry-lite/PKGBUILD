@@ -1,15 +1,15 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=strawberry-alsa
-pkgver=0.3.3
-pkgrel=2
+pkgver=0.4.2
+pkgrel=1
 pkgdesc="Bitperfect audio player and music collection organizer, fork of Clementine. gstreamer engine only"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="http://www.strawbs.org/"
 license=(GPL3)
 depends=(chromaprint protobuf gst-plugins-base gst-plugins-good qt5-base qt5-x11extras
          sqlite3 udisks2 dbus alsa-lib
-         libcdio taglib)
+         libcdio)
 #depends+=(libimobiledevice libplist libusbmuxd libgpod libmtp phonon-qt5 vlc xine-lib) #customize deps and flags at your needs
 makedepends=(cmake boost)
 optdepends=(gst-plugins-bad
@@ -17,7 +17,7 @@ optdepends=(gst-plugins-bad
 provides=(strawberry)
 conflicts=(strawberry)
 source=("strawberry-${pkgver}.tar.gz::https://github.com/jonaski/strawberry/archive/${pkgver}.tar.gz")
-sha256sums=('0cb6c54cadc732bedeb3bb1afa8cf16398e514afe4373955728b4afa0e2dd828')
+sha256sums=('053397cdb6472eb14f6a56c29e18a9c08591a12e5d6cdd592e0ec74611cf58c9')
 
 prepare() {
   cd "${srcdir}/strawberry-${pkgver}"
@@ -28,7 +28,10 @@ build() {
   cd "${srcdir}/strawberry-${pkgver}/strawberry-build"
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DUSE_SYSTEM_TAGLIB=ON \
+    -DUSE_SYSTEM_TAGLIB=OFF \
+    -DENABLE_STREAM_TIDAL=OFF \
+    -DENABLE_DEEZER=OFF \
+    -DENABLE_DZMEDIA=OFF \
     -DENABLE_IMOBILEDEVICE=OFF \
     -DENABLE_LIBGPOD=OFF \
     -DENABLE_LIBMTP=OFF \
