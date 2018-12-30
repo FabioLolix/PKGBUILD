@@ -15,7 +15,7 @@ pkgbase = mdbook-git
 	makedepends = git
 	provides = mdbook
 	conflicts = mdbook
-	source = mdbook-git::git+https://github.com/rust-lang-nursery/mdBook.git
+	source = git+https://github.com/rust-lang-nursery/mdBook.git
 	md5sums = SKIP
 
 pkgname = mdbook-git
