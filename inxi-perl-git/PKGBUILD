@@ -2,7 +2,7 @@
 # Contributor: FadeMind <fademind@gmail.com>
 
 pkgname=inxi-perl-git
-pkgver=r2715.5e52d18d
+pkgver=r2755.00283844
 pkgrel=1
 pkgdesc="Pinxi (perl-inxi), development branch of inxi, a full featured CLI system information tool"
 arch=(any)
@@ -33,7 +33,6 @@ optdepends=(
   "xorg-xprop: inxi -S desktop data"
   "xorg-xrandr: inxi -G single screen resolution"
 )
-options=(zipman)
 source=("git+https://github.com/smxi/inxi.git#branch=inxi-perl")
 sha256sums=('SKIP')
 
