@@ -1,5 +1,5 @@
-pkgbase = strawberry-alsa
-	pkgdesc = Bitperfect audio player and music collection organizer, fork of Clementine. gstreamer engine only
+pkgbase = strawberry-lite
+	pkgdesc = A music player aimed at audio enthusiasts and music collectors, fewer fautures, Gstreamer and alsa only
 	pkgver = 0.4.2
 	pkgrel = 1
 	url = http://www.strawbs.org/
@@ -23,7 +23,7 @@ pkgbase = strawberry-alsa
 	depends = dbus
 	depends = alsa-lib
 	depends = libcdio
-	depends = taglib
+	optdepends = gst-libav
 	optdepends = gst-plugins-bad
 	optdepends = gst-plugins-ugly
 	provides = strawberry
@@ -31,5 +31,5 @@ pkgbase = strawberry-alsa
 	source = strawberry-0.4.2.tar.gz::https://github.com/jonaski/strawberry/archive/0.4.2.tar.gz
 	sha256sums = 053397cdb6472eb14f6a56c29e18a9c08591a12e5d6cdd592e0ec74611cf58c9
 
-pkgname = strawberry-alsa
+pkgname = strawberry-lite
 

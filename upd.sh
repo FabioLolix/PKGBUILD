@@ -539,9 +539,10 @@ cd $PWD/$VAR
     rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
 
-VAR=strawberry-alsa
+VAR=strawberry-lite
 cd $PWD/$VAR
     makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
 cd ..
 
 VAR=flare-game
