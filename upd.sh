@@ -88,13 +88,19 @@ cd $BASE/$VAR
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
+VAR=phoronix-test-suite
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,$VAR.install} $DEST/$VAR
+
+
 VAR=phoronix-test-suite-milestone
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,phoronix-test-suite-milestone.install} $DEST/$VAR
+    rsync {PKGBUILD,.SRCINFO,$VAR.install} $DEST/$VAR
 
 
-VAR26=polo
+VAR=polo
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO,*.patch} $DEST/$VAR
@@ -305,12 +311,6 @@ cd $BASE/$VAR
 
 
 VAR=mdbook-git
-cd $BASE/$VAR
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
-
-
-VAR=phoronix-test-suite
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
