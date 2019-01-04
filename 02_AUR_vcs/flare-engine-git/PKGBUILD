@@ -1,7 +1,8 @@
-# Contributor: dorkster <jajdorkster@gmail.com>
+# Maintainer: dorkster <jajdorkster@gmail.com>
+# Maintainer: Fabio Loli <lolix@disroot.org>
 
 pkgname=flare-engine-git
-pkgver=1.06.r195.gd0240d4b
+pkgver=1.09.01.r2.g0165726b
 pkgrel=1
 pkgdesc="Free/Libre Action Roleplaying Engine - Git version"
 url="http://www.flarerpg.org/"
@@ -11,21 +12,21 @@ makedepends=(git cmake)
 depends=(sdl2_image sdl2_mixer sdl2_ttf hicolor-icon-theme python)
 provides=(flare-engine)
 conflicts=(flare-engine)
-source=("git+https://github.com/clintbellanger/flare-engine")
+source=("git+https://github.com/flareteam/flare-engine")
 sha1sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/${pkgname/-git/}"
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+    cd "$srcdir/flare-engine"
+    git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd "$srcdir/${pkgname/-git/}"
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DBINDIR=bin -DDATADIR=share/flare
-  make
+    cd "$srcdir/flare-engine"
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DBINDIR=bin -DDATADIR=share/flare
+    make
 }
 
 package() {
-  cd "$srcdir/${pkgname/-git/}"
-  make install DESTDIR=$pkgdir
+    cd "$srcdir/flare-engine"
+    make install DESTDIR=$pkgdir
 }

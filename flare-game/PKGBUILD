@@ -1,12 +1,12 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
-# Contributor: dorkster <jajdorkster@gmail.com>
+# Maintainer: dorkster <jajdorkster@gmail.com>
 
 pkgname=flare-game
 pkgver=1.09.01
 pkgrel=1
 pkgdesc="Fantasy action RPG using the FLARE engine"
 url="http://www.flarerpg.org/"
-license=('CCPL:cc-by-sa')
+license=('CCPL:cc-by-sa-3.0')
 arch=(i686 x86_64)
 makedepends=(cmake)
 depends=(flare-engine)
