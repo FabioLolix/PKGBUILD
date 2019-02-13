@@ -3,14 +3,14 @@
 # Contributor: Mika Fischer <mika.fischer@zoopnet.de>
 
 pkgname=squeezelite-git
-pkgver=1.9.0.1126.r315.a1dd79d
-pkgrel=1
+pkgver=1.9.1.1130.r319.451cad8
+pkgrel=2
 pkgdesc='Lightweight headless squeezebox emulator'
 arch=(i686 x86_64 arm armv6h armv7h aarch64)
 url='https://github.com/ralph-irving/squeezelite'
 license=(GPL3)
 makedepends=(git)
-depends=(alsa-lib faad2 flac libmad libvorbis mpg123 libsoxr)
+depends=(alsa-lib faad2 flac libmad libvorbis mpg123 libsoxr ffmpeg)
 provides=(squeezelite)
 conflicts=(squeezelite)
 install=squeezelite.install
@@ -34,7 +34,7 @@ build() {
   cd "$srcdir/${pkgname/-git/}"
 
   export LDFLAGS="${LDFLAGS} -lasound -lpthread -lm -lrt"
-  export OPTS="${OPTS} -DDSD -DRESAMPLE -DVISEXPORT -DLINKALL"
+  export OPTS="${OPTS} -DDSD -DRESAMPLE -DVISEXPORT -DFFMPEG -DLINKALL"
   make
 }
 
