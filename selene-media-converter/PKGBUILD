@@ -3,7 +3,7 @@
 
 pkgname=selene-media-converter
 pkgver=17.7
-pkgrel=1
+pkgrel=2
 pkgdesc="A simple but powerful audio/video converter for many formats"
 arch=(i686 x86_64)
 url="http://teejeetech.blogspot.in/p/selene-media-encoder.html"
@@ -17,8 +17,7 @@ optdepends=('gpac: MP4Box muxer'
             'mkvtoolnix-cli: Matroska muxer'
             'mplayer: Media player'
             'mpv: Media player'
-            'neroaac: Nero AAC Audio encoder'
-            'neroaacenc: Nero AAC Audio encoder'
+            'nneroaacenc-bin: Nero AAC Audio encoder'
             'libogg: OGG audio encoder'
             'liboggz: OGG merge tool'
             'opus-tools: Opus audio encoder'
