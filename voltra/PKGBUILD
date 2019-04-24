@@ -16,7 +16,7 @@ depends=('gtk2'
          'libxtst')
 provides=('voltra')
 #changelog=https://docs.voltra.co/desktop/release.html
-source=("https://s3.amazonaws.com/download.voltra.co/Voltra-${pkgver}.tar.gz"
+source=("https://github.com/FabioLolix/archives/raw/master/Voltra-${pkgver}.tar.gz"
         'voltra.png'
         'voltra.desktop'
         'COPYRIGHT'
