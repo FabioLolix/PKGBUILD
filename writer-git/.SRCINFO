@@ -1,0 +1,25 @@
+pkgbase = writer-git
+	pkgdesc = Word processor built with Vala and GTK+, especially for elementary OS
+	pkgver = r167.fde2cd5
+	pkgrel = 1
+	url = https://github.com/ryonakano/writer
+	arch = x86_64
+	arch = i686
+	arch = arm
+	arch = armv6h
+	arch = armv7h
+	arch = aarch64
+	license = GPL3
+	makedepends = git
+	makedepends = vala
+	makedepends = meson
+	depends = libgranite.so
+	depends = zeitgeist
+	depends = gtksourceview3
+	provides = writer
+	conflicts = writer
+	source = git+https://github.com/ryonakano/writer.git
+	sha256sums = SKIP
+
+pkgname = writer-git
+
