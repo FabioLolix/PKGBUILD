@@ -1,0 +1,36 @@
+pkgbase = lumina-desktop-git
+	pkgdesc = A Lightweight QT5 Desktop for FreeBSD -- git version
+	pkgver = 1.4.0.r433.gcd407705
+	pkgrel = 1
+	url = https://github.com/trueos/lumina
+	arch = x86_64
+	arch = i686
+	arch = arm
+	arch = armv6h
+	arch = armv7h
+	arch = aarch64
+	license = BSD
+	makedepends = git
+	makedepends = qt5-tools
+	makedepends = qt5-svg
+	depends = poppler-qt5
+	depends = qt5-x11extras
+	depends = qt5-multimedia
+	optdepends = xorg-xbacklight: required for changing screen brightness
+	optdepends = alsa-utils: required for adjusting audio volume
+	optdepends = acpi: required for monitoring battery life
+	optdepends = numlockx: required for changign state of numlock at login
+	optdepends = pavucontrol: required for detatched audio mixer
+	optdepends = fluxmod-styles: A good set of Fluxbox themes to improve the appearence of window decorations
+	optdepends = network-manager-applet: Manage network connections from panel
+	optdepends = xterm: Terminal emulator
+	optdepends = fluxbox: window manager for Lumina DE
+	provides = lumina-desktop
+	conflicts = lumina-desktop
+	conflicts = lumina-de-git
+	conflicts = insight-fm
+	source = git+https://github.com/lumina-desktop/lumina
+	md5sums = SKIP
+
+pkgname = lumina-desktop-git
+
