@@ -2,28 +2,26 @@
 # Maintainer: E5ten
 
 pkgbase=lumina-desktop-utils
-pkgname=(lumina-icon-theme lumina-archiver lumina-calculator lumina-fileinfo lumina-fm lumina-mediaplayer lumina-pdf 
-         lumina-screenshot lumina-textedit lumina-notify lumina-xdg-entry lumina-open) #lumina-screencast lumina-terminal
-_pkgver=1.4.0-p1
-pkgver=${_pkgver//-/.}
+pkgname=(lumina-icon-theme lumina-archiver lumina-fileinfo lumina-fm lumina-mediaplayer
+         lumina-screenshot lumina-textedit lumina-open) #lumina-screencast lumina-terminal
+pkgver=1.5.0
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
-url="https://github.com/trueos/lumina"
+url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(qt5-base)
 makedepends=(qt5-svg qt5-tools qt5-x11extras qt5-multimedia poppler-qt5)
-conflicts=(lumina-desktop lumina-desktop-git)
-source=("lumina-desktop-${_pkgver}.tar.gz::https://github.com/trueos/lumina/archive/v${_pkgver}.tar.gz")
-sha512sums=('340079832f4f6c9c9c70f11d7743b7c7db6772897f6411a966bf2bd77124bab1fbac8f5751164fb8a08a12c4443f515aaee76b117b4f959263eeaa98dbcbe41e')
+conflicts=(lumina-desktop)
+source=("lumina-desktop-${pkgver}.tar.gz::https://github.com/lumina-desktop/lumina/archive/v${pkgver}.tar.gz")
+sha512sums=('37106d71a9ba7188c4ded0614d2d4424f732519e11288ae312dfcd9a0b5b26dd31dfa812e74a96c0e3e0fb99fae4dc00806fd7a24183746688c72d997054af7d')
 
 _lumina-build() {
-    cd "${srcdir}/lumina-${_pkgver}/src-qt5/${_location}/$pkgname"
+    cd "${srcdir}/lumina-${pkgver}/src-qt5/${_location}/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
     make
     make INSTALL_ROOT="${pkgdir}" install
-    install -D "${srcdir}/lumina-${_pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-
+    install -D "${srcdir}/lumina-${pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 package_lumina-icon-theme() {
@@ -33,25 +31,16 @@ package_lumina-icon-theme() {
   depends=()
   options=(!strip)
 
-    cd "${srcdir}/lumina-${_pkgver}/icon-theme"
+    cd "${srcdir}/lumina-${pkgver}/icon-theme"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
     make
     make INSTALL_ROOT="${pkgdir}" install
-    install -D "${srcdir}/lumina-${_pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -D "${srcdir}/lumina-${pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 package_lumina-archiver() {
   pkgname=lumina-archiver
   pkgdesc="Archivier for the lumina desktop environment"
-  depends+=(lumina-icon-theme)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
-package_lumina-calculator() {
-  pkgname=lumina-calculator
-  pkgdesc="Calculator for the lumina desktop environment"
   depends+=(lumina-icon-theme)
 
   _location=desktop-utils
@@ -85,15 +74,6 @@ package_lumina-mediaplayer() {
   _lumina-build
 }
 
-package_lumina-pdf() {
-  pkgname=lumina-pdf
-  pkgdesc="PDF viewver for the lumina desktop environment"
-  depends+=(poppler-qt5 lumina-icon-theme)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
 package_lumina-screenshot() {
   pkgname=lumina-screenshot
   pkgdesc="Screenshot utility for the lumina desktop environment"
@@ -107,22 +87,6 @@ package_lumina-textedit() {
   pkgname=lumina-textedit
   pkgdesc="Text editor for the lumina desktop environment"
   depends+=(lumina-icon-theme)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
-package_lumina-notify() {
-  pkgname=lumina-notify
-  pkgdesc=""
-
-  _location=desktop-utils
-  _lumina-build
-}
-
-package_lumina-xdg-entry() {
-  pkgname=lumina-xdg-entry
-  pkgdesc=""
 
   _location=desktop-utils
   _lumina-build

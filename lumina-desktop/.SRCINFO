@@ -1,6 +1,6 @@
-pkgbase = lumina-desktop-git
-	pkgdesc = A Lightweight QT5 Desktop for FreeBSD -- git version
-	pkgver = 1.5.0.r0.g05f260c7
+pkgbase = lumina-desktop
+	pkgdesc = A Lightweight QT5 Desktop for FreeBSD
+	pkgver = 1.5.0
 	pkgrel = 1
 	url = https://lumina-desktop.org/
 	arch = x86_64
@@ -10,7 +10,6 @@ pkgbase = lumina-desktop-git
 	arch = armv7h
 	arch = aarch64
 	license = BSD
-	makedepends = git
 	makedepends = qt5-tools
 	makedepends = qt5-svg
 	depends = poppler-qt5
@@ -25,12 +24,9 @@ pkgbase = lumina-desktop-git
 	optdepends = network-manager-applet: Manage network connections from panel
 	optdepends = xterm: Terminal emulator
 	optdepends = fluxbox: window manager for Lumina DE
-	provides = lumina-desktop
-	conflicts = lumina-desktop
-	conflicts = lumina-de-git
 	conflicts = insight-fm
-	source = git+https://github.com/lumina-desktop/lumina
-	md5sums = SKIP
+	source = lumina-desktop-1.5.0.tar.gz::https://github.com/lumina-desktop/lumina/archive/v1.5.0.tar.gz
+	sha512sums = 37106d71a9ba7188c4ded0614d2d4424f732519e11288ae312dfcd9a0b5b26dd31dfa812e74a96c0e3e0fb99fae4dc00806fd7a24183746688c72d997054af7d
 
-pkgname = lumina-desktop-git
+pkgname = lumina-desktop
 

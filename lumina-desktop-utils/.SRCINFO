@@ -1,8 +1,8 @@
 pkgbase = lumina-desktop-utils
 	pkgdesc = Desktop applications from Lumina project
-	pkgver = 1.4.0.p1
+	pkgver = 1.5.0
 	pkgrel = 1
-	url = https://github.com/trueos/lumina
+	url = https://lumina-desktop.org/
 	arch = x86_64
 	arch = i686
 	arch = arm
@@ -18,8 +18,8 @@ pkgbase = lumina-desktop-utils
 	depends = qt5-base
 	conflicts = lumina-desktop
 	conflicts = lumina-desktop-git
-	source = lumina-desktop-1.4.0-p1.tar.gz::https://github.com/trueos/lumina/archive/v1.4.0-p1.tar.gz
-	sha512sums = 340079832f4f6c9c9c70f11d7743b7c7db6772897f6411a966bf2bd77124bab1fbac8f5751164fb8a08a12c4443f515aaee76b117b4f959263eeaa98dbcbe41e
+	source = lumina-desktop-1.5.0.tar.gz::https://github.com/lumina-desktop/lumina/archive/v1.5.0.tar.gz
+	sha512sums = 37106d71a9ba7188c4ded0614d2d4424f732519e11288ae312dfcd9a0b5b26dd31dfa812e74a96c0e3e0fb99fae4dc00806fd7a24183746688c72d997054af7d
 
 pkgname = lumina-icon-theme
 	pkgdesc = Icon theme for Lumina desktop applications
@@ -29,11 +29,6 @@ pkgname = lumina-icon-theme
 
 pkgname = lumina-archiver
 	pkgdesc = Archivier for the lumina desktop environment
-	depends = qt5-base
-	depends = lumina-icon-theme
-
-pkgname = lumina-calculator
-	pkgdesc = Calculator for the lumina desktop environment
 	depends = qt5-base
 	depends = lumina-icon-theme
 
@@ -59,12 +54,6 @@ pkgname = lumina-mediaplayer
 	depends = qt5-multimedia
 	depends = lumina-icon-theme
 
-pkgname = lumina-pdf
-	pkgdesc = PDF viewver for the lumina desktop environment
-	depends = qt5-base
-	depends = poppler-qt5
-	depends = lumina-icon-theme
-
 pkgname = lumina-screenshot
 	pkgdesc = Screenshot utility for the lumina desktop environment
 	depends = qt5-base
@@ -75,12 +64,6 @@ pkgname = lumina-textedit
 	pkgdesc = Text editor for the lumina desktop environment
 	depends = qt5-base
 	depends = lumina-icon-theme
-
-pkgname = lumina-notify
-	pkgdesc = 
-
-pkgname = lumina-xdg-entry
-	pkgdesc = 
 
 pkgname = lumina-open
 	pkgdesc = Application launcher for the lumina desktop environment

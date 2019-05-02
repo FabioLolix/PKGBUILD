@@ -1,0 +1,25 @@
+# Maintainer: E5ten
+
+pkgname=lumina-calculator
+pkgver=1.5.0
+pkgrel=1
+pkgdesc="Calculator for the lumina desktop environment"
+arch=(x86_64 i686 arm armv6h armv7h aarch64)
+url="https://lumina-desktop.org/"
+license=(BSD)
+depends=(qt5-base)
+makedepends=(git qt5-svg qt5-tools)
+source=(git+https://github.com/lumina-desktop/lumina-calculator.git#commit=ccb792fc713aa7163fffd37fc20c83ffe9ca7523)
+sha512sums=('SKIP')
+
+build(){
+  cd "${srcdir}/$pkgname/src-qt5/"
+  qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
+  make
+}
+
+package() {
+  cd "${srcdir}/$pkgname/src-qt5/"
+  make INSTALL_ROOT="${pkgdir}" install
+  install -Dm 644 "${srcdir}/$pkgname/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

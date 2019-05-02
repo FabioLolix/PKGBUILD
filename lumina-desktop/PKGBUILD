@@ -3,10 +3,10 @@
 # Contributor: Chad "crossroads1112" Sharp <crossroads1112@riseup.net>
 # Contributor: Josip Ponjavic <josipponjavic at gmail dot com>
 
-pkgname=lumina-desktop-git
-pkgver=1.5.0.r0.g05f260c7
+pkgname=lumina-desktop
+pkgver=1.5.0
 pkgrel=1
-pkgdesc="A Lightweight QT5 Desktop for FreeBSD -- git version"
+pkgdesc="A Lightweight QT5 Desktop for FreeBSD"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://lumina-desktop.org/"
 license=(BSD)
@@ -20,26 +20,20 @@ optdepends=('xorg-xbacklight: required for changing screen brightness'
             'network-manager-applet: Manage network connections from panel'
             'xterm: Terminal emulator'
             'fluxbox: window manager for Lumina DE')
-makedepends=(git qt5-tools qt5-svg)
-conflicts=(lumina-desktop insight-fm)
-provides=(lumina-desktop)
-source=("git+https://github.com/lumina-desktop/lumina")
-md5sums=(SKIP)
-
-pkgver() {
-  cd "$srcdir/lumina"
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
-}
+makedepends=(qt5-tools qt5-svg)
+conflicts=(insight-fm)
+source=("$pkgname-${pkgver}.tar.gz::https://github.com/lumina-desktop/lumina/archive/v${pkgver}.tar.gz")
+sha512sums=('37106d71a9ba7188c4ded0614d2d4424f732519e11288ae312dfcd9a0b5b26dd31dfa812e74a96c0e3e0fb99fae4dc00806fd7a24183746688c72d997054af7d')
 
 build(){
-  cd "$srcdir/lumina"
-    find "$srcdir/lumina" -name *.desktop -exec sed -i 's/usr\/local/usr/' {} \;
+  cd "$srcdir/lumina-$pkgver"
+    find "$srcdir/lumina-$pkgver" -name *.desktop -exec sed -i 's/usr\/local/usr/' {} \;
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
     make
 }
 
 package() {
-  cd "$srcdir/lumina"
+  cd "$srcdir/lumina-$pkgver"
     make INSTALL_ROOT="${pkgdir}" install
     install -Dm 644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }

@@ -2,13 +2,13 @@
 # Maintainer: E5ten
 
 pkgbase=lumina-desktop-utils-git
-pkgname=(lumina-icon-theme-git lumina-archiver-git lumina-calculator-git lumina-fileinfo-git lumina-fm-git lumina-mediaplayer-git lumina-pdf-git 
-         lumina-screenshot-git lumina-textedit-git lumina-notify-git lumina-xdg-entry-git lumina-open-git) #lumina-screencast-git lumina-terminal-git
-pkgver=1.4.0.r433.gcd407705
+pkgname=(lumina-icon-theme-git lumina-archiver-git lumina-fileinfo-git lumina-fm-git lumina-mediaplayer-git
+         lumina-screenshot-git lumina-textedit-git lumina-open-git) #lumina-screencast-git lumina-terminal-git
+pkgver=1.5.0.r0.g05f260c7
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
-url="https://github.com/trueos/lumina"
+url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(qt5-base)
 makedepends=(qt5-svg qt5-tools qt5-x11extras qt5-multimedia poppler-qt5 git)
@@ -56,17 +56,6 @@ package_lumina-archiver-git() {
   _lumina-build
 }
 
-package_lumina-calculator-git() {
-  pkgname=lumina-calculator-git
-  pkgdesc="Calculator for the lumina desktop environment"
-  depends+=(lumina-icon-theme)
-  provides=(lumina-calculator)
-  conflicts=(lumina-calculator)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
 package_lumina-fileinfo-git() {
   pkgname=lumina-fileinfo-git
   pkgdesc="File property manager for the lumina desktop environment"
@@ -100,17 +89,6 @@ package_lumina-mediaplayer-git() {
   _lumina-build
 }
 
-package_lumina-pdf-git() {
-  pkgname=lumina-pdf-git
-  pkgdesc="PDF viewver for the lumina desktop environment"
-  depends+=(poppler-qt5 lumina-icon-theme)
-  provides=(lumina-pdf)
-  conflicts=(lumina-pdf)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
 package_lumina-screenshot-git() {
   pkgname=lumina-screenshot-git
   pkgdesc="Screenshot utility for the lumina desktop environment"
@@ -128,26 +106,6 @@ package_lumina-textedit-git() {
   depends+=(lumina-icon-theme)
   provides=(lumina-textedit)
   conflicts=(lumina-textedit)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
-package_lumina-notify-git() {
-  pkgname=lumina-notify-git
-  pkgdesc=""
-  provides=(lumina-notify)
-  conflicts=(lumina-notify)
-
-  _location=desktop-utils
-  _lumina-build
-}
-
-package_lumina-xdg-entry-git() {
-  pkgname=lumina-xdg-entry-git
-  pkgdesc=""
-  provides=(lumina-xdg-entry)
-  conflicts=(lumina-xdg-entry)
 
   _location=desktop-utils
   _lumina-build

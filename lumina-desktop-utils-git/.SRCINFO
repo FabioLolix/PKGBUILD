@@ -1,8 +1,8 @@
 pkgbase = lumina-desktop-utils-git
 	pkgdesc = Desktop applications from Lumina project
-	pkgver = 1.4.0.r433.gcd407705
+	pkgver = 1.5.0.r0.g05f260c7
 	pkgrel = 1
-	url = https://github.com/trueos/lumina
+	url = https://lumina-desktop.org/
 	arch = x86_64
 	arch = i686
 	arch = arm
@@ -37,13 +37,6 @@ pkgname = lumina-archiver-git
 	provides = lumina-archiver
 	conflicts = lumina-archiver
 
-pkgname = lumina-calculator-git
-	pkgdesc = Calculator for the lumina desktop environment
-	depends = qt5-base
-	depends = lumina-icon-theme
-	provides = lumina-calculator
-	conflicts = lumina-calculator
-
 pkgname = lumina-fileinfo-git
 	pkgdesc = File property manager for the lumina desktop environment
 	depends = qt5-base
@@ -72,14 +65,6 @@ pkgname = lumina-mediaplayer-git
 	provides = lumina-mediaplayer
 	conflicts = lumina-mediaplayer
 
-pkgname = lumina-pdf-git
-	pkgdesc = PDF viewver for the lumina desktop environment
-	depends = qt5-base
-	depends = poppler-qt5
-	depends = lumina-icon-theme
-	provides = lumina-pdf
-	conflicts = lumina-pdf
-
 pkgname = lumina-screenshot-git
 	pkgdesc = Screenshot utility for the lumina desktop environment
 	depends = qt5-base
@@ -94,16 +79,6 @@ pkgname = lumina-textedit-git
 	depends = lumina-icon-theme
 	provides = lumina-textedit
 	conflicts = lumina-textedit
-
-pkgname = lumina-notify-git
-	pkgdesc = 
-	provides = lumina-notify
-	conflicts = lumina-notify
-
-pkgname = lumina-xdg-entry-git
-	pkgdesc = 
-	provides = lumina-xdg-entry
-	conflicts = lumina-xdg-entry
 
 pkgname = lumina-open-git
 	pkgdesc = Application launcher for the lumina desktop environment
