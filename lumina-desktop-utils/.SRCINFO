@@ -17,7 +17,6 @@ pkgbase = lumina-desktop-utils
 	makedepends = poppler-qt5
 	depends = qt5-base
 	conflicts = lumina-desktop
-	conflicts = lumina-desktop-git
 	source = lumina-desktop-1.5.0.tar.gz::https://github.com/lumina-desktop/lumina/archive/v1.5.0.tar.gz
 	sha512sums = 37106d71a9ba7188c4ded0614d2d4424f732519e11288ae312dfcd9a0b5b26dd31dfa812e74a96c0e3e0fb99fae4dc00806fd7a24183746688c72d997054af7d
 

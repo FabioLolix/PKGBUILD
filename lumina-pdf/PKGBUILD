@@ -8,7 +8,7 @@ arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(qt5-base)
-makedepends=(git qt5-svg qt5-tools)
+makedepends=(git qt5-svg qt5-tools poppler-qt5)
 source=(git+https://github.com/lumina-desktop/lumina-pdf.git#commit=645ed591ef91c3607d3ab87dd86f7acfd08b05c9)
 sha512sums=('SKIP')
 
