@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=playmymusic-git
-pkgver=2.2.0.r0.gd464825
+pkgver=2.2.0.r3.g401aacc
 pkgrel=1
 pkgdesc="Melody is a music player for Pantheon, developed by Artem Anufrij"
 arch=(x86_64)
