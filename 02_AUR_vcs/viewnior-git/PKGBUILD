@@ -1,16 +1,16 @@
 # Mantainer: Berseker <berseker86 at gmail.com>
 
 pkgname=viewnior-git
-pkgver=1.7.r2.gaac0a0c
+pkgver=1.7.r17.g9160eaa
 pkgrel=1
 pkgdesc="Simple, fast, elegant and minimalistic image viewer, written in C(GTK+) with a new GtkImageView library. Git Version"
-arch=('i686' 'x86_64')
-url='http://siyanpanayotov.com/project/viewnior'
-license=('GPL')
-depends=('exiv2' 'gtk2' 'desktop-file-utils')
-makedepends=('gnome-common' 'intltool' 'meson' 'ninja' git)
-provides=('viewnior')
-conflicts=('viewnior')
+arch=(i686 x86_64)
+url="http://siyanpanayotov.com/project/viewnior"
+license=(GPL)
+depends=(exiv2 gtk2 desktop-file-utils)
+makedepends=(gnome-common intltool meson ninja git)
+provides=(viewnior)
+conflicts=(viewnior)
 source=("${pkgname}::git+https://github.com/hellosiyan/Viewnior.git")
 md5sums=('SKIP')
 

@@ -1,14 +1,14 @@
 # Maintainer: 
 
 pkgname=nx-software-center-git
-pkgver=r393.da2e2cf
+pkgver=r405.dadd940
 pkgrel=1
 pkgdesc=""
 arch=(x86_64)
 url="https://github.com/nomad-desktop/nx-software-center"
 license=(LGPL2.1)
 depends=(qt5-base)
-makedepends=(cmake git qt5-tools extra-cmake-modules xxd boost)
+makedepends=(cmake git qt5-tools extra-cmake-modules xxd boost qt5-xmlpatterns)
 optdepends=()
 provides=()
 conflicts=()
@@ -20,33 +20,33 @@ md5sums=('SKIP'
          'SKIP')
 
 pkgver() {
-  cd "${pkgname}"
+  cd "$srcdir/${pkgname%-git}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 #  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "${pkgname}"
+  cd "${pkgname%-git}"
   install -d build
 
   git submodule init
   git config 'submodule.lib/AppImageInfo.url' "${srcdir}/AppImageInfo"
   git submodule update
 
-  cd "${srcdir}/${pkgname}/lib/AppImageInfo"
+  cd "${srcdir}/${pkgname%-git}/lib/AppImageInfo"
   git submodule init
   git config 'submodule.thirdparty/googletest.url' "${srcdir}/googletest"
   git submodule update
 }
 
 build() {
-  cd "${srcdir}/${pkgname}/build"
+  cd "${srcdir}/${pkgname%-git}/build"
   cmake .. \
     -DLIBBFD_BFD_LIBRARY=/usr/lib \
     -DCMAKE_INSTALL_PREFIX=/usr
 }
 
 package() {
-  cd "${srcdir}/${pkgname}/build"
+  cd "${srcdir}/${pkgname%-git}/build"
   make DESTDIR=${pkgdir} install
 }

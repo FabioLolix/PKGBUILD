@@ -12,8 +12,8 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-qt5-lite-git
-pkgver=1.3.1.r565.gd20c2244a
-pkgrel=2
+pkgver=1.3.1.r704.g9af827b6a
+pkgrel=1
 pkgdesc="A modern music player and library organiser, qt5 version, disabled plugins"
 arch=('i686' 'x86_64')
 url='http://www.clementine-player.org/'
@@ -42,19 +42,19 @@ optdepends=('gst-plugins-good: for use with "Good" plugin libraries'
 #'libimobiledevice: for iPhone and iPod Touch support'
 #'libmtp: for MTP devices, Android'
 #)
-makedepends=('git' 'boost' 'cmake' 'mesa' 'qt5-tools' 'qt5-x11extras')
-provides=('clementine')
-conflicts=('clementine' 'clementine-git')
-source=('clementine-qt5-git::git+https://github.com/clementine-player/Clementine.git#branch=qt5')
+makedepends=(git boost cmake mesa qt5-tools qt5-x11extras)
+provides=(clementine)
+conflicts=(clementine)
+source=("clementine::git+https://github.com/clementine-player/Clementine.git#branch=qt5")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd clementine-qt5-git
+  cd "clementine"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    cd "$srcdir/clementine-qt5-git/bin"
+    cd "$srcdir/clementine/bin"
     
     cmake .. \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -83,6 +83,6 @@ make
 }
 
 package() {
-    cd "$srcdir/clementine-qt5-git/bin"
+    cd "$srcdir/clementine/bin"
     make DESTDIR="$pkgdir" install
 }

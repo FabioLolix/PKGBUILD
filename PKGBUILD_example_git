@@ -13,12 +13,12 @@ optdepends=()
 provides=()
 conflicts=()
 options=()
-source=("${pkgname}::git+${url}.git")
+source=("git+${url}.git")
 sha256sums=('SKIP')
 
 # Git with tags
 pkgver() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${pkgname%-git}"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 
 #  # cutting off 'v' prefix that presents in the git tag
@@ -30,17 +30,25 @@ pkgver() {
 
 # Git without tags
 #pkgver() {
-#  cd "$srcdir/${pkgname/-git/}"
+#  cd "${pkgname%-git}"
 #  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 #}
 
+prepare() {
+#  cd "${pkgname%-git}"
+#  git submodule init
+#  git config 'submodule.PATH/NAME.url' "${srcdir}/NAME"
+#  git submodule update
+}
+
 build() {
-  cd "$srcdir/${pkgname/-git/}"
+#  cd "${pkgname/-git/}"
+  cd "${pkgname%-git}"
   make
 }
 
 package() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${pkgname%-git}"
   make DESTDIR="${pkgdir}" install
 
 # install -d ${pkgdir}/usr/share/licenses/${pkgname}

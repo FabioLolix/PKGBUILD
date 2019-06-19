@@ -1,22 +1,19 @@
-# Maintainer: 
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=sparky-dashboard
-pkgver=0.1.2
+pkgver=0.1.3
 pkgrel=1
 pkgdesc="The Sparky dashboard displays applications from /usr/share/applications dir into yad based window"
-arch=('any')
+arch=(any)
 url="https://github.com/sparkylinux/sparky-dashboard"
 license=(GPL3)
-depends=('yad')
-makedepends=('git')
-provides=()
-conflicts=()
-options=()
+depends=(yad)
 _commit=43e95acc368bc23eb32ab243393ee3aabfd271c1
-source=("${pkgname}::git+${url}.git#commit=$_commit")
-md5sums=('SKIP')
+source=("$pkgname-${_commit}.tar.gz::$url/archive/${_commit}.tar.gz")
+sha256sums=('139b494a8d4c136b350345d917529cf2f218509e8c43a9c8db3d1ae17b78d9aa')
 
 package() {
-  install -Dm775 ${srcdir}/${pkgname}/bin/${pkgname} ${pkgdir}/usr/bin/${pkgname}
-  install -Dm775 ${srcdir}/${pkgname}/share/${pkgname}.desktop  ${pkgdir}/usr/share/applications/${pkgname}.desktop
+  cd "${pkgname}-${_commit}"
+  install -Dm775 bin/${pkgname} ${pkgdir}/usr/bin/${pkgname}
+  install -Dm775 share/${pkgname}.desktop  ${pkgdir}/usr/share/applications/${pkgname}.desktop
 }

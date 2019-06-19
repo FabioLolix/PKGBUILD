@@ -3,15 +3,15 @@
 # Contributor: Antonio Rojas <arojas@archlinux.org>
 
 pkgname=elisa-git
-pkgver=0.3.0.r115.gf97cce5
+pkgver=0.4.0.r53.gbce759c
 pkgrel=1
 arch=(i686 x86_64)
 pkgdesc="A simple music player for KDE aiming to provide a nice experience for its users"
-url="https://cgit.kde.org/elisa.git/"
+url="https://community.kde.org/Elisa"
 license=(GPL3 custom:"Qt Company GPL Exception 1.0")
-depends=(qt5-quickcontrols qt5-quickcontrols2
-         kcmutils)
-makedepends=(git python extra-cmake-modules kdoctools)
+depends=(qt5-quickcontrols qt5-quickcontrols2)
+        
+makedepends=(git python extra-cmake-modules kdoctools baloo kcmutils kirigami2 qt5-multimedia)
 optdepends=(baloo)
 provides=(elisa)
 conflicts=(elisa)
@@ -19,18 +19,18 @@ source=("git://anongit.kde.org/elisa.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${pkgname%-git}"
   git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${pkgname%-git}"
   mkdir -p build
 }
 
 build() {
-  cd "$srcdir/${pkgname/-git/}/build"
-  cmake ../${pkgname/-git/} \
+  cd "${pkgname%-git}/build"
+  cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=lib \
     -DBUILD_TESTING=OFF
@@ -38,9 +38,8 @@ build() {
 }
 
 package(){
-  cd "$srcdir/${pkgname/-git/}/build"
+  cd "${pkgname%-git}/build"
   make DESTDIR="$pkgdir" install
 
-  cd "$srcdir/$pkgname"
-  install -Dm644 LICENSE.GPL3-EXCEPT "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.GPL3-EXCEPT"
+  install -Dm644 ../LICENSE.GPL3-EXCEPT "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.GPL3-EXCEPT"
 }

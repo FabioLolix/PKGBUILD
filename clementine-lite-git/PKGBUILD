@@ -12,7 +12,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-lite-git
-pkgver=1.3.1.r376.gf511ee12e
+pkgver=1.3.1.r606.gdd19df6ee
 pkgrel=1
 pkgdesc="A modern music player and library organiser, disabled plugins"
 arch=('i686' 'x86_64')
@@ -40,20 +40,19 @@ optdepends=('gst-plugins-bad: for use with "Bad" plugin libraries'
 #'libimobiledevice: for iPhone and iPod Touch support'
 #'libmtp: for MTP devices, Android'
 #)
-makedepends=('git' 'boost' 'cmake' 'mesa')
-provides=('clementine')
-conflicts=('clementine' 'clementine-git')
-replaces=('clementine' 'clementine-git')
-source=('clementine-git::git+https://github.com/clementine-player/Clementine.git')
+makedepends=(git boost cmake mesa)
+provides=(clementine)
+conflicts=(clementine)
+source=("clementine::git+https://github.com/clementine-player/Clementine.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/clementine-git"
+  cd "$srcdir/clementine"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    cd "$srcdir/clementine-git/bin"
+    cd "$srcdir/clementine/bin"
 
     cmake .. \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -83,6 +82,6 @@ make
 }
 
 package() {
-    cd "$srcdir/clementine-git/bin"
+    cd "$srcdir/clementine/bin"
     make DESTDIR="$pkgdir" install
 }

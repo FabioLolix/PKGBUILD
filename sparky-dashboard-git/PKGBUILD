@@ -1,4 +1,4 @@
-# Maintainer: 
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=sparky-dashboard-git
 pkgver=r4.46912d8
@@ -15,11 +15,12 @@ source=("git+${url}.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "${pkgname/-git/}"
+  cd "${pkgname%-git}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-  install -Dm775 ${srcdir}/${pkgname}/bin/sparky-dashboard ${pkgdir}/usr/bin/sparky-dashboard
-  install -Dm775 ${srcdir}/${pkgname}/share/sparky-dashboard.desktop  ${pkgdir}/usr/share/applications/sparky-dashboard.desktop
+  cd "${pkgname%-git}"
+  install -Dm775 bin/sparky-dashboard ${pkgdir}/usr/bin/sparky-dashboard
+  install -Dm775 share/sparky-dashboard.desktop  ${pkgdir}/usr/share/applications/sparky-dashboard.desktop
 }

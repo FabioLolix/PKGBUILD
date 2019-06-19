@@ -7,19 +7,19 @@
 
 pkgname=cantata-lolix
 _pkgname=cantata
-pkgver=2.3.2
+pkgver=2.3.3
 pkgrel=1
-pkgdesc='Qt5 client for the music player daemon (MPD), disabled replay-gain and mpd http stream'
+pkgdesc="Qt5 client for the music player daemon (MPD), disabled replay-gain and mpd http stream"
 arch=(i686 x86_64)
 url='https://github.com/CDrummond/cantata'
 license=(GPL)
-depends=(qt5-svg libmusicbrainz5 taglib-extras media-player-info udisks2 avahi) # libmtp libcdio-paranoia qt5-multimedia ffmpeg
-optdepends=('perl-uri: dynamic playlist' 'mpd: playback' 'sshfs: remote devices support')
+depends=(qt5-svg libmusicbrainz5 media-player-info mpd udisks2 avahi) # libmtp libcdio-paranoia qt5-multimedia ffmpeg
+optdepends=('perl-uri: dynamic playlist' 'sshfs: remote devices support')
 makedepends=(cmake qt5-tools)
 provides=(cantata)
 conflicts=(cantata)
 source=("https://github.com/CDrummond/cantata/releases/download/v$pkgver/${_pkgname}-$pkgver.tar.bz2")
-md5sums=('28d195388d8627d3ad168e7c1916d0ea')
+md5sums=('38fc588dc7cead6541bbad34124422e0')
 
 prepare() {
   mkdir -p build

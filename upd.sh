@@ -464,3 +464,35 @@ VAR=gotop
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+VAR=gamehub
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+VAR=gamehub-git
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+VAR=lumina-desktop-git
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=lumina-desktop-utils
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=lumina-desktop-utils-git
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+VAR=vnote
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR

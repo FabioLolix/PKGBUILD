@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=mauikit-pix-git
-pkgver=r161.4ea5be5
+pkgver=r260.63d0aab
 pkgrel=1
 pkgdesc='Music player for KDE'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
