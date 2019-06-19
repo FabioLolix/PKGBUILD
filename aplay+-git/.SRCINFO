@@ -1,0 +1,17 @@
+pkgbase = aplay+-git
+	pkgdesc = Simple CLI BitPerfect player
+	pkgver = r56.f445c69
+	pkgrel = 1
+	url = https://github.com/yui0/aplay-
+	arch = x86_64
+	license = unknown
+	makedepends = git
+	makedepends = clang
+	depends = alsa-lib
+	provides = aplay+
+	conflicts = aplay+
+	source = aplay+-git::git+https://github.com/yui0/aplay-.git
+	sha256sums = SKIP
+
+pkgname = aplay+-git
+

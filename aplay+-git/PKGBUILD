@@ -1,15 +1,16 @@
-# Maintainer: 
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
 
-pkgname=aplay-git
-pkgver=r46.47ecb1a
+pkgname=aplay+-git
+pkgver=r56.f445c69
 pkgrel=1
-pkgdesc="a simple BitPerfect player"
-arch=('x86_64')
+pkgdesc="Simple CLI BitPerfect player"
+arch=(x86_64)
 url="https://github.com/yui0/aplay-"
 license=(unknown)
-makedepends=(git)
-provides=()
-conflicts=()
+depends=(alsa-lib)
+makedepends=(git clang)
+provides=(aplay+)
+conflicts=(aplay+)
 source=("${pkgname}::git+${url}.git")
 sha256sums=('SKIP')
 

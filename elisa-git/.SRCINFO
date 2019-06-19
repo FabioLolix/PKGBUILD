@@ -1,8 +1,8 @@
 pkgbase = elisa-git
 	pkgdesc = A simple music player for KDE aiming to provide a nice experience for its users
-	pkgver = 0.3.0.r115.gf97cce5
+	pkgver = 0.4.0.r53.gbce759c
 	pkgrel = 1
-	url = https://cgit.kde.org/elisa.git/
+	url = https://community.kde.org/Elisa
 	arch = i686
 	arch = x86_64
 	license = GPL3

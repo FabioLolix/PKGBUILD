@@ -1,0 +1,29 @@
+# Maintainer: 
+
+pkgname=svgvi
+pkgver=1.2.1
+pkgrel=1
+pkgdesc=""
+arch=(x86_64 i686 arm armv6h armv7h aarch64)
+url=""
+license=()
+depends=()
+makedepends=(vala meson gxml)
+optdepends=()
+provides=()
+conflicts=()
+options=()
+source=("https://gitlab.com/pwmc/svgvi/-/archive/1.2.1/$pkgname-$pkgver.tar.gz")
+sha256sums=('75b0bbdfc3eb083305de13c89e9c262cd10aceaf856f14e80840a4139d6520e4')
+
+build() {
+  cd ${srcdir}/${pkgname}-${pkgver}
+  meson . build --prefix=/usr
+  ninja -C build
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-${pkgver}
+  DESTDIR="${pkgdir}" ninja -C build install
+#  ln -s /usr/bin/com.github.ryonakano.writer "$pkgdir/usr/bin/writer"
+}
