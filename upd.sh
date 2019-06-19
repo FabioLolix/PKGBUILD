@@ -91,13 +91,13 @@ cd $BASE/$VAR
 VAR=phoronix-test-suite
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,$VAR.install} $DEST/$VAR
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
 VAR=phoronix-test-suite-milestone
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,$VAR.install} $DEST/$VAR
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
 VAR=polo
