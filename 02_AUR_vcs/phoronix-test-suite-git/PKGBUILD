@@ -25,7 +25,6 @@ optdepends=('python'
             'openmpi: required for universe-cli test suite')
 provides=('phoronix-test-suite')
 conflicts=('phoronix-test-suite')
-install=$pkgname.install
 source=("$pkgname::git://github.com/phoronix-test-suite/phoronix-test-suite.git")
 md5sums=('SKIP')
 

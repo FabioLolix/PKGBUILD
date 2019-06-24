@@ -400,12 +400,6 @@ cd $BASE/$VAR
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
-VAR=strawberry
-cd $BASE/$VAR
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
-
-
 VAR=strawberry-git
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
@@ -465,15 +459,18 @@ cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
+
 VAR=gamehub
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
+
 VAR=gamehub-git
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
 
 VAR=lumina-desktop-git
 cd $BASE/$VAR
@@ -492,7 +489,20 @@ cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
+
 VAR=vnote
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=guitar
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=redasm
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
