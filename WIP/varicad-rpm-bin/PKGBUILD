@@ -1,0 +1,20 @@
+# Maintainer: 
+
+pkgname=varicad-rpm-bin
+pkgver=2.03
+pkgrel=1
+pkgdesc="3D/2D CAD for mechanical engineering"
+arch=(x86_64)
+url="https://www.varicad.de"
+license=('custom: Copyright (c) 1988-2014 VariCAD')
+depends=()
+optdepends=()
+provides=(varicad)
+conflicts=(varicad)
+source_x86_64=("https://www.varicad.de/userdata/files/release/de/VariCAD_View_2019-de-$pkgver-1.new-distr.x86_64.rpm")
+sha256sums_x86_64=('582d045c49dfdc7003fa1240328b421e410e2d16cb1cdbf276342e17c3792c96')
+PKGEXT='.pkg.tar'
+
+package() {
+  cp -a ${srcdir}/{opt,usr} ${pkgdir}/
+}
