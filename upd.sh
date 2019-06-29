@@ -298,6 +298,12 @@ cd $BASE/$VAR
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
+VAR=inxi-perl-git
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
 VAR=mdbook
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
@@ -503,6 +509,18 @@ cd $BASE/$VAR
 
 
 VAR=redasm
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=python2-pydbus
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=python-pydvdid
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR

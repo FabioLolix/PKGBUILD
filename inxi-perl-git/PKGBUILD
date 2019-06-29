@@ -2,7 +2,7 @@
 # Contributor: FadeMind <fademind@gmail.com>
 
 pkgname=inxi-perl-git
-pkgver=r2838.94a8cc4a
+pkgver=r2845.734a145e
 pkgrel=1
 pkgdesc="Pinxi, development branch of inxi, a full featured CLI system information tool"
 arch=(any)
