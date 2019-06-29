@@ -496,6 +496,24 @@ cd $BASE/$VAR
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
+VAR=lumina-pdf
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=lumina-pdf-git
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=lumina-calculator-git
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
 VAR=vnote
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
