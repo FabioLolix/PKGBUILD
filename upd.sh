@@ -328,12 +328,6 @@ cd $BASE/$VAR
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
-VAR=abcde-musicbrainz
-cd $BASE/$VAR
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
-
-
 VAR=brasero-git
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO

@@ -1,7 +1,7 @@
-pkgbase = openpht-ffmpeg
+pkgbase = ffmpeg-openpht
 	pkgdesc = FFMPEG modified for OpenPHT 1.8
-	pkgver = 2.8.11
-	pkgrel = 2
+	pkgver = 2.8.14
+	pkgrel = 1
 	url = http://ffmpeg.org
 	arch = i686
 	arch = x86_64
@@ -10,7 +10,6 @@ pkgbase = openpht-ffmpeg
 	makedepends = cmake
 	makedepends = doxygen
 	makedepends = svn
-	makedepends = java-environment
 	makedepends = libcec
 	makedepends = libplist
 	makedepends = nasm
@@ -58,13 +57,12 @@ pkgbase = openpht-ffmpeg
 	depends = tinyxml
 	depends = yajl
 	depends = zlib
-	optdepends = libplist: AirPlay support
 	optdepends = libcec: Pulse-Eight USB-CEC adapter support
 	optdepends = pulseaudio: PulseAudio support
-	source = http://ffmpeg.org/releases/ffmpeg-2.8.11.tar.bz2
+	source = http://ffmpeg.org/releases/ffmpeg-2.8.14.tar.bz2
 	source = openpht.conf
-	sha256sums = 8777ce4a335640fdd13680ba423ef6da330ff5071bfbe27cdbb452379167efe5
-	sha256sums = 290ab6ad8ad388b0911e2aad4a5b297d273616698065f47ee70e66358405ba8f
+	sha256sums = d61ba18692eb3255b2369936e23a78fe243983d13ec81ff574f4072a3d1dddbc
+	sha256sums = 473f8ebdf778dcb1a0dac11f0e97d0a07dc0e563010873c8cc76d82926f5cd91
 
-pkgname = openpht-ffmpeg
+pkgname = ffmpeg-openpht
 

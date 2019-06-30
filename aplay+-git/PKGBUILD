@@ -11,20 +11,20 @@ depends=(alsa-lib)
 makedepends=(git clang)
 provides=(aplay+)
 conflicts=(aplay+)
-source=("${pkgname}::git+${url}.git")
+source=("git+${url}.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname}
+  cd aplay-
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  cd "${srcdir}/${pkgname}"
+  cd aplay-
   make
 }
 
 package() {
-  cd "${srcdir}/${pkgname}"
+  cd aplay-
   install -Dm755 aplay+ ${pkgdir}/usr/bin/aplay+
 }
