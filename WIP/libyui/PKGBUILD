@@ -1,0 +1,36 @@
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=libyui
+pkgver=3.4.2
+pkgrel=1
+pkgdesc="A tool for writing ISO images on a USB stick, a fork of usb-imagewriter"
+arch=(i686 x86_64)
+url="https://doc.opensuse.org/projects/libyui/HEAD/"
+license=(GPL LGPL2.1)
+depends=(gcc-libs)
+makedepends=(cmake)
+source=("$pkgname-$pkgver.tar.gz::https://github.com/libyui/libyui/archive/v$pkgver.tar.gz")
+sha256sums=('62b7da3869e53dc45b5b1844ac5e73c5ca5b10fa2636cb5f7ce0d09795b820e2')
+
+prepare() {
+  cd "$pkgname-$pkgver"
+  ln -s buildtools/CMakeLists.common CMakeLists.txt
+  install -d build
+}
+
+build() {
+  cd "$pkgname-$pkgver/build"
+  cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=/usr/lib
+  make
+}
+
+package() {
+  cd "$pkgname-$pkgver/build"
+  make DESTDIR=${pkgdir} install
+
+  install -d "$pkgdir"/usr/lib
+  mv "$pkgdir"/usr/lib64/* "$pkgdir"/usr/lib/
+  rm -r "$pkgdir"/usr/lib64
+}

@@ -7,14 +7,14 @@ pkgdesc="CD/DVD check tools"
 arch=('x86_64' 'i686')
 url="http://swaj.net/unix/index.html#cdck"
 license=(GPL2)
+depends=(gcc-libs)
 optdepends=(gnuplot)
-conflicts=(cdck-bin)
 source=("http://swaj.net/unix/cdck/${pkgname}-${pkgver}.tar.gz")
-md5sums=('15029d54b99f2e5cf8aae28077669d3f')
+sha256sums=('cb817ef2e8ab37d499d3630264901b9d22ebe67345507acd364f8f1e3995b404')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  ./configure
+  ./configure --prefix=/usr --mandir=/usr/share/man
   make
 }
 
