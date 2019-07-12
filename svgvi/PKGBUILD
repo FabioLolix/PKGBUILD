@@ -25,5 +25,4 @@ build() {
 package() {
   cd ${srcdir}/${pkgname}-${pkgver}
   DESTDIR="${pkgdir}" ninja -C build install
-#  ln -s /usr/bin/com.github.ryonakano.writer "$pkgdir/usr/bin/writer"
 }
