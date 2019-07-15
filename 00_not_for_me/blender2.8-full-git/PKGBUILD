@@ -1,7 +1,7 @@
 # Maintainer : bartus <arch-user-repoᘓbartus.33mail.com>
 
 pkgname=blender2.8-full-git
-pkgver=2.8.r83217.bfb9680e9e5
+pkgver=2.80.rc1.r0.g06312c6d2db
 pkgrel=1
 pkgdesc="Development version of Blender 2.8 branch"
 arch=(i686 x86_64)
@@ -9,32 +9,35 @@ url="http://blender.org/"
 depends=(alembic libgl python python-numpy openjpeg 
          ffmpeg fftw openal freetype2 libxi openimageio opencolorio
          openvdb opencollada opensubdiv openshadinglanguage libtiff libpng
-         libspnav jack libsndfile cuda)
-makedepends=(git cmake boost mesa llvm)
+         libspnav jack libsndfile)
+makedepends=(git cmake boost mesa llvm cuda)
+optdepends=('cuda: CUDA support in Cycles')
 provides=(blender-2.8)
 conflicts=(blender-2.8)
 license=(GPL)
-source=("git://git.blender.org/blender.git#branch=blender2.8"
+source=("git://git.blender.org/blender.git#tag=v2.80-rc1"
         "git://git.blender.org/blender-addons.git"
         "git://git.blender.org/blender-addons-contrib.git"
         "git://git.blender.org/blender-translations.git"
         "git://git.blender.org/blender-dev-tools.git"
         blender-2.8.desktop
-        SelectCudaComputeArch.patch
-        ffmpeg.patch
         )
 md5sums=('SKIP'
          'SKIP'
          'SKIP'
          'SKIP'
          'SKIP'
-         'cd108dca1c77607c6a7cc45aa284ea97'
-         '9454ff7e994f72ead5027356e227cbd2'
-         '9d4bfb5b3dd33e95b13cc6c7d9d2d2e1')
+         'cd108dca1c77607c6a7cc45aa284ea97')
+
+
+_CUDA_PKG=`pacman -Qq cuda 2>/dev/null` || true
+if [ "$_CUDA_PKG" != "" ]; then
+    _EXTRAOPTS="-DWITH_CYCLES_CUDA_BINARIES=ON"
+fi
 
 pkgver() {
   cd "$srcdir/blender"
-  printf "2.8.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
@@ -47,17 +50,14 @@ prepare() {
   git config submodule."source/tools".url ${srcdir}/blender-dev-tools
   git submodule update
 
-  patch -Np1 -i "$srcdir"/SelectCudaComputeArch.patch
-  patch -Np1 -i "$srcdir"/ffmpeg.patch
-
   mkdir -p "$srcdir/blender-build"
 }
 
 build() {
   cd "$srcdir/blender-build"
 
-  export CFLAGS="${CFLAGS} -DOPENVDB_3_ABI_COMPATIBLE"
-  export CXXFLAGS="${CXXFLAGS} -DOPENVDB_3_ABI_COMPATIBLE"
+#  export CFLAGS="${CFLAGS} -DOPENVDB_3_ABI_COMPATIBLE"
+#  export CXXFLAGS="${CXXFLAGS} -DOPENVDB_3_ABI_COMPATIBLE"
 
   cmake "$srcdir/blender" \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -75,7 +75,6 @@ build() {
         -DWITH_PYTHON_INSTALL=OFF \
         -DPYTHON_VERSION=3.7 \
         -DWITH_MOD_OCEANSIM=ON \
-        -DWITH_CYCLES_OPENSUBDIV=ON \
         -DWITH_CYCLES_OSL=ON \
         -DWITH_LLVM=ON \
         -DWITH_IMAGE_OPENEXR=ON \
@@ -83,14 +82,10 @@ build() {
         -DWITH_OPENVDB=ON \
         -DWITH_OPENVDB_BLOSC=ON \
         -DWITH_OPENCOLLADA=ON \
-        -DWITH_CYCLES_CUDA_BINARIES=ON \
         -DWITH_CYCLES_PTEX=OFF \
-        -DCYCLES_CUDA_BINARIES_ARCH="sm_30;sm_35;sm_37;sm_50;sm_52;sm_60;sm_61;sm_62;sm_70;sm_72;sm_75"
+        -DCYCLES_CUDA_BINARIES_ARCH="sm_30;sm_35;sm_37;sm_50;sm_52;sm_60;sm_61;sm_62;sm_70;sm_72;sm_75" \
+        $_EXTRAOPTS
   make
-
-#        -DWITH_GLEW_ES=ON \
-#        -DWITH_GL_EGL=ON \
-#        -DWITH_GL_PROFILE_ES20=ON \
 }
 
 package() {

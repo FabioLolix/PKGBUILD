@@ -1,7 +1,7 @@
 # Maintainer: Norman Uittenbogaart <normanu@gmail.com>
 
 pkgname=openpht-git
-pkgver=1.8.0.148.573b6d73.r9.g60b75e1ab
+pkgver=1.8.0.148.573b6d73.r10.gbe3d03b33
 pkgrel=1
 pkgdesc='OpenPHT is a community driven fork of Plex Home Theater '
 arch=('i686' 'x86_64')
@@ -14,11 +14,12 @@ depends=('alsa-lib' 'avahi' 'boost-libs' 'curl' 'expat' 'freetype2' 'fribidi'
          'libmicrohttpd' 'libmpeg2' 'libpng' 'libpulse' 'libsamplerate' 'llvm-libs'
          'libssh' 'libtiff' 'libusb-compat' 'libva' 'libvdpau' 'libx11'
          'libxext' 'libxrandr' 'lzo' 'pcre' 'python2' 'sdl' 'sdl_image'
+         libass rtmpdump libplist ffmpeg-openpht
          'sdl_mixer' 'sqlite' 'smbclient' 'taglib' 'tinyxml' 'yajl' 'zlib')
-makedepends=('git' 'boost' 'cmake' 'doxygen'
-             'openpht-ffmpeg' 'libcec' 'nasm' 'swig')
+makedepends=('git' 'boost' 'cmake' 'doxygen' fontconfig
+             'libcec' 'nasm' 'swig')
 optdepends=('libcec: Pulse-Eight USB-CEC adapter support')
-source=("$pkgname::git+https://github.com/RasPlex/OpenPHT"
+source=("${pkgname%-git}::git+https://github.com/RasPlex/OpenPHT.git"
         'openpht.sh'
 	    'fribidi.patch'
 	    'openpht.desktop')
@@ -27,31 +28,32 @@ sha256sums=('SKIP'
 	    '966edfa84fa09cf9c54281dff2adfd6fad41309b17893511e7cf01dc85def1ea'
 	    '73b9d7c40cc1ac5ca2e03a99e9560d4ba153f195dcb1a2086c0e422fa3a5f340')
 
-
 pkgver() {
-  cd "$pkgname"
+  cd "${pkgname%-git}"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "$pkgname"
+  cd "${pkgname%-git}"
   patch -Np1 <../fribidi.patch
   install -d build
 }
 
 build() {
-  cd "$pkgname/build"
+  cd "${pkgname%-git}/build"
 
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=RELEASE \
+    -DUSE_INTERNAL_FFMPEG=OFF \
     -DENABLE_AUTOUPDATE=OFF \
     -DENABLE_SHAIRPLAY=OFF \
-    -DUSE_INTERNAL_FFMPEG=OFF
+    -DENABLE_SHAIRPORT=OFF
   make
 }
 
 package() {
-  cd "$pkgname/build"
+  cd "${pkgname%-git}/build"
 
   make DESTDIR="${pkgdir}" install
   install -dm 755 "${pkgdir}"/usr/{lib/openpht,share/{applications,pixmaps}}

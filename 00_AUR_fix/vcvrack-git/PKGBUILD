@@ -19,7 +19,7 @@ source=(
     git+https://github.com/AndrewBelt/osdialog.git
     git+https://github.com/AndrewBelt/oui-blendish.git
     git+https://github.com/thestk/rtaudio.git
-    git+https://github.com/AndrewBelt/glfw.git
+    git+https://github.com/glfw/glfw.git
     vcvrack.sh
     https://github.com/nigels-com/glew/releases/download/glew-2.1.0/glew-2.1.0.tgz
     http://www.digip.org/jansson/releases/jansson-2.12.tar.gz

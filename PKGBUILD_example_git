@@ -42,7 +42,6 @@ prepare() {
 }
 
 build() {
-#  cd "${pkgname/-git/}"
   cd "${pkgname%-git}"
   make
 }

@@ -37,4 +37,4 @@ cd "$BASE/$VAR"
 VAR=vcvrack-git
 cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR"
+    rsync {PKGBUILD,.SRCINFO,vcvrack.sh} "$DEST/$VAR"

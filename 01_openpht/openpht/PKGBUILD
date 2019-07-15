@@ -13,7 +13,7 @@ url="https://github.com/RasPlex/OpenPHT/"
 license=(GPL2)
 provides=(plex-home-theater)
 conflicts=(plex-home-theater)
-depends=(openpht-ffmpeg alsa-lib avahi boost-libs expat freetype2 fribidi
+depends=(ffmpeg-openpht alsa-lib avahi boost-libs expat freetype2 fribidi
          gcc-libs glew glu libcdio libgl libjpeg libmad
          libmicrohttpd libmpeg2 libpng libpulse libsamplerate llvm-libs
          libssh libtiff libusb-compat libva libvdpau libx11
@@ -42,10 +42,11 @@ build() {
 
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=RELEASE \
+    -DUSE_INTERNAL_FFMPEG=OFF \
     -DENABLE_AUTOUPDATE=OFF \
     -DENABLE_SHAIRPLAY=OFF \
-    -DUSE_INTERNAL_FFMPEG=OFF
-
+    -DENABLE_SHAIRPORT=OFF
   make
 }
 

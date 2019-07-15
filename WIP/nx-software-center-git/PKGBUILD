@@ -1,7 +1,7 @@
 # Maintainer: 
 
 pkgname=nx-software-center-git
-pkgver=r405.dadd940
+pkgver=r401.33ebadf
 pkgrel=1
 pkgdesc=""
 arch=(x86_64)

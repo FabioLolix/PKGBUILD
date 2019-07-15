@@ -1,5 +1,5 @@
 pkgname=gogglesmm-develop-git
-pkgver=940
+pkgver=1.2.1.r0.g19902e7
 pkgrel=1
 pkgdesc="Goggles Music Manager"
 arch=('i686' 'x86_64' 'arm')
@@ -14,7 +14,7 @@ source=("$pkgname::git://github.com/gogglesmm/gogglesmm.git#branch=develop")
 
 pkgver() {
   cd "$pkgname"
-  git rev-list --count HEAD
+  git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
