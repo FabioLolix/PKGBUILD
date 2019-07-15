@@ -1,7 +1,7 @@
 # Maintainer: erk <v at erk dot io>
 
 pkgname=vnote-git
-pkgver=2.6.r7.g09df438
+pkgver=2.7.1.r2.g4c3b0c9
 pkgrel=1
 pkgdesc="A Vim-inspired note-taking application, especially for Markdown."
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -15,15 +15,14 @@ source=("git+https://github.com/tamlok/vnote.git"
 sha256sums=('SKIP'
             'SKIP'
             'SKIP')
-_pkgname=vnote
 
 pkgver() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/${pkgname%-git}"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/${pkgname%-git}"
 
   git submodule init
   git config 'submodule.src/utils/marked.url' "${srcdir}/marked"
@@ -34,13 +33,13 @@ prepare() {
 }
 
 build() {
-  cd "$srcdir/$_pkgname/build"
+  cd "$srcdir/${pkgname%-git}/build"
   qmake-qt5 ../VNote.pro
   make
 }
 
 package() {
-  cd "$srcdir/$_pkgname/build"
+  cd "$srcdir/${pkgname%-git}/build"
   make INSTALL_ROOT="$pkgdir" install
-  install -Dm644 "$srcdir/$_pkgname/LICENSE" "$pkgdir/usr/share/licenses/$_pkgname/LICENSE"
+  install -Dm644 "$srcdir/${pkgname%-git}/LICENSE" "$pkgdir/usr/share/licenses/${pkgname%-git}/LICENSE"
 }
