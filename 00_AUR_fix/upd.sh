@@ -44,3 +44,8 @@ VAR=mindforger
 cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR"
+
+VAR=appimagelauncher-git
+cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR"
