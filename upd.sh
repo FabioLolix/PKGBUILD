@@ -548,3 +548,15 @@ VAR=higan-git
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=libcdk
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
+
+
+VAR=xxd-standalone
+cd $BASE/$VAR
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
