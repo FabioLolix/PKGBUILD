@@ -1,38 +1,41 @@
 # Maintainer: easymodo <easymodofrf@gmail.com>
 
 pkgname=qimgv-git
-pkgver=0.7.1.r0.g7dd7e08
+pkgver=0.8.2.r0.g695d3e0
 pkgrel=1
 pkgdesc="Simple image viewer written in qt. Supports webm playback."
-arch=(i686 x86_64)
+arch=(x86_64 i686 armv6h armv7h aarch64)
 url="http://github.com/easymodo/qimgv"
 license=(GPL3)
-depends=(qt5-base qt5-imageformats qt5-svg mpv)
+depends=(qt5-base qt5-imageformats qt5-svg mpv exiv2)
 makedepends=(git cmake qt5-tools)
+optdepednds=('qt5-apng-plugin: animated png support'
+             'qtraw: raw images support')
 provides=(qimgv)
 conflicts=(qimgv)
-source=("qimgv-git::git+https://github.com/easymodo/qimgv.git")
+source=("git+https://github.com/easymodo/qimgv.git")
 md5sums=('SKIP')
 
 pkgver() {
-	cd "$pkgname"
+    cd "${pkgname/-git/}"
 	git describe --long --tags | sed -r 's/([^-]*-g)/r\1/;s/-/./g;s/v//g'
 }
 
 prepare() {
-	cd "$pkgname"
+    cd "${pkgname/-git/}"
     install -d build
 }
 
 build() {
-	cd "$pkgname/build"
+    cd "${pkgname/-git/}/build"
     cmake .. \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=/usr
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib
     make
 }
 
 package() {
-    cd "$pkgname/build"
+    cd "${pkgname/-git/}/build"
     make DESTDIR=${pkgdir} install
 }
