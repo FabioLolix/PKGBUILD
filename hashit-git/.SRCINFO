@@ -1,6 +1,6 @@
 pkgbase = hashit-git
 	pkgdesc = Checksum tool for Pantheon, developed by Artem Anufrij
-	pkgver = 1.0.0.r12.g88624f4
+	pkgver = 1.1.0.r12.ga81857d
 	pkgrel = 1
 	url = https://artemanufrij.github.io/
 	arch = x86_64
