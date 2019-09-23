@@ -1,6 +1,6 @@
 pkgbase = lumina-desktop-utils-git
 	pkgdesc = Desktop applications from Lumina project
-	pkgver = 1.5.0.r2.gf02fe166
+	pkgver = 1.5.0.r10.g9e7bb358
 	pkgrel = 1
 	url = https://lumina-desktop.org/
 	arch = x86_64

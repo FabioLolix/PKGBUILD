@@ -1,5 +1,5 @@
 pkgname=gogglesmm-git
-pkgver=1.2.0
+pkgver=1.2.1.r0.g19902e7
 pkgrel=1
 pkgdesc="Music Manager and Player"
 url="https://gogglesmm.github.io"

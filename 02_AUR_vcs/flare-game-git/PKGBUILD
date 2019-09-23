@@ -2,7 +2,7 @@
 # Maintainer: Fabio Loli <lolix@disroot.org>
 
 pkgname=flare-game-git
-pkgver=1.09.01.r1.g65747f39
+pkgver=1.11.r14.gb9f67255
 pkgrel=1
 pkgdesc="Fantasy action RPG using the FLARE engine - Git version"
 url="http://www.flarerpg.org/"

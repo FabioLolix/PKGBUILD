@@ -3,14 +3,15 @@
 pkgname=vvave-git
 pkgver=r421.0b02d96
 pkgrel=1
-pkgdesc='Music player for KDE'
+pkgdesc="Music player for KDE"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://vvave.kde.org/"
 license=(GPL3)
 depends=(ki18n knotifications qt5-quickcontrols2 qt5-svg qt5-webengine qt5-websockets taglib kio mauikit-git kirigami2
          gst-plugins-base gst-plugins-good gst-libav)
 makedepends=(git)
-optdepends=(gst-plugins-bad gst-plugins-ugly)
+optdepends=('gst-plugins-bad: additional codecs'
+            'gst-plugins-ugly: additional codecs')
 provides=(vvave)
 conflicts=(vvave)
 #replaces=(babe babe-qt babe-git)
@@ -27,7 +28,10 @@ sha256sums=('SKIP'
 
 pkgver() {
   cd "$pkgname"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
 }
 
 prepare() {

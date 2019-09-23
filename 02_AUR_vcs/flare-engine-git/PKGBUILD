@@ -2,7 +2,7 @@
 # Maintainer: Fabio Loli <lolix@disroot.org>
 
 pkgname=flare-engine-git
-pkgver=1.09.01.r2.g0165726b
+pkgver=1.11.r17.g6290d518
 pkgrel=1
 pkgdesc="Free/Libre Action Roleplaying Engine - Git version"
 url="http://www.flarerpg.org/"

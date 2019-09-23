@@ -2,12 +2,12 @@
 
 pkgname=cmake-modules-elementary-git
 pkgver=r37.319ec53
-pkgrel=2
+pkgrel=3
 pkgdesc=""
-arch=('any')
+arch=(any)
 url="https://github.com/elementary/junk/tree/cmake-modules"
 license=(GPL3)
-makedepends=('cmake' 'git')
+makedepends=(cmake git)
 source=("${pkgname}::git+https://github.com/elementary/junk.git#branch=cmake-modules")
 md5sums=('SKIP')
 

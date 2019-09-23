@@ -1,7 +1,7 @@
 # Maintainer: William Belanger <echo d2lsbGlhbS5iZWxyQGdtYWlsLmNvbQ== | base64 -d>
 
 pkgname=qoob-git
-pkgver=0.1.0.r0.g2b5d56e
+pkgver=0.2.r13.g26980df
 pkgrel=1
 pkgdesc="foobar-like music player for Linux"
 url="https://gitlab.com/william.belanger/${pkgname%-git}"
