@@ -517,7 +517,7 @@ cd $BASE/$VAR
 VAR=guitar
 cd $BASE/$VAR
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,guitar.desktop} $DEST/$VAR
+    rsync {PKGBUILD,.SRCINFO} $DEST/$VAR
 
 
 VAR=redasm

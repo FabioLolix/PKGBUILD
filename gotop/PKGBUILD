@@ -1,16 +1,16 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
-# Contributor: Caleb Bassi <calebjbassi@gmail.com>
+# Maintainer: Caleb Bassi <calebjbassi@gmail.com> -> also the program developer
 
 pkgname=gotop
-pkgver=1.7.1
-pkgrel=1
+pkgver=3.0.0
+pkgrel=5
 pkgdesc='A terminal based graphical activity monitor inspired by gtop and vtop'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://github.com/cjbassi/gotop"
 license=(AGPL3)
-makedepends=(go-pie git)
+makedepends=(go git)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/cjbassi/gotop/archive/${pkgver}.tar.gz")
-sha256sums=('0041d36e664870d0b461b80bba4a2fb5120af1030230f09e3e9887a67c117363')
+sha256sums=('d5147080bb6057f0bf0900b38438e89aa066959c845bdd4c84a9c9fe478b176f')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"
@@ -23,7 +23,7 @@ build() {
   cd "$srcdir/go/src/github.com/cjbassi/gotop"
 
   export GOPATH="$srcdir/go"
-  export GOFLAGS="-gcflags=all=-trimpath=${PWD} -asmflags=all=-trimpath=${PWD} -ldflags=-extldflags=-zrelro -ldflags=-extldflags=-znow"
+  export GOFLAGS="-gcflags=all=-trimpath=${PWD} -asmflags=all=-trimpath=${PWD} -ldflags=-extldflags=-zrelro -ldflags=-extldflags=-znow -buildmode=pie"
 
   go get -v github.com/cjbassi/gotop
   make dist/gotop

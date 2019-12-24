@@ -1,6 +1,6 @@
 pkgbase = lumina-pdf-git
 	pkgdesc = PDF viewer for the lumina desktop environment
-	pkgver = r8.eef6e1f
+	pkgver = r14.7f5cf2c
 	pkgrel = 1
 	url = https://lumina-desktop.org/
 	arch = x86_64

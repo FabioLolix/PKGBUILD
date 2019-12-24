@@ -1,6 +1,6 @@
 pkgbase = polo-git
 	pkgdesc = A modern, light-weight GTK file manager for Linux, currently in beta
-	pkgver = 18.8.beta.r34.g51357a5
+	pkgver = 18.8.beta.r36.ga86c950
 	pkgrel = 1
 	url = https://teejee2008.github.io/polo/
 	arch = i686

@@ -5,6 +5,7 @@ pkgbase = gmusicbrowser-git
 	url = http://gmusicbrowser.org/
 	arch = i686
 	arch = x86_64
+	arch = aarch64
 	license = GPL3
 	makedepends = git
 	makedepends = markdown
@@ -28,7 +29,7 @@ pkgbase = gmusicbrowser-git
 	optdepends = perl-gtk2-notify: support for notify plugin
 	provides = gmusicbrowser
 	conflicts = gmusicbrowser
-	source = gmusicbrowser-git::git+http://github.com/squentin/gmusicbrowser.git
+	source = git+http://github.com/squentin/gmusicbrowser.git
 	md5sums = SKIP
 
 pkgname = gmusicbrowser-git

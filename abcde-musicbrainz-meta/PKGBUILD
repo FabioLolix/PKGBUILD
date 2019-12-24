@@ -7,4 +7,4 @@ pkgdesc="Depencies for enabling Musicbrainz support in abcde"
 arch=(any)
 url="https://abcde.einval.com/"
 license=(GPL)
-depends=(perl-webservice-musicbrainz perl-musicbrainz-discid)
+depends=(abcde perl-webservice-musicbrainz perl-musicbrainz-discid)
