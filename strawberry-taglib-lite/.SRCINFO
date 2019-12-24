@@ -1,4 +1,4 @@
-pkgbase = strawberry-lite
+pkgbase = strawberry-taglib-lite
 	pkgdesc = A music player aimed at audio enthusiasts and music collectors, fewer fautures, Gstreamer and alsa only
 	pkgver = 0.6.7
 	pkgrel = 1
@@ -24,6 +24,7 @@ pkgbase = strawberry-lite
 	depends = dbus
 	depends = alsa-lib
 	depends = libcdio
+	depends = taglib
 	depends = fftw
 	optdepends = gst-libav: additional codecs (i.e. AAC)
 	optdepends = gst-plugins-bad: additional codecs (i.e. AAC)
@@ -33,5 +34,5 @@ pkgbase = strawberry-lite
 	source = strawberry-0.6.7.tar.gz::https://github.com/jonaski/strawberry/archive/0.6.7.tar.gz
 	sha256sums = afcae54604035b6f6924d7623edc0a006e67f1183652e2fba5a875c207901328
 
-pkgname = strawberry-lite
+pkgname = strawberry-taglib-lite
 
