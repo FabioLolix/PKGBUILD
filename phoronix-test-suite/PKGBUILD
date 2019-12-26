@@ -50,8 +50,5 @@ package() {
   install -D "${srcdir}/phoronix-test-suite-${pkgver}"/pts-core/external-test-dependencies/xml/generic-packages.xml \
              "${pkgdir}"/usr/share/phoronix-test-suite/pts-core/external-test-dependencies/xml/generic-packages.xml
 
-  install    "${srcdir}/phoronix-test-suite-${pkgver}"/phoronix-test-suite \
-             "${pkgdir}"/usr/bin/phoronix-test-suite
-
   ln -s /usr/bin/phoronix-test-suite "$pkgdir/usr/bin/pts"
 }
