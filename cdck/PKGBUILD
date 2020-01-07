@@ -2,15 +2,26 @@
 
 pkgname=cdck
 pkgver=0.7.0
-pkgrel=1
+pkgrel=2
 pkgdesc="CD/DVD check tools"
 arch=('x86_64' 'i686')
 url="http://swaj.net/unix/index.html#cdck"
 license=(GPL2)
 depends=(gcc-libs)
 optdepends=(gnuplot)
-source=("http://swaj.net/unix/cdck/${pkgname}-${pkgver}.tar.gz")
-sha256sums=('cb817ef2e8ab37d499d3630264901b9d22ebe67345507acd364f8f1e3995b404')
+source=("http://swaj.net/unix/cdck/${pkgname}-${pkgver}.tar.gz"
+        "http://deb.debian.org/debian/pool/main/c/cdck/${pkgname}_${pkgver}+dfsg-2.debian.tar.xz")
+sha256sums=('cb817ef2e8ab37d499d3630264901b9d22ebe67345507acd364f8f1e3995b404'
+            'dd6d858a56ce91f0b7a89e35918b24b13b5db377deeb6f8d9ad2b107211e3669')
+
+prepare() {
+  cp -a "${srcdir}"/debian/patches/*.patch "${srcdir}"
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  patch -Np1 -i ../cross.patch
+  patch -Np1 -i ../makefile.am.patch
+  patch -Np1 -i ../man.patch
+  patch -Np1 -i ../wording.patch
+}
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"

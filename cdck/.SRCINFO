@@ -1,0 +1,17 @@
+pkgbase = cdck
+	pkgdesc = CD/DVD check tools
+	pkgver = 0.7.0
+	pkgrel = 2
+	url = http://swaj.net/unix/index.html#cdck
+	arch = x86_64
+	arch = i686
+	license = GPL2
+	depends = gcc-libs
+	optdepends = gnuplot
+	source = http://swaj.net/unix/cdck/cdck-0.7.0.tar.gz
+	source = http://deb.debian.org/debian/pool/main/c/cdck/cdck_0.7.0+dfsg-2.debian.tar.xz
+	sha256sums = cb817ef2e8ab37d499d3630264901b9d22ebe67345507acd364f8f1e3995b404
+	sha256sums = dd6d858a56ce91f0b7a89e35918b24b13b5db377deeb6f8d9ad2b107211e3669
+
+pkgname = cdck
+

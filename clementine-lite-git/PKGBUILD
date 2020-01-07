@@ -12,73 +12,52 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-lite-git
-pkgver=1.3.1.r628.g0c7b280b9
+pkgver=1.4.0rc1.r53.g64ecf9f45
 pkgrel=1
 pkgdesc="A modern music player and library organiser, disabled plugins"
-arch=('i686' 'x86_64')
+arch=(i686 x86_64 aarch64)
 url='http://www.clementine-player.org/'
-license=('GPL')
-depends=('chromaprint'
-        'gst-plugins-good'
-		'hicolor-icon-theme'
-		'libcdio'
-		'protobuf'
-		'qjson'
-		'qt4')
-optdepends=('gst-plugins-bad: for use with "Bad" plugin libraries'
-            'gst-plugins-ugly: for use with "Ugly" plugin libraries'
-            'gst-libav: Libav plugin'
-            'gvfs: Various devices support'
-            'taglib')
-#optdepends+=(
-#'sparsehash: required by Drive, Skydrive, Dropbox, Box, Seafile'
-#'liblastfm: for lastfm support'
-#'libmygpo-qt: for gpodder.net'
-#'libspotify: for Spotify support'
-#'crypto++: for Spotify non-GPL binary helper'
-#'libgpod: for iPod support'
-#'libimobiledevice: for iPhone and iPod Touch support'
-#'libmtp: for MTP devices, Android'
-#)
-makedepends=(git boost cmake mesa)
+license=(GPL)
+depends=(qt5-base qt5-x11extras chromaprint taglib protobuf libcdio gst-plugins-base fftw)
+optdepends=('gst-libav: additional codecs'
+            'gst-plugins-bad: additional codecs'
+            'gst-plugins-good: additional codecs'
+            'gst-plugins-ugly: additional codecs')
+makedepends=(git boost cmake mesa qt5-tools glu)
 provides=(clementine)
 conflicts=(clementine)
 source=("clementine::git+https://github.com/clementine-player/Clementine.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/clementine"
+  cd "clementine"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    cd "$srcdir/clementine/bin"
-
-    cmake .. \
-        -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_BUILD_TYPE=Debug \
-        -DENABLE_VISUALISATIONS=OFF \
-        -DENABLE_SPOTIFY_BLOB=OFF \
-        -DENABLE_SKYDRIVE=OFF \
-        -DENABLE_GOOGLE_DRIVE=OFF \
-        -DENABLE_DROPBOX=OFF \
-        -DENABLE_SEAFILE=OFF \
-        -DENABLE_LIBGPOD=OFF \
-        -DENABLE_WIIMOTEDEV=OFF \
-        -DENABLE_SPARKLE=OFF \
-        -DENABLE_LIBMTP=OFF \
-        -DENABLE_GIO=ON \
-        -DENABLE_BOX=OFF \
-		-DENABLE_LIBLASTFM=OFF
-make
-# -DENABLE_xxxx
-# - force their inclusion with =ON  - this could trigger an error for
-#   unlisted dependencies in depends=()
-# - remove them to get auto-detected - this could include (without notice)
-#   packages not listed in depends=()
-
-# -DCMAKE_BUILD_TYPE remove to get a debug build with symbols
-# Qt doesn't respect LC_xxx settings... which is really annoying!
+  cd "$srcdir/clementine/bin"
+    
+  cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DENABLE_VISUALISATIONS=OFF \
+    -DUSE_SYSTEM_TAGLIB=ON \
+    -DENABLE_GIO=ON \
+    -DENABLE_MOODBAR=ON \
+    -DINSTALL_UBUNTU_ICONS=ON \
+    -DENABLE_SPOTIFY=OFF \
+    -DENABLE_SPOTIFY_BLOB=OFF \
+    -DENABLE_SKYDRIVE=OFF \
+    -DENABLE_GOOGLE_DRIVE=OFF \
+    -DENABLE_DROPBOX=OFF \
+    -DENABLE_SEAFILE=OFF \
+    -DENABLE_LIBGPOD=OFF \
+    -DENABLE_WIIMOTEDEV=OFF \
+    -DENABLE_SPARKLE=OFF \
+    -DENABLE_LIBMTP=OFF \
+    -DENABLE_BOX=OFF \
+    -DENABLE_LIBLASTFM=OFF
+  make
 }
 
 package() {
