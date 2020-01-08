@@ -1,21 +1,21 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=mauikit-pix-git
-pkgver=r260.63d0aab
+pkgver=r344.fb6bf22
 pkgrel=1
-pkgdesc='Music player for KDE'
+pkgdesc='Image gallery for Maui'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://github.com/mauikit/pix"
 license=(GPL3)
-depends=(mauikit-git hicolor-icon-theme)
+depends=(mauikit-git)
 makedepends=(git)
 provides=(mauikit-pix)
 conflicts=(mauikit-pix pix)
-source=("${pkgname}::git+https://github.com/mauikit/pix")
+source=("git+https://invent.kde.org/kde/maui-pix.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$pkgname"
+  cd "maui-pix"
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
@@ -23,17 +23,19 @@ pkgver() {
 }
 
 prepare() {
-  cd "$pkgname"
+  cd "maui-pix"
   install -d build
 }
 
 build() {
-  cd "$pkgname/build"
+  cd "maui-pix/build"
+  cmake .. 
+  make
   qmake-qt5 -o Makefile ../pix.pro
   make
 }
  
 package() {
-  cd "$pkgname/build"
+  cd "maui-pix/build"
   make INSTALL_ROOT="$pkgdir" install
 }
