@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
  
-pkgname=mauikit-pix-git
-pkgver=r344.fb6bf22
+pkgname=maui-pix-git
+pkgver=r345.1d8fbab
 pkgrel=1
 pkgdesc='Image gallery for Maui'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -9,8 +9,8 @@ url="https://github.com/mauikit/pix"
 license=(GPL3)
 depends=(mauikit-git)
 makedepends=(git)
-provides=(mauikit-pix)
-conflicts=(mauikit-pix pix)
+provides=(maui-pix)
+conflicts=(maui-pix pix)
 source=("git+https://invent.kde.org/kde/maui-pix.git")
 sha256sums=('SKIP')
 
@@ -31,11 +31,9 @@ build() {
   cd "maui-pix/build"
   cmake .. 
   make
-  qmake-qt5 -o Makefile ../pix.pro
-  make
 }
  
 package() {
   cd "maui-pix/build"
-  make INSTALL_ROOT="$pkgdir" install
+  make DESTDIR="$pkgdir" install
 }

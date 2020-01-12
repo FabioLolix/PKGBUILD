@@ -9,12 +9,12 @@ url="https://vvave.kde.org/"
 license=(GPL3)
 depends=(ki18n knotifications qt5-quickcontrols2 qt5-svg qt5-webengine qt5-websockets taglib kio mauikit-git kirigami2
          gst-plugins-base gst-plugins-good gst-libav)
-makedepends=(git cmake extra-cmake-modules syntax-highlighting)
+makedepends=(git cmake extra-cmake-modules syntax-highlighting appstream)
 optdepends=('gst-plugins-bad: additional codecs'
             'gst-plugins-ugly: additional codecs')
 provides=(vvave)
 conflicts=(vvave)
-#replaces=(babe babe-qt babe-git)
+replaces=(babe babe-qt babe-git)
 source=("git+https://invent.kde.org/kde/vvave.git")
 sha256sums=('SKIP')
 
@@ -35,11 +35,9 @@ build() {
   cd "${pkgname%-git}/build"
   cmake .. 
   make
-  qmake-qt5 -o Makefile ../vvave.pro
-  make
 }
  
 package() {
   cd "${pkgname%-git}/build"
-  make INSTALL_ROOT="$pkgdir" install
+  make DESTDIR="$pkgdir" install
 }

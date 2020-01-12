@@ -1,6 +1,6 @@
-pkgbase = mauikit-pix-git
+pkgbase = maui-pix-git
 	pkgdesc = Image gallery for Maui
-	pkgver = r344.fb6bf22
+	pkgver = r345.1d8fbab
 	pkgrel = 1
 	url = https://github.com/mauikit/pix
 	arch = x86_64
@@ -12,11 +12,11 @@ pkgbase = mauikit-pix-git
 	license = GPL3
 	makedepends = git
 	depends = mauikit-git
-	provides = mauikit-pix
-	conflicts = mauikit-pix
+	provides = maui-pix
+	conflicts = maui-pix
 	conflicts = pix
 	source = git+https://invent.kde.org/kde/maui-pix.git
 	sha256sums = SKIP
 
-pkgname = mauikit-pix-git
+pkgname = maui-pix-git
 
