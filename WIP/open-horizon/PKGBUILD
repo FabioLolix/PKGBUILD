@@ -1,13 +1,14 @@
+# Maintainer: 
 
-pkgname=openhorizion-git
-pkgver=r685.8101f36
+pkgname=open-horizon-git
+pkgver=r772.0403769
 pkgrel=1
-pkgdesc=""
-arch=('x86_64')
-url=""
+pkgdesc="Open source implementation of Ace Combat: Assault Horizon‘s render and physics"
+arch=(x86_64)
+url="http://zxstudio.org/blog/author/razgriz/"
 license=(MIT)
 depends=()
-makedepends=('cmake' 'lua51' 'git')
+makedepends=(cmake lua51 git glfw)
 optdepends=()
 provides=()
 conflicts=()
@@ -15,37 +16,42 @@ replaces=()
 options=()
 #install=
 #changelog=
-
-source=("${pkgname}::git+https://github.com/undefined-darkness/open-horizon.git")
-md5sums=('SKIP')
+source=("git+https://github.com/undefined-darkness/open-horizon.git"
+        "git+https://bitbucket.org/nyan_developer/nya-engine.git#branch=renderapi"
+        "git+https://github.com/antze-k/miso"
+        "git+https://github.com/kuba--/zip")
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP')
 
 pkgver() {
-  cd ${pkgname}
+  cd "${pkgname%-git}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-  cd "$srcdir/$pkgname"
+  cd "${pkgname%-git}"
   install -d {convert-locations-cmake,open-horizon-cmake}
+
   git submodule init
+  git config 'submodule.deps/nya-engine.url' "${srcdir}/nya-engine"
+  git config 'submodule.deps/miso.url' "${srcdir}/miso"
+  git config 'submodule.deps/zip.url' "${srcdir}/zip"
   git submodule update
 }
 
 build() {
-  cd "$srcdir/$pkgname/open-horizon-cmake"
-  cmake ../open-horizon
+  cd "$srcdir/${pkgname%-git}/open-horizon-cmake"
+  cmake ..
   make open_horizon
 
-  cd "$srcdir/$pkgname/convert-locations-cmake"
+  cd "$srcdir/${pkgname%-git}/convert-locations-cmake"
   cmake ../convert_locations 
   make convert_locations
 }
 
 package() {
-  cd "$srcdir/$pkgname/convert-locations-cmake"
+  cd "$srcdir/${pkgname%-git}/convert-locations-cmake"
   make DESTDIR="$pkgdir" install
-
-#mkdir convert-locations-cmake && cd convert-locations-cmake && cmake ../open-horizon/convert_locations && make convert_locations
-
-  rm -r "$srcdir/$pkgname/convert-locations-cmake"
 }

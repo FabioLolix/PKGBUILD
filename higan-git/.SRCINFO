@@ -1,6 +1,6 @@
 pkgbase = higan-git
 	pkgdesc = Nintendo multi-system emulator by Byuu
-	pkgver = 107.r0.g3a12e1c5
+	pkgver = 107.r8.g70191ca6
 	pkgrel = 1
 	url = https://higan.byuu.org/
 	arch = x86_64

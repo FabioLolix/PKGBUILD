@@ -5,7 +5,7 @@
 # or submit a pull request @ https://gtbjj.com/savagezen/pkgbuild 
 
 pkgname=phoronix-test-suite-git
-pkgver=9.0.0.r2.g8325b0c0c
+pkgver=9.2.1.r17.g2166a5710
 pkgrel=1
 pkgdesc="The most comprehensive testing and benchmarking platform available for Linux"
 arch=('any')
@@ -25,12 +25,19 @@ optdepends=('python'
             'openmpi: required for universe-cli test suite')
 provides=('phoronix-test-suite')
 conflicts=('phoronix-test-suite')
-source=("$pkgname::git://github.com/phoronix-test-suite/phoronix-test-suite.git")
-md5sums=('SKIP')
+source=("$pkgname::git://github.com/phoronix-test-suite/phoronix-test-suite.git"
+        "https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/phoronix-test-suite-launcher.patch")
+sha256sums=('SKIP'
+            '577326343d0303a59fd469c3f9c9740e756dd59c0660c54363b62d6fd1cee26d')
 
 pkgver() {
     cd "$pkgname"
     git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+    cd "$srcdir/$pkgname"
+    patch phoronix-test-suite -i "${srcdir}/phoronix-test-suite-launcher.patch"
 }
 
 package() {
@@ -49,8 +56,8 @@ package() {
     install -D "${srcdir}/${pkgname}"/pts-core/external-test-dependencies/xml/arch-packages.xml \
                "${pkgdir}"/usr/share/phoronix-test-suite/pts-core/external-test-dependencies/xml/arch-packages.xml
 
-    install -D "${srcdir}/phoronix-test-suite-${pkgver}"/pts-core/external-test-dependencies/xml/generic-packages.xml \
+    install -D "${srcdir}/${pkgname}"/pts-core/external-test-dependencies/xml/generic-packages.xml \
              "${pkgdir}"/usr/share/phoronix-test-suite/pts-core/external-test-dependencies/xml/generic-packages.xml
 
-    sed -e "s/^export PTS_DIR=.*/export PTS_DIR=\/usr\/share\/phoronix-test-suite/g" -i ${pkgdir}/usr/bin/phoronix-test-suite
+    ln -s /usr/bin/phoronix-test-suite "$pkgdir/usr/bin/pts"
 }
