@@ -1,6 +1,6 @@
 pkgbase = qoob-git
 	pkgdesc = foobar-like music player for Linux
-	pkgver = 0.2.r13.g26980df
+	pkgver = 0.2.r16.gbb08976
 	pkgrel = 1
 	url = https://gitlab.com/william.belanger/qoob
 	arch = any
@@ -13,6 +13,7 @@ pkgbase = qoob-git
 	depends = python-mutagen
 	depends = gst-plugins-base
 	depends = gst-plugins-good
+	optdepends = python-xlib: media keys support
 	optdepends = gst-libav: additional codecs (i.e. AAC)
 	optdepends = gst-plugins-bad: additional codecs (i.e. AAC)
 	optdepends = gst-plugins-ugly: additional codecs

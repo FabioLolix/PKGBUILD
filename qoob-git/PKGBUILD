@@ -1,14 +1,15 @@
 # Maintainer: William Belanger <echo d2lsbGlhbS5iZWxyQGdtYWlsLmNvbQ== | base64 -d>
 
 pkgname=qoob-git
-pkgver=0.2.r13.g26980df
+pkgver=0.2.r16.gbb08976
 pkgrel=1
 pkgdesc="foobar-like music player for Linux"
 url="https://gitlab.com/william.belanger/${pkgname%-git}"
 arch=("any")
 license=("GPL3")
 depends=(python python-setuptools python-pyqt5 qt5-svg qt5-multimedia python-mutagen gst-plugins-base gst-plugins-good)
-optdepends=('gst-libav: additional codecs (i.e. AAC)'
+optdepends=('python-xlib: media keys support'
+            'gst-libav: additional codecs (i.e. AAC)'
             'gst-plugins-bad: additional codecs (i.e. AAC)'
             'gst-plugins-ugly: additional codecs')
 provides=("${pkgname%-git}")
