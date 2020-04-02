@@ -1,10 +1,10 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=launchar-git
 pkgver=r54.4ae732b
 pkgrel=1
 pkgdesc="Minimal application launcher written in Gtk"
-arch=('x86_64')
+arch=(x86_64)
 url="https://gitlab.com/abiosoft/launchar"
 license=(Apache)
 depends=(gtk3 )

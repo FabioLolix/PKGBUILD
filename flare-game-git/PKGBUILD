@@ -1,8 +1,8 @@
 # Maintainer: dorkster <jajdorkster@gmail.com>
-# Maintainer: Fabio Loli <lolix@disroot.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org>
 
 pkgname=flare-game-git
-pkgver=1.11.r14.gb9f67255
+pkgver=1.11.r16.g13490f32
 pkgrel=1
 pkgdesc="Fantasy action RPG using the FLARE engine - Git version"
 url="http://www.flarerpg.org/"
@@ -28,5 +28,5 @@ build() {
 
 package() {
     cd "$srcdir/flare-game"
-    make install DESTDIR=$pkgdir
+    make install DESTDIR="$pkgdir"
 }

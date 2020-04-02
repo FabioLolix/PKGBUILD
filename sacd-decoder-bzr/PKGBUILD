@@ -1,7 +1,7 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=sacd-decoder-bzr
-pkgver=r33
+pkgver=r37
 pkgrel=1
 pkgdesc="SACD decoder is a command line application which takes a Super Audio CD source and extracts a 24-bit high resolution wave file. It handles both DST and DSD streams. "
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

@@ -1,4 +1,4 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Contributor: ultraviolet <ultravioletnanokitty@gmail.com>
 
 pkgname=selene-media-converter
@@ -30,7 +30,7 @@ optdepends=('gpac: MP4Box muxer'
 makedepends=(vala chrpath)
 conflicts=(selene-media-encoder selene-media-encoder-bzr)
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/teejee2008/${pkgname}/archive/v${pkgver}.tar.gz")
-md5sums=('8af31e921872c102d54c0db3b1d1c8fc')
+sha256sums=('4068d7269a219afa973592860171b0d9d07fc7165a3234dab968320c2507b32c')
 
 build() {
   cd "$srcdir/selene-${pkgver}"

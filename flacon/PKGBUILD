@@ -2,7 +2,7 @@
 #
 # Contributor: satanselbow <igdfpm at gmail dot com>
 # Contributor: Artem Sereda <overmind88 at gmail dot com>
-#
+
 pkgname="flacon"
 pkgver="5.5.1"
 pkgrel="1"
@@ -43,4 +43,4 @@ package() {
     make DESTDIR="${pkgdir}" install
 }
 
-# vim:set ts=4 sw=4 et syn=sh ft=sh:
+

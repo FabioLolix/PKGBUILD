@@ -1,16 +1,17 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Maintainer: AudioLinux  <audiolinux AT fastmail DOT fm>
 # Maintainer: Mansour Behabadi <mansour@oxplot.com>
 # Maintainer: Tilman Vatteroth <tilman.vatteroth@udo.edu>
 
 pkgname=upmpdcli
-pkgver=1.4.2
-pkgrel=2
+pkgver=1.4.7
+pkgrel=1
 pkgdesc="A UPnP Media Renderer front-end for the Music Player Daemon (MPD)"
 arch=('i686' 'x86_64' 'armv7h' 'armv6h' 'aarch64')
 url="http://www.lesbonscomptes.com/upmpdcli/"
 license=('GPL2')
 depends=('python' 'libmpdclient' 'libupnpp>=0.17.0' 'libmicrohttpd' 'jsoncpp')
-#makedepends=('python-setuptools' 'python-requests' 'recoll' 'python-bottle' 'python-mutagen' 'mutagen' 'aspell-en' 'id3lib' 'python-waitress' 'sqlite')
+#makedepends=('python-setuptools' 'python-requests' 'recoll' 'python-bottle' 'python-mutagen' 'aspell-en' 'id3lib' 'python-waitress' 'sqlite')
 optdepends=('python2: OpenHome Radio Service'
             'python-requests: enable search'
             'recoll: enable search'
@@ -22,7 +23,8 @@ optdepends=('python2: OpenHome Radio Service'
             'sqlite')
 install=upmpdcli.install
 source=("http://www.lesbonscomptes.com/upmpdcli/downloads/$pkgname-$pkgver.tar.gz" 'upmpdcli.service')
-sha256sums=('1d4489e76416b9cff2e98a68243d56bf46303890752ac18db382be2859b62bc3' '53da5e4e40a1987e3c137270b315f8c0ba9521539c563e75e254f48449ce0ae9' )
+sha256sums=('55dec356c98e16f00b1e547f9f4a1c03756317102e91982f93eca8cc4eda115e'
+            '53da5e4e40a1987e3c137270b315f8c0ba9521539c563e75e254f48449ce0ae9')
 backup=('etc/upmpdcli.conf')
 
 build() {

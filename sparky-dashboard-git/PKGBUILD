@@ -1,7 +1,7 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=sparky-dashboard-git
-pkgver=r4.46912d8
+pkgver=r5.66c49b8
 pkgrel=1
 pkgdesc="The Sparky dashboard displays applications from /usr/share/applications dir into yad based window"
 arch=(any)

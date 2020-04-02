@@ -1,4 +1,4 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=erdlowe-gtk-theme
 _pkgver=1.2-20180309
@@ -12,7 +12,8 @@ depends=(gtk-engine-murrine gtk3)
 optdepends=('adobe-source-sans-pro-fonts: suggested font')
 options=('!strip')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DarthWound/erdlowe-gtk-theme/releases/download/v${_pkgver}/erdlowe.tar.gz")
-md5sums=('f3470e2b0f18f03397f6da7dac3cf5c1')
+sha256sums=('11bd7313c16c59f1d67848b7f121492d925d1995ae485e389059db77ac1754cb')
+
 package() {
   install -d ${pkgdir}/usr/share/themes
   cp -r ${srcdir}/Erdlowe* ${pkgdir}/usr/share/themes

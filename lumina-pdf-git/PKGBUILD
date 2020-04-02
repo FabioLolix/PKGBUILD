@@ -1,8 +1,8 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Maintainer: E5ten
 
 pkgname=lumina-pdf-git
-pkgver=r14.7f5cf2c
+pkgver=r19.ab86997
 pkgrel=1
 pkgdesc="PDF viewer for the lumina desktop environment"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

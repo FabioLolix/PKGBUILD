@@ -1,11 +1,11 @@
 # Maintainer: Austin Haedicke <austin.haedicke@gmail.com>
-# Contributor: Fabio 'Lolix' Loli <lolix at disroot.org>
+# Contributor: Fabio 'Lolix' Loli <fabio.loli@disroot.org>
 
 # If you find errors or have suggestions feel free to file an issue
 # or submit a pull request @ https://gtbjj.com/savagezen/pkgbuild 
 
 pkgname=phoronix-test-suite-git
-pkgver=9.2.1.r17.g2166a5710
+pkgver=9.4.1.r23.g23343c7dd
 pkgrel=1
 pkgdesc="The most comprehensive testing and benchmarking platform available for Linux"
 arch=('any')

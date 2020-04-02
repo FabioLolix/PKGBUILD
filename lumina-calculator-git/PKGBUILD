@@ -1,8 +1,8 @@
 # Maintainer: E5ten
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=lumina-calculator-git
-pkgver=r5.ccb792f
+pkgver=r8.4058986
 pkgrel=1
 pkgdesc="Calculator for the lumina desktop environment"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

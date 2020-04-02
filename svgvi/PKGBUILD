@@ -1,28 +1,28 @@
-# Maintainer: 
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=svgvi
-pkgver=1.2.1
+pkgver=1.6.0
 pkgrel=1
-pkgdesc=""
+pkgdesc="SVG Text Editor and Viewer"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
-url=""
-license=()
+url="https://gitlab.com/pwmc/svgvi"
+license=(GPL3)
 depends=()
 makedepends=(vala meson gxml)
 optdepends=()
 provides=()
 conflicts=()
 options=()
-source=("https://gitlab.com/pwmc/svgvi/-/archive/1.2.1/$pkgname-$pkgver.tar.gz")
-sha256sums=('75b0bbdfc3eb083305de13c89e9c262cd10aceaf856f14e80840a4139d6520e4')
+source=("https://gitlab.com/pwmc/${pkgname}/-/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz")
+sha256sums=('ccf5b316eeba5857442805930c1738b14f7dd1b31bcea75b51791cf45ae0695a')
 
 build() {
-  cd ${srcdir}/${pkgname}-${pkgver}
+  cd "${srcdir}/${pkgname}-${pkgver}"
   meson . build --prefix=/usr
   ninja -C build
 }
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}
+  cd "${srcdir}/${pkgname}-${pkgver}"
   DESTDIR="${pkgdir}" ninja -C build install
 }

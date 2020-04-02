@@ -1,9 +1,9 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Contributor: Matt Harrison <matt@harrison.us.com>
 # Contributor: scan
 
 pkgname=obsidian-2-theme-git
-pkgver=2.9.r3.g6d5b43c
+pkgver=2.10.r1.ge56f34b
 pkgrel=1
 pkgdesc="Obsidian 2 themes for Gnome 3.22+, all colors"
 arch=(any)

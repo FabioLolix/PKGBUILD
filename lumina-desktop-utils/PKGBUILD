@@ -1,10 +1,10 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Maintainer: E5ten
 
 pkgbase=lumina-desktop-utils
 pkgname=(lumina-icon-theme lumina-archiver lumina-fileinfo lumina-fm lumina-mediaplayer
          lumina-screenshot lumina-textedit lumina-open) #lumina-screencast lumina-terminal
-pkgver=1.5.0
+pkgver=1.6.0
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -14,7 +14,7 @@ depends=(qt5-base)
 makedepends=(qt5-svg qt5-tools qt5-x11extras qt5-multimedia poppler-qt5)
 conflicts=(lumina-desktop)
 source=("lumina-desktop-${pkgver}.tar.gz::https://github.com/lumina-desktop/lumina/archive/v${pkgver}.tar.gz")
-sha512sums=('37106d71a9ba7188c4ded0614d2d4424f732519e11288ae312dfcd9a0b5b26dd31dfa812e74a96c0e3e0fb99fae4dc00806fd7a24183746688c72d997054af7d')
+sha512sums=('e923961568ab9cc32206386066daef8cd1fd2db2d5c3e260e5c1da1dcda39a516576418f607cefbe5a1c47d8684591d0e595fb344e7d6aa2859fc3b326e73e30')
 
 _lumina-build() {
     cd "${srcdir}/lumina-${pkgver}/src-qt5/${_location}/$pkgname"

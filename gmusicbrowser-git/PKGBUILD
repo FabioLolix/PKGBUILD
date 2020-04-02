@@ -1,4 +1,4 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Contributor: RobbeR49 <robertsna@gmail.com>
 
 pkgname=gmusicbrowser-git
@@ -27,7 +27,7 @@ optdepends=('alsa-utils: enables the ALSA backend'
 provides=(gmusicbrowser)
 conflicts=(gmusicbrowser)
 source=("git+http://github.com/squentin/gmusicbrowser.git")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/${pkgname%-git}"

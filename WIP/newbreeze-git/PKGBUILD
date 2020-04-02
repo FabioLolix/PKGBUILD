@@ -1,8 +1,8 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=newbreeze-git
-pkgver=3.rc2.r12.g0609b33
-pkgrel=2
+pkgver=3.0.0.rc7.r13.g899fb4f
+pkgrel=1
 pkgdesc="File Manager based on Qt"
 arch=('x86_64')
 url="https://github.com/marcusbritanicus/NewBreeze"

@@ -1,7 +1,7 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=cawbird-git
-pkgver=1.0.3.1.r15.geff9bca5
+pkgver=1.0.4.r61.gc7a16441
 pkgrel=1
 pkgdesc="Native Gtk+ Twitter Client"
 arch=(i686 x86_64)

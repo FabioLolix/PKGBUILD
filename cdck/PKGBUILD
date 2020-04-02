@@ -1,10 +1,10 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=cdck
 pkgver=0.7.0
-pkgrel=2
+pkgrel=1
 pkgdesc="CD/DVD check tools"
-arch=('x86_64' 'i686')
+arch=(x86_64 i686)
 url="http://swaj.net/unix/index.html#cdck"
 license=(GPL2)
 depends=(gcc-libs)

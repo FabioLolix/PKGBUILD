@@ -1,4 +1,5 @@
-# Maintainer: Janne Heß <jannehess@gmail.com>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Janne Heß <jannehess@gmail.com>
 # Contributor: Bartłomiej Piotrowski <nospam@bpiotrowski.pl>
 # Contributor: IgnorantGuru http://igurublog.wordpress.com/contact-ignorantguru/
 # Contributor: ridikulus_rat <the.ridikulus.rat@gmail.com>
@@ -9,11 +10,9 @@ pkgrel=1
 pkgdesc='Multi-panel tabbed file manager'
 arch=('i686' 'x86_64')
 url="https://ignorantguru.github.io/spacefm/"
-license=('GPL3')
-depends=('gtk3'
-         'startup-notification'
-         'ffmpegthumbnailer')
-makedepends=('intltool' 'gettext')
+license=(GPL3)
+depends=(gtk3 startup-notification ffmpegthumbnailer)
+makedepends=(intltool gettext)
 optdepends=('dbus: dbus integration'
             'util-linux: disk eject support'
             'lsof: device processes'
@@ -38,14 +37,15 @@ prepare() {
 }
 
 build() {
-	cd "${srcdir}/${pkgname}-${pkgver}"
-	./configure --prefix=/usr \
-		--disable-pixmaps \
-		--with-gtk3
-	make
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  ./configure \
+    --prefix=/usr \
+    --disable-pixmaps \
+    --with-gtk3
+  make
 }
 
 package() {
-	cd "${srcdir}/${pkgname}-${pkgver}"
-	make DESTDIR="${pkgdir}" install
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
 }

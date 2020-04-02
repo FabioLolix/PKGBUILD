@@ -1,8 +1,8 @@
 # Maintainer: dorkster <jajdorkster@gmail.com>
-# Maintainer: Fabio Loli <lolix@disroot.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org>
 
 pkgname=flare-engine-git
-pkgver=1.11.r17.g6290d518
+pkgver=1.11.r41.gdf0969d9
 pkgrel=1
 pkgdesc="Free/Libre Action Roleplaying Engine - Git version"
 url="http://www.flarerpg.org/"
@@ -28,5 +28,5 @@ build() {
 
 package() {
     cd "$srcdir/flare-engine"
-    make install DESTDIR=$pkgdir
+    make install DESTDIR="$pkgdir"
 }

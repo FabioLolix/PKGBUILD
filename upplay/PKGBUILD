@@ -1,17 +1,17 @@
-# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 # Contributor: Tristelune <tristelune@archlinux.info>
 
 pkgname=upplay
-pkgver=1.4.2
+pkgver=1.4.3
 pkgrel=1
 pkgdesc="A Qt5 based UPnP audio Control point"
 url="http://www.lesbonscomptes.com/upplay/"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 license=(GPL2)
-depends=(libupnpp qt5-webkit)
-makedepends=(qt5-script jsoncpp qt5-tools)
+depends=(libupnpp qt5-webkit jsoncpp)
+makedepends=(qt5-script qt5-tools)
 source=("https://www.lesbonscomptes.com/${pkgname}/downloads/${pkgname}-$pkgver.tar.gz")
-sha256sums=('790adcc4dd427b3dccba0ed8b043baed57f151a5d4242d8ea087aa07f40b3c76')
+sha256sums=('79ded4ac77c6349de625d9757b9cfc4b59660a7eceb7cdf6f2b9021f688889dc')
 
 build(){
   cd "${pkgname}-${pkgver}"
