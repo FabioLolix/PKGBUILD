@@ -1,8 +1,8 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=vvave-git
-pkgver=r676.6996a2f
-pkgrel=1
+pkgver=r685.335757e
+pkgrel=2
 pkgdesc="Music player for KDE"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://vvave.kde.org/"
@@ -14,7 +14,7 @@ optdepends=('gst-plugins-bad: additional codecs'
             'gst-plugins-ugly: additional codecs')
 provides=(vvave)
 conflicts=(vvave)
-replaces=(babe babe-qt babe-git)
+#replaces=(babe babe-qt babe-git)
 source=("git+https://invent.kde.org/kde/vvave.git")
 sha256sums=('SKIP')
 
