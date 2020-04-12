@@ -5,6 +5,7 @@ pkgbase = abcde-musicbrainz-meta
 	url = https://abcde.einval.com/
 	arch = any
 	license = GPL
+	depends = abcde
 	depends = perl-webservice-musicbrainz
 	depends = perl-musicbrainz-discid
 

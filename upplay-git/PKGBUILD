@@ -1,15 +1,15 @@
 # Maintainer: Daniel Maslowski <info@orangecms.org>
 
 pkgname=upplay-git
-pkgver=1.3.9.r59.gfb8e1ce
+pkgver=1.4.3.r5.g4e1115a
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point"
-url="http://www.lesbonscomptes.com/upplay/"
+url="https://www.lesbonscomptes.com/upplay/"
 arch=(x86_64)
 license=(GPL2)
 depends=(libupnpp qt5-webkit jsoncpp)
 makedepends=(git qt5-script)
-source=("upplay::git+https://opensourceprojects.eu/git/p/upplay/code")
+source=("git+https://framagit.org/medoc92/upplay.git")
 md5sums=('SKIP')
 
 pkgver() {

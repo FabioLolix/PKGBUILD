@@ -1,7 +1,7 @@
 pkgbase = cdck
 	pkgdesc = CD/DVD check tools
 	pkgver = 0.7.0
-	pkgrel = 2
+	pkgrel = 1
 	url = http://swaj.net/unix/index.html#cdck
 	arch = x86_64
 	arch = i686

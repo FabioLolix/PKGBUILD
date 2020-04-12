@@ -1,14 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=cawbird-git
-pkgver=1.0.4.r61.gc7a16441
+pkgver=1.0.4.r69.g00695325
 pkgrel=1
 pkgdesc="Native Gtk+ Twitter Client"
 arch=(i686 x86_64)
 license=(GPL)
 url="https://ibboard.co.uk/cawbird/"
 depends=(gtk3 sqlite3 gspell
-         gst-plugins-good gst-plugins-bad gst-libav)
+         gst-plugins-good gst-plugins-bad gst-libav gst-plugin-gtk)
 makedepends=(vala git meson)
 provides=(cawbird)
 conflicts=(cawbird)

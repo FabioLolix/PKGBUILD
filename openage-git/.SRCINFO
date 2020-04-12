@@ -1,6 +1,6 @@
 pkgbase = openage-git
 	pkgdesc = A free (as in freedom) clone of the Age of Empires II engine
-	pkgver = 0.4.0.r14.g592731f66
+	pkgver = 0.4.0.r120.g9f13a9118
 	pkgrel = 1
 	url = http://openage.sft.mx/
 	arch = i686

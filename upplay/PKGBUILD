@@ -4,8 +4,8 @@
 pkgname=upplay
 pkgver=1.4.3
 pkgrel=1
-pkgdesc="A Qt5 based UPnP audio Control point"
-url="http://www.lesbonscomptes.com/upplay/"
+pkgdesc="Qt5 based UPnP audio Control point"
+url="https://www.lesbonscomptes.com/upplay/"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 license=(GPL2)
 depends=(libupnpp qt5-webkit jsoncpp)

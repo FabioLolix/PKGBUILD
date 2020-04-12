@@ -5,7 +5,7 @@
 # or submit a pull request @ https://gtbjj.com/savagezen/pkgbuild 
 
 pkgname=phoronix-test-suite-git
-pkgver=9.4.1.r23.g23343c7dd
+pkgver=9.6.0m2.r30.g010f3afaf
 pkgrel=1
 pkgdesc="The most comprehensive testing and benchmarking platform available for Linux"
 arch=('any')
@@ -29,6 +29,7 @@ source=("$pkgname::git://github.com/phoronix-test-suite/phoronix-test-suite.git"
         "https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/phoronix-test-suite-launcher.patch")
 sha256sums=('SKIP'
             '577326343d0303a59fd469c3f9c9740e756dd59c0660c54363b62d6fd1cee26d')
+options=(!strip)
 
 pkgver() {
     cd "$pkgname"

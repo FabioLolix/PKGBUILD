@@ -30,7 +30,7 @@ pkgbase = gmusicbrowser-git
 	provides = gmusicbrowser
 	conflicts = gmusicbrowser
 	source = git+http://github.com/squentin/gmusicbrowser.git
-	md5sums = SKIP
+	sha256sums = SKIP
 
 pkgname = gmusicbrowser-git
 

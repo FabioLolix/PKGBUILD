@@ -1,0 +1,22 @@
+pkgbase = flare-engine-git
+	pkgdesc = Free/Libre Action Roleplaying Engine - Git version
+	pkgver = 1.11.r41.gdf0969d9
+	pkgrel = 1
+	url = http://www.flarerpg.org/
+	arch = i686
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = cmake
+	depends = sdl2_image
+	depends = sdl2_mixer
+	depends = sdl2_ttf
+	depends = hicolor-icon-theme
+	depends = python
+	provides = flare-engine
+	conflicts = flare-engine
+	source = git+https://github.com/flareteam/flare-engine
+	sha1sums = SKIP
+
+pkgname = flare-engine-git
+
