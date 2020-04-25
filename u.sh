@@ -427,6 +427,11 @@ VAR2=u
 
 
 VAR2=r
+  VAR=rclone-browser
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=rclone-git
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
