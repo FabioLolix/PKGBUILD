@@ -1,10 +1,12 @@
-# Maintainer: Marti Raudsepp <marti@juffo.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: void09  <sgmihai@gmail.com>
+# Contributor: Marti Raudsepp <marti@juffo.org>
 # Contributor: triaxx
 
 pkgname=gnuclad
 pkgver=0.2.4
 pkgrel=4
-pkgdesc="A cladogram tree generator mainly used by GNU/Linux distro timeline project"
+pkgdesc="A cladogram tree generator mainly used by Linux and BSD distribution timeline projects"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)
 license=(GPL)
 url="https://launchpad.net/gnuclad"
