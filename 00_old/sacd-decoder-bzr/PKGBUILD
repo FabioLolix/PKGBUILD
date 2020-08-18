@@ -8,7 +8,7 @@ arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://tari.in/www/software/sacd/"
 license=(GPL3)
 depends=(gcc-libs)
-makedepends=(bzr python-dulwich)
+makedepends=(breezy python-dulwich)
 source=("sacd-decoder::bzr+lp:/sacd/trunk")
 sha256sums=('SKIP')
 

@@ -35,11 +35,6 @@ VAR2=b
 
 
 VAR2=c
-  VAR=cawbird
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=cdck
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -460,11 +455,6 @@ VAR2=r
 
 
 VAR2=s
-  VAR=sacd-decoder-bzr
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=selene-media-converter
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -481,11 +471,6 @@ VAR2=s
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
   VAR=simple-scan-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
-  VAR=spacefm
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
