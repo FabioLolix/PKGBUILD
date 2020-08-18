@@ -1,8 +1,8 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=cawbird
-pkgver=1.0.4
-pkgrel=2
+pkgver=1.1.0
+pkgrel=1
 pkgdesc="Native Gtk+ Twitter Client"
 arch=(i686 x86_64)
 license=(GPL3)
@@ -11,7 +11,7 @@ depends=(gtk3 sqlite3 gspell
          gst-plugins-good gst-plugins-bad gst-libav gst-plugin-gtk)
 makedepends=(vala meson)
 source=("$pkgname-$pkgver.tar.gz::https://github.com/IBBoard/cawbird/archive/v${pkgver}.tar.gz")
-sha256sums=('f32f074dce371dbffcaa2913bcc72780c3a21819ef8d3479df732f68c05ef9e4')
+sha256sums=('c9463219e44cbcb97322c19f2a8ebf64b8f02ecbd6279ae3667ee5e50f75ecc4')
 
 build() {
   cd "$pkgname-$pkgver"

@@ -8,9 +8,9 @@ arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://tari.in/www/software/sacd/"
 license=(GPL3)
 depends=(gcc-libs)
-makedepends=(bzr)
+makedepends=(bzr python-dulwich)
 source=("sacd-decoder::bzr+lp:/sacd/trunk")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
   cd "${pkgname/-bzr/}"

@@ -11,9 +11,10 @@ pkgbase = sacd-decoder-bzr
 	arch = aarch64
 	license = GPL3
 	makedepends = bzr
+	makedepends = python-dulwich
 	depends = gcc-libs
 	source = sacd-decoder::bzr+lp:/sacd/trunk
-	md5sums = SKIP
+	sha256sums = SKIP
 
 pkgname = sacd-decoder-bzr
 
