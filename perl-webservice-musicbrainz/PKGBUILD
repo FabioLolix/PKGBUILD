@@ -7,10 +7,10 @@ _pkgname=WebService-MusicBrainz
 pkgver=1.0.5
 pkgrel=1
 pkgdesc="Web service API to MusicBrainz database"
-arch=('any')
-url="http://search.cpan.org/dist/WebService-MusicBrainz"
+arch=(any)
+url="https://metacpan.org/release/WebService-MusicBrainz"
 license=('PerlArtistic' 'GPL')
-depends=('perl-class-accessor>=0.30' 'perl-uri>=1.35' 'perl-xml-libxml>=1.63' 'perl-libwww>=0' 'perl>=5.7.0' 'perl-mojolicious')
+depends=(perl-class-accessor perl-uri perl-xml-libxml perl-libwww perl-mojolicious)
 conflicts=(perl-webservice-musicbrainz0)
 options=('!emptydirs')
 source=("http://search.cpan.org/CPAN/authors/id/B/BF/BFAIST/${_pkgname}-${pkgver}.tar.gz")

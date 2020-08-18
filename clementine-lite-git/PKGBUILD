@@ -12,7 +12,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-lite-git
-pkgver=1.4.0rc1.r157.g176b1d6c7.0.g176b1d6c7
+pkgver=1.4.0rc1.r296.g68d375c43.9.g8aa49902b
 pkgrel=1
 pkgdesc="A modern music player and library organiser, disabled plugins"
 arch=(i686 x86_64 aarch64)

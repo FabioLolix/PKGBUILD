@@ -8,7 +8,7 @@ arch=(686 x86_64)
 url="https://teejee2008.github.io/polo/"
 license=(GPL2)
 depends=(gtk3 libgee libsoup vte3 rsync gvfs p7zip)
-makedepends=(vala-0.44)
+makedepends=(vala0.44)
 optdepends=('mediainfo: read media properties from audio and video files'
             'fish: terminal shell'
             'perl-image-exiftool: read EXIF properties from JPG/TIFF/PNG/PDF files'
@@ -18,8 +18,6 @@ optdepends=('mediainfo: read media properties from audio and video files'
             'gnome-disk-utility'
             'lzop'
             'polo-donation-plugins')
-provides=(polo)
-conflicts=(polo)
 _commit=538be6950d9394c90aa90be3973a3c8d9a27b999
 source=("${pkgname}-${pkgver}-${_commit}.tar.gz::https://github.com/teejee2008/polo/archive/${_commit}.tar.gz"
         '0001-Re-add-support-for-vte291-0.52.patch')

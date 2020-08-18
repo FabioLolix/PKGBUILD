@@ -1,14 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=maui-pix-git
-pkgver=r398.f82a26c
+pkgver=1.1.1.r29.gbdd5eed
 pkgrel=1
 pkgdesc='Image gallery for Maui'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://github.com/mauikit/pix"
 license=(GPL3)
-depends=(mauikit-git)
-makedepends=(git)
+depends=(mauikit)
+makedepends=(git cmake extra-cmake-modules)
 provides=(maui-pix)
 conflicts=(maui-pix pix)
 source=("git+https://invent.kde.org/kde/maui-pix.git")
@@ -16,10 +16,7 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "maui-pix"
-  ( set -o pipefail
-    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  )
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {

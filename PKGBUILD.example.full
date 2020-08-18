@@ -4,6 +4,7 @@
 # then please put 'unknown'.
 
 # Maintainer: Your Name <youremail@domain.com>
+# Contributor: 
 pkgname=NAME
 pkgver=VERSION
 pkgrel=1

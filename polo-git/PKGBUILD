@@ -8,7 +8,7 @@ arch=(i686 x86_64)
 url="https://teejee2008.github.io/polo/"
 license=(GPL2)
 depends=(gtk3 libgee libsoup vte3 rsync gvfs p7zip)
-makedepends=(vala-0.44 git)
+makedepends=(vala0.44 git)
 optdepends=('mediainfo: read media properties from audio and video files'
             'fish: terminal shell'
             'perl-image-exiftool: read EXIF properties from JPG/TIFF/PNG/PDF files'

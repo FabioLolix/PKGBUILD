@@ -2,7 +2,7 @@
 # Maintainer: E5ten
 
 pkgname=lumina-pdf-git
-pkgver=r19.ab86997
+pkgver=r20.f505dd7
 pkgrel=1
 pkgdesc="PDF viewer for the lumina desktop environment"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

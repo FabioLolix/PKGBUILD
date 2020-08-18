@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=newbreeze-git
-pkgver=3.0.0.rc7.r13.g899fb4f
+pkgver=3.0.0.rc8.r0.g81b93d2
 pkgrel=1
 pkgdesc="File Manager based on Qt"
 arch=('x86_64')

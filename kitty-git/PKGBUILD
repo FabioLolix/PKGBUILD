@@ -2,13 +2,13 @@
 # Contributor: Maximilian Kindshofer <maximilian@kindshofer.net>
 
 pkgname=kitty-git
-pkgver=0.16.0.r283.g83e80187
+pkgver=0.18.3.r6.g5eefd410
 pkgrel=1
 pkgdesc="A modern, hackable, featureful, OpenGL based terminal emulator"
 arch=(i686 x86_64)
 url="https://github.com/kovidgoyal/kitty"
 license=(GPL3)
-depends=(python3 freetype2 fontconfig wayland libx11 libgl libcanberra)
+depends=(python freetype2 fontconfig wayland libx11 libgl libcanberra dbus)
 makedepends=(git python-setuptools libxinerama libxcursor libxrandr libxkbcommon libxkbcommon-x11 glfw-x11 wayland-protocols mesa python-sphinx)
 optdepends=('imagemagick: viewing images with icat')
 provides=(kitty)

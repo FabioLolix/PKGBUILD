@@ -13,7 +13,7 @@ pkgbase = imageburner-git
 	depends = gtk3
 	provides = imageburner
 	conflicts = imageburner
-	source = imageburner-git::git+https://github.com/artemanufrij/imageburner.git
+	source = git+https://github.com/artemanufrij/imageburner.git
 	sha256sums = SKIP
 
 pkgname = imageburner-git

@@ -1,0 +1,35 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=phockup-git
+pkgver=1.5.10.r1.g8a45817
+pkgrel=1
+pkgdesc="Media sorting tool to organize photos and videos from your camera in folders by year, month and day."
+arch=(any)
+url="https://github.com/ivandokov/phockup"
+license=(MIT)
+depends=(python perl-image-exiftool)
+checkdepends=(python-pytest python-pytest-mock)
+makedepends=(git)
+source=("git+https://github.com/ivandokov/phockup.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname%-git}"
+  git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+check() {
+  cd "${pkgname%-git}"
+  pytest
+}
+
+package() {
+  install -Dm755 "${srcdir}/${pkgname%-git}/phockup.py" "${pkgdir}/usr/share/${pkgname%-git}/phockup.py"
+  cp -r "${srcdir}/${pkgname%-git}/src" "${pkgdir}/usr/share/${pkgname%-git}"
+
+  install -d "${pkgdir}/usr/bin"
+  ln -s /usr/share/"${pkgname%-git}"/phockup.py "${pkgdir}"/usr/bin/phockup
+
+  install -D "${srcdir}/${pkgname%-git}/license" "${pkgdir}/usr/share/licenses/${pkgname}/MIT"
+}
+

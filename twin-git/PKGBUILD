@@ -3,7 +3,7 @@
 # Contributor: G_Syme <demichan(at)mail(dot)upb(dot)de>
 
 pkgname=twin-git
-pkgver=0.8.1.r0.g689636e
+pkgver=0.8.1.r19.g84ca4ce
 pkgrel=1
 pkgdesc="A text-mode window environment"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

@@ -3,11 +3,11 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=openage-clang-git
-pkgver=0.4.0.r120.g9f13a9118
+pkgver=0.4.1.r0.gbed49bae2
 pkgrel=1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(i686 x86_64)
-url="http://openage.sft.mx/"
+url="https://openage.sft.mx/"
 license=(GPL3)
 depends=(libepoxy ftgl sdl2_image opusfile eigen
          qt5-declarative xdg-utils sdl2 qt5-quickcontrols
@@ -27,19 +27,20 @@ pkgver() {
 }
 prepare() {
   cd "$srcdir/${pkgname%-clang-git}"
-  mkdir -p build
+  install -d build
 }
 build() {
   cd "$srcdir/${pkgname%-clang-git}/build"
-
   export CC=/usr/bin/clang CXX=/usr/bin/clang++
 
-  cmake -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_INSTALL_LIBDIR=/usr/lib \
-        -DCMAKE_BUILD_TYPE=Release ..
+  cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+    -DCMAKE_BUILD_TYPE=Release
   make
 }
 package() {
   cd "$srcdir/${pkgname%-clang-git}/build"
-  make DESTDIR="$pkgdir/" install
+  make DESTDIR="${pkgdir}/" install
 }
+
