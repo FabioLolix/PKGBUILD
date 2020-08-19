@@ -363,11 +363,6 @@ VAR2=p
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
-  VAR=polo
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=polo-bin
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
