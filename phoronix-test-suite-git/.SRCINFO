@@ -1,11 +1,13 @@
-pkgbase = phoronix-test-suite-milestone
-	pkgdesc = The most comprehensive testing and benchmarking platform available for Linux, milestone version
-	pkgver = 10.0.0m1
+pkgbase = phoronix-test-suite-git
+	pkgdesc = The most comprehensive testing and benchmarking platform available for Linux
+	pkgver = 10.0.0m1.r0.g3b7fb553f
 	pkgrel = 1
 	url = http://www.phoronix-test-suite.com/
 	arch = any
 	license = GPL3
+	makedepends = git
 	depends = php
+	optdepends = python
 	optdepends = php-gd
 	optdepends = sqlite3: required when running a Phoromatic server.
 	optdepends = gcc-fortran: required for universe-cli test suite
@@ -18,10 +20,10 @@ pkgbase = phoronix-test-suite-milestone
 	provides = phoronix-test-suite
 	conflicts = phoronix-test-suite
 	options = !strip
-	source = phoronix-test-suite-milestone-10.0.0m1.tar.gz::https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.0.0m1.tar.gz
+	source = phoronix-test-suite::git://github.com/phoronix-test-suite/phoronix-test-suite.git
 	source = https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/phoronix-test-suite-launcher.patch
-	sha256sums = 8584ae850c6e46245e68ed578a2078daf8984d77fff68cdb6882b128c8e7232a
+	sha256sums = SKIP
 	sha256sums = 577326343d0303a59fd469c3f9c9740e756dd59c0660c54363b62d6fd1cee26d
 
-pkgname = phoronix-test-suite-milestone
+pkgname = phoronix-test-suite-git
 

@@ -323,6 +323,11 @@ VAR2=p
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+  VAR=phoronix-test-suite-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=phoronix-test-suite-milestone
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO

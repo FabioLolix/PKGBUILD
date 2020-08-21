@@ -1,7 +1,7 @@
 pkgbase = upplay
 	pkgdesc = Qt5 based UPnP audio Control point
 	pkgver = 1.4.4
-	pkgrel = 1
+	pkgrel = 2
 	url = https://www.lesbonscomptes.com/upplay/
 	arch = x86_64
 	arch = i686

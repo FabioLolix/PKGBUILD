@@ -13,7 +13,7 @@ depends=(libepoxy ftgl sdl2_image opusfile eigen
          qt5-declarative xdg-utils sdl2 qt5-quickcontrols
          libpng libogg python-pillow python-numpy
          python-pygments python-jinja nyan-lang-git)
-makedepends=(git cmake cython doxygen vulkan-headers)
+makedepends=(git cmake cython doxygen vulkan-headers python-graphviz)
 optdepends=('ttf-dejavu: for text display, but you can use any font'
             vulkan-icd-loader)
 provides=(openage)
@@ -22,15 +22,15 @@ source=("git+https://github.com/SFTtech/openage")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/${pkgname%-git}"
+  cd "${srcdir}/${pkgname%-git}"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 prepare() {
-  cd "$srcdir/${pkgname%-git}"
+  cd "${srcdir}/${pkgname%-git}"
   install -d build
 }
 build() {
-  cd "$srcdir/${pkgname%-git}/build"
+  cd "${srcdir}/${pkgname%-git}/build"
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib \
@@ -38,6 +38,6 @@ build() {
   make
 }
 package() {
-  cd "$srcdir/${pkgname%-git}/build"
+  cd "${srcdir}/${pkgname%-git}/build"
   make DESTDIR="${pkgdir}/" install
 }

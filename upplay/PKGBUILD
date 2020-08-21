@@ -3,7 +3,7 @@
 
 pkgname=upplay
 pkgver=1.4.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Qt5 based UPnP audio Control point"
 url="https://www.lesbonscomptes.com/upplay/"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
