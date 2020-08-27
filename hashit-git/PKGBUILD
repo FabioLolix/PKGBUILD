@@ -28,5 +28,5 @@ build() {
 package() {
   cd "${srcdir}/${pkgname%-git}"
   DESTDIR="${pkgdir}" ninja -C build install
-  ln -s /usr/bin/com.github.artemanufrij.hashit "$pkgdir/usr/bin/hashit"
+  ln -s /usr/bin/com.github.artemanufrij.hashit "${pkgdir}/usr/bin/hashit"
 }

@@ -27,4 +27,5 @@ build() {
 package() {
   cd "GameHub-$_pkgver-master"
   DESTDIR="${pkgdir}" ninja -C build install
+  ln -s /usr/bin/com.github.tkashkin.gamehub "${pkgdir}/usr/bin/gamehub"
 }

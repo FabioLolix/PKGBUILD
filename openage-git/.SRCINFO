@@ -11,6 +11,7 @@ pkgbase = openage-git
 	makedepends = cython
 	makedepends = doxygen
 	makedepends = vulkan-headers
+	makedepends = python-graphviz
 	depends = libepoxy
 	depends = ftgl
 	depends = sdl2_image
