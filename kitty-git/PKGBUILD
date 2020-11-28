@@ -1,37 +1,37 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
-# Contributor: Maximilian Kindshofer <maximilian@kindshofer.net>
 # Contributor: timescam <rex.ky.ng at gmail dot com>
+# Contributor: Maximilian Kindshofer <maximilian@kindshofer.net>
 
 pkgbase=kitty-git
 pkgname=(kitty-git kitty-terminfo-git)
-pkgver=0.18.3.r42.g1d607bf1
-pkgrel=3
-pkgdesc="A modern, hackable, featureful, OpenGL based terminal emulator"
+pkgver=0.19.2.r22.g8845bd6e
+pkgrel=2
+pkgdesc="Modern, hackable, featureful, OpenGL based terminal emulator"
 arch=(i686 x86_64)
 url="https://github.com/kovidgoyal/kitty"
 license=(GPL3)
 depends=(python freetype2 fontconfig wayland libx11 libgl libcanberra dbus lcms2)
 makedepends=(git python-setuptools libxinerama libxcursor libxrandr libxkbcommon libxkbcommon-x11 glfw-x11 wayland-protocols mesa python-sphinx)
 source=("git+https://github.com/kovidgoyal/kitty.git")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${srcdir}/${pkgname%-git}"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${srcdir}/${pkgname%-git}"
   python3 setup.py linux-package --update-check-interval=0 
 }
 
 package_kitty-git() {
-  depends+=('kitty-terminfo')
+  depends+=(kitty-terminfo)
   optdepends=('imagemagick: viewing images with icat')
   provides=(kitty)
   conflicts=(kitty)
 
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${srcdir}/${pkgname%-git}"
 
   cp -r linux-package "${pkgdir}"/usr
 
@@ -53,8 +53,8 @@ package_kitty-git() {
 }
 
 package_kitty-terminfo-git() {
-  pkgdesc='Terminfo for kitty, an OpenGL-based terminal emulator'
-  depends+=('ncurses')
+  pkgdesc="Terminfo for kitty, an OpenGL-based terminal emulator"
+  depends=(ncurses)
   provides=(kitty-terminfo)
   conflicts=(kitty-terminfo)
 
