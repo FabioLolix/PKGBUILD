@@ -4,7 +4,7 @@
 # Contributor: Joeny Ang <ang(dot)joeny(at)gmail(dot)com>
 
 pkgname=simple-scan-git
-pkgver=3.37.2.r13.g3c8d88b
+pkgver=3.38.1.r11.ge11e8864
 pkgrel=1
 pkgdesc="Simple scanning utility"
 url="https://gitlab.gnome.org/GNOME/simple-scan"

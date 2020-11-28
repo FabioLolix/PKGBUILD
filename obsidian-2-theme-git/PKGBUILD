@@ -3,7 +3,7 @@
 # Contributor: scan
 
 pkgname=obsidian-2-theme-git
-pkgver=2.12.r0.g9865e58
+pkgver=2.16.r0.g5508a0f
 pkgrel=1
 pkgdesc="Obsidian 2 themes for Gnome 3.22+, all colors"
 arch=(any)

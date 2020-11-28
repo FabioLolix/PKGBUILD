@@ -1,6 +1,6 @@
 pkgbase = flare-engine-git
 	pkgdesc = Free/Libre Action Roleplaying Engine - Git version
-	pkgver = 1.11.r75.gb637dad1
+	pkgver = 1.11.r166.gd01deae2
 	pkgrel = 1
 	url = http://www.flarerpg.org/
 	arch = i686

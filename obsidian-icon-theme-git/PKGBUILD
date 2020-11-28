@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=obsidian-icon-theme-git
-pkgver=4.12.r0.gdc76e4d2
+pkgver=4.14.r0.gabd85de8
 pkgrel=1
 pkgdesc="Gnome Icon Pack based upon Faenza, optimized for dark themes. All colors"
 arch=('any')

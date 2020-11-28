@@ -2,7 +2,7 @@
 # Contributor: Yosef Or Boczko <yoseforb@gnome.org>
 
 pkgname=baobab-git
-pkgver=3.37.90.r4.g8004e64
+pkgver=3.38.0.r4.gf16f24d
 pkgrel=1
 pkgdesc="A graphical directory tree analyzer"
 arch=(x86_64 i686 armv6h armv7h aarch64)

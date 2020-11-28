@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=libupnpp-git
-pkgver=0.19.2.r20.g676d035
+pkgver=0.19.4.r18.g5cdf35f
 pkgrel=1
 pkgdesc="A C++ wrapper for libupnp - used with upmpdcli or upplay"
 url="https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html"

@@ -52,6 +52,11 @@ VAR2=d
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+  VAR=dvdae-bin
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
 
 
 VAR2=e
@@ -110,6 +115,11 @@ VAR2=g
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
   VAR=gamehub-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+  VAR=gmusicbrowser
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
