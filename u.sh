@@ -343,11 +343,6 @@ VAR2=p
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
-  VAR=pinta
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,pinta.appdata.xml} "$DEST/$VAR2/$VAR"
-
   VAR=playmymusic
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
