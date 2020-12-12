@@ -8,7 +8,7 @@
 
 pkgname=gitkraken
 pkgrel=1
-pkgver=7.3.2
+pkgver=7.4.1
 pkgdesc="The intuitive, fast, and beautiful cross-platform Git client."
 url="https://www.gitkraken.com/"
 arch=(x86_64)
@@ -22,7 +22,7 @@ source=(
     "eula.html::https://aur.archlinux.org/cgit/aur.git/plain/eula.html?h=gitkraken"
     "gitkraken.sh::https://aur.archlinux.org/cgit/aur.git/plain/gitkraken.sh?h=gitkraken"
 )
-sha256sums=('adb39078826779e0b4baf7db0c67d9187fcea10f811c376a77f2f5b354d57a03'
+sha256sums=('792af17164929c6098db9ce3436925a64698ed99aa5ea54ca378cd2087a178a3'
             '81b32ad2fae47fcdf8adb4fdb5c734430ed993f712e75bd62297ae8540fdf889'
             'a2b3551f83bcbe56da961615f066bb736cd15d98e41c93b3b4add0d56606d902'
             '9566342308bf35b56e626fa1b0d716eb16991712cc43b617c4f0d95e005311d1'

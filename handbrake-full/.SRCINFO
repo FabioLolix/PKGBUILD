@@ -91,6 +91,8 @@ pkgname = handbrake-full
 	optdepends = nvidia-utils: for enabling Nvidia nvenc
 	optdepends = gst-plugins-good: for video previews
 	optdepends = gst-libav: for video previews
+	provides = handbrake
+	conflicts = handbrake
 
 pkgname = handbrake-full-cli
 	pkgdesc = Multithreaded video transcoder (CLI)

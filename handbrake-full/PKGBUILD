@@ -91,6 +91,8 @@ package_handbrake-full() {
   depends=("${_commondeps[@]}" "${_guideps[@]}")
   optdepends+=('gst-plugins-good: for video previews'
               'gst-libav: for video previews')
+  provides=(handbrake)
+  conflicts=(handbrake)
 
   cd "$srcdir/handbrake/build"
 
