@@ -427,11 +427,15 @@ VAR2=q
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
   VAR=qoob
+  cd "$DEST/$VAR2/$VAR"
+    git pull
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
   VAR=qoob-git
+  cd "$DEST/$VAR2/$VAR"
+    git pull
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"

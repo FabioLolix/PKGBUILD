@@ -10,8 +10,8 @@ license=(GPL3)
 depends=(qt5-base qt5-imageformats qt5-svg mpv exiv2 opencv)
 makedepends=(cmake qt5-tools)
 optdepends=('kimageformats: support for more image formats'
-             'qt5-apng-plugin: animated png support'
-             'qtraw: raw images support')
+            'qt5-apng-plugin: animated png support'
+            'qtraw: raw images support')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/easymodo/qimgv/archive/v${pkgver}.tar.gz")
 sha256sums=('728b05b0e26d0188b3d25eb564effab4a77dd0c7453d82e024f1eaa8781e8f4b')
 

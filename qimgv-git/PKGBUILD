@@ -17,17 +17,17 @@ source=("git+https://github.com/easymodo/qimgv.git")
 md5sums=('SKIP')
 
 pkgver() {
-    cd "${pkgname/-git/}"
+    cd "${pkgname%-git}"
 	git describe --long --tags | sed -r 's/([^-]*-g)/r\1/;s/-/./g;s/v//g'
 }
 
 prepare() {
-    cd "${pkgname/-git/}"
+    cd "${pkgname%-git}"
     install -d build
 }
 
 build() {
-    cd "${pkgname/-git/}/build"
+    cd "${pkgname%-git}/build"
     cmake .. \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -36,6 +36,6 @@ build() {
 }
 
 package() {
-    cd "${pkgname/-git/}/build"
+    cd "${pkgname%-git}/build"
     make DESTDIR=${pkgdir} install
 }

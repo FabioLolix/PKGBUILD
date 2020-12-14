@@ -1,7 +1,8 @@
 # Maintainer: William Belanger <echo d2lsbGlhbS5iZWxyQGdtYWlsLmNvbQ== | base64 -d>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org>
 
 pkgname=qoob-git
-pkgver=0.2.r16.gbb08976
+pkgver=0.2.1.r0.g2e3ed22
 pkgrel=1
 pkgdesc="foobar-like music player for Linux"
 url="https://gitlab.com/william.belanger/${pkgname%-git}"
@@ -15,7 +16,7 @@ optdepends=('python-xlib: media keys support'
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 source=("git+https://gitlab.com/william.belanger/${pkgname%-git}.git")
-md5sums=("SKIP")
+sha256sums=("SKIP")
 
 pkgver()
 {
@@ -23,8 +24,14 @@ pkgver()
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
+build()
+{
+  cd "${pkgname%-git}"
+  python setup.py build
+}
+
 package()
 {
   cd "${pkgname%-git}"
-  python setup.py install --optimize="1" --root="$pkgdir"
+  python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
 }
