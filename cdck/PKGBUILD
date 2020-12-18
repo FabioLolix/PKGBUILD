@@ -10,17 +10,15 @@ license=(GPL2)
 depends=(gcc-libs)
 optdepends=(gnuplot)
 source=("http://swaj.net/unix/cdck/${pkgname}-${pkgver}.tar.gz"
-        "http://deb.debian.org/debian/pool/main/c/cdck/${pkgname}_${pkgver}+dfsg-2.debian.tar.xz")
+        "http://deb.debian.org/debian/pool/main/c/cdck/${pkgname}_${pkgver}+dfsg-3.debian.tar.xz")
 sha256sums=('cb817ef2e8ab37d499d3630264901b9d22ebe67345507acd364f8f1e3995b404'
-            'dd6d858a56ce91f0b7a89e35918b24b13b5db377deeb6f8d9ad2b107211e3669')
+            '58e5ff1055fece7cc2482796d766d0e68caced0ed4522510e25b99cf84b8376f')
 
 prepare() {
-  cp -a "${srcdir}"/debian/patches/*.patch "${srcdir}"
   cd "${srcdir}/${pkgname}-${pkgver}"
-  patch -Np1 -i ../cross.patch
-  patch -Np1 -i ../makefile.am.patch
-  patch -Np1 -i ../man.patch
-  patch -Np1 -i ../wording.patch
+  for patch in ../debian/patches/*.patch; do 
+    patch -Np1 < $patch
+  done
 }
 
 build() {

@@ -3,15 +3,15 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=openage-clang-git
-pkgver=0.4.1.r331.gb303555ec
-pkgrel=1
+pkgver=0.4.1.r346.g28fb967ec
+pkgrel=2
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(i686 x86_64)
 url="https://openage.sft.mx/"
 license=(GPL3)
 depends=(libepoxy ftgl sdl2_image opusfile eigen
          qt5-declarative xdg-utils sdl2 qt5-quickcontrols
-         libpng libogg python-pillow python-numpy 
+         libpng libogg python-pillow python-numpy python-toml
          python-pygments python-jinja nyan-lang-git)
 makedepends=(git cmake cython doxygen vulkan-headers clang)
 optdepends=('ttf-dejavu: for text display, but you can use any font'

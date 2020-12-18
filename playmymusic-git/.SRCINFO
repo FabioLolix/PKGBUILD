@@ -1,6 +1,6 @@
 pkgbase = playmymusic-git
 	pkgdesc = Melody is a music player for Pantheon, developed by Artem Anufrij
-	pkgver = 2.2.1.r11.gbba5fe7
+	pkgver = 2.2.1.r16.g7615579
 	pkgrel = 1
 	url = http://anufrij.org/melody/
 	arch = x86_64
