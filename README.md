@@ -1,119 +1,36 @@
-**Status**
+## Packaging guidelines & tips
 
-* Neobarok: on AUR
-* openage-git: on AUR (adopted)
-* qstopmotion: on AUR (not me)
+* prefer git+https over git// for taking advantage of TLS encryption
 
-From AUR3: 
+* sha256 is the preferred hash check
 
-| Name       | status            |
-| ---------- | --------------- |
-| qcomicbook | updated version |
-| squeezeplay | plain aur3 import |
+* cut 'v' and other prefixes from pkgver
 
-From AUR: 
+* don't use cutom variables when not needed (like use ${pkgname%-git})
 
-| Name        | status                               |
-| ----------- | ---------------------------------- |
-| moksha-modules-extra-git | build fix |
-| openage-git | install fix (adopted)                       |
-| upplay-qt5      | updated compiling flag to build in QT5 |
-| upplay-qt5-git  | updated compiling flag to build in QT5 |
-| dvdae-bin   | updpkgsums                         |
-| solar2      | updpkgsums                         |
-| voltra      | updpkgsums                         |
+* pkgrel is for internal use of the PKGBUILD and must not be used in source=() or as part of pkgver
 
-Reworked from AUR or Arch:
+* quoting in arch=() license=() depends=() makedepends=() depends=() is pointless and a personal choice, except when needed
+optdepends=('gst-libav: additional codecs') license=('cutom:WTFPL') license=('cutom:corp EULA')
 
-| Name                     | modified to                    |
-| ------------------------ | ----------------------- |
-| clementine-lite-git     | disable plugins        |
-| clementine-lite-qt5-git | disable plugins        |
-| mpv-vaapi | enabled vaapi |
-| phoronix-test-suite-milestone   | build milestone version |
-| roonbridge | add 'armv7h' & 'aarch64' architectures |
-| smbnetfs | enable gnome keyring |
-| smbnetfs-git | build git version with gnome keyring enabled |
-| twin-git | build git version |
-| xf86-video-sisimedia-rkrell-git | video driver for SiS 671/771 cards |
+* remember to quote variables for avoiding failures due to whitesapces in paths, 
+when Pinta pkgbuild was in the AUR it failed to build with CZ_cz language due to not quoted variables
 
-Original:
+* use source_$ARCH for $ARCH specific sources
 
-| Name                  | Description                                     |
-| --------------------- | --------------------------------------- |
-| madrigal-git          | Qt5 OpenHome Control Point, in development               |
-| maxmonitoring         | Monitoring tool for Solarmax inverters    |
-| neobarok              | 3D modeling software                     |
-| openboard-bin         | Openboard Ubuntu binary version          |
-| qiviever              | QT image viewer                          |
-| qmultirecord          | Simultaneously burn multiple ISO files on several optical drives |
-| quickhash-gui-bin     | Graphical hashing utility, Debian binary version |
-| sacd-decoder-bzr          | Command line SACD decoder                |
+* use a common source folder, SRCDEST= in /etc/makepkg.conf
 
-***
+* add git submodules to source=(), it is a good packaging practice and make sources re-usable, especially with a common SRCDEST
 
-Others pkgbuilds are experimental, work in progress or fails:
-
-| Name                     |                     |
-| ------------------------ | ----------------------- |
-| squeezeplay | Git versions don't compile |
-| gravit-designer | In progress |
+* make downloaded sources non-conflicting and re-usable, i.e.
+  for archives: url/v.${pkgver}.tar.gz to ${pkgname}-${pkgver}::url/v.${pkgver}.tar.gz
+  for git repository find a common ground for source name
+  for git avoid ${pkgname}-${pkgver}::git+url/name.git (waste)
+  for git avoid ${pkgname}::git+url/name.git when pkgname=$NAME-git (i.e. textosaurus and textosaurus-git use the same source)
+  for git avoid ${pkgname}::git+url/name.git when pkgname=name (pointless since source is already called 'name')
+  for ease of use when git source have uppercase name ${pkgname}::git+url/Name.git ${pkgname%-git}::git+url/Name.git
+  
+ 
 
 
-**Tips for other packages**
 
-Update source info
-
-    makepkg --printsrcinfo > .SRCINFO
-
-***
-
-Extract .rpm .deb etc.. with bsdtar, avoid rpmextract, debtap, alien etc..
-
-    bsdtar -xf $packagename.*
-
-***
-
-Package which use rpmextarct
-
-* libstdc++296
-
-***
-
-#devel pkgver
-
-### Git with tags
-
-> pkgver() {
-  cd "$pkgname"
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
-}
-
-### Git no tags
-> pkgver() {
-  cd ${pkgname}
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
-
-***
-
-for **fs-uae** Amiga emulator add CXXFlags in build()
-
->	build() {
-	cd $pkgname-$pkgver
-	XXFLAGS="${CXXFLAGS} -std=gnu++98"
-	./configure --prefix=/usr
-	make 
-	}
-
-***
-
-* yaourt -S $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
-* pacaur -S --rebuild $(pacman -Qqo '/usr/lib/perl5/vendor_perl')
-
-
-> VAR=
- cd $PWD/$VAR
-     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} ~/Dev/Github/AUR/$VAR
-cd ..

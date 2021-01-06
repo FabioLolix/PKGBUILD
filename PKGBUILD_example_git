@@ -1,49 +1,60 @@
-# Maintainer: 
+## Examples for reuse in pkgbuilds
 
-pkgname=-git
-pkgver=1
-pkgrel=1
-pkgdesc=""
+# All arches
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
-url=""
-license=()
-depends=()
-makedepends=(git)
-optdepends=()
-provides=()
-conflicts=()
-options=()
-source=("git+${url}.git")
-sha256sums=('SKIP')
+
+# Common cd
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd "${srcdir}/${pkgname}-${pkgver}/build"
+
+  cd "${srcdir}/${pkgname%-git}"
+  cd "${srcdir}/${pkgname%-git}/build"
+
+
 
 pkgver() {
+
   cd "${pkgname%-git}"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 
-#  # cutting off 'v' prefix that presents in the git tag
-#  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+# cutting off 'v' prefix that presents in the git tag
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 
-#  # cutting off 'foo-' prefix that presents in the git tag
-#  git describe --long --tags | sed 's/^foo-//;s/\([^-]*-g\)/r\1/;s/-/./g'
+# cutting off 'foo-' prefix that presents in the git tag
+  git describe --long --tags | sed 's/^foo-//;s/\([^-]*-g\)/r\1/;s/-/./g'
 
+# Git without tags
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+
+# 
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
   )
-}
 
-# Git without tags
-#pkgver() {
-#  cd "${pkgname%-git}"
-#  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-#}
 
-prepare() {
-#  cd "${pkgname%-git}"
-#  git submodule init
-#  git config 'submodule.PATH/NAME.url' "${srcdir}/NAME"
-#  git submodule update
-}
+# Git submodules configuration
+  git submodule init
+  git config 'submodule.PATH/NAME.url' "${srcdir}/NAME"
+  git submodule update
+
+
+# Extract .deb to pkgdir
+  bsdtar -xf ${srcdir}/data.tar.xz -C ${pkgdir}/
+
+
+# Build with Cmake
+
+
+# Build with Qmake
+
+  qmake-qt5 .pro
+  make
+
+  make install INSTALL_ROOT="${pkgdir}/"
+
+
+
 
 build() {
   cd "${pkgname%-git}"
@@ -54,7 +65,9 @@ package() {
   cd "${pkgname%-git}"
   make DESTDIR="${pkgdir}" install
 
-# install -d ${pkgdir}/usr/share/licenses/${pkgname}
-# install -d ${pkgdir}/usr/share/doc/${pkgname}
-# ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
+ install -d ${pkgdir}/usr/share/licenses/${pkgname}
+ install -d ${pkgdir}/usr/share/doc/${pkgname}
+ ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }
+
+
