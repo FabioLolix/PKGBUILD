@@ -12,7 +12,6 @@
 
 * quoting in arch=() license=() depends=() makedepends=() depends=() is pointless and a personal choice,
 except when needed
-
 optdepends=('gst-libav: additional codecs') license=('cutom:WTFPL') license=('cutom:corp EULA')
 
 * remember to quote variables for avoiding failures due to whitesapces in paths, 
@@ -30,13 +29,15 @@ when Pinta pkgbuild was in the AUR it failed to build with CZ_cz language due to
 
   for git repository find a common ground for source name
 
-  for git avoid ${pkgname}-${pkgver}::git+url/name.git (waste)
+    + for git avoid ${pkgname}-${pkgver}::git+url/name.git (waste)
 
-  for git avoid ${pkgname}::git+url/name.git when pkgname=$NAME-git (i.e. textosaurus and textosaurus-git use the same source)
+    + for git avoid ${pkgname}::git+url/name.git when pkgname=$NAME-git (i.e. textosaurus and textosaurus-git use the same source)
 
-  for git avoid ${pkgname}::git+url/name.git when pkgname=name (pointless since source is already called 'name')
+    + for git avoid ${pkgname}::git+url/name.git when pkgname=name (pointless since source is already called 'name')
 
-  for ease of use when git source have uppercase name ${pkgname}::git+url/Name.git ${pkgname%-git}::git+url/Name.git
+    + for ease of use when git source have uppercase name ${pkgname}::git+url/Name.git ${pkgname%-git}::git+url/Name.git
+
+* install not common licenses in ${pkgdir}/usr/share/licenses/${pkgname}, not mandatory to install common licenses; see 'licenses' package
   
  
 
