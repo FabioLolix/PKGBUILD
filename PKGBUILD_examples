@@ -70,4 +70,7 @@ package() {
  ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
 }
 
+# Python version variable
+  _pyver=$(python -c "from sys import version_info; print(\"%d.%d\" % (version_info[0],version_info[1]))")
+
 

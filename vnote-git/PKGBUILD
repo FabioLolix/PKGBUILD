@@ -1,7 +1,7 @@
 # Maintainer: erk <v at erk dot io>
 
 pkgname=vnote-git
-pkgver=2.10.r0.gde75370
+pkgver=2.10.r0.gde753706
 pkgrel=1
 pkgdesc="A Vim-inspired note-taking application, especially for Markdown."
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -9,7 +9,7 @@ url='https://tamlok.github.io/vnote/'
 license=(MIT)
 depends=(qt5-base qt5-webengine qt5-svg)
 makedepends=(git)
-source=("git+https://github.com/tamlok/vnote.git"
+source=("git+https://github.com/tamlok/vnote.git#branch=vnote2.0"
         "git+https://github.com/chjj/marked.git"
         "git+https://github.com/tamlok/hoedown.git")
 sha256sums=('SKIP'

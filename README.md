@@ -11,7 +11,7 @@
 * pkgrel is for internal use of the PKGBUILD and must not be used in source=() or as part of pkgver
 
 * quoting in arch=() license=() depends=() makedepends=() depends=() is pointless and a personal choice,
-except when needed
+except when needed.
 optdepends=('gst-libav: additional codecs') license=('cutom:WTFPL') license=('cutom:corp EULA')
 
 * remember to quote variables for avoiding failures due to whitesapces in paths, 
