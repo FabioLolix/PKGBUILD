@@ -3,16 +3,16 @@ pkgbase = flare-game-git
 	pkgver = 1.11.r16.g13490f32
 	pkgrel = 1
 	url = http://www.flarerpg.org/
-	arch = i686
-	arch = x86_64
+	arch = any
 	license = CCPL:cc-by-sa-3.0
 	makedepends = git
 	makedepends = cmake
 	depends = flare-engine-git
 	provides = flare-game
 	conflicts = flare-game
+	options = !strip
 	source = git+https://github.com/flareteam/flare-game
-	sha1sums = SKIP
+	sha256sums = SKIP
 
 pkgname = flare-game-git
 

@@ -3,13 +3,13 @@ pkgbase = flare-game
 	pkgver = 1.09.01
 	pkgrel = 1
 	url = http://www.flarerpg.org/
-	arch = i686
-	arch = x86_64
+	arch = any
 	license = CCPL:cc-by-sa-3.0
 	makedepends = cmake
 	depends = flare-engine
+	options = !strip
 	source = flare-game-1.09.01::https://github.com/flareteam/flare-game/archive/v1.09.01.tar.gz
-	sha1sums = a369c2e7e6950ea2e241fd69f21ca47836667ed5
+	sha256sums = a369c2e7e6950ea2e241fd69f21ca47836667ed5
 
 pkgname = flare-game
 

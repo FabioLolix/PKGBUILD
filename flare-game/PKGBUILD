@@ -7,11 +7,12 @@ pkgrel=1
 pkgdesc="Fantasy action RPG using the FLARE engine"
 url="http://www.flarerpg.org/"
 license=('CCPL:cc-by-sa-3.0')
-arch=(i686 x86_64)
+arch=(any)
 makedepends=(cmake)
 depends=(flare-engine)
+options=(!strip)
 source=("${pkgname}-${pkgver}::https://github.com/flareteam/flare-game/archive/v${pkgver}.tar.gz")
-sha1sums=('a369c2e7e6950ea2e241fd69f21ca47836667ed5')
+sha256sums=('a369c2e7e6950ea2e241fd69f21ca47836667ed5')
 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"

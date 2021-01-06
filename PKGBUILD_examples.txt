@@ -1,6 +1,6 @@
 ## Examples for reuse in pkgbuilds
 
-# All arches
+# All architectures
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
 
 # Common cd

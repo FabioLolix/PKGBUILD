@@ -23,13 +23,11 @@ pkgbase = textosaurus-git
 	source = git+https://github.com/martinrotter/7za.git
 	source = git+https://github.com/martinrotter/nsis.git
 	source = git+https://github.com/martinrotter/sed.git
-	source = git+https://github.com/martinrotter/scintilla
-	md5sums = SKIP
-	md5sums = SKIP
-	md5sums = SKIP
-	md5sums = SKIP
-	md5sums = SKIP
-	md5sums = SKIP
+	sha256sums = SKIP
+	sha256sums = SKIP
+	sha256sums = SKIP
+	sha256sums = SKIP
+	sha256sums = SKIP
 
 pkgname = textosaurus-git
 
