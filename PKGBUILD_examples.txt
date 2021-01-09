@@ -12,9 +12,12 @@ arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
 
 
 
-pkgver() {
+pkgver() 
 
-  cd "${pkgname%-git}"
+# Using the most recent annotated tag reachable from the last commit: 
+  git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+
+# Using the most recent un-annotated tag reachable from the last commit: 
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 
 # cutting off 'v' prefix that presents in the git tag
@@ -26,14 +29,25 @@ pkgver() {
 # Git without tags
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 
-# 
+# Both methods can also be combined, to support repositories that start without a tag but get tagged later on (uses a bashism): 
   ( set -o pipefail
     git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
   )
 
+# Bazaar
+	printf "r%s" "$(bzr revno)"
+
+# Mercurial
+	printf "r%s.%s" "$(hg identify -n)" "$(hg identify -i)"
+
+# Subversion
+	printf "r%s" "$(svnversion | tr -d 'A-z')"
+
+
 
 # Git submodules configuration
+
   git submodule init
   git config 'submodule.PATH/NAME.url' "${srcdir}/NAME"
   git submodule update

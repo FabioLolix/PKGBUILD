@@ -11,16 +11,19 @@ license=(GPL3)
 depends=(qt5-base)
 makedepends=(git cmake)
 source=("git+https://github.com/REDasmOrg/REDasm.git#tag=v$pkgver"
+        "git+https://github.com/REDasmOrg/REDasm-Library.git"
         "git+https://github.com/Dax89/QHexView.git"
         "git+https://github.com/aquynh/capstone.git")
 sha256sums=('SKIP'
+            'SKIP'
             'SKIP'
             'SKIP')
 
 prepare() {
   cd REDasm
   git submodule init
-  git config submodule.widgets/QHexView.url "$srcdir/QHexView"
+  git config submodule.LibREDasm.url "$srcdir/REDasm-Library"
+  git config submodule.QHexView.url "$srcdir/QHexView"
   git submodule update
   mkdir -p build
 
