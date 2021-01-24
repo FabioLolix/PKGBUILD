@@ -2,7 +2,8 @@
 # Contributor: Martin Sandsmark <martin.sandsmark@kde.org>
 
 pkgname=redasm
-pkgver=2.1.1
+_pkgver=2.1.1-fix
+pkgver=${_pkgver//-/.}
 pkgrel=1
 url="https://redasm.io/"
 arch=(i686 x86_64)
@@ -10,7 +11,7 @@ pkgdesc="The OpenSource Disassembler"
 license=(GPL3)
 depends=(qt5-base)
 makedepends=(git cmake)
-source=("git+https://github.com/REDasmOrg/REDasm.git#tag=v$pkgver"
+source=("git+https://github.com/REDasmOrg/REDasm.git#tag=v${_pkgver}"
         "git+https://github.com/REDasmOrg/REDasm-Library.git"
         "git+https://github.com/Dax89/QHexView.git"
         "git+https://github.com/aquynh/capstone.git")
@@ -28,6 +29,7 @@ prepare() {
   mkdir -p build
 
   cd LibREDasm
+  git submodule init
   git config submodule.depends/capstone.url "$srcdir/capstone"
   git submodule update
 }

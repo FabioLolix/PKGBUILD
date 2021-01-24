@@ -1,5 +1,9 @@
 ## Examples for reuse in pkgbuilds
 
+# Fix pkgver with proibited simbols
+_pkgver=3.2.01-1
+pkgver=${_pkgver//-/.}
+
 # All architectures
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
 
