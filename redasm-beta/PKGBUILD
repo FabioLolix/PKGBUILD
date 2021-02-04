@@ -1,7 +1,9 @@
-# Maintainer: Martin Sandsmark <martin.sandsmark@kde.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Martin Sandsmark <martin.sandsmark@kde.org>
 
-pkgname=redasm-git
-pkgver=3.0.0.beta3.r3.g456513b
+pkgname=redasm-beta
+_pkgver=3.0.0-beta3
+pkgver=${_pkgver//-/.}
 pkgrel=1
 url="https://github.com/REDasmOrg/REDasm"
 arch=(i686 x86_64)
@@ -11,7 +13,7 @@ depends=(qt5-base)
 makedepends=(git cmake patchelf)
 conflicts=(redasm)
 provides=(redasm)
-source=("git+https://github.com/REDasmOrg/REDasm.git"
+source=("git+https://github.com/REDasmOrg/REDasm.git#tag=v${_pkgver}"
         "git+https://github.com/REDasmOrg/REDasm-Library.git"
         "git+https://github.com/REDasmOrg/REDasm-Plugins.git"
         "git+https://github.com/REDasmOrg/REDasm-Loaders.git"
@@ -36,11 +38,6 @@ sha256sums=('SKIP'
             'SKIP'
             'SKIP'
             'SKIP')
-
-pkgver() {
-  cd REDasm
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
-}
 
 prepare() {
   cd REDasm
