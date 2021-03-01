@@ -6,6 +6,7 @@ pkgbase = cdck
 	arch = x86_64
 	arch = i686
 	license = GPL2
+	makedepends = gcc9
 	depends = gcc-libs
 	optdepends = gnuplot
 	source = http://swaj.net/unix/cdck/cdck-0.7.0.tar.gz

@@ -2,7 +2,7 @@
 # Contributor: archtux <antonio dot arias99999 at gmail dot com>
 
 pkgname=deadbeef-git
-pkgver=1.8.4.r662.g35cf7d6b7
+pkgver=1.8.7.r140.gcf295cb29
 pkgrel=1
 pkgdesc="A GTK+ audio player for GNU/Linux (devel branch)"
 url="https://deadbeef.sourceforge.io/"

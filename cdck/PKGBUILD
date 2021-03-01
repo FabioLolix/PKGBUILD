@@ -8,11 +8,14 @@ arch=(x86_64 i686)
 url="http://swaj.net/unix/index.html#cdck"
 license=(GPL2)
 depends=(gcc-libs)
+makedepends=(gcc9)
 optdepends=(gnuplot)
 source=("http://swaj.net/unix/cdck/${pkgname}-${pkgver}.tar.gz"
         "http://deb.debian.org/debian/pool/main/c/cdck/${pkgname}_${pkgver}+dfsg-3.debian.tar.xz")
 sha256sums=('cb817ef2e8ab37d499d3630264901b9d22ebe67345507acd364f8f1e3995b404'
             '58e5ff1055fece7cc2482796d766d0e68caced0ed4522510e25b99cf84b8376f')
+
+export CC=/usr/bin/gcc-9 CXX=/usr/bin/g++-9
 
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
