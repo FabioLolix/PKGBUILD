@@ -1,20 +1,20 @@
 ## Packaging guidelines & tips
 
-* prefer git+https over git// for taking advantage of TLS encryption
+* prefer git+https over git:// for taking advantage of TLS encryption
 
 * sha256 is the preferred hash check
 
 * cut 'v' and other prefixes from pkgver
 
-* don't use cutom variables when not needed (like use ${pkgname%-git})
+* don't use custom variables when not needed (like use ${pkgname%-git})
 
 * pkgrel is for internal use of the PKGBUILD and must not be used in source=() or as part of pkgver
 
 * quoting in arch=() license=() depends=() makedepends=() depends=() is pointless and a personal choice,
 except when needed.
-optdepends=('gst-libav: additional codecs') license=('cutom:WTFPL') license=('cutom:corp EULA')
+optdepends=('gst-libav: additional codecs') license=('custom:WTFPL') license=('custom:corp EULA')
 
-* remember to quote variables for avoiding failures due to whitesapces in paths, 
+* remember to quote variables for avoiding failures due to whitespaces in paths, 
 when Pinta pkgbuild was in the AUR it failed to build with CZ_cz language due to not quoted variables
 
 * use source_$ARCH for $ARCH specific sources
