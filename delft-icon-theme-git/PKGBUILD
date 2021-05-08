@@ -2,7 +2,7 @@
 # Contributor:
 
 pkgname=delft-icon-theme-git
-pkgver=1.14.r0.ga9ee531f
+pkgver=1.15.r0.gdd693fcf
 pkgrel=1
 pkgdesc="Continuation of Faenza icon theme with up to date app icons"
 url="https://github.com/madmaxms/iconpack-delft"

@@ -1,6 +1,6 @@
 pkgbase = clementine-lite-git
 	pkgdesc = A modern music player and library organiser, disabled plugins
-	pkgver = 1.4.0rc1.r351.g1daf43f91.0.g1daf43f91
+	pkgver = 1.4.0rc1.r596.g590bcf1c7.0.g590bcf1c7
 	pkgrel = 1
 	url = http://www.clementine-player.org/
 	arch = i686

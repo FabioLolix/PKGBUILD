@@ -2,7 +2,7 @@
 # Maintainer: dorkster <jajdorkster@gmail.com>
 
 pkgname=flare-engine
-pkgver=1.09.01
+pkgver=1.11
 pkgrel=1
 pkgdesc="Free/Libre Action Roleplaying Engine"
 url="http://www.flarerpg.org/"
@@ -15,7 +15,7 @@ sha1sums=('f221e5c4a71c72a01694cf3407082f1d8066d9fb')
 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"
-	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBINDIR=bin -DDATADIR=share/flare
+	cmake . -DCMAKE_INSTALL_PREFIX=/usr -DBINDIR=bin -DDATADIR=share/flare
 	make
 }
 

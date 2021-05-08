@@ -3,7 +3,7 @@
 # Contributor: Mika Fischer <mika.fischer@zoopnet.de>
 
 pkgname=squeezelite-git
-pkgver=1.9.8.1307.r436.e02fa87
+pkgver=1.9.9.1384.r459.f6244f9
 pkgrel=1
 pkgdesc="Lightweight headless squeezebox emulator"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)

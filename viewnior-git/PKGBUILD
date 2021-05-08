@@ -1,7 +1,7 @@
 # Mantainer: Berseker <berseker86 at gmail.com>
 
 pkgname=viewnior-git
-pkgver=1.7.r17.g9160eaa
+pkgver=1.7.r25.g3f82fc3
 pkgrel=1
 pkgdesc="Simple, fast, elegant and minimalistic image viewer, written in C(GTK+) with a new GtkImageView library. Git Version"
 arch=(i686 x86_64)
