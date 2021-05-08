@@ -20,6 +20,9 @@ VAR2=a
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done A"
+
+
 
 VAR2=b
   VAR=brasero-git
@@ -31,6 +34,8 @@ VAR2=b
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done B"
 
 
 
@@ -45,8 +50,16 @@ VAR2=c
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done C"
+
+
 
 VAR2=d
+  VAR=deadbeef
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=delft-icon-theme
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -56,6 +69,8 @@ VAR2=d
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done D"
 
 
 
@@ -69,6 +84,8 @@ VAR2=e
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done E"
 
 
 
@@ -105,6 +122,8 @@ VAR2=f
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done F"
 
 
 
@@ -154,6 +173,8 @@ VAR2=g
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done G"
+
 
 
 VAR2=h
@@ -176,6 +197,8 @@ VAR2=h
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done H"
 
 
 
@@ -209,6 +232,8 @@ VAR2=i
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done I"
 
 
 
@@ -248,6 +273,8 @@ VAR2=l
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done L"
+
 
 
 VAR2=m
@@ -266,6 +293,8 @@ VAR2=m
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done M"
+
 
 
 VAR2=n
@@ -273,6 +302,8 @@ VAR2=n
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done N"
 
 
 
@@ -291,6 +322,8 @@ VAR2=o
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done O"
 
 
 
@@ -365,6 +398,8 @@ VAR2=p
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done P"
+
 
 
 VAR2=q
@@ -392,18 +427,7 @@ VAR2=q
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
-
-
-VAR2=u
-  VAR=upplay
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
-  VAR=upplay-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+echo "Done Q"
 
 
 
@@ -427,6 +451,8 @@ VAR2=r
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done R"
 
 
 
@@ -496,6 +522,8 @@ VAR2=s
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done S"
+
 
 
 VAR2=t
@@ -508,6 +536,8 @@ VAR2=t
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done T"
 
 
 
@@ -522,6 +552,13 @@ VAR2=u
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+  VAR=upplay-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done U"
+
 
 
 VAR2=v
@@ -529,6 +566,8 @@ VAR2=v
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done V"
 
 
 
@@ -538,6 +577,8 @@ VAR2=x
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+echo "Done X"
+
 
 
 VAR2=y
@@ -545,3 +586,5 @@ VAR2=y
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done Y"

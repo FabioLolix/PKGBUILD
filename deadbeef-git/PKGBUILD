@@ -2,22 +2,19 @@
 # Contributor: archtux <antonio dot arias99999 at gmail dot com>
 
 pkgname=deadbeef-git
-pkgver=1.8.7.r140.gcf295cb29
+pkgver=1.8.7.r196.gc4daddb88
 pkgrel=1
-pkgdesc="A GTK+ audio player for GNU/Linux (devel branch)"
+pkgdesc="Modular GTK audio player for GNU/Linux"
+arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
 url="https://deadbeef.sourceforge.io/"
-arch=('i686' 'x86_64')
-license=('GPL2')
-depends=('alsa-lib' 'desktop-file-utils' 'hicolor-icon-theme' 'jansson')
-makedepends=('curl' 'faad2' 'flac' 'git' 'intltool' 'imlib2' 'libcddb' 'libcdio' 'libmad' 'libpulse' 
-             'libsamplerate' 'libvorbis' 'libx11' 'libzip' 'wavpack' 'yasm'
-             'ffmpeg' 'gtk2' 'gtk3')
-optdepends=('gtk2: for the GTK2 interface'
-            'gtk3: for the GTK3 interface'
-            'libsamplerate: for dsp_libsrc plugin (resampler)'
+license=(GPL2)
+depends=(gtk3 alsa-lib jansson libblocksruntime libdispatch)
+makedepends=(libvorbis libmad flac curl imlib2 wavpack libsndfile libcdio libcddb
+             libx11 faad2 zlib intltool pkgconfig libpulse libzip libsamplerate
+             yasm ffmpeg clang git)
+optdepends=('libsamplerate: for dsp_libsrc plugin (resampler)'
             'libsm: optional dependency for gtkui session client support'
             'libice: optional dependency for gtkui session client support'
-            'alsa-lib: ALSA support'
             'alsa-oss: for OSS output plugin'
             'libvorbis: for ogg vorbis plugin'
             'libogg: for ogg vorbis plugin'
@@ -29,6 +26,7 @@ optdepends=('gtk2: for the GTK2 interface'
             'libsndfile: for sndfile plugin'
             'libcdio: for cd audio plugin'
             'libcddb: for cd audio plugin'
+            'cdparanoia: for cd audio plugin'
             'faad2: for AAC plugin'
             'dbus: for notification daemon support (OSD current song notifications)'
             'pulseaudio: for PulseAudio output plugin'
@@ -37,29 +35,41 @@ optdepends=('gtk2: for the GTK2 interface'
             'libsidplay: for SID player plugin'
             'yasm: required to build assembly portions of ffap plugin'
             'libzip: for vfs_zip plugin'
-            'ffmpeg: for ffmpeg plugin')
+            'ffmpeg: for ffmpeg plugin'
+            'opusfile: for opus plugin'
+            'mpg123: for MP1/MP2/MP3 playback')
 conflicts=(deadbeef)
 provides=(deadbeef)
-source=("git+https://github.com/Alexey-Yakovenko/deadbeef")
-sha256sums=('SKIP')
+source=("git+https://github.com/DeaDBeeF-Player/deadbeef.git"
+        "git+https://github.com/DeaDBeeF-Player/mp4p.git"
+        "git+https://github.com/DeaDBeeF-Player/apbuild.git")
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP')
 
 pkgver() {
-  cd "$srcdir/deadbeef"
+  cd "${srcdir}/deadbeef"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "$srcdir/deadbeef"
+  cd "${srcdir}/deadbeef"
+
+  git submodule init
+  git config 'submodule.external/mp4p.url' "${srcdir}/mp4p"
+  git config 'submodule.external/apbuild.url' "${srcdir}/apbuild"
+  git -c submodule."osx/deps".update=none submodule update
+
   ./autogen.sh
 }
 
 build() {
-  cd "$srcdir/deadbeef"
-  ./configure --prefix=/usr
+  cd "${srcdir}/deadbeef"
+  CC=clang CXX=clang++ ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd "$srcdir/deadbeef"
+  cd "${srcdir}/deadbeef"
   make DESTDIR="$pkgdir" install
 }
