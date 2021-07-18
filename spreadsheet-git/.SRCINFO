@@ -20,4 +20,3 @@ pkgbase = spreadsheet-git
 	sha256sums = SKIP
 
 pkgname = spreadsheet-git
-

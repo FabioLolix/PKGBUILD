@@ -3,7 +3,7 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=openage-git
-pkgver=0.4.1.r573.g17e3e619d
+pkgver=0.4.1.r599.gae3111a68
 pkgrel=1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)

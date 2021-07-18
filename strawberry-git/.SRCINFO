@@ -42,4 +42,3 @@ pkgbase = strawberry-git
 	sha256sums = SKIP
 
 pkgname = strawberry-git
-

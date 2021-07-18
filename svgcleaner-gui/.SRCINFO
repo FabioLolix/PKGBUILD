@@ -18,4 +18,3 @@ pkgbase = svgcleaner-gui
 	sha256sums = 71b325614407bd5dd137b3c71cc352777e81621b14f730ac68cbc2cbd1950c39
 
 pkgname = svgcleaner-gui
-

@@ -17,4 +17,3 @@ pkgbase = perl-webservice-musicbrainz
 	sha512sums = b1dfa497b460fb56702905518d3f2de0f5af0f4003be9ce983954673b0abc8a67215a77079a2989fca2c0228409788ff3f767302659003f544e6bbd56ab6df24
 
 pkgname = perl-webservice-musicbrainz
-

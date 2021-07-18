@@ -15,4 +15,3 @@ pkgbase = easyssh
 	sha256sums = dde7f00a3a032d30e7566bd97250550d71dd825609be07a63384c5c00038f0ce
 
 pkgname = easyssh
-

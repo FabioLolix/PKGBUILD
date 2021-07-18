@@ -17,4 +17,3 @@ pkgbase = hashit-git
 	sha256sums = SKIP
 
 pkgname = hashit-git
-

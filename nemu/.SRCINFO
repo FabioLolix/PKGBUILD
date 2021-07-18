@@ -18,4 +18,3 @@ pkgbase = nemu
 	sha256sums = 0853b096d8bc114f9e17a36939192982eb4440a15a00bb375a45bd6d27cd3210
 
 pkgname = nemu
-

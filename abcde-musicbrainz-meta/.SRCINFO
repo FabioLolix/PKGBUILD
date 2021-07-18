@@ -10,4 +10,3 @@ pkgbase = abcde-musicbrainz-meta
 	depends = perl-musicbrainz-discid
 
 pkgname = abcde-musicbrainz-meta
-

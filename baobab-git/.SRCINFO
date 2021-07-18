@@ -28,4 +28,3 @@ pkgbase = baobab-git
 	sha256sums = SKIP
 
 pkgname = baobab-git
-

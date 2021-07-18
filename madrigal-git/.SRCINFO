@@ -15,4 +15,3 @@ pkgbase = madrigal-git
 	sha256sums = SKIP
 
 pkgname = madrigal-git
-

@@ -40,4 +40,3 @@ pkgbase = inxi-perl-git
 	sha256sums = SKIP
 
 pkgname = inxi-perl-git
-

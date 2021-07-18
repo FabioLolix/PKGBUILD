@@ -30,4 +30,3 @@ pkgbase = polo-bin
 	sha256sums_x86_64 = 18e7217e57b9b422af5431ba9eaded1a44775a0781a1dc7abf50ed736bbbdeb4
 
 pkgname = polo-bin
-

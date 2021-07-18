@@ -20,4 +20,3 @@ pkgbase = gource-git
 	sha512sums = SKIP
 
 pkgname = gource-git
-

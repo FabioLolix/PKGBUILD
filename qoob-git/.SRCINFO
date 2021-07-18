@@ -23,4 +23,3 @@ pkgbase = qoob-git
 	sha256sums = SKIP
 
 pkgname = qoob-git
-

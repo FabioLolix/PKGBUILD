@@ -40,4 +40,3 @@ pkgbase = upmpdcli
 	sha256sums = 53da5e4e40a1987e3c137270b315f8c0ba9521539c563e75e254f48449ce0ae9
 
 pkgname = upmpdcli
-

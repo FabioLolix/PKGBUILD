@@ -17,4 +17,3 @@ pkgbase = imageburner-git
 	sha256sums = SKIP
 
 pkgname = imageburner-git
-

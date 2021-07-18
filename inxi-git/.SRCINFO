@@ -42,4 +42,3 @@ pkgbase = inxi-git
 	sha256sums = SKIP
 
 pkgname = inxi-git
-

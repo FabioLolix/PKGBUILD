@@ -30,4 +30,3 @@ pkgbase = textosaurus-git
 	sha256sums = SKIP
 
 pkgname = textosaurus-git
-

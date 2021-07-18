@@ -10,4 +10,3 @@ pkgbase = sparky-dashboard
 	sha256sums = 139b494a8d4c136b350345d917529cf2f218509e8c43a9c8db3d1ae17b78d9aa
 
 pkgname = sparky-dashboard
-

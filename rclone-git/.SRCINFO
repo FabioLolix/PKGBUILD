@@ -20,4 +20,3 @@ pkgbase = rclone-git
 	sha256sums = SKIP
 
 pkgname = rclone-git
-

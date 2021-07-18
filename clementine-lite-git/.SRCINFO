@@ -31,4 +31,3 @@ pkgbase = clementine-lite-git
 	sha256sums = SKIP
 
 pkgname = clementine-lite-git
-

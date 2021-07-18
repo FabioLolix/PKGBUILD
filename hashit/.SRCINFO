@@ -14,4 +14,3 @@ pkgbase = hashit
 	sha256sums = 0fc1d6a015f036b687443b20245d5d4efc67f82812469e9a26f14bff728a50bc
 
 pkgname = hashit
-

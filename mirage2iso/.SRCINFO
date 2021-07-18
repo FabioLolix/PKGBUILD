@@ -15,4 +15,3 @@ pkgbase = mirage2iso
 	sha256sums = 2823fde4cb108e1bc95e2e3d3b4612e5d3a8d51825b7dbc1a556177eeb7bb340
 
 pkgname = mirage2iso
-

@@ -24,4 +24,3 @@ pkgbase = xxd-standalone
 	sha256sums = 2ac99e6ff2ee077cfec2133d0d5d2d4f14b156994c4c1896703cda98c2d21845
 
 pkgname = xxd-standalone
-

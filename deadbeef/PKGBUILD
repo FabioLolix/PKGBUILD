@@ -39,31 +39,17 @@ optdepends=('alsa-oss: for OSS output plugin'
             'wavpack: for wavpack plugin'
             'yasm: required to build assembly portions of ffap plugin'
             'zlib: for Audio Overload plugin (psf, psf2, etc), GME (for vgz)')
-_apbuildcommit=c64f490e54447e3902fae54784d01ab59fa7dc95
-_mp4pcommit=18b9197077012ea077be67baa4505fccb20552b6
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/DeaDBeeF-Player/${pkgname}/archive/${pkgver}.tar.gz"
-        "apbuild-${pkgver}-${_apbuildcommit}.tar.gz::https://github.com/DeaDBeeF-Player/apbuild/archive/${_apbuildcommit}.tar.gz"
-        "mp4p-${pkgver}-${_mp4pcommit}.tar.gz::https://github.com/DeaDBeeF-Player/mp4p/archive/${_mp4pcommit}.tar.gz")
-sha512sums=('b8026b934a211ed24cdbc7e738fbfaa95d20706c0fcaef65530d7354e19d71c1e05af59305354478b4c4f1dbe4f7dbf436af7093d25727a2508b24c692a09258'
-            '33b293a5b494ecfb50a48a37aca95de054125e2e864d197bd374bd1477bfcf1a8f5bc924303a7a846c1971c6503dbf0e82e74ff6db605a7720736a5696acdeda'
-            '7aad33096f2cdda72136fa58a9164d8665c96b312c5bab954b4705fb122c21b02db31f651d322dda8881c87abefe0a3f0bd49d434fc7aa148de47974a00eb805')
-
-prepare() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  rmdir external/{apbuild,mp4p}
-  ln -s "${srcdir}"/apbuild-$_apbuildcommit external/apbuild
-  ln -s "${srcdir}"/mp4p-$_mp4pcommit external/mp4p
-
-  ./autogen.sh
-}
+source=("https://sourceforge.net/projects/deadbeef/files/travis/linux/1.8.7/deadbeef-${pkgver}.tar.bz2")
+sha512sums=('49a9610f8aa8d9853cd4f9a38d103f9a902993a5ae1990937a3ac5a14a4f8533f4233002893875aedf45f737d1a95c7cea189c61d6387bd8be7f3535d60c96eb')
 
 build () {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  CC=clang CXX=clang++ ./configure --prefix=/usr
+  export CC=clang CXX=clang++
+  ./configure --prefix=/usr
   make
 }
 
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  make DESTDIR="$pkgdir" install
+  make DESTDIR="${pkgdir}" install
 }

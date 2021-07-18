@@ -18,4 +18,3 @@ pkgbase = easyssh-git
 	sha256sums = SKIP
 
 pkgname = easyssh-git
-

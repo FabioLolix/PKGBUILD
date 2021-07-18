@@ -15,4 +15,3 @@ pkgbase = libupnpp
 	sha256sums = e43dbe5020ed25152aaec71b325dd80498e72038da5aeb50ed7dd51e213cd903
 
 pkgname = libupnpp
-
