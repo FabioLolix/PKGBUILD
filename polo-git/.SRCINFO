@@ -34,4 +34,3 @@ pkgbase = polo-git
 	sha256sums = bc44c97ae69ab97409716b9adda0ecaf056a62ec9aa710c5020a832192420b15
 
 pkgname = polo-git
-

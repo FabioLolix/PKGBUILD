@@ -1,6 +1,6 @@
 pkgbase = guitar-git
 	pkgdesc = Open source Git GUI Client
-	pkgver = 1.2.0.r87.47814dc
+	pkgver = 1.2.0.r89.56c17eb
 	pkgrel = 1
 	url = https://soramimi.github.io/Guitar/
 	arch = x86_64
@@ -18,6 +18,8 @@ pkgbase = guitar-git
 	provides = guitar
 	conflicts = guitar
 	source = guitar::git+https://github.com/soramimi/Guitar.git
+	source = https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/guitar-modify-filetype.h-include.patch
 	sha256sums = SKIP
+	sha256sums = fa7fa997d15202ef002694040b5d9e70111ac53f0df6196e8e05dea8dd26a483
 
 pkgname = guitar-git

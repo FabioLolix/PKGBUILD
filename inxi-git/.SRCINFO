@@ -1,6 +1,6 @@
 pkgbase = inxi-git
 	pkgdesc = Full featured CLI system information tool
-	pkgver = 3.3.04.r1.g0bf23484
+	pkgver = 3.3.06.r1.ga4a420ed
 	pkgrel = 1
 	url = https://smxi.org/docs/inxi.htm
 	arch = any

@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=guitar-git
-pkgver=1.2.0.r87.47814dc
+pkgver=1.2.0.r89.56c17eb
 pkgrel=1
 pkgdesc="Open source Git GUI Client"
 arch=(x86_64 i686 armv6h armv7h aarch64)
@@ -11,8 +11,10 @@ depends=(qt5-svg git file)
 makedepends=(cmake qt5-tools git)
 provides=(guitar)
 conflicts=(guitar)
-source=("${pkgname%-git}::git+https://github.com/soramimi/Guitar.git")
-sha256sums=('SKIP')
+source=("${pkgname%-git}::git+https://github.com/soramimi/Guitar.git"
+        "https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/guitar-modify-filetype.h-include.patch")
+sha256sums=('SKIP'
+            'fa7fa997d15202ef002694040b5d9e70111ac53f0df6196e8e05dea8dd26a483')
 
 pkgver() {
   cd "${pkgname%-git}"
@@ -25,6 +27,7 @@ pkgver() {
 prepare() {
   cd "${pkgname%-git}"
   mkdir -p build
+  patch -Np1 -i ../guitar-modify-filetype.h-include.patch
 }
 
 build() {

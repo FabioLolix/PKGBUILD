@@ -28,7 +28,7 @@ options=(!strip)
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"
-  patch phoronix-test-suite -i "${srcdir}/phoronix-test-suite-launcher.patch"
+  patch -i "${srcdir}/phoronix-test-suite-launcher.patch" phoronix-test-suite
 }
 
 package() {
