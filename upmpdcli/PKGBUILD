@@ -11,10 +11,9 @@ arch=(i686 x86_64 arm armv7h armv6h aarch64)
 url="https://www.lesbonscomptes.com/upmpdcli/"
 license=(GPL2)
 depends=(python libmpdclient libupnpp libmicrohttpd jsoncpp)
-makedepends=(python-setuptools python-requests recoll python-bottle python-mutagen aspell-en id3lib python-waitress sqlite)
+makedepends=(python-setuptools python-requests python-bottle python-mutagen aspell-en id3lib python-waitress sqlite)
 optdepends=(aspell-en id3lib sqlite
             'python-requests: enable search'
-            'recoll: enable search'
             'python-bottle: enable uprcl media server'
             'python-mutagen: enable uprcl media server'
             'python-waitress: enable uprcl media server')
