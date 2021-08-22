@@ -1,18 +1,17 @@
-# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
-# Maintainer: dorkster <jajdorkster@gmail.com>
+# Maintainer: Fabio 'Lolix' Loli <lolix@disroot.org> -> https://github.com/FabioLolix
+# Contributor: dorkster <jajdorkster@gmail.com>
 
 pkgname=flare-game
-pkgver=1.11
+pkgver=1.12
 pkgrel=1
 pkgdesc="Fantasy action RPG using the FLARE engine"
 url="http://www.flarerpg.org/"
-license=('CCPL:cc-by-sa-3.0')
-arch=(any)
+license=('CCPL:cc-by-sa')
+arch=(i686 x86_64)
 makedepends=(cmake)
 depends=(flare-engine)
-options=(!strip)
 source=("${pkgname}-${pkgver}::https://github.com/flareteam/flare-game/archive/v${pkgver}.tar.gz")
-sha256sums=('a369c2e7e6950ea2e241fd69f21ca47836667ed5')
+sha1sums=('714d644654ebc625ecc1e29d610965148d3cce43')
 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"
@@ -22,6 +21,6 @@ build() {
 
 package() {
 	cd "$srcdir/$pkgname-$pkgver"
-	make install DESTDIR="$pkgdir"
+	make install DESTDIR=$pkgdir
 }
 

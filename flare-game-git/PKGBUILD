@@ -1,20 +1,19 @@
 # Maintainer: dorkster <jajdorkster@gmail.com>
-# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org>
+# Maintainer: Fabio Loli <lolix@disroot.org>
 
 pkgname=flare-game-git
-pkgver=1.11.r16.g13490f32
+pkgver=1.12
 pkgrel=1
 pkgdesc="Fantasy action RPG using the FLARE engine - Git version"
 url="http://www.flarerpg.org/"
 license=('CCPL:cc-by-sa-3.0')
-arch=(any)
+arch=(i686 x86_64)
 makedepends=(git cmake)
 depends=(flare-engine-git)
 provides=(flare-game)
 conflicts=(flare-game)
-options=(!strip)
 source=("git+https://github.com/flareteam/flare-game")
-sha256sums=('SKIP')
+sha1sums=('SKIP')
 
 pkgver() {
     cd "$srcdir/flare-game"
@@ -23,7 +22,7 @@ pkgver() {
 
 build() {
     cd "$srcdir/flare-game"
-    cmake -DCMAKE_INSTALL_PREFIX=/usr -DDATADIR=share/flare
+    cmake . -DCMAKE_INSTALL_PREFIX=/usr -DDATADIR=share/flare
     make
 }
 
