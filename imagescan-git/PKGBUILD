@@ -1,0 +1,58 @@
+# Maintainer: Your Name <youremail@domain.com>
+
+pkgname=imagescan-git
+pkgver=3.65.0.r0.gf149367
+pkgrel=1
+pkgdesc=""
+arch=(x86_64)
+url="https://gitlab.com/utsushi/utsushi"
+license=('GPL')
+depends=(sane imagemagick gtkmm)
+makedepends=(git boost)
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+backup=()
+options=()
+source=("git+https://gitlab.com/utsushi/imagescan.git"
+        'boost-1.74.patch')
+sha256sums=('SKIP'
+            'e7da445c970a4a99b476b3bb994d0d18f327e0cd166cd87ba24fcd16abee7d49')
+
+pkgver() {
+  cd imagescan
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd imagescan
+  patch -Np1 -i ${srcdir}/boost-1.74.patch # Fix build with boost 1.74
+  rm -r upstream/boost # Remove vendored libraries
+  #./bootstrap --force
+}
+
+build() {
+  cd imagescan
+  ./configure \
+    --enable-code-coverage \
+    --enable-sane-config \
+    --enable-test-reports \
+    --enable-udev-config \
+    --with-jpeg \
+    --with-magick \
+    --with-gtkmm \
+    --with-sane
+
+	make
+}
+
+check() {
+  cd imagescan
+  make -k check
+}
+
+package() {
+  cd imagescan
+  make DESTDIR="$pkgdir/" install
+}

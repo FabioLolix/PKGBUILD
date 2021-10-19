@@ -11,6 +11,7 @@ pkgbase = guitar-git
 	license = GPL
 	makedepends = cmake
 	makedepends = qt5-tools
+	makedepends = qscintilla-qt5
 	makedepends = git
 	depends = qt5-svg
 	depends = git

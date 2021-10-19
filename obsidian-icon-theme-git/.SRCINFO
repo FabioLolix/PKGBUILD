@@ -10,7 +10,7 @@ pkgbase = obsidian-icon-theme-git
 	conflicts = obsidian-icon-theme
 	conflicts = obsidian-icon-theme-git
 	options = !strip
-	source = iconpack::git+https://github.com/madmaxms/iconpack-obsidian.git
+	source = git+https://github.com/madmaxms/iconpack-obsidian.git
 	sha256sums = SKIP
 
 pkgname = obsidian-icon-theme-git

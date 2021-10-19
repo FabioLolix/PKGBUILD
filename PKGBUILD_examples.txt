@@ -5,7 +5,7 @@ _pkgver=3.2.01-1
 pkgver=${_pkgver//-/.}
 
 # All architectures
-arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 i486 pentium4 arm armv6h armv7h aarch64)
 
 ${pkgname}-${pkgver}.tar.gz::
 

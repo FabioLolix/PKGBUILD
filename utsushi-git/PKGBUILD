@@ -1,0 +1,55 @@
+# Maintainer: Your Name <youremail@domain.com>
+
+pkgname=utsushi-git
+pkgver=r316.85d9379
+pkgrel=1
+pkgdesc=""
+arch=(x86_64 i686 arm armv6h armv7h aarch64)
+url="https://gitlab.com/utsushi/utsushi"
+license=('GPL')
+depends=(sane imagemagick)
+makedepends=(git boost)
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+backup=()
+options=()
+source=("git+https://gitlab.com/utsushi/utsushi.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd utsushi
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd utsushi
+  ./bootstrap
+}
+
+build() {
+  cd utsushi
+  ./configure \
+    --enable-code-coverage \
+    --enable-sane-config \
+    --enable-test-reports \
+    --enable-udev-config \
+    --with-jpeg \
+    --with-magick \
+    --with-sane
+
+	make
+
+#--with-gtkmm \ #gtkmm (gtk2)
+}
+
+check() {
+  cd utsushi
+  make -k check
+}
+
+package() {
+  cd utsushi
+  make DESTDIR="$pkgdir/" install
+}

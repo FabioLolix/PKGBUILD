@@ -1,7 +1,7 @@
 pkgbase = gmusicbrowser-git
 	pkgdesc = Open-source jukebox for large collections of mp3/ogg/flac files, written in perl.
-	pkgver = 1.1.99.1.r32.g8f84c7c
-	pkgrel = 2
+	pkgver = 1.1.99.1.r40.g283c9a9
+	pkgrel = 1
 	url = https://gmusicbrowser.org/
 	arch = any
 	license = GPL3

@@ -1,7 +1,7 @@
 # Maintainer: Martin Sandsmark <martin.sandsmark@kde.org>
 
 pkgname=redasm-git
-pkgver=3.0.0.beta5.r0.ga294673
+pkgver=3.0.0.beta5.r11.g6bc2a2f
 pkgrel=1
 url="https://github.com/REDasmOrg/REDasm"
 arch=(i686 x86_64)

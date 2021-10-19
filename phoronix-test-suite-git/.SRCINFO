@@ -1,6 +1,6 @@
 pkgbase = phoronix-test-suite-git
 	pkgdesc = The most comprehensive testing and benchmarking platform available for Linux
-	pkgver = 10.4.0.r4.g42fc6355f
+	pkgver = 10.6.1.r3.g175f57d72
 	pkgrel = 1
 	url = http://www.phoronix-test-suite.com/
 	arch = any

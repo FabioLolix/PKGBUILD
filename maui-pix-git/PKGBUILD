@@ -1,13 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=maui-pix-git
-pkgver=1.2.0.r16.g12421cc
+pkgver=2.0.0.r2.g0e855ae
 pkgrel=1
 pkgdesc='Image gallery for Maui'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://github.com/mauikit/pix"
 license=(GPL3)
-depends=(mauikit)
+groups=(maui)
+depends=(mauikit mauikit-imagetools mauikit-filebrowsing)
 makedepends=(git cmake extra-cmake-modules)
 provides=(maui-pix)
 conflicts=(maui-pix pix)

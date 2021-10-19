@@ -1,7 +1,7 @@
 # Maintainer: Eric Bailey <nerflad@gmail.com>
 
 pkgname=nyan-lang-git
-pkgver=r211.2cfcebc
+pkgver=0.2.r0.g8e618a0
 pkgrel=1
 pkgdesc="A data description language designed for openage"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
@@ -14,7 +14,7 @@ md5sums=('SKIP')
 
 pkgver() {
     cd "$pkgname"
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
