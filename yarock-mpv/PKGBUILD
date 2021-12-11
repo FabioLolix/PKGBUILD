@@ -23,7 +23,7 @@ prepare() {
 
 build() {
   cd build
-  cmake "../Yarock_${pkgver}_Sources" \
+  cmake "../Yarock_${pkgver}_Sources" -Wno-dev \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DENABLE_QT5=1 \
