@@ -1,7 +1,7 @@
 # Maintainer: Your Name <youremail@domain.com>
 
 pkgname=utsushi-git
-pkgver=r316.85d9379
+pkgver=r319.839d06a
 pkgrel=1
 pkgdesc=""
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -39,7 +39,7 @@ build() {
     --with-magick \
     --with-sane
 
-	make
+	make 
 
 #--with-gtkmm \ #gtkmm (gtk2)
 }

@@ -4,24 +4,24 @@
 pkgbase=lumina-desktop-utils
 pkgname=(lumina-icon-theme lumina-archiver lumina-fileinfo lumina-fm lumina-mediaplayer
          lumina-screenshot lumina-textedit lumina-open) #lumina-screencast lumina-terminal
-pkgver=1.6.1
+pkgver=1.6.2
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(qt5-base)
-makedepends=(qt5-svg qt5-tools qt5-x11extras qt5-multimedia poppler-qt5)
+makedepends=(git qt5-svg qt5-tools qt5-x11extras qt5-multimedia poppler-qt5)
 conflicts=(lumina-desktop)
-source=("lumina-desktop-${pkgver}.tar.gz::https://github.com/lumina-desktop/lumina/archive/v${pkgver}.tar.gz")
-sha512sums=('ff4a77812e8d91478cbfd123ddc545e5a4aaabf3d9f96e6dedc769eb9490e4ac372c4243dca9444cdf986886c08e2eaa587470c9bc8a5a00bbe10ff80ad64c96')
+source=("git+https://github.com/lumina-desktop/lumina.git#tag=v${pkgver}")
+sha512sums=('SKIP')
 
 _lumina-build() {
-    cd "${srcdir}/lumina-${pkgver}/src-qt5/${_location}/$pkgname"
+    cd "${srcdir}/lumina/src-qt5/${_location}/$pkgname"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
     make
     make INSTALL_ROOT="${pkgdir}" install
-    install -D "${srcdir}/lumina-${pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -D "${srcdir}/lumina/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 package_lumina-icon-theme() {
@@ -31,11 +31,11 @@ package_lumina-icon-theme() {
   depends=()
   options=(!strip)
 
-    cd "${srcdir}/lumina-${pkgver}/icon-theme"
+    cd "${srcdir}/lumina/icon-theme"
     qmake QMAKE_CFLAGS_ISYSTEM= PREFIX="/usr" LIBPREFIX=/usr/lib QT5LIBDIR=/usr/lib/qt CONFIG+=WITH_I18N L_MANDIR=/usr/share/man L_ETCDIR="/etc"
     make
     make INSTALL_ROOT="${pkgdir}" install
-    install -D "${srcdir}/lumina-${pkgver}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -D "${srcdir}/lumina/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 package_lumina-archiver() {

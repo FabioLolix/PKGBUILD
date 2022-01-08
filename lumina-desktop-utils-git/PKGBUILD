@@ -4,7 +4,7 @@
 pkgbase=lumina-desktop-utils-git
 pkgname=(lumina-icon-theme-git lumina-archiver-git lumina-fileinfo-git lumina-fm-git lumina-mediaplayer-git
          lumina-screenshot-git lumina-textedit-git lumina-open-git) #lumina-screencast-git lumina-terminal-git
-pkgver=1.6.1.r10.g77e6449d
+pkgver=1.6.2.r0.g92360ecb
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
@@ -13,7 +13,7 @@ license=(BSD)
 depends=(qt5-base)
 makedepends=(qt5-svg qt5-tools qt5-x11extras qt5-multimedia poppler-qt5 git)
 conflicts=(lumina-desktop lumina-desktop-git)
-source=("git+https://github.com/lumina-desktop/lumina")
+source=("git+https://github.com/lumina-desktop/lumina.git")
 sha512sums=('SKIP')
 
 pkgver() {
