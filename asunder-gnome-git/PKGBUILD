@@ -1,0 +1,43 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Xyne <ac xunilhcra enyx, backwards>
+# Contributor: Ronald van Haren <ronald.archlinux.org>
+# Contributor: cs-cam - me.at.camdaniel.com
+# Contributor: Sebastien Piccand <sebcactus gmail com>
+
+pkgname=asunder-gnome-git
+pkgver=r474.geab23fd
+pkgrel=1
+pkgdesc="a graphical CD ripper and encoder, Gtk3 fork from GNOME"
+arch=(x86_64)
+url="https://gitlab.gnome.org/Salamandar/asunder"
+license=(GPL2)
+depends=(gtk3 libcddb cdparanoia)
+makedepends=(git meson ninja intltool)
+optdepends=('lame: for mp3 support'
+            'vorbis-tools: for ogg support'
+            'fdkaac: for mp3 support'
+            'flac: for flac support'
+            'opus-tools: for opus support'
+            'wavpack: for wavpack support'
+            'musepack-tools: for musepack support'
+            'mac: for monkey audio support')
+provides=(asunder)
+conflicts=(asunder)
+source=("${pkgname%-git}::git+https://gitlab.gnome.org/Salamandar/asunder.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname%-git}"
+  printf "r%s.g%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "${pkgname%-git}"
+  meson build --prefix=/usr
+  ninja -C build
+}
+
+package() {
+  cd "${pkgname%-git}"
+  DESTDIR="${pkgdir}" ninja -C build install
+}
