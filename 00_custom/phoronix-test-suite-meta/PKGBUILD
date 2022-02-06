@@ -1,0 +1,39 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=phoronix-test-suite-meta
+pkgver=1
+pkgrel=1
+pkgdesc="The most comprehensive testing and benchmarking platform available for Linux"
+arch=(any)
+license=(GPL3)
+url="https://www.phoronix-test-suite.com/"
+depends=(phoronix-test-suite python php-gd
+        cmake meson gcc clang
+        sqlite3
+        gcc-fortran
+        blas
+        lapack
+        portaudio
+        unzip
+        mesa-demos
+        openmpi
+        gegl
+        gmic
+        hugin
+        tesseract
+        rawtherapee
+        gimp
+        darktable
+        python-mako #libplacebo test
+        python-numpy #stargate python-numpy not recognized
+        intel-compute-runtime level-zero-loader level-zero-headers #oneapi test
+)
+optdepends=(
+        ocrmypdf
+        'clang70: pts/oneapi-level-zero'
+        mongodb-bin
+        dune-common
+        'dune-core: Metapackage to install modules of DUNE Numerics'
+)
+
+# dune in repo is unrelated to DUNE Numerics
