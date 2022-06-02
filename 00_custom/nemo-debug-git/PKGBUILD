@@ -4,14 +4,14 @@
 # Contributor: Ner0
 
 pkgname=nemo-debug-git
-pkgver=4.6.5.r17.g52efe6f3
+pkgver=5.2.4.r10.g214131ed
 pkgrel=1
 pkgdesc="Cinnamon file manager, git-version"
 arch=(i686 x86_64)
 url="https://github.com/linuxmint/nemo"
 license=(GPL)
 depends=(cinnamon-desktop dconf exempi gvfs libexif
-         libnotify libxml2 python xapps)
+         libnotify libxml2 libgsf python xapps)
 makedepends=(git gobject-introspection intltool meson)
 optdepends=('cinnamon-translations: i18n'
             'ffmpegthumbnailer: support for video thumbnails')
