@@ -12,7 +12,7 @@ arch=(x86_64)
 url="http://littlesvr.ca/asunder/"
 license=(GPL2)
 depends=(gtk2 libcddb cdparanoia)
-makedepends=(svn pkgconfig intltool gettext)
+makedepends=(subversion pkgconfig intltool gettext)
 optdepends=(
   'lame: for mp3 support'
   'vorbis-tools: for ogg support'
