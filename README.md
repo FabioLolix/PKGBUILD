@@ -1,6 +1,6 @@
 ## Packaging guidelines & tips
 
-* prefer git+https over git:// for taking advantage of TLS encryption
+* prefer git+https over git:// for taking advantage of TLS encryption, also on github don't work since about April 2022
 
 * sha256 is the preferred hash check
 
@@ -25,21 +25,16 @@ when Pinta pkgbuild was in the AUR it failed to build with CZ_cz language due to
 
 * make downloaded sources non-conflicting and re-usable, i.e.
 
-  for archives: url/v.${pkgver}.tar.gz to ${pkgname}-${pkgver}::url/v.${pkgver}.tar.gz
+  for archives: `url/v.${pkgver}.tar.gz` to `${pkgname}-${pkgver}::url/v.${pkgver}.tar.gz`
 
   for git repository find a common ground for source name
 
-    + for git avoid ${pkgname}-${pkgver}::git+url/name.git (waste)
+    + for git avoid `${pkgname}-${pkgver}::git+url/name.git` (waste as redownload whole source )
 
-    + for git avoid ${pkgname}::git+url/name.git when pkgname=$NAME-git (i.e. textosaurus and textosaurus-git use the same source)
+    + for git avoid `${pkgname}::git+url/name.git when pkgname=$NAME-git` (i.e. textosaurus and textosaurus-git use the same source)
 
-    + for git avoid ${pkgname}::git+url/name.git when pkgname=name (pointless since source is already called 'name')
+    + for git avoid `${pkgname}::git+url/name.git` when pkgname=name (pointless since source is already called 'name')
 
-    + for ease of use when git source have uppercase name ${pkgname}::git+url/Name.git ${pkgname%-git}::git+url/Name.git
+    + for ease of use when git source have uppercase name `${pkgname}::git+url/Name.git ${pkgname%-git}::git+url/Name.git`
 
-* install not common licenses in ${pkgdir}/usr/share/licenses/${pkgname}, not mandatory to install common licenses; see 'licenses' package
-  
- 
-
-
-
+* install not common licenses in `${pkgdir}/usr/share/licenses/${pkgname}`, not mandatory to install common licenses; see 'licenses' package
