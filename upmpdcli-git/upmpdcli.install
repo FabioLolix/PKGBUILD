@@ -1,0 +1,16 @@
+post_install() {
+  if ! getent group upmpdcli >/dev/null; then
+     groupadd --system upmpdcli >/dev/null
+  fi
+  if ! getent passwd upmpdcli >/dev/null; then
+     useradd -g upmpdcli --system upmpdcli -s /bin/false -d / >/dev/null
+  fi
+  if [[ ! "$(stat -c '%U:%G' /etc/upmpdcli.conf)" == "upmpdcli:upmpdcli" ]]; then
+     chown upmpdcli:upmpdcli /etc/upmpdcli.conf
+  fi
+}
+
+post_upgrade() {
+  post_install $1
+  echo "WARNING! Name of the systemd-service changed from upmpcli.service to upmpdcli.service."
+}
