@@ -2,7 +2,7 @@
 # Contributor: Joe Davison <joe@warhaggis.com>
 
 pkgname=lgogdownloader-git
-pkgver=3.8.r6.g695916a
+pkgver=3.9.r0.g6560688
 pkgrel=1
 pkgdesc="Open source downloader for GOG.com games, uses the GOG.com API"
 url="https://sites.google.com/site/gogdownloader/"

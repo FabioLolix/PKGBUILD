@@ -33,5 +33,4 @@ build() {
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR="${pkgdir}" install
-  rm "${pkgdir}"/usr/lib/libcdck.a
 }

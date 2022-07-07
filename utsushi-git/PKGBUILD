@@ -14,9 +14,12 @@ optdepends=()
 provides=()
 conflicts=()
 backup=()
-options=()
+options=(!makeflags)
 source=("git+https://gitlab.com/utsushi/utsushi.git")
 sha256sums=('SKIP')
+
+export CFLAGS+=" -Wno-error"
+export CXXFLAGS="${CFLAGS}"
 
 pkgver() {
   cd utsushi

@@ -34,7 +34,6 @@ build() {
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DBUILD_WITH_QT6=ON \
-    -DENABLE_SPARKLE=OFF \
     -DENABLE_VLC=OFF
 
   make

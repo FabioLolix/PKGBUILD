@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=phockup-git
-pkgver=1.7.1.r3.ge060515
+pkgver=1.9.0.r5.gc08f580
 pkgrel=1
 pkgdesc="Media sorting tool to organize photos and videos from your camera in folders by year, month and day."
 arch=(any)

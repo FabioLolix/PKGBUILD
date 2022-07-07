@@ -2,10 +2,10 @@
 
 pkgbase=makemkv
 pkgname=(makemkv-cli makemkv)
-pkgver=1.14.7
+pkgver=1.17.0
 pkgrel=1
-arch=(i686 x86_64)
-url="http://www.makemkv.com"
+arch=(x86_64 i686)
+url="https://www.makemkv.com"
 license=(LGPL MPL custom)
 depends=(ffmpeg)
 makedepends=(qt5-base)
@@ -16,8 +16,8 @@ source=(${url}/download/${pkgbase}-bin-${pkgver}.tar.gz
         makemkv.1::https://aur.archlinux.org/cgit/aur.git/plain/makemkv.1?h=makemkv
         makemkvcon.1::https://aur.archlinux.org/cgit/aur.git/plain/makemkvcon.1?h=makemkv
         mmdtsdec.1::https://aur.archlinux.org/cgit/aur.git/plain/mmdtsdec.1?h=makemkv)
-sha256sums=('b66c676a32aa776635c56ad0193f8e3857791c02a10c48d1d85b4134fd1646a6'
-            'a95cb77030851138df0b936f2a2cf01f4b48b5a1a02a4599d82d3c073723cbf0'
+sha256sums=('e277d75722aede64ac1b564969c7d64608e00591b17068dc7a88358e7a03e2c0'
+            'ede75c7cc05dbef9d2e5c55d340dc090f58b25b0c809e2345c2554f0b20cf75f'
             '5573b2e4bade10d8cd258a7c235eb46f66ef8c8c97e5d5eb090c38fa0f94389b'
             'f12c0facf2f0071a9f728b138986f0a4c2b4ff6ace2dfb2e96364e215e9fda6f'
             '2a6237d3d5ce073734c658c7ec5d2141ecd0047e6d3c45d1bd594135c928878f')
@@ -52,12 +52,12 @@ package_makemkv() {
   cd "$srcdir/$pkgbase-oss-$pkgver"
   ./configure --prefix=/usr
   make
-  make DESTDIR="$pkgdir" install
+  make DESTDIR="${pkgdir}" install
 
   cd "$srcdir/$pkgbase-bin-$pkgver"
   install -d tmp
   echo accepted > tmp/eula_accepted
-  make DESTDIR="$pkgdir" install
+  make DESTDIR="${pkgdir}" install
 
   install -Dm 644 src/eula_en_linux.txt "${pkgdir}/usr/share/licenses/${pkgname}/eula_en_linux.txt"
 

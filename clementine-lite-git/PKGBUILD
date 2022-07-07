@@ -12,7 +12,7 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-lite-git
-pkgver=1.4.0rc1.r596.g590bcf1c7.0.g590bcf1c7
+pkgver=1.4.0rc2.r1.gbbda59a5f
 pkgrel=1
 pkgdesc="A modern music player and library organiser, disabled plugins"
 arch=(i686 x86_64 aarch64)
@@ -28,6 +28,7 @@ provides=(clementine)
 conflicts=(clementine)
 source=("clementine::git+https://github.com/clementine-player/Clementine.git")
 sha256sums=('SKIP')
+options=(!lto)
 
 pkgver() {
   cd "clementine"

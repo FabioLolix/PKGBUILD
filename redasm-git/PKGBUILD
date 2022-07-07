@@ -1,14 +1,14 @@
 # Maintainer: Martin Sandsmark <martin.sandsmark@kde.org>
 
 pkgname=redasm-git
-pkgver=3.0.0.beta5.r11.g6bc2a2f
+pkgver=3.0.0.beta5.r29.gfc73e1c
 pkgrel=1
 url="https://github.com/REDasmOrg/REDasm"
 arch=(i686 x86_64)
 pkgdesc="The OpenSource Disassembler"
 license=(GPL3)
 depends=(qt5-base)
-makedepends=(git cmake patchelf)
+makedepends=(git cmake patchelf qt5-tools qt5-x11extras)
 conflicts=(redasm)
 provides=(redasm)
 source=("git+https://github.com/REDasmOrg/REDasm.git"

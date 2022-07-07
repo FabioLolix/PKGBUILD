@@ -4,7 +4,7 @@
 pkgbase=lumina-desktop-utils-git
 pkgname=(lumina-icon-theme-git lumina-archiver-git lumina-fileinfo-git lumina-fm-git lumina-mediaplayer-git
          lumina-screenshot-git lumina-textedit-git lumina-open-git) #lumina-screencast-git lumina-terminal-git
-pkgver=1.6.2.r0.g92360ecb
+pkgver=1.6.2.r3.ge3a61411
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

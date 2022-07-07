@@ -8,7 +8,6 @@ pkgbase = gnome-video-arcade
 	license = GPL
 	makedepends = intltool
 	makedepends = itstool
-	makedepends = gnome-doc-utils
 	depends = dconf
 	depends = dbus
 	depends = gtk3
