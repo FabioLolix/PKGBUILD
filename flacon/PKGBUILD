@@ -2,34 +2,35 @@
 #
 # Contributor: satanselbow <igdfpm at gmail dot com>
 # Contributor: Artem Sereda <overmind88 at gmail dot com>
-
+#
 pkgname="flacon"
-pkgver="5.5.1"
+pkgver="9.0.0"
 pkgrel="1"
 pkgdesc="An Audio File Encoder. Extracts audio tracks from an audio CD image to separate tracks."
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'aarch64')
 url="https://flacon.github.io/"
+_url="https://github.com/${pkgname}"
 license=('LGPL2.1')
 makedepends=('cmake' 'icu' 'qt5-tools')
-depends=('hicolor-icon-theme' 'qt5-base' 'uchardet' 'ffmpeg')
+depends=('hicolor-icon-theme' 'qt5-base' 'uchardet' 'ffmpeg' 'taglib')
 optdepends=('flac: For FLAC support'
-            'vorbis-tools: For OGG support'
-            'mac: For APE support'
-            'wavpack: For WavPack support'
-            'ttaenc: For TrueAudio support'
             'lame: For MP3 support'
+            'mac: For APE support'
             'mp3gain: For MP3 Replay Gain support'
             'opus-tools: For OPUS support'
+            'sox: For SoX support'
+            'ttaenc: For TrueAudio support'
+            'vorbis-tools: For OGG support'
             'vorbisgain: For OGG Replay Gain support'
+            'wavpack: For WavPack support'
 )
-conflicts=('flacon-git')
-provides=("${pkgname}")
-source=("https://github.com/${pkgname}/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('bdeac2268536c790ede8928156c7a35019dd05ed1b16f04238394a238950d287')
+
+source=("${pkgname}-${pkgver}.tar.gz::${_url}/${pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=('a83d5fe297ceb6408b7f63c56a6be336fe1c6d06ebedcc0c84a3f7dd234140e4')
 
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}"
-    mkdir build
+    mkdir -p build
 
     cd build
     cmake .. -DCMAKE_INSTALL_PREFIX=/usr
@@ -38,9 +39,8 @@ build() {
 
 package() {
     cd "${srcdir}/${pkgname}-${pkgver}/build"
-    install -d ${pkgdir}/usr/share/licenses/${pkgname}
-    install -m 644 ../LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
+    install -D -m644 ../LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
     make DESTDIR="${pkgdir}" install
 }
 
-
+# vim: set ts=4 sw=4 et syn=sh ft=sh:
