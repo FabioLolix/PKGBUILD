@@ -1,0 +1,19 @@
+pkgbase = gnuclad-git
+	pkgdesc = Cladogram tree generator mainly used by Linux and BSD distribution timeline projects
+	pkgver = 0.2.4.r10.gd43f037
+	pkgrel = 2
+	url = https://github.com/FabioLolix/gnuclad
+	arch = i686
+	arch = x86_64
+	arch = arm
+	arch = armv6h
+	arch = armv7h
+	arch = aarch64
+	license = GPL3
+	makedepends = git
+	provides = gnuclad
+	conflicts = gnuclad
+	source = git+https://github.com/FabioLolix/gnuclad.git#branch=devel
+	sha256sums = SKIP
+
+pkgname = gnuclad-git

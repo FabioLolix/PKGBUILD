@@ -1,0 +1,39 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: void09  <sgmihai@gmail.com>
+# Contributor: Marti Raudsepp <marti@juffo.org>
+# Contributor: triaxx
+
+pkgname=gnuclad-git
+pkgver=0.2.4.r10.gd43f037
+pkgrel=2
+pkgdesc="Cladogram tree generator mainly used by Linux and BSD distribution timeline projects"
+arch=(i686 x86_64 arm armv6h armv7h aarch64)
+license=(GPL3)
+url="https://github.com/FabioLolix/gnuclad"
+makedepends=(git)
+provides=(gnuclad)
+conflicts=(gnuclad)
+source=("git+https://github.com/FabioLolix/gnuclad.git#branch=devel")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/${pkgname%-git}"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd "${srcdir}/${pkgname%-git}"
+  autoreconf -f -i
+}
+
+build() {
+  cd "${srcdir}/${pkgname%-git}"
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname%-git}"
+  make DESTDIR="${pkgdir}" install
+  install -D doc/man/gnuclad.1 -t "${pkgdir}"/usr/share/man/man1/
+}
