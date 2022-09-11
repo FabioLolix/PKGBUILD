@@ -24,21 +24,21 @@ provides=(brasero)
 conflicts=(brasero)
 replaces=(nautilus-cd-burner)
 options=(!emptydirs)
-source=("${pkgname%-git}::git+https://gitlab.gnome.org/GNOME/brasero.git/")
+source=("git+https://gitlab.gnome.org/GNOME/brasero.git#branch=main")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "${pkgname%-git}"
+  cd brasero
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "${pkgname%-git}"
+  cd brasero
   NOCONFIGURE=1 ./autogen.sh
 }
 
 build() {
-  cd "${pkgname%-git}"
+  cd brasero
   ./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
@@ -50,7 +50,7 @@ build() {
 }
 
 package() {
-  cd "${pkgname%-git}"
+  cd brasero
   make DESTDIR=$pkgdir install
 }
 

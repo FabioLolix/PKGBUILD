@@ -2,7 +2,7 @@
 # Contributor: Yosef Or Boczko <yoseforb@gnome.org>
 
 pkgname=baobab-git
-pkgver=42.alpha.r10.gcd0a02c
+pkgver=43.alpha.r1.g23a12b2
 pkgrel=1
 pkgdesc="A graphical directory tree analyzer"
 arch=(x86_64 i686 armv6h armv7h aarch64)
@@ -13,7 +13,7 @@ depends=(dconf gtk4 libadwaita gsettings-desktop-schemas librsvg)
 makedepends=(intltool itstool vala gobject-introspection yelp-tools appstream-glib git meson)
 provides=(baobab)
 conflicts=(baobab)
-source=("${pkgname%-git}::git+https://gitlab.gnome.org/GNOME/baobab.git")
+source=("${pkgname%-git}::git+https://gitlab.gnome.org/GNOME/baobab.git#branch=main")
 sha256sums=('SKIP')
 
 pkgver() {

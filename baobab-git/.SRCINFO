@@ -1,6 +1,6 @@
 pkgbase = baobab-git
 	pkgdesc = A graphical directory tree analyzer
-	pkgver = 42.alpha.r10.gcd0a02c
+	pkgver = 43.alpha.r1.g23a12b2
 	pkgrel = 1
 	url = https://wiki.gnome.org/Apps/DiskUsageAnalyzer
 	arch = x86_64
@@ -25,7 +25,7 @@ pkgbase = baobab-git
 	depends = librsvg
 	provides = baobab
 	conflicts = baobab
-	source = baobab::git+https://gitlab.gnome.org/GNOME/baobab.git
+	source = baobab::git+https://gitlab.gnome.org/GNOME/baobab.git#branch=main
 	sha256sums = SKIP
 
 pkgname = baobab-git

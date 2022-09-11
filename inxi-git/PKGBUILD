@@ -2,7 +2,7 @@
 # Contributor: FadeMind <fademind@gmail.com>
 
 pkgname=inxi-git
-pkgver=3.3.18.r0.g96be0735
+pkgver=3.3.20.r0.ga17d1b95
 pkgrel=1
 pkgdesc="Full featured CLI system information tool"
 arch=(any)
