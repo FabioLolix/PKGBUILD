@@ -405,11 +405,6 @@ echo "Done R"
 
 
 VAR2=s
-  VAR=selene-media-converter
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=showmypictures
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
