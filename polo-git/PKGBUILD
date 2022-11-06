@@ -2,13 +2,13 @@
 
 pkgname=polo-git
 pkgrel=1
-pkgver=18.8.beta.r36.ga86c950
+pkgver=18.8.beta.r44.ge27f7a4
 pkgdesc="A modern, light-weight GTK file manager for Linux,  currently in beta"
 arch=(i686 x86_64)
 url="https://teejee2008.github.io/polo/"
 license=(GPL2)
 depends=(gtk3 libgee libsoup vte3 rsync gvfs p7zip)
-makedepends=(vala0.44 git)
+makedepends=(vala git)
 optdepends=('mediainfo: read media properties from audio and video files'
             'fish: terminal shell'
             'perl-image-exiftool: read EXIF properties from JPG/TIFF/PNG/PDF files'
@@ -28,23 +28,17 @@ sha256sums=('SKIP'
             'bc44c97ae69ab97409716b9adda0ecaf056a62ec9aa710c5020a832192420b15')
 
 pkgver() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${srcdir}/polo"
   git describe --long --tags | sed 's/v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare() {
-  cd "$srcdir/${pkgname/-git/}"
-  patch -Np1 -i ../polo-create_tr.po.diff
-  patch -Np1 -i ../polo-fix-build.patch
-}
-
 build() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${srcdir}/polo"
   make
 }
 
 package() {
-  cd "$srcdir/${pkgname/-git/}"
+  cd "${srcdir}/polo"
   make DESTDIR="${pkgdir}" install
 
   ln -s /usr/bin/polo-gtk "${pkgdir}"/usr/bin/polo
