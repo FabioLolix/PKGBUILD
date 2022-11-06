@@ -46,6 +46,7 @@ pkgbase = handbrake-git
 	noextract = oneVPL-2021.6.0.tar.gz
 	noextract = x265_3.5.tar.gz
 	noextract = zimg-3.0.3.tar.gz
+	options = !lto
 	source = handbrake::git+https://github.com/HandBrake/HandBrake.git#branch=1.5.x
 	source = https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/AMF-1.4.18.tar.gz
 	source = https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/dav1d-0.9.2.tar.bz2

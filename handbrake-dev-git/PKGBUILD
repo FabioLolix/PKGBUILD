@@ -8,7 +8,7 @@
 
 pkgbase=handbrake-dev-git
 pkgname=(handbrake-dev-git handbrake-cli-dev-git)
-pkgver=1.5.0.r267.g4845c17b6
+pkgver=1.5.0.r334.g8bc44dfb6
 pkgrel=1
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened. Master branch"
 arch=(i686 x86_64)
@@ -39,35 +39,21 @@ optdepends=('libdvdcss: for decoding encrypted DVDs'
             'intel-media-sdk: for enabling Intel QSV'
             'nvidia-utils: for enabling Nvidia nvenc')
 sha256sums=('SKIP'
-            '4f21ee07c8bb9b73ff48dbce7cb0917cdcd4d81d33333da391d97ce7f00642fe'
-            '0d198c4fe63fe7f0395b1b17de75b21c8c4508cd3204996229355759efa30ef8'
+            '07d325da97a5a3cb58d83c54b2ce1148dc84dc9bb3971b0c30ff4cc16e159194'
+            '4a4eb6cecbc8c26916ef58886d478243de8bcc46710b369c04d6891b0155ac0f'
             'a4142815d8d52d0e798212a5adea54ecf42bcd4eec8092b37a8cb615ace91dc6'
-            '8fc9f20ac5ed95115a9e285647add0eedd5cc1a98a039ada14c132452f98ac42'
-            'e2dbaf99e84e0a9725f4985bcb85d41e52c2261cc651d8884b1b790b5ef016f9'
+            '32b56fb01ce90d452958ae25e91c9564abf49ed5453c127bec23c63e530aa8fa'
+            'c24b0f41c5b737bbb65c544fe63495637a771c10a519dfc802e769f112b43b75'
             'c191a7475947d323ff7680cf92c0fb1be8237701885f37656c64d04e98d18d48'
-            '3e357309a17c5be3731385b9eabda6b7e3fa010f46022a06f104553bf8e21796'
+            'ce35454997a208cbe50e91232f0e73fb1ac3471965813a13b8730a8f18a15369'
             '1fec931eb5c94279ad219a5b6e0202358e94a93a90cfb1603578c326abfc1238'
             '0790ff82158837124150ab4034db37433a92caac0f145f249d2f194d8ccba3ca'
             '97e37b85922f1167b2f0bf0bb804c3d7266cc679e78814fe820cf8912a0e1291'
-            'c83590c4b0d12c4a48f4cbf4b6e8d595bf1f6f96bb262d21457793d19f7b2b6a'
-            'e70a3335cacacbba0b3a20ec6fecd6783932288ebc8163ad74bcc9606477cae8'
-            '5e002992bfe8b9d2867fdc9266dc84faca46f0bfd931acc2ae0124972b6170a7')
-
-noextract=(
-    'AMF-1.4.18.tar.gz'
-    'dav1d-0.9.2.tar.bz2'
-    'fdk-aac-2.0.1.tar.gz'
-    'ffmpeg-4.4.1.tar.bz2'
-    'libbluray-1.3.0.tar.bz2'
-    'libdvdnav-6.1.1.tar.bz2'
-    'libdvdread-6.1.1.tar.bz2'
-    'libvpx-1.7.0.tar.gz'
-    'mfx_dispatch-1.35.tar.gz'
-    'nv-codec-headers-11.0.10.1.tar.gz'
-    'oneVPL-2021.6.0.tar.gz'
-    'x265_3.5.tar.gz'
-    'zimg-3.0.3.tar.gz'
-    )
+            '8ff93be017273eefa83dc6cd7f5d82facb168e38eafabafa2e9613a4e742016f'
+            '19ef8b21301f13d795601184884859e9f4a2f87fcda83757bd7dcd588056e926'
+            '219d1bc6b7fde1355d72c9b406ebd730a4aed9c21da779660f0a4c851243e32f')
+options=(!lto)
+noextract=(*.tar.gz)
 
 pkgver() {
   cd handbrake
@@ -116,7 +102,7 @@ package_handbrake-dev-git() {
 
 package_handbrake-cli-dev-git() {
   pkgdesc="Multithreaded video transcoder (CLI)"
-  depends=("${_commondeps[@]}")
+  depends=("${_commondeps[@]}" libjpeg-turbo)
   provides=(handbrake-cli)
   conflicts=(handbrake-cli)
 

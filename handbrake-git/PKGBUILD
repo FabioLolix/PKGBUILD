@@ -52,7 +52,7 @@ sha256sums=('SKIP'
             'c83590c4b0d12c4a48f4cbf4b6e8d595bf1f6f96bb262d21457793d19f7b2b6a'
             'e70a3335cacacbba0b3a20ec6fecd6783932288ebc8163ad74bcc9606477cae8'
             '5e002992bfe8b9d2867fdc9266dc84faca46f0bfd931acc2ae0124972b6170a7')
-
+options=(!lto)
 noextract=(
     'AMF-1.4.18.tar.gz'
     'dav1d-0.9.2.tar.bz2'
