@@ -1,6 +1,6 @@
 pkgbase = squeezelite-git
 	pkgdesc = Lightweight headless squeezebox emulator
-	pkgver = 1.9.9.1403.r474.bc72c0d
+	pkgver = 1.9.9.1411.r475.ca44fc6
 	pkgrel = 1
 	url = https://github.com/ralph-irving/squeezelite
 	install = squeezelite.install
