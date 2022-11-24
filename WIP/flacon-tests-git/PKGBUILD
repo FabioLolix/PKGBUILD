@@ -3,8 +3,8 @@
 # Contributor: satanselbow <igdfpm at gmail dot com>
 # Contributor: Artem Sereda <overmind88 at gmail dot com>
 
-pkgname=flacon
-pkgver=9.5.1
+pkgname=flacon-tests-git
+pkgver=9.5.1.r0.g9b3bef9
 pkgrel=1
 pkgdesc="An Audio File Encoder. Extracts audio tracks from an audio CD image to separate tracks."
 arch=(x86_64 i686 aarch64)
@@ -12,6 +12,7 @@ url="https://flacon.github.io/"
 license=(LGPL2.1)
 depends=(hicolor-icon-theme qt5-base uchardet taglib)
 makedepends=(git cmake icu qt5-tools)
+checkdepends=(mac ttaenc)
 optdepends=('flac: For FLAC support'
             'lame: For MP3 support'
             'mac: For APE support'
@@ -23,8 +24,15 @@ optdepends=('flac: For FLAC support'
             'vorbisgain: For OGG Replay Gain support'
             'wavpack: For WavPack support'
 )
-source=("git+https://github.com/flacon/flacon.git#tag=v${pkgver}")
+provides=(flacon)
+conflicts=(flacon)
+source=("git+https://github.com/flacon/flacon.git")
 sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}/flacon"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
 
 prepare() {
   cd "${srcdir}/flacon"
@@ -42,7 +50,7 @@ build() {
 
 check() {
   cd "${srcdir}/flacon/build"
-  #ctest --output-on-failure
+  ctest --output-on-failure
 }
 
 package() {
