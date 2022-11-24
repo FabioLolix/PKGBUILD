@@ -4,8 +4,8 @@
 # Contributor: triaxx
 
 pkgname=gnuclad-git
-pkgver=0.2.4.r10.gd43f037
-pkgrel=2
+pkgver=0.2.4.r10.g1acf3f7
+pkgrel=1
 pkgdesc="Cladogram tree generator mainly used by Linux and BSD distribution timeline projects"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)
 license=(GPL3)
