@@ -1,6 +1,6 @@
 pkgbase = libupnpp
 	pkgdesc = A C++ wrapper for libupnp - used with upmpdcli or upplay
-	pkgver = 0.22.2
+	pkgver = 0.22.3
 	pkgrel = 1
 	url = https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html
 	arch = x86_64
@@ -11,7 +11,7 @@ pkgbase = libupnpp
 	license = LGPL2.1
 	depends = libnpupnp
 	depends = expat
-	source = http://www.lesbonscomptes.com/upmpdcli/downloads/libupnpp-0.22.2.tar.gz
-	sha256sums = 90338c19383333fd4eeec8a866a8c4add1754ef9a6a720ddd9af97e6754ff849
+	source = http://www.lesbonscomptes.com/upmpdcli/downloads/libupnpp-0.22.3.tar.gz
+	sha256sums = a1339f6d2d79309e7077156b8c685aa5e9aa4b6be7f1cb6f8b68d5f4a5588fb8
 
 pkgname = libupnpp
