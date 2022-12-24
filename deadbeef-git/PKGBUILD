@@ -2,7 +2,7 @@
 # Contributor: archtux <antonio dot arias99999 at gmail dot com>
 
 pkgname=deadbeef-git
-pkgver=1.9.1.r127.g7b52bac5a
+pkgver=1.9.3.r116.gbc95dbef9
 pkgrel=1
 pkgdesc="Modular GTK audio player for GNU/Linux"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
@@ -58,7 +58,8 @@ prepare() {
   git submodule init
   git config 'submodule.external/mp4p.url' "${srcdir}/mp4p"
   git config 'submodule.external/apbuild.url' "${srcdir}/apbuild"
-  git -c submodule."osx/deps".update=none submodule update
+  git config submodule.osx/deps.update none
+  git -c protocol.file.allow=always submodule update
 
   ./autogen.sh
 }
