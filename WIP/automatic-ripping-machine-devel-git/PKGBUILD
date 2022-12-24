@@ -27,8 +27,8 @@ depends=(
         python-flask-migrate
         python-flask-cors
         python-psutil
-        #robobrowser
-        python-tinydownload #AUR -git
+        #robobrowser #misssing
+        #python-tinydownload #AUR -git
         python-netifaces
         python-flask-login
         python-apprise #AUR
@@ -42,11 +42,10 @@ optdepends=('makemkv-cli: BluRay ripping'
             'handbrake-full-cli: handbrake with all features'
             'plex-media-server: Plex support'
             'emby-server: Emby support')
-provides=('automatic-ripping-machine')
-conflicts=('automatic-ripping-machine')
+provides=(automatic-ripping-machine)
+conflicts=(automatic-ripping-machine)
 #backup=(root/.abcde.conf)
 #install=
-#changelog=
 source=("git+https://github.com/ahnooie/automatic-ripping-machine.git#branch=v2_master")
 sha256sums=('SKIP')
 
@@ -56,7 +55,8 @@ pkgver() {
 }
 
 package() {
-  install -d ${pkgdir}/root/
+  #install -d ${pkgdir}/root/
+  install -d ${pkgdir}/etc/arm/
   install -d ${pkgdir}/opt/arm/
   install -d ${pkgdir}/usr/lib/udev/rules.d/
   install -d ${pkgdir}/usr/lib/systemd/system/
@@ -68,29 +68,21 @@ package() {
 
   cp -r ${srcdir}/automatic-ripping-machine/* ${pkgdir}/opt/arm/
   mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/
-  mv ${pkgdir}/opt/arm/{CONTRIBUTING.md,README.md,CHANGELOG.md} ${pkgdir}/usr/share/doc/automatic-ripping-machine
+  mv ${pkgdir}/opt/arm/{README.md,CHANGELOG.md} ${pkgdir}/usr/share/doc/automatic-ripping-machine
   mv ${pkgdir}/opt/arm/setup/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
   mv ${pkgdir}/opt/arm/scripts/armui.service -t ${pkgdir}/usr/lib/systemd/system/
-  cp ${pkgdir}/opt/arm/setup.cfg ${pkgdir}/opt/arm/config
+  install ${pkgdir}/opt/arm/docs/arm.yaml.sample ${pkgdir}/opt/arm/arm.yaml
+
+  ln -s /opt/arm/arm.yaml ${pkgdir}/etc/arm/
+
+  #chown arm:arm arm.yaml
+
+  #cp ${pkgdir}/opt/arm/setup.cfg ${pkgdir}/opt/arm/config
   #install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
+
   #ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
   #chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
   #chmod -R 750 ${pkgdir}/root/.abcde.conf
-  rm -R ${pkgdir}/opt/arm/{requirements.txt,CODE_OF_CONDUCT.md,SECURITY.md,VERSION}
-
-
-
-#cd /opt
-#sudo mkdir arm
-#sudo chown arm:arm arm
-#sudo chmod 775 arm
-#git clone https://github.com/automatic-ripping-machine/automatic-ripping-machine.git arm
-#cd arm
-
-#sudo ln -s /opt/arm/setup/51-automedia.rules /lib/udev/rules.d/
-#sudo cp /opt/arm/setup/arm@.service /etc/systemd/system/
-#ln -s /opt/arm/setup/.abcde.conf ~/
-#cp docs/arm.yaml.sample arm.yaml
-#sudo mkdir /etc/arm/
-#sudo ln -s /opt/arm/arm.yaml /etc/arm/
+  rm -R ${pkgdir}/opt/arm/{CONTRIBUTING.md,requirements.txt,CODE_OF_CONDUCT.md,SECURITY.md,VERSION}
+  rm -R ${pkgdir}/opt/arm/scripts/{debian-setup.sh,deb-install-quiet.sh,gentoo-setup-openrc.sh,ubuntu-20.04-install.sh,ubuntu-quicksync.sh}
 }
