@@ -531,6 +531,16 @@ echo "Done X"
 
 
 VAR2=y
+  VAR=yacreader-poppler
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+  VAR=yacreader-poppler-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=yarock-mpv
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
