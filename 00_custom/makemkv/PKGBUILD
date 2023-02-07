@@ -2,7 +2,7 @@
 
 pkgbase=makemkv
 pkgname=(makemkv-cli makemkv)
-pkgver=1.17.1
+pkgver=1.17.3
 pkgrel=1
 arch=(x86_64 i686)
 url="https://www.makemkv.com"
@@ -16,8 +16,8 @@ source=(${url}/download/${pkgbase}-bin-${pkgver}.tar.gz
         makemkv.1::https://aur.archlinux.org/cgit/aur.git/plain/makemkv.1?h=makemkv
         makemkvcon.1::https://aur.archlinux.org/cgit/aur.git/plain/makemkvcon.1?h=makemkv
         mmdtsdec.1::https://aur.archlinux.org/cgit/aur.git/plain/mmdtsdec.1?h=makemkv)
-sha256sums=('0784908b07f9fc87307a0f958105b7e2d37f5f10c0ef1a1280854e7d7c06b1f3'
-            '0d572b1b937d97275cb75d71a142b3d555428aebd53a64161a500fda7ae766fe'
+sha256sums=('1cd633bfb381faa4f22ab57f6b75053c1b18997c223ed7988896c8c15cd1bee0'
+            '16be3ee29c1dd3d5292f793e9f5efbcd30a59bf035de79586e9afbfa98a6a4cb'
             '5573b2e4bade10d8cd258a7c235eb46f66ef8c8c97e5d5eb090c38fa0f94389b'
             'f12c0facf2f0071a9f728b138986f0a4c2b4ff6ace2dfb2e96364e215e9fda6f'
             '2a6237d3d5ce073734c658c7ec5d2141ecd0047e6d3c45d1bd594135c928878f')
