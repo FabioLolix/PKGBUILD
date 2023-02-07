@@ -270,6 +270,11 @@ VAR2=m
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+  VAR=makemkv
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=mauikit-git
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO

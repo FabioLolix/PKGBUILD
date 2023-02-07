@@ -1,26 +1,25 @@
-# Maintainer: Marcel Korpel <marcel[dot]korpel[at]gmail>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Marcel Korpel <marcel[dot]korpel[at]gmail>
 # Contributor: Olaf Bauer <hydro@freenet.de>
 
 pkgname=makemkv
-pkgver=1.16.5
+pkgver=1.17.3
 pkgrel=1
-pkgdesc="DVD and Blu-ray to MKV converter and network streamer"
-arch=('i686' 'x86_64')
+pkgdesc="DVD and Blu-ray to MKV converter"
+arch=(x86_64 i686 aarch64)
 url="https://www.makemkv.com"
-license=('LGPL' 'MPL' 'custom')
-depends=('qt5-base' 'libxkbcommon-x11' 'hicolor-icon-theme' 'icu' 'ffmpeg')
-if [ "$CARCH" = "x86_64" ]; then
-  optdepends=('lib32-glibc: dts support'
-              'ccextractor: extract CC streams from some DVD media')
-fi
+license=('custom: GuinpinSoft Inc EULA' LGPL MPL)
+depends=(qt5-base ffmpeg)
+optdepends=(java-runtime)
+optdepends_x86_64=('lib32-glibc: dts support')
 install=makemkv.install
 source=(${url}/download/${pkgname}-bin-${pkgver}.tar.gz
         ${url}/download/${pkgname}-oss-${pkgver}.tar.gz
         makemkv.1
         makemkvcon.1
         mmdtsdec.1)
-sha256sums=('a06e1ef1e2442b8490b783030c5c16cac2d6404525632234c04d032961f724f8'
-            'e58e34b3ce95462bc38a242a120692c2b4e56c5a98e57cce372931ff486c3b8c'
+sha256sums=('1cd633bfb381faa4f22ab57f6b75053c1b18997c223ed7988896c8c15cd1bee0'
+            '16be3ee29c1dd3d5292f793e9f5efbcd30a59bf035de79586e9afbfa98a6a4cb'
             '5573b2e4bade10d8cd258a7c235eb46f66ef8c8c97e5d5eb090c38fa0f94389b'
             'f12c0facf2f0071a9f728b138986f0a4c2b4ff6ace2dfb2e96364e215e9fda6f'
             '2a6237d3d5ce073734c658c7ec5d2141ecd0047e6d3c45d1bd594135c928878f')
@@ -33,12 +32,12 @@ build() {
 
 package() {
   cd "${srcdir}/${pkgname}-oss-${pkgver}"
-  make DESTDIR=\""${pkgdir}"\" install
+  make DESTDIR="${pkgdir}" install
 
   cd "${srcdir}/${pkgname}-bin-${pkgver}"
   install -d tmp
   echo accepted > tmp/eula_accepted
-  make DESTDIR=\""${pkgdir}"\" install
+  make DESTDIR="${pkgdir}" install
 
   install -Dm 644 src/eula_en_linux.txt "${pkgdir}/usr/share/licenses/${pkgname}/eula_en_linux.txt"
 
