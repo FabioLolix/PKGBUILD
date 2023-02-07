@@ -95,11 +95,6 @@ echo "Done E"
 
 
 VAR2=f
-  VAR=faience-ng-icon-theme
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=flacon
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -270,11 +265,6 @@ echo "Done L"
 
 
 VAR2=m
-  VAR=madrigal-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=makemkv
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -511,7 +501,7 @@ echo "Done T"
 
 VAR2=u
   VAR=upmpdcli
-  cd "$DEST/$VAR2/$VAR"
+  cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
