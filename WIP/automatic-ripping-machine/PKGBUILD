@@ -1,37 +1,83 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=automatic-ripping-machine
-pkgver=1.4.0
+pkgver=2.6.12
 pkgrel=1
-pkgdesc=""
-arch=('x86_64')
+pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
+arch=(x86_64)
 url="https://b3n.org/automatic-ripping-machine/"
-license=('MIT')
-groups=()
-depends=()
-makedepends=()
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
+license=(MIT)
+depends=(
+        at glyr  
+        flac imagemagick
+        abcde handbrake-cli libdvdcss
+
+         # python requirements.txt
+        python-markdown
+        python-pycurl
+        python-pydvdid #AUR
+        python-requests
+        python-urllib3
+        python-xmltodict
+        python-pyudev
+        python-yaml
+        python-flask
+        python-flask-wtf
+        python-flask-sqlalchemy
+        python-flask-migrate
+        python-flask-cors
+        python-psutil
+        #robobrowser #misssing
+        #python-tinydownload #AUR -git
+        python-netifaces
+        python-flask-login
+        python-apprise #AUR
+        python-bcrypt
+        python-musicbrainzngs
+        python-discid
+        python-prettytable
+        )
+makedepends=(git)
+optdepends=('makemkv-cli: BluRay ripping'
+            'handbrake-full-cli: handbrake with all features'
+            'plex-media-server: Plex support'
+            'emby-server: Emby support')
+provides=(automatic-ripping-machine)
+conflicts=(automatic-ripping-machine)
+#backup=(root/.abcde.conf)
 #install=
-#changelog=
-
-source=("https://github.com/ahnooie/automatic-ripping-machine/archive/v${pkgver}.tar.gz")
-md5sums=('ac81961ac1c39ed2f20747adf1ca4c54')
-
+source=("git+https://github.com/ahnooie/automatic-ripping-machine.git#tag=v${pkgver}")
+sha256sums=('SKIP')
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}
-
+  #install -d ${pkgdir}/root/
+  install -d ${pkgdir}/etc/arm/
   install -d ${pkgdir}/opt/arm/
-  install -Dm755 *{.sh,.py,.xml} ${pkgdir}/opt/arm/
-#    ln -s /opt/arm/51-automedia.rules /lib/udev/rules.d/
-#    ln -s /opt/arm/.abcde.conf /root/
-#    cp config.sample config
+  install -d ${pkgdir}/usr/lib/udev/rules.d/
+  install -d ${pkgdir}/usr/lib/systemd/system/
+  install -d ${pkgdir}/usr/share/doc/automatic-ripping-machine
+  install -d ${pkgdir}/usr/share/licenses/${pkgname}
 
-#  install -d suca
+#  chown arm:arm ${pkgdir}/opt/arm/
+#  chmod 775 ${pkgdir}/opt/arm/
+
+  cp -r ${srcdir}/automatic-ripping-machine/* ${pkgdir}/opt/arm/
+  mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/
+  mv ${pkgdir}/opt/arm/{README.md,CHANGELOG.md} ${pkgdir}/usr/share/doc/automatic-ripping-machine
+  mv ${pkgdir}/opt/arm/setup/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
+  #mv ${pkgdir}/opt/arm/scripts/armui.service -t ${pkgdir}/usr/lib/systemd/system/
+  #install ${pkgdir}/opt/arm/docs/arm.yaml.sample ${pkgdir}/opt/arm/arm.yaml
+
+  ln -s /opt/arm/arm.yaml ${pkgdir}/etc/arm/
+
+  #chown arm:arm arm.yaml
+
+  #cp ${pkgdir}/opt/arm/setup.cfg ${pkgdir}/opt/arm/config
+  #install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
+
+  #ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
+  #chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
+  #chmod -R 750 ${pkgdir}/root/.abcde.conf
+  #rm -R ${pkgdir}/opt/arm/{CONTRIBUTING.md,requirements.txt,CODE_OF_CONDUCT.md,SECURITY.md,VERSION}
+  #rm -R ${pkgdir}/opt/arm/scripts/{debian-setup.sh,deb-install-quiet.sh,gentoo-setup-openrc.sh,ubuntu-20.04-install.sh,ubuntu-quicksync.sh}
 }

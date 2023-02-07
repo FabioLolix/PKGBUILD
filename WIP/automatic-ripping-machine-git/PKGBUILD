@@ -1,7 +1,8 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
+_pkgname=automatic-ripping-machine
 pkgname=automatic-ripping-machine-git
-pkgver=2.0.1.r0.g7db4b7e
+pkgver=2.5.3_dev.r28.ga20f95e
 pkgrel=1
 pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
 arch=('x86_64')
@@ -18,11 +19,11 @@ provides=('automatic-ripping-machine')
 conflicts=('automatic-ripping-machine')
 backup=(opt/arm/setup/.abcde.conf
         opt/arm/arm.yaml)
-source=("${pkgname}::git+https://github.com/ahnooie/automatic-ripping-machine.git")
+source=("git+https://github.com/ahnooie/automatic-ripping-machine.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd ${pkgname}
+  cd ${_pkgname}
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
@@ -31,16 +32,16 @@ package() {
   install -d ${pkgdir}/{etc,opt}/arm/
   install -d ${pkgdir}/usr/lib/udev/rules.d/
   install -d ${pkgdir}/usr/lib/systemd/system/
-  install -d ${pkgdir}/usr/share/{licenses,doc}/${pkgname}
+  install -d ${pkgdir}/usr/share/{licenses,doc}/${_pkgname}
 
-  cp -r ${srcdir}/${pkgname}/* ${pkgdir}/opt/arm/
+  cp -r ${srcdir}/${_pkgname}/* ${pkgdir}/opt/arm/
   cp ${pkgdir}/opt/arm/docs/arm.yaml.sample ${pkgdir}/opt/arm/arm.yaml
   ln -s /opt/arm/arm.yaml ${pkgdir}/etc/arm/
 
-  mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/
-  mv ${pkgdir}/opt/arm/{CONTRIBUTING.md,README.md,CHANGELOG.md} ${pkgdir}/usr/share/doc/${pkgname}/
+  mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${_pkgname}/
+  mv ${pkgdir}/opt/arm/{CONTRIBUTING.md,README.md,CHANGELOG.md} ${pkgdir}/usr/share/doc/${_pkgname}/
 
-  mv ${pkgdir}/opt/arm/docs/{arm.yaml.sample,README-OMDBAPI.txt} ${pkgdir}/usr/share/doc/${pkgname}/
+  mv ${pkgdir}/opt/arm/docs/{arm.yaml.sample,README-OMDBAPI.txt} ${pkgdir}/usr/share/doc/${_pkgname}/
 
 #  mv ${pkgdir}/opt/arm/setup/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
   ln -s /opt/arm/setup/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
@@ -52,7 +53,7 @@ package() {
 
 
 #  cp ${pkgdir}/opt/arm/config.sample ${pkgdir}/opt/arm/config
-#  install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
+#  install -D ${srcdir}/${_pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
 #  ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
 #  chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
 #  #chmod -R 750 ${pkgdir}/root/.abcde.conf
