@@ -505,6 +505,10 @@ echo "Done T"
 
 
 VAR2=u
+  VAR=upmpdcli
+  cd "$DEST/$VAR2/$VAR"
+    git pull
+    rsync {PKGBUILD,.SRCINFO} "$BASE/$VAR/"
 
   VAR=upplay
   cd "$BASE/$VAR"
