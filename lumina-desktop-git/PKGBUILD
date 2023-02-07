@@ -4,7 +4,7 @@
 # Contributor: Josip Ponjavic <josipponjavic at gmail dot com>
 
 pkgname=lumina-desktop-git
-pkgver=1.6.2.r3.ge3a61411
+pkgver=1.6.2.r4.g86d0e6fc
 pkgrel=1
 pkgdesc="A Lightweight QT5 Desktop for FreeBSD"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)

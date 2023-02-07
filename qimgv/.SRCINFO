@@ -11,6 +11,7 @@ pkgbase = qimgv
 	license = GPL3
 	makedepends = cmake
 	makedepends = qt5-tools
+	makedepends = ffnvcodec-headers
 	depends = qt5-base
 	depends = qt5-imageformats
 	depends = qt5-svg

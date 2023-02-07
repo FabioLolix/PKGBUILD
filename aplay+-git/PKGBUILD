@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=aplay+-git
-pkgver=r113.6fb010d
+pkgver=r116.6a3caaf
 pkgrel=1
 pkgdesc="Simple CLI BitPerfect player"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)

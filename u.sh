@@ -145,6 +145,11 @@ VAR2=g
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+  VAR=gparted-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=guitar
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO

@@ -8,13 +8,13 @@ arch=(x86_64 i686 armv6h armv7h aarch64)
 url="https://github.com/easymodo/qimgv"
 license=(GPL3)
 depends=(qt5-base qt5-imageformats qt5-svg mpv exiv2 opencv)
-makedepends=(git cmake qt5-tools)
+makedepends=(git cmake qt5-tools ffnvcodec-headers)
 optdepednds=('qt5-apng-plugin: animated png support'
              'qtraw: raw images support')
 provides=(qimgv)
 conflicts=(qimgv)
 source=("git+https://github.com/easymodo/qimgv.git")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
     cd "${pkgname%-git}"

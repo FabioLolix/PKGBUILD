@@ -1,6 +1,6 @@
 pkgbase = spreadsheet-git
 	pkgdesc = Spreadsheet program built with Vala and GTK+, especially for elementary OS
-	pkgver = r157.9e6948b
+	pkgver = r163.afa15b1
 	pkgrel = 1
 	url = https://github.com/ryonakano/Spreadsheet
 	arch = x86_64

@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=libnpupnp-git
-pkgver=4.2.1.r71.gcb07b8b
+pkgver=4.2.1.r75.gb7cc769
 pkgrel=1
 pkgdesc="C++ base UPnP library, derived from Portable UPnP, a.k.a libupnp"
 url="https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html"
