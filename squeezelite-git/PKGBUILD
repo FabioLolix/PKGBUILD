@@ -3,7 +3,7 @@
 # Contributor: Mika Fischer <mika.fischer@zoopnet.de>
 
 pkgname=squeezelite-git
-pkgver=1.9.9.1414.r478.dbe69eb
+pkgver=1.9.9.1422.r485.g6394b3f
 pkgrel=1
 pkgdesc="Lightweight headless squeezebox emulator"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)
@@ -28,7 +28,7 @@ pkgver() {
   _min=$(cat squeezelite.h|grep "#define MINOR_VERSION" | awk '{print $3}' | sed 's/\"//g;s/-/_/g')
   _mic=$(cat squeezelite.h|grep "#define MICRO_VERSION" | awk '{print $3}' | sed 's/\"//g;s/-/_/g')
 
-  printf "%s.r%s.%s"  "${_maj}.${_min}.${_mic}" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  printf "%s.r%s.g%s"  "${_maj}.${_min}.${_mic}" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
