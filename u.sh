@@ -73,7 +73,7 @@ VAR2=d
   VAR=dvdae-bin
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+    rsync {PKGBUILD,.SRCINFO,*.install} "$DEST/$VAR2/$VAR"
 
 echo "Done D"
 
