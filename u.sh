@@ -50,11 +50,6 @@ VAR2=c
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
-  VAR=clementine-lite-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
 echo "Done C"
 
 
