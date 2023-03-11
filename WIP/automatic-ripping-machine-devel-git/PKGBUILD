@@ -1,16 +1,22 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=automatic-ripping-machine-devel-git
-pkgver=2.5.3_dev.r28.ga20f95e
+pkgver=2.6.12.r3.g5941719
 pkgrel=1
 pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
 arch=(x86_64)
 url="https://b3n.org/automatic-ripping-machine/"
 license=(MIT)
 depends=(
-        at glyr  
-        flac imagemagick
-        abcde handbrake-cli libdvdcss
+        abcde
+        at
+        flac
+        glyr
+        handbrake-cli
+        imagemagick
+        jre-openjdk-headless
+        libdvdcss
+        makemkv-cli
 
          # python requirements.txt
         python-markdown
@@ -38,15 +44,12 @@ depends=(
         python-prettytable
         )
 makedepends=(git)
-optdepends=('makemkv-cli: BluRay ripping'
-            'handbrake-full-cli: handbrake with all features'
-            'plex-media-server: Plex support'
-            'emby-server: Emby support')
+optdepends=('handbrake-full-cli: handbrake with all features')
 provides=(automatic-ripping-machine)
 conflicts=(automatic-ripping-machine)
-#backup=(root/.abcde.conf)
+#backup=()
 #install=
-source=("git+https://github.com/ahnooie/automatic-ripping-machine.git#branch=v2_master")
+source=("git+https://github.com/automatic-ripping-machine/automatic-ripping-machine.git#branch=v2_master")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -55,34 +58,30 @@ pkgver() {
 }
 
 package() {
-  #install -d ${pkgdir}/root/
-  install -d ${pkgdir}/etc/arm/
   install -d ${pkgdir}/opt/arm/
   install -d ${pkgdir}/usr/lib/udev/rules.d/
   install -d ${pkgdir}/usr/lib/systemd/system/
   install -d ${pkgdir}/usr/share/doc/automatic-ripping-machine
   install -d ${pkgdir}/usr/share/licenses/${pkgname}
 
-#  chown arm:arm ${pkgdir}/opt/arm/
-#  chmod 775 ${pkgdir}/opt/arm/
+  cd automatic-ripping-machine
+  cp -r arm              ${pkgdir}/opt/arm/
+  install favicon.ico -t ${pkgdir}/opt/arm/
+  install setup.cfg   -t ${pkgdir}/opt/arm/
 
-  cp -r ${srcdir}/automatic-ripping-machine/* ${pkgdir}/opt/arm/
-  mv ${pkgdir}/opt/arm/LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/
-  mv ${pkgdir}/opt/arm/{README.md,CHANGELOG.md} ${pkgdir}/usr/share/doc/automatic-ripping-machine
+  install LICENSE      -t ${pkgdir}/usr/share/licenses/${pkgname}/
+  install README.md    -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
+  install CHANGELOG.md -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
+
+  install docs/README-OMDBAPI.md  -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
+  install docs/README-TMDBAPI.txt -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
+
+  cp -r scripts ${pkgdir}/opt/arm/
+  rm -R ${pkgdir}/opt/arm/scripts/docker
+  rm -R ${pkgdir}/opt/arm/scripts/installers
+
+  cp -r setup ${pkgdir}/opt/arm/
   mv ${pkgdir}/opt/arm/setup/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
-  mv ${pkgdir}/opt/arm/scripts/armui.service -t ${pkgdir}/usr/lib/systemd/system/
-  install ${pkgdir}/opt/arm/docs/arm.yaml.sample ${pkgdir}/opt/arm/arm.yaml
-
-  ln -s /opt/arm/arm.yaml ${pkgdir}/etc/arm/
-
-  #chown arm:arm arm.yaml
-
-  #cp ${pkgdir}/opt/arm/setup.cfg ${pkgdir}/opt/arm/config
-  #install -D ${srcdir}/${pkgname}/.abcde.conf ${pkgdir}/opt/arm/abcde.conf
-
-  #ln -s /opt/arm/abcde.conf ${pkgdir}/root/.abcde.conf
-  #chmod -R 644 ${pkgdir}/opt/arm/{abcde.conf,config,config.sample}
-  #chmod -R 750 ${pkgdir}/root/.abcde.conf
-  rm -R ${pkgdir}/opt/arm/{CONTRIBUTING.md,requirements.txt,CODE_OF_CONDUCT.md,SECURITY.md,VERSION}
-  rm -R ${pkgdir}/opt/arm/scripts/{debian-setup.sh,deb-install-quiet.sh,gentoo-setup-openrc.sh,ubuntu-20.04-install.sh,ubuntu-quicksync.sh}
+  mv ${pkgdir}/opt/arm/setup/armui.service -t ${pkgdir}/usr/lib/systemd/system/
+  rm ${pkgdir}/opt/arm/setup/51-docker-arm.rules
 }
