@@ -8,7 +8,7 @@
 
 pkgbase=handbrake-dev-git
 pkgname=(handbrake-dev-git handbrake-cli-dev-git)
-pkgver=1.6.0.r75.ga85e29b5e
+pkgver=1.6.0.r182.g36847643a
 pkgrel=1
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened. Master branch"
 arch=(i686 x86_64)
@@ -92,7 +92,6 @@ prepare() {
   ./configure \
     --prefix=/usr \
     --harden \
-    --disable-gtk-update-checks \
     --enable-x265 \
     --enable-numa \
     --enable-fdk-aac \
