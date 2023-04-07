@@ -9,7 +9,7 @@
 pkgbase=handbrake-full
 pkgname=(handbrake-full handbrake-full-cli)
 pkgver=1.6.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened"
 arch=(i686 x86_64)
 url="https://handbrake.fr/"
@@ -30,7 +30,7 @@ source=("${pkgbase%-full}::git+https://github.com/HandBrake/HandBrake.git#tag=${
         'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/SVT-AV1-v1.4.1.tar.gz'
         'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/x265-snapshot-20221130-12747.tar.gz'
         'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/zimg-3.0.4.tar.gz')
-_commondeps=(libxml2 libass libvorbis opus speex libtheora lame
+_commondeps=(libxml2 libass libvorbis opus speex libtheora lame libjpeg-turbo
              libx264.so jansson libvpx libva numactl)
 _guideps=(gst-plugins-base gtk3 librsvg libgudev)
 makedepends=(git intltool python nasm wget cmake meson
