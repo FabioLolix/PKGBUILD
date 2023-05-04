@@ -4,12 +4,12 @@
 # Contributor: cs-cam - me.at.camdaniel.com
 # Contributor: Sebastien Piccand <sebcactus gmail com>
 
-pkgname=asunder-gnome-git
-pkgver=r474.geab23fd
+pkgname=grimripper-git
+pkgver=3.0.0.r8.g53011c9
 pkgrel=1
 pkgdesc="a graphical CD ripper and encoder, Gtk3 fork from GNOME"
 arch=(x86_64)
-url="https://gitlab.gnome.org/Salamandar/asunder"
+url="https://gitlab.gnome.org/Salamandar/GrimRipper"
 license=(GPL2)
 depends=(gtk3 libcddb cdparanoia)
 makedepends=(git meson ninja intltool)
@@ -21,23 +21,23 @@ optdepends=('lame: for mp3 support'
             'wavpack: for wavpack support'
             'musepack-tools: for musepack support'
             'mac: for monkey audio support')
-provides=(asunder)
-conflicts=(asunder)
-source=("${pkgname%-git}::git+https://gitlab.gnome.org/Salamandar/asunder.git")
+provides=(grimripper)
+conflicts=(grimripper)
+source=("git+https://gitlab.gnome.org/Salamandar/GrimRipper.git")
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "${pkgname%-git}"
-  printf "r%s.g%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd GrimRipper
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd "${pkgname%-git}"
+  cd GrimRipper
   meson build --prefix=/usr
   ninja -C build
 }
 
 package() {
-  cd "${pkgname%-git}"
+  cd GrimRipper
   DESTDIR="${pkgdir}" ninja -C build install
 }
