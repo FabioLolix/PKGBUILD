@@ -5,7 +5,7 @@
 # Contributor: Sebastien Piccand <sebcactus gmail com>
 
 pkgname=asunder-svn
-pkgver=r456
+pkgver=r463
 pkgrel=1
 pkgdesc="a graphical CD ripper and encoder"
 arch=(x86_64)
