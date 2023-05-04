@@ -1,5 +1,5 @@
 pkgbase = alacenc
-	pkgdesc = Encode audio into the Apple Lossless Audio Codec (ALAC) format. (Git Version)
+	pkgdesc = Encode audio into the Apple Lossless Audio Codec (ALAC) format
 	pkgver = 0.3.0
 	pkgrel = 1
 	url = https://github.com/flacon/alacenc

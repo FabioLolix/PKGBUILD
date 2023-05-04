@@ -4,7 +4,7 @@
 pkgname=alacenc
 pkgver=0.3.0
 pkgrel=1
-pkgdesc="Encode audio into the Apple Lossless Audio Codec (ALAC) format. (Git Version)"
+pkgdesc="Encode audio into the Apple Lossless Audio Codec (ALAC) format"
 arch=(x86_64)
 url="https://github.com/flacon/alacenc"
 license=(MIT)
