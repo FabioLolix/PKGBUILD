@@ -2,21 +2,30 @@
 
 pkgname=automatic-ripping-machine
 pkgver=2.6.18
-pkgrel=1
+pkgrel=2
 pkgdesc="Automatic Ripping Machine (ARM) scripts for CD, DVD and Blu-Ray"
 arch=(x86_64)
 url="https://b3n.org/automatic-ripping-machine/"
 license=(MIT)
 depends=(
         abcde
+        alsa-lib
         at
+        atomicparsley
+        avahi
+        ffmpeg
         flac
+        git
         glyr
         handbrake-cli
         imagemagick
         jre-openjdk-headless
         libdvdcss
+        lsdvd
+        lsscsi
         makemkv-cli
+        net-tools
+        util-linux #eject
 
          # python requirements.txt
         python-markdown
@@ -33,7 +42,7 @@ depends=(
         python-flask-migrate
         python-flask-cors
         python-psutil
-        #robobrowser #misssing
+        python-robobrowser-git #my local pkgbuild
         #python-tinydownload #AUR -git
         python-netifaces
         python-flask-login
@@ -45,13 +54,18 @@ depends=(
         )
 makedepends=(git)
 optdepends=('handbrake-full-cli: handbrake with all features')
-#backup=()
+backup=(
+    opt/arm/setup/apprise.yaml
+    opt/arm/setup/arm.yaml
+    )
 #install=
+options=(!strip)
 source=("git+https://github.com/automatic-ripping-machine/automatic-ripping-machine.git#tag=v${pkgver}")
 sha256sums=('SKIP')
 
 package() {
-  install -d ${pkgdir}/etc
+  install -d ${pkgdir}/etc/arm/config
+  install -d ${pkgdir}/etc/rsyslog.d/
   install -d ${pkgdir}/opt/arm/
   install -d ${pkgdir}/opt/arm/scripts
   install -d ${pkgdir}/opt/arm/setup
@@ -62,8 +76,10 @@ package() {
 
   cd automatic-ripping-machine
   cp -r arm              ${pkgdir}/opt/arm/
+  cp -r .git             ${pkgdir}/opt/arm/
   install favicon.ico -t ${pkgdir}/opt/arm/
   install setup.cfg   -t ${pkgdir}/opt/arm/
+  install VERSION     -t ${pkgdir}/opt/arm/
 
   install LICENSE      -t ${pkgdir}/usr/share/licenses/${pkgname}/
   install README.md    -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
@@ -72,24 +88,30 @@ package() {
   install docs/README-OMDBAPI.md  -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
   install docs/README-TMDBAPI.txt -t ${pkgdir}/usr/share/doc/automatic-ripping-machine
 
-  #cp -r scripts ${pkgdir}/opt/arm/
-  #rm -R ${pkgdir}/opt/arm/scripts/docker
-  #rm -R ${pkgdir}/opt/arm/scripts/installers
-
   cd scripts
   cp -r thickclient ${pkgdir}/opt/arm/scripts
   install update_key.sh -t ${pkgdir}/opt/arm/scripts
   cd ..
 
   cd setup
-  install 30-arm.conf        -t ${pkgdir}/etc
+  install 30-arm.conf        -t ${pkgdir}/etc/rsyslog.d/
+  install 30-arm.conf        -t ${pkgdir}/opt/arm/setup
   install 51-automedia.rules -t ${pkgdir}/usr/lib/udev/rules.d/
+  #install apprise.yaml       -t ${pkgdir}/etc/arm/config
   install apprise.yaml       -t ${pkgdir}/opt/arm/setup
+  #install arm.yaml           -t ${pkgdir}/etc/arm/config
   install arm.yaml           -t ${pkgdir}/opt/arm/setup
   install armui.service      -t ${pkgdir}/usr/lib/systemd/system/
+  install .abcde.conf        -t ${pkgdir}/opt/arm/setup
+  install .abcde.conf        -t ${pkgdir}/etc
+  # link to the new install location so runui.py doesn't break
+  ln -sf /etc/.abcde.conf            ${pkgdir}/etc/arm/config/abcde.conf
+  ln -sf /opt/arm/setup/apprise.yaml ${pkgdir}/etc/arm/config/apprise.yaml
+  ln -sf /opt/arm/setup/arm.yaml     ${pkgdir}/etc/arm/config/arm.yaml
+  cd ..
 
-  #cp -r setup ${pkgdir}/opt/arm/
-  #mv ${pkgdir}/opt/arm/setup/51-automedia.rules ${pkgdir}/usr/lib/udev/rules.d/
-  #mv ${pkgdir}/opt/arm/setup/armui.service -t ${pkgdir}/usr/lib/systemd/system/
-  #rm ${pkgdir}/opt/arm/setup/51-docker-arm.rules
+  chown arm:arm "${pkgdir}/etc/.abcde.conf"
+  chown arm:arm "${pkgdir}/etc/rsyslog.d/30-arm.conf"
+  chown -vR arm:arm "${pkgdir}/etc/arm"
+  chown -vR arm:arm "${pkgdir}/opt/arm"
 }
