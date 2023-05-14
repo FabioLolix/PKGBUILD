@@ -1,36 +1,38 @@
 # Maintainer: Eric Bailey <nerflad@gmail.com>
 
 pkgname=nyan-lang-git
-pkgver=0.2.r12.g7e88374
+pkgver=0.2.r14.gf9ef23b
 pkgrel=1
 pkgdesc="A data description language designed for openage"
-arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 pentium4 armv7h aarch64)
 url="https://github.com/SFTtech/nyan"
-license=('LGPL3')
-depends=('gcc-libs')
-makedepends=('cmake' 'git')
-source=("$pkgname::git+https://github.com/SFTtech/nyan")
-md5sums=('SKIP')
+license=(LGPL3)
+depends=(gcc-libs)
+makedepends=(cmake git)
+source=("nyan-lang::git+https://github.com/SFTtech/nyan.git")
+sha256sums=('SKIP')
 
 pkgver() {
-    cd "$pkgname"
-    git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  cd nyan-lang
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-	cd "$srcdir/$pkgname"
-    mkdir -p build
+  cd nyan-lang
+  #patch -Np1 -i ../8ea9945cd60cd958f02c3ea945bb0fa04d239215.patch
+  mkdir -p build
 }
 
 build() {
-	cd "$srcdir/$pkgname/build"
-    cmake -DCMAKE_INSTALL_PREFIX=/usr \
-          -DCMAKE_INSTALL_LIBDIR=/usr/lib \
-          -DCMAKE_BUILD_TYPE=Release ..
-	make
+  cd nyan-lang/build
+  cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+    -DCMAKE_BUILD_TYPE=Release
+  make
 }
 
 package() {
-	cd "$srcdir/$pkgname/build"
-    make DESTDIR="$pkgdir/" install
+  cd nyan-lang/build
+  make DESTDIR="$pkgdir/" install
 }
