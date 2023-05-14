@@ -5,6 +5,7 @@ pkgbase = qoob-git
 	url = https://gitlab.com/william.belanger/qoob
 	arch = any
 	license = GPL3
+	makedepends = git
 	depends = python
 	depends = python-setuptools
 	depends = python-pyqt5
