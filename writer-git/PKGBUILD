@@ -2,12 +2,12 @@
 
 pkgname=writer-git
 pkgver=r239.76774fa
-pkgrel=1
+pkgrel=2
 pkgdesc="Word processor built with Vala and GTK+, especially for elementary OS"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url="https://github.com/ryonakano/writer"
 license=(GPL3)
-depends=(libgranite.so gtksourceview3)
+depends=(libgranite.so gtksourceview4)
 makedepends=(git vala meson)
 provides=(writer)
 conflicts=(writer)

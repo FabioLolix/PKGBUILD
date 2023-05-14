@@ -1,6 +1,6 @@
 pkgbase = handbrake-git
 	pkgdesc = Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened. Last stable branch
-	pkgver = 1.6.1.r9.gb827acb97
+	pkgver = 1.6.1.r44.g0d2da1d6b
 	pkgrel = 1
 	url = https://handbrake.fr/
 	arch = i686
@@ -13,6 +13,8 @@ pkgbase = handbrake-git
 	makedepends = wget
 	makedepends = cmake
 	makedepends = meson
+	makedepends = llvm
+	makedepends = clang
 	makedepends = x264
 	makedepends = libxml2
 	makedepends = libass

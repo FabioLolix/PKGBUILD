@@ -1,12 +1,12 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=aplay+-git
-pkgver=r116.6a3caaf
-pkgrel=1
+pkgver=r117.74e1578
+pkgrel=2
 pkgdesc="Simple CLI BitPerfect player"
-arch=(i686 x86_64 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 armv7h aarch64)
 url="https://github.com/yui0/aplay-"
-license=(unknown)
+license=(MIT)
 depends=(alsa-lib)
 makedepends=(git clang)
 provides=(aplay+)
@@ -17,6 +17,7 @@ sha256sums=('SKIP')
 pkgver() {
   cd aplay-
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  #git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
@@ -27,4 +28,5 @@ build() {
 package() {
   cd aplay-
   install -Dm755 aplay+ ${pkgdir}/usr/bin/aplay+
+  install -D LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }

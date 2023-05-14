@@ -1,6 +1,6 @@
 pkgbase = mauikit-git
 	pkgdesc = Utilities and "templated" controls based on Kirigami and QCC2 that follow the ongoing work on the Maui HIG
-	pkgver = 2.2.1.r140.gd2f76f52
+	pkgver = 2.2.2.r106.g4d1cbff6
 	pkgrel = 1
 	url = https://mauikit.org/
 	arch = x86_64

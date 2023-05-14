@@ -10,6 +10,7 @@ pkgbase = launchar-git
 	makedepends = meson
 	makedepends = ninja
 	depends = gtk3
+	depends = libgee
 	provides = launchar
 	conflicts = launchar
 	source = launchar-git::git+https://gitlab.com/abiosoft/launchar.git

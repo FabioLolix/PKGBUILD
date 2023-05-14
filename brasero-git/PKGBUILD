@@ -5,7 +5,7 @@
 # Contributor: William Rea <sillywilly@gmail.com>
 
 pkgname=brasero-git
-pkgver=3.12.3.r9.gfab172be
+pkgver=3.12.3.r29.g03844860
 pkgrel=1
 pkgdesc="CD/DVD mastering tool"
 arch=(i686 x86_64)
@@ -24,7 +24,7 @@ provides=(brasero)
 conflicts=(brasero)
 replaces=(nautilus-cd-burner)
 options=(!emptydirs)
-source=("git+https://gitlab.gnome.org/GNOME/brasero.git#branch=main")
+source=("git+https://gitlab.gnome.org/GNOME/brasero.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -53,4 +53,3 @@ package() {
   cd brasero
   make DESTDIR=$pkgdir install
 }
-

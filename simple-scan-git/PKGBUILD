@@ -4,14 +4,14 @@
 # Contributor: Joeny Ang <ang(dot)joeny(at)gmail(dot)com>
 
 pkgname=simple-scan-git
-pkgver=42.5.r63.gc8ab8d45
-pkgrel=1
+pkgver=44.0.r39.g88ac61d8
+pkgrel=2
 pkgdesc="Simple scanning utility"
 url="https://gitlab.gnome.org/GNOME/simple-scan"
 arch=(x86_64)
 license=(GPL3)
 groups=(gnome)
-depends=(sane dconf gtk3 colord-sane libgusb)
+depends=(sane dconf gtk4 libadwaita colord-sane libgusb)
 makedepends=(yelp-tools meson vala git)
 provides=(simple-scan)
 conflicts=(simple-scan)

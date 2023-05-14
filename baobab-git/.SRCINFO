@@ -1,6 +1,6 @@
 pkgbase = baobab-git
 	pkgdesc = A graphical directory tree analyzer
-	pkgver = 43.0.r26.g99223d4
+	pkgver = 44.0.r9.g4991416
 	pkgrel = 1
 	url = https://wiki.gnome.org/Apps/DiskUsageAnalyzer
 	arch = x86_64

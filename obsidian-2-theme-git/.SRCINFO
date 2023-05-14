@@ -5,6 +5,7 @@ pkgbase = obsidian-2-theme-git
 	url = https://www.gnome-look.org/p/1173113/
 	arch = any
 	license = GPL3
+	makedepends = git
 	optdepends = gnome-tweak-tool: A tool to customize advanced GNOME 3 options.
 	options = !strip
 	source = theme-obsidian-2-blue::git+https://github.com/madmaxms/theme-obsidian-2.git

@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=maui-pix-git
-pkgver=2.2.1.r45.gc6fcedd
+pkgver=2.2.2.r42.g84a17d6
 pkgrel=1
 pkgdesc='Image gallery for Maui'
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
