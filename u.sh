@@ -489,21 +489,6 @@ echo "Done S"
 
 
 
-VAR2=t
-  VAR=textosaurus
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
-  VAR=textosaurus-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
-echo "Done T"
-
-
-
 VAR2=u
   VAR=upmpdcli
   cd "$BASE/$VAR"
