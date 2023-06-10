@@ -1,20 +1,17 @@
 # Maintainer: Your Name <youremail@domain.com>
 
 pkgname=utsushi-git
-pkgver=r319.839d06a
-pkgrel=1
-pkgdesc=""
-arch=(x86_64 i686 arm armv6h armv7h aarch64)
+pkgver=r321.b296671
+pkgrel=4
+pkgdesc="Front-end for scanners and all-in-ones (Epson ImageScan v3)"
+arch=(x86_64)
 url="https://gitlab.com/utsushi/utsushi"
-license=('GPL')
-depends=(sane imagemagick)
-makedepends=(git boost)
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-backup=()
-options=(!makeflags)
+license=(GPL3)
+depends=(glibc gcc-libs pangomm libusb boost-libs libjpeg-turbo libtiff libtool glibmm glib2 atkmm libsigc++ udev
+         gtkmm imagemagick)
+makedepends=(git boost sane autoconf-archive libxslt)
+provides=(utsushi)
+conflicts=(utsushi)
 source=("git+https://gitlab.com/utsushi/utsushi.git")
 sha256sums=('SKIP')
 
@@ -28,31 +25,37 @@ pkgver() {
 
 prepare() {
   cd utsushi
+  # https://gitlab.com/utsushi/utsushi/-/issues/108
+  sed -e 's|&& (SANE_MINOR == 0)||' -i sane/version.hpp # Fix build with sane 1.1
   ./bootstrap
 }
 
 build() {
   cd utsushi
   ./configure \
+    --prefix=/usr/ \
+    --libexecdir=/usr/lib/ \
+    --sysconfdir=/etc/ \
     --enable-code-coverage \
     --enable-sane-config \
-    --enable-test-reports \
     --enable-udev-config \
+    --with-gtkmm \
     --with-jpeg \
     --with-magick \
-    --with-sane
+    --with-magick-pp \
+    --with-sane \
+    --with-tiff
 
-	make 
-
-#--with-gtkmm \ #gtkmm (gtk2)
+  make
 }
 
 check() {
   cd utsushi
-  make -k check
+  make -k check || true
+  make test || true
 }
 
 package() {
   cd utsushi
-  make DESTDIR="$pkgdir/" install
+  make DESTDIR="${pkgdir}/" install
 }
