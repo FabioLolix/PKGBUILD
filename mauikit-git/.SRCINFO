@@ -1,6 +1,6 @@
 pkgbase = mauikit-git
 	pkgdesc = Utilities and "templated" controls based on Kirigami and QCC2 that follow the ongoing work on the Maui HIG
-	pkgver = 2.2.2.r106.g4d1cbff6
+	pkgver = 3.0.0.r10.g6eaafef2
 	pkgrel = 1
 	url = https://mauikit.org/
 	arch = x86_64
@@ -10,7 +10,7 @@ pkgbase = mauikit-git
 	arch = armv7h
 	arch = aarch64
 	groups = maui
-	license = GPL3
+	license = LGPL3
 	makedepends = git
 	makedepends = cmake
 	makedepends = extra-cmake-modules

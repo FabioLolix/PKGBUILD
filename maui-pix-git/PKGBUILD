@@ -1,12 +1,12 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
- 
+
 pkgname=maui-pix-git
-pkgver=2.2.2.r42.g84a17d6
+pkgver=3.0.0.r8.ga57afe4
 pkgrel=1
 pkgdesc='Image gallery for Maui'
-arch=(x86_64 i686 arm armv6h armv7h aarch64)
+arch=(x86_64)
 url="https://github.com/mauikit/pix"
-license=(GPL3)
+license=(BSD GPL3 LGPL2.1)
 groups=(maui)
 depends=(mauikit mauikit-imagetools mauikit-filebrowsing)
 makedepends=(git cmake extra-cmake-modules)
@@ -27,11 +27,12 @@ prepare() {
 
 build() {
   cd "maui-pix/build"
-  cmake .. 
+  cmake ..
   make
 }
- 
+
 package() {
-  cd "maui-pix/build"
-  make DESTDIR="$pkgdir" install
+  cd "maui-pix"
+  make -C build DESTDIR="$pkgdir" install
+  install -D LICENSES/* -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }
