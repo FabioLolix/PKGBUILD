@@ -1,16 +1,20 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
-# Contributor: Frederic Bezies <fredbezies at gmail dot com>
+# Maintainer: Daniel Maslowski <info@orangecms.org>
+# Contributor: FredBezies
+# Contributor: pavbaranov
+# Contributor: marcin82
 # Contributor: Chad "crossroads1112" Sharp <crossroads1112@riseup.net>
-# Contributor: Josip Ponjavic <josipponjavic at gmail dot com>
+# Contributor: Gabriel Moura <develop@srmoural.com.br>
 
 pkgname=lumina-desktop
 pkgver=1.6.2
 pkgrel=1
 pkgdesc="A Lightweight QT5 Desktop for FreeBSD"
-arch=(x86_64 i686 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 armv7h aarch64)
 url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(poppler-qt5 qt5-x11extras qt5-multimedia)
+makedepends=(git qt5-tools qt5-svg)
 optdepends=('xorg-xbacklight: required for changing screen brightness'
             'alsa-utils: required for adjusting audio volume'
             'acpi: required for monitoring battery life'
@@ -20,7 +24,6 @@ optdepends=('xorg-xbacklight: required for changing screen brightness'
             'network-manager-applet: Manage network connections from panel'
             'xterm: Terminal emulator'
             'fluxbox: window manager for Lumina DE')
-makedepends=(git qt5-tools qt5-svg)
 conflicts=(insight-fm)
 source=("git+https://github.com/lumina-desktop/lumina.git#tag=v${pkgver}")
 sha512sums=('SKIP')

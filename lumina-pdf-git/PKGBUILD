@@ -2,10 +2,10 @@
 # Maintainer: E5ten
 
 pkgname=lumina-pdf-git
-pkgver=r27.0dd7489
+pkgver=1.6.0.r10.g0dd7489
 pkgrel=1
 pkgdesc="PDF viewer for the lumina desktop environment"
-arch=(x86_64 i686 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 armv7h aarch64)
 url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(qt5-base)
@@ -15,10 +15,7 @@ sha512sums=('SKIP')
 
 pkgver() {
   cd "${pkgname%-git}"
-  ( set -o pipefail
-    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  )
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build(){
@@ -30,5 +27,5 @@ build(){
 package() {
   cd "${pkgname%-git}/src-qt5/"
   make INSTALL_ROOT="${pkgdir}" install
-  install -Dm 644 "${srcdir}/${pkgname%-git}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname%-git}/LICENSE"
+  install -Dm 644 "${srcdir}/${pkgname%-git}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }

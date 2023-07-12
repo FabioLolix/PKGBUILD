@@ -2,15 +2,15 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=lumina-calculator
-pkgver=1.5.0
+pkgver=1.6.0
 pkgrel=1
 pkgdesc="Calculator for the lumina desktop environment"
-arch=(x86_64 i686 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 armv7h aarch64)
 url="https://lumina-desktop.org/"
 license=(BSD)
 depends=(qt5-base)
 makedepends=(git qt5-svg qt5-tools)
-source=(git+https://github.com/lumina-desktop/lumina-calculator.git#commit=ccb792fc713aa7163fffd37fc20c83ffe9ca7523)
+source=(git+https://github.com/lumina-desktop/lumina-calculator.git#tag=v${pkgver})
 sha512sums=('SKIP')
 
 build(){
