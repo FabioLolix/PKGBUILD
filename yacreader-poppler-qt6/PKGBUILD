@@ -2,14 +2,15 @@
 # Contributor: Felix Kauselmann <licorn at gmail dot com>
 
 pkgname=yacreader-poppler-qt6
-pkgver=9.12.0
+pkgver=9.13.0
 pkgrel=1
 pkgdesc="Comic reader for cross-platform reading and managing your digital comic collection, using poppler for PDF"
 arch=(x86_64)
 url="https://www.yacreader.com/"
 license=(GPL3)
-depends=(poppler-qt6 qt6-base qt6-multimedia qt6-quickcontrols2 qt6-svg qt6-5compat libunarr)
-makedepends=(git qt6-tools)
+depends=(libunarr poppler-qt6 qt6-base qt6-multimedia qt6-quickcontrols2 qt6-5compat
+         glibc libglvnd gcc-libs hicolor-icon-theme)
+makedepends=(git qt6-tools qt6-svg)
 optdepends=('qt6-imageformats: Support for extra image formats'
             'qrencode: YACReaderLibrary server info qr codes')
 provides=(yacreader)
