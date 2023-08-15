@@ -3,19 +3,19 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=openage-git
-pkgver=0.4.1.r1103.gc3d739465
+pkgver=0.4.1.r1397.g3acf3d6b4
 pkgrel=1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
 url="https://openage.sft.mx/"
 license=(GPL3)
-depends=(libepoxy ftgl sdl2_image opusfile eigen
-         qt6-declarative xdg-utils sdl2
+depends=(glibc gcc-libs python
+         libepoxy sdl2_image opusfile
+         qt6-declarative sdl2 vulkan-icd-loader
          libpng libogg python-pillow python-numpy python-toml
-         python-pygments python-jinja python-lz4 nyan-lang-git)
-makedepends=(git cmake cython doxygen vulkan-headers python-graphviz)
-optdepends=('ttf-dejavu: for text display, but you can use any font'
-            vulkan-icd-loader)
+         python-pygments python-jinja nyan-lang-git) #xdg-utils ftgl
+makedepends=(git cmake cython doxygen vulkan-headers python-graphviz python-lz4 eigen toml11)
+optdepends=('ttf-dejavu: for text display, but you can use any font')
 provides=(openage)
 conflicts=(openage)
 source=("git+https://github.com/SFTtech/openage")
@@ -33,10 +33,10 @@ prepare() {
 
 build() {
   cd "${srcdir}/${pkgname%-git}/build"
-
   cmake .. \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+    -DCMAKE_ETCDIR=/etc/openage \
     -DCMAKE_BUILD_TYPE=Release
   make
 }
