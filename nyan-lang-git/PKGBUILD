@@ -1,7 +1,7 @@
 # Maintainer: Eric Bailey <nerflad@gmail.com>
 
 pkgname=nyan-lang-git
-pkgver=0.2.r14.gf9ef23b
+pkgver=0.3.r1.gea9cc17
 pkgrel=1
 pkgdesc="A data description language designed for openage"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
@@ -19,7 +19,6 @@ pkgver() {
 
 prepare() {
   cd nyan-lang
-  #patch -Np1 -i ../8ea9945cd60cd958f02c3ea945bb0fa04d239215.patch
   mkdir -p build
 }
 

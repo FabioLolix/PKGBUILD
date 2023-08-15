@@ -1,6 +1,6 @@
 pkgbase = nemu-git
 	pkgdesc = ncurses interface for QEMU
-	pkgver = 3.2.0.r10.gfc634ef
+	pkgver = 3.2.0.r12.ge8c2067
 	pkgrel = 1
 	url = https://github.com/nemuTUI/nemu
 	arch = x86_64
