@@ -5,6 +5,16 @@ DEST=~/Dev/AUR
 
 
 VAR2=a
+  VAR=abcde
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,*.patch} "$DEST/$VAR2/$VAR"
+
+  VAR=abcde-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,*.patch} "$DEST/$VAR2/$VAR"
+
   VAR=abcde-musicbrainz-meta
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -335,6 +345,11 @@ echo "Done O"
 
 
 VAR2=p
+  VAR=perl-musicbrainz-discid
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=perl-webservice-musicbrainz
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
