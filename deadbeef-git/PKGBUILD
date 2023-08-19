@@ -2,7 +2,7 @@
 # Contributor: archtux <antonio dot arias99999 at gmail dot com>
 
 pkgname=deadbeef-git
-pkgver=1.9.5.r37.g851418e3e
+pkgver=1.9.5.r77.g246e3b10d
 pkgrel=1
 pkgdesc="Modular GTK audio player for GNU/Linux"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
@@ -11,7 +11,7 @@ license=(GPL2 LGPL2.1 ZLIB)
 depends=(gtk3 alsa-lib jansson libdispatch)
 makedepends=(libvorbis libmad flac curl imlib2 wavpack libsndfile libcdio libcddb
              libx11 faad2 zlib intltool libpipewire libpulse libzip libsamplerate
-             yasm ffmpeg clang git)
+             yasm ffmpeg clang git wget)
 optdepends=('alsa-oss: for OSS output plugin'
             'cdparanoia: for cd audio plugin'
             'curl: for last.fm, vfs_curl (shoutcast/icecast), artwork plugins'
@@ -69,6 +69,12 @@ build() {
   cd "${srcdir}/deadbeef"
   CC=clang CXX=clang++ ./configure --prefix=/usr
   make
+}
+
+check() {
+  cd "${srcdir}/deadbeef"
+  ./travis/download-linux-static-deps.sh
+  ./scripts/test.sh
 }
 
 package() {
