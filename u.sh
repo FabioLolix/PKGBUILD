@@ -220,11 +220,6 @@ VAR2=i
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
-  VAR=inxi
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=inxi-perl-git
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
