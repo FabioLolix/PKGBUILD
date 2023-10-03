@@ -5,7 +5,7 @@
 # Contributor: William Rea <sillywilly@gmail.com>
 
 pkgname=brasero-git
-pkgver=3.12.3.r29.g03844860
+pkgver=3.12.3.r31.g8c416e23
 pkgrel=1
 pkgdesc="CD/DVD mastering tool"
 arch=(i686 x86_64)

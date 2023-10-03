@@ -2,7 +2,7 @@
 # Contributor: archtux <antonio dot arias99999 at gmail dot com>
 
 pkgname=deadbeef-git
-pkgver=1.9.5.r77.g246e3b10d
+pkgver=1.9.5.r136.g1d9fd5abf
 pkgrel=1
 pkgdesc="Modular GTK audio player for GNU/Linux"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
@@ -43,8 +43,12 @@ conflicts=(deadbeef)
 provides=(deadbeef)
 source=("git+https://github.com/DeaDBeeF-Player/deadbeef.git"
         "git+https://github.com/DeaDBeeF-Player/mp4p.git"
-        "git+https://github.com/DeaDBeeF-Player/apbuild.git")
+        "deadbeef-googletest::git+https://github.com/DeaDBeeF-Player/googletest.git"
+        "git+https://github.com/DeaDBeeF-Player/ddb_output_pw.git"
+        "git+https://github.com/DeaDBeeF-Player/ddb_dsp_libretro.git")
 sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
             'SKIP'
             'SKIP')
 
@@ -55,11 +59,13 @@ pkgver() {
 
 prepare() {
   cd "${srcdir}/deadbeef"
-
   git submodule init
-  git config 'submodule.external/mp4p.url' "${srcdir}/mp4p"
-  git config 'submodule.external/apbuild.url' "${srcdir}/apbuild"
-  git config submodule.osx/deps.update none
+  git config submodule.osx/deps.update                  none
+  git config submodule.external/apbuild.update          none
+  git config submodule.external/mp4p.url                "${srcdir}/mp4p"
+  git config submodule.external/googletest.url          "${srcdir}/deadbeef-googletest"
+  git config submodule.external/ddb_output_pw.url       "${srcdir}/ddb_output_pw"
+  git config submodule.external/ddb_dsp_libretro.url    "${srcdir}/ddb_dsp_libretro"
   git -c protocol.file.allow=always submodule update
 
   ./autogen.sh
@@ -67,7 +73,8 @@ prepare() {
 
 build() {
   cd "${srcdir}/deadbeef"
-  CC=clang CXX=clang++ ./configure --prefix=/usr
+  export CC=clang CXX=clang++
+  ./configure --prefix=/usr --disable-gtk2
   make
 }
 
@@ -80,4 +87,5 @@ check() {
 package() {
   cd "${srcdir}/deadbeef"
   make DESTDIR="$pkgdir" install
+  install -D COPYING -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }

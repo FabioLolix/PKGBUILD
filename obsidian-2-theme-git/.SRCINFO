@@ -1,6 +1,6 @@
 pkgbase = obsidian-2-theme-git
 	pkgdesc = Obsidian 2 themes for Gnome 3.22+, all colors
-	pkgver = 2.21.r0.g5da6c3a
+	pkgver = 2.23.r0.gd72fab4
 	pkgrel = 1
 	url = https://www.gnome-look.org/p/1173113/
 	arch = any

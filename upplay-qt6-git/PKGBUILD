@@ -2,7 +2,7 @@
 # Contributor: Daniel Maslowski <info@orangecms.org>
 
 pkgname=upplay-qt6-git
-pkgver=1.6.1.r48.g398219b
+pkgver=1.6.6.r35.g3e256ed
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point"
 url="https://www.lesbonscomptes.com/upplay/"

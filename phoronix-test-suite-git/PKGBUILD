@@ -2,7 +2,7 @@
 # Contributor: Fabio Austin Haedicke <austin.haedicke@gmail.com>
 
 pkgname=phoronix-test-suite-git
-pkgver=10.8.4.r30.gdea5e68ba
+pkgver=10.8.4.r38.gf241b9526
 pkgrel=1
 pkgdesc="The most comprehensive testing and benchmarking platform available for Linux"
 arch=(any)

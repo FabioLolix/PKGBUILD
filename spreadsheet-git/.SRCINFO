@@ -1,6 +1,6 @@
 pkgbase = spreadsheet-git
 	pkgdesc = Spreadsheet program built with Vala and GTK+, especially for elementary OS
-	pkgver = r163.afa15b1
+	pkgver = r169.a3add50
 	pkgrel = 1
 	url = https://github.com/ryonakano/Spreadsheet
 	arch = x86_64
@@ -14,6 +14,7 @@ pkgbase = spreadsheet-git
 	makedepends = vala
 	makedepends = meson
 	depends = libgranite.so
+	depends = libhandy
 	provides = spreadsheet
 	conflicts = spreadsheet
 	source = spreadsheet::git+https://github.com/ryonakano/Spreadsheet.git

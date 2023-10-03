@@ -1,6 +1,6 @@
 pkgbase = brasero-git
 	pkgdesc = CD/DVD mastering tool
-	pkgver = 3.12.3.r29.g03844860
+	pkgver = 3.12.3.r31.g8c416e23
 	pkgrel = 1
 	url = https://wiki.gnome.org/Apps/Brasero
 	arch = i686

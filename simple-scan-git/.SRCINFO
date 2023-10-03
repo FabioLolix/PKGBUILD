@@ -1,7 +1,7 @@
 pkgbase = simple-scan-git
 	pkgdesc = Simple scanning utility
-	pkgver = 44.0.r39.g88ac61d8
-	pkgrel = 2
+	pkgver = 44.0.r90.ged72d086
+	pkgrel = 1
 	url = https://gitlab.gnome.org/GNOME/simple-scan
 	arch = x86_64
 	groups = gnome
