@@ -12,13 +12,13 @@
 # Contributor: Dany Martineau <dany.luc.martineau@gmail.com>
 
 pkgname=clementine-lite-git
-pkgver=1.4.0rc2.r1.gbbda59a5f
+pkgver=1.4.0rc2.r74.g3f572a413
 pkgrel=1
 pkgdesc="A modern music player and library organiser, disabled plugins"
 arch=(i686 x86_64 aarch64)
 url='http://www.clementine-player.org/'
 license=(GPL)
-depends=(qt5-base qt5-x11extras chromaprint taglib protobuf libcdio gst-plugins-base fftw)
+depends=(qt5-base qt5-x11extras chromaprint taglib protobuf libcdio gst-plugins-base fftw projectm)
 optdepends=('gst-libav: additional codecs'
             'gst-plugins-bad: additional codecs'
             'gst-plugins-good: additional codecs'
@@ -32,22 +32,25 @@ options=(!lto)
 
 pkgver() {
   cd "clementine"
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  git describe --long --tags --exclude 1.4.0rc1-* | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
   cd "$srcdir/clementine/bin"
-    
-  cmake .. \
+  export LDFLAGS="-Wl,--copy-dt-needed-entries"
+
+  cmake .. -Wno-dev \
+    -DCMAKE_CXX_FLAGS="-fpermissive" \
+    -DCMAKE_CXX_STANDARD=17 \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
     -DENABLE_VISUALISATIONS=OFF \
+    -DUSE_SYSTEM_PROJECTM=ON \
     -DUSE_SYSTEM_TAGLIB=ON \
     -DENABLE_GIO=ON \
     -DENABLE_MOODBAR=ON \
     -DINSTALL_UBUNTU_ICONS=ON \
-    -DENABLE_SPOTIFY=OFF \
-    -DENABLE_SPOTIFY_BLOB=OFF \
     -DENABLE_SKYDRIVE=OFF \
     -DENABLE_GOOGLE_DRIVE=OFF \
     -DENABLE_DROPBOX=OFF \
@@ -58,6 +61,7 @@ build() {
     -DENABLE_LIBMTP=OFF \
     -DENABLE_BOX=OFF \
     -DENABLE_LIBLASTFM=OFF
+
   make
 }
 
