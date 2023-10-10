@@ -4,7 +4,7 @@
 
 pkgname=openage-git
 pkgver=0.5.1.r4.g4773e70ff
-pkgrel=1
+pkgrel=2
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
 url="https://openage.sft.mx/"
@@ -25,16 +25,34 @@ conflicts=(openage)
 source=("git+https://github.com/SFTtech/openage.git"
         "openage-001.patch::https://github.com/SFTtech/openage/pull/1570/commits/4002db5368e3a0f2908f810b20950bb2b8bb9b59.patch"
         #"openage-002.patch::https://github.com/SFTtech/openage/pull/1570/commits/c6a2ef9b760c903cf924f5947276395972f12eeb.patch"
-        "openage-003.patch::https://github.com/SFTtech/openage/pull/1570/commits/52058a1d261cceb3db4c345248ba76d2bc3017eb.patch")
+        "openage-003.patch::https://github.com/SFTtech/openage/pull/1570/commits/52058a1d261cceb3db4c345248ba76d2bc3017eb.patch"
+
+        # https://github.com/SFTtech/openage/pull/1574/commits
+        "openage-d065eed63e387c19bc2bc5348bc18cffd56f826c.patch::https://github.com/SFTtech/openage/pull/1574/commits/d065eed63e387c19bc2bc5348bc18cffd56f826c.patch"
+        "openage-297500e8d172ac2370c34b25e1f1ce42ac32cfe1.patch::https://github.com/SFTtech/openage/pull/1574/commits/297500e8d172ac2370c34b25e1f1ce42ac32cfe1.patch"
+        "openage-f127bbb139f276429fb3fd06619bb87aec123ce5.patch::https://github.com/SFTtech/openage/pull/1574/commits/f127bbb139f276429fb3fd06619bb87aec123ce5.patch"
+        "openage-2493d187b31d84a67e77d911e931716cecb2a9e5.patch::https://github.com/SFTtech/openage/pull/1574/commits/2493d187b31d84a67e77d911e931716cecb2a9e5.patch"
+        "openage-fa596294cba7799144bac5b3d288442c9e5974ee.patch::https://github.com/SFTtech/openage/pull/1574/commits/fa596294cba7799144bac5b3d288442c9e5974ee.patch")
 sha256sums=('SKIP'
             'db510135ba71b65ece5faf990d3b7d42831b96ddacfa582b8ceaafe11fce00e9'
-            'b50039e9b5f2ac6aec59a6fd9b5143d3506256fcea49b549ed8627602b229d49')
+            'b50039e9b5f2ac6aec59a6fd9b5143d3506256fcea49b549ed8627602b229d49'
+            '60556486ad38077eb1c2f3ab4e72f4d01ebd56bce9b17e7502b79be442470c7b'
+            'f8b10c8137911f45f471c05d6a41ea0b163effa33da2ff33cfab197449143a5e'
+            'e683ce4b9600d5c9be7e307492257dba4c28a799c4b960dca8c5b30fa96ed1b8'
+            '209a0378ed8b6f4ea3c05b0a58c44ac6f0978ae3486e821884f9975267e30680'
+            'bc846610e8edd6908fa9b5baeeaec1505450ff22a4f4b5d3803768abf9ef81d4')
 
 prepare() {
   cd openage
   patch -Np1 -i ../openage-001.patch
   #patch -Np1 -i ../openage-002.patch
   patch -Np1 -i ../openage-003.patch
+
+  patch -Np1 -i ../openage-d065eed63e387c19bc2bc5348bc18cffd56f826c.patch
+  patch -Np1 -i ../openage-297500e8d172ac2370c34b25e1f1ce42ac32cfe1.patch
+  patch -Np1 -i ../openage-f127bbb139f276429fb3fd06619bb87aec123ce5.patch
+  patch -Np1 -i ../openage-2493d187b31d84a67e77d911e931716cecb2a9e5.patch
+  patch -Np1 -i ../openage-fa596294cba7799144bac5b3d288442c9e5974ee.patch
 }
 
 pkgver() {
