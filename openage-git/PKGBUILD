@@ -22,8 +22,20 @@ makedepends=(git cmake cython doxygen vulkan-headers python-graphviz eigen toml1
 optdepends=('ttf-dejavu: for text display, but you can use any font')
 provides=(openage)
 conflicts=(openage)
-source=("git+https://github.com/SFTtech/openage.git")
-sha256sums=('SKIP')
+source=("git+https://github.com/SFTtech/openage.git"
+        "openage-001.patch::https://github.com/SFTtech/openage/pull/1570/commits/4002db5368e3a0f2908f810b20950bb2b8bb9b59.patch"
+        #"openage-002.patch::https://github.com/SFTtech/openage/pull/1570/commits/c6a2ef9b760c903cf924f5947276395972f12eeb.patch"
+        "openage-003.patch::https://github.com/SFTtech/openage/pull/1570/commits/52058a1d261cceb3db4c345248ba76d2bc3017eb.patch")
+sha256sums=('SKIP'
+            'db510135ba71b65ece5faf990d3b7d42831b96ddacfa582b8ceaafe11fce00e9'
+            'b50039e9b5f2ac6aec59a6fd9b5143d3506256fcea49b549ed8627602b229d49')
+
+prepare() {
+  cd openage
+  patch -Np1 -i ../openage-001.patch
+  #patch -Np1 -i ../openage-002.patch
+  patch -Np1 -i ../openage-003.patch
+}
 
 pkgver() {
   cd openage
