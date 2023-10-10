@@ -4,7 +4,7 @@
 
 pkgname=openage-git
 pkgver=0.5.1.r4.g4773e70ff
-pkgrel=2
+pkgrel=2.1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
 url="https://openage.sft.mx/"
@@ -32,7 +32,8 @@ source=("git+https://github.com/SFTtech/openage.git"
         "openage-297500e8d172ac2370c34b25e1f1ce42ac32cfe1.patch::https://github.com/SFTtech/openage/pull/1574/commits/297500e8d172ac2370c34b25e1f1ce42ac32cfe1.patch"
         "openage-f127bbb139f276429fb3fd06619bb87aec123ce5.patch::https://github.com/SFTtech/openage/pull/1574/commits/f127bbb139f276429fb3fd06619bb87aec123ce5.patch"
         "openage-2493d187b31d84a67e77d911e931716cecb2a9e5.patch::https://github.com/SFTtech/openage/pull/1574/commits/2493d187b31d84a67e77d911e931716cecb2a9e5.patch"
-        "openage-fa596294cba7799144bac5b3d288442c9e5974ee.patch::https://github.com/SFTtech/openage/pull/1574/commits/fa596294cba7799144bac5b3d288442c9e5974ee.patch")
+        "openage-fa596294cba7799144bac5b3d288442c9e5974ee.patch::https://github.com/SFTtech/openage/pull/1574/commits/fa596294cba7799144bac5b3d288442c9e5974ee.patch"
+        "openage-f9abad3e14d158215238e629e5aa9e898b9ff992.patch::https://github.com/SFTtech/openage/pull/1574/commits/f9abad3e14d158215238e629e5aa9e898b9ff992.patch")
 sha256sums=('SKIP'
             'db510135ba71b65ece5faf990d3b7d42831b96ddacfa582b8ceaafe11fce00e9'
             'b50039e9b5f2ac6aec59a6fd9b5143d3506256fcea49b549ed8627602b229d49'
@@ -40,7 +41,8 @@ sha256sums=('SKIP'
             'f8b10c8137911f45f471c05d6a41ea0b163effa33da2ff33cfab197449143a5e'
             'e683ce4b9600d5c9be7e307492257dba4c28a799c4b960dca8c5b30fa96ed1b8'
             '209a0378ed8b6f4ea3c05b0a58c44ac6f0978ae3486e821884f9975267e30680'
-            'bc846610e8edd6908fa9b5baeeaec1505450ff22a4f4b5d3803768abf9ef81d4')
+            'bc846610e8edd6908fa9b5baeeaec1505450ff22a4f4b5d3803768abf9ef81d4'
+            'df0560bc2c1afbb223801ed25857f40c6a6a2b93d26fa74793d219866cff05ac')
 
 prepare() {
   cd openage
@@ -53,6 +55,7 @@ prepare() {
   patch -Np1 -i ../openage-f127bbb139f276429fb3fd06619bb87aec123ce5.patch
   patch -Np1 -i ../openage-2493d187b31d84a67e77d911e931716cecb2a9e5.patch
   patch -Np1 -i ../openage-fa596294cba7799144bac5b3d288442c9e5974ee.patch
+  patch -Np1 -i ../openage-f9abad3e14d158215238e629e5aa9e898b9ff992.patch
 }
 
 pkgver() {
