@@ -1,6 +1,6 @@
 pkgbase = aplay+-git
 	pkgdesc = Simple CLI BitPerfect player
-	pkgver = r119.427d3e0
+	pkgver = r122.c9159b9
 	pkgrel = 1
 	url = https://github.com/yui0/aplay-
 	arch = x86_64
