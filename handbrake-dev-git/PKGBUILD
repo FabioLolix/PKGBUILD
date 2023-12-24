@@ -8,7 +8,7 @@
 
 pkgbase=handbrake-dev-git
 pkgname=(handbrake-dev-git handbrake-cli-dev-git)
-pkgver=1.7.0.r66.g26c387415
+pkgver=1.7.0.r68.g1b0ccd8b9
 pkgrel=1
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened. Master branch"
 arch=(i686 x86_64)

@@ -3,7 +3,7 @@
 # Contributor: Felix Yan
 
 pkgname=rclone-git
-pkgver=1.64.0.r39.gc1df3ce08
+pkgver=1.65.0.r31.g8503282a5
 pkgrel=1
 pkgdesc="Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)
@@ -11,6 +11,7 @@ url="https://rclone.org/"
 license=(MIT)
 depends=(glibc)
 makedepends=(git python go)
+optdepends=('fuse3: for rclone mount')
 source=("git+https://github.com/rclone/rclone.git")
 conflicts=(rclone)
 provides=(rclone)
