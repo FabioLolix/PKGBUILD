@@ -1,0 +1,15 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=repology-meta
+pkgver=2023.08.13
+pkgrel=1
+pkgdesc="Dependencies needed to run Make on the Repology ruleset"
+arch=(any)
+license=(Unlicense)
+url="https://github.com/repology/repology-rules"
+depends=(python-voluptuous
+)
+
+pkgver() {
+  date +%Y.%m.%d
+}
