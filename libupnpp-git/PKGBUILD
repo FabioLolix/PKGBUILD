@@ -1,36 +1,37 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=libupnpp-git
-pkgver=0.22.4.r20.gd990cdf
-pkgrel=1
+pkgver=0.25.0.r1.g31effec
+pkgrel=2
 pkgdesc="A C++ wrapper for libupnp - used with upmpdcli or upplay"
 url="https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html"
 arch=(x86_64 i686 armv6h armv7h aarch64)
 license=(LGPL2.1)
-depends=(libnpupnp expat)
+depends=(glibc gcc-libs curl expat libnpupnp)
 makedepends=(git)
-provides=(libupnpp)
+provides=(libupnpp libupnpp.so)
 conflicts=(libupnpp)
-source=("${pkgname%-git}::git+https://framagit.org/medoc92/libupnpp.git")
+source=("git+https://framagit.org/medoc92/libupnpp.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd "${pkgname%-git}"
+  cd "libupnpp"
   git describe --long --tags | sed 's/^libupnpp.v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "${pkgname%-git}"
+  cd "libupnpp"
   ./autogen.sh
 }
 
 build(){
-  cd "${pkgname%-git}"
+  cd "libupnpp"
   ./configure --prefix=/usr
   make
 }
 
 package(){
-  cd "${pkgname%-git}"
+  depends+=(libnpupnp.so)
+  cd "libupnpp"
   make DESTDIR="$pkgdir" install
 }
