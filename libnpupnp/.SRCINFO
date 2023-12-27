@@ -1,18 +1,20 @@
 pkgbase = libnpupnp
 	pkgdesc = C++ base UPnP library, derived from Portable UPnP, a.k.a libupnp
-	pkgver = 5.0.2
-	pkgrel = 1
+	pkgver = 6.0.1
+	pkgrel = 2
 	url = https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html
 	arch = x86_64
 	arch = i686
-	arch = armv6h
 	arch = armv7h
 	arch = aarch64
 	license = BSD
+	depends = glibc
+	depends = gcc-libs
 	depends = curl
 	depends = expat
 	depends = libmicrohttpd
-	source = https://www.lesbonscomptes.com/upmpdcli/downloads/libnpupnp-5.0.2.tar.gz
-	sha256sums = 33f90fc14906f2cea1bb7af56677b4e950eed6976e07d98a8e2b2e91b0755558
+	provides = libnpupnp.so
+	source = https://www.lesbonscomptes.com/upmpdcli/downloads/libnpupnp-6.0.1.tar.gz
+	sha256sums = eaf7a1695d577175ea34754c2387a5dca636eafa63462c5b776d92adff3415fe
 
 pkgname = libnpupnp
