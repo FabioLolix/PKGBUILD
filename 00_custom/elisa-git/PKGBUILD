@@ -3,22 +3,26 @@
 # Contributor: Antonio Rojas <arojas@archlinux.org>
 
 pkgname=elisa-git
-pkgver=22.04.0.r39.g0242be13
+pkgver=23.08.2.r3382
+#pkgver=23.08.2.r7.g53024a42
 pkgrel=1
-arch=(i686 x86_64)
-pkgdesc="A simple music player for KDE aiming to provide a nice experience for its users"
+arch=(x86_64)
+pkgdesc="A simple music player for KDE aiming to provide a nice experience for its users, without baloo"
 url="https://community.kde.org/Elisa"
 license=(LGPL3)
-depends=(kirigami2 kdeclarative kfilemetadata)
-makedepends=(git extra-cmake-modules)
+depends=(kirigami2 kdeclarative5 kfilemetadata5)
+makedepends=(git extra-cmake-modules-git) #kdoctools5
 provides=(elisa)
 conflicts=(elisa)
-source=("git+https://invent.kde.org/multimedia/elisa.git")
+source=("git+https://invent.kde.org/multimedia/elisa.git#branch=release/23.08")
 sha512sums=('SKIP')
 
 pkgver() {
   cd elisa
-  git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  #git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+
+  _ver="$(cat CMakeLists.txt | grep RELEASE_SERVICE_VERSION | cut -d '"' -f2 | tr '\n' '.' | cut -d "." -f 1-3)"
+  echo "$(echo ${_ver}).r$(git rev-list --count HEAD)"
 }
 
 prepare() {
