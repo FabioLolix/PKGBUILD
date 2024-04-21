@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=maui-pix-git
-pkgver=3.0.2.r14.ge64dc4c
+pkgver=3.1.0.r17.ged13d0f
 pkgrel=1
 pkgdesc='Image gallery for Maui'
 arch=(x86_64)
@@ -11,7 +11,7 @@ groups=(maui)
 depends=(mauikit mauikit-imagetools mauikit-filebrowsing
 
          # namcap implicit depends
-         glibc gcc-libs qt5-base qt5-declarative ki18n5 kcoreaddons5 hicolor-icon-theme)
+         glibc gcc-libs qt6-base qt6-declarative ki18n5 kcoreaddons5 hicolor-icon-theme)
 makedepends=(git cmake extra-cmake-modules)
 provides=(maui-pix)
 conflicts=(maui-pix)
@@ -26,6 +26,7 @@ pkgver() {
 build() {
   cmake -B build -S "maui-pix" -Wno-dev \
     -DCMAKE_BUILD_TYPE=None \
+    -DQT_DIR=/usr/lib/cmake/Qt6 \
     -DCMAKE_INSTALL_PREFIX=/usr
 
   cmake --build build
