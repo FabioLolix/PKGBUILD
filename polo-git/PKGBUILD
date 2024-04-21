@@ -2,7 +2,7 @@
 
 pkgname=polo-git
 pkgrel=1
-pkgver=18.8.beta.r44.ge27f7a4
+pkgver=18.8.beta.r46.g2721560
 pkgdesc="A modern, light-weight GTK file manager for Linux,  currently in beta"
 arch=(i686 x86_64)
 url="https://teejee2008.github.io/polo/"

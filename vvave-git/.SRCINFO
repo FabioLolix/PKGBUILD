@@ -1,6 +1,6 @@
 pkgbase = vvave-git
 	pkgdesc = Music player for KDE
-	pkgver = 3.0.2.r12.g5abc5521
+	pkgver = 3.1.0.r5.ga87a0967
 	pkgrel = 1
 	url = https://vvave.kde.org/
 	arch = x86_64

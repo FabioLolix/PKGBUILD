@@ -1,6 +1,6 @@
 pkgbase = rclone-git
 	pkgdesc = Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage
-	pkgver = 1.65.0.r31.g8503282a5
+	pkgver = 1.65.0.r197.g692af4285
 	pkgrel = 1
 	url = https://rclone.org/
 	arch = i686

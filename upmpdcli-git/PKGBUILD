@@ -4,8 +4,8 @@
 # Contributor: Tilman Vatteroth <tilman.vatteroth@udo.edu>
 
 pkgname=upmpdcli-git
-pkgver=1.8.4.r35.g4f28f25
-pkgrel=2
+pkgver=1.8.7.r23.g0bdb79f
+pkgrel=1
 pkgdesc="A UPnP Media Renderer front-end for the Music Player Daemon (MPD)"
 arch=(i686 x86_64 arm armv7h armv6h aarch64)
 url="https://www.lesbonscomptes.com/upmpdcli/"

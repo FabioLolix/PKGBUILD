@@ -5,7 +5,7 @@
 # Contributor: György Balló <ballogy@freestart.hu>
 
 pkgname=gparted-git
-pkgver=1.5.0.r79.g548645b1
+pkgver=1.6.0.r1.gb63bcd17
 pkgrel=1
 pkgdesc="A Partition Magic clone, frontend to GNU Parted"
 arch=(i686 x86_64 armv7h aarch64)

@@ -1,7 +1,7 @@
 pkgbase = strawberry-full-git
 	pkgdesc = A music player aimed at audio enthusiasts and music collectors, all options and engines
-	pkgver = 1.0.22.r3.g22169bda
-	pkgrel = 2
+	pkgver = 1.0.23.r55.gb3651313
+	pkgrel = 1
 	url = https://www.strawberrymusicplayer.org/
 	arch = x86_64
 	arch = i686

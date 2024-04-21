@@ -2,7 +2,7 @@
 # Contributor: Joe Davison <joe@warhaggis.com>
 
 pkgname=lgogdownloader-qt5-git
-pkgver=3.12.r5.gb5e1aa8
+pkgver=3.12.r18.gb5dd318
 pkgrel=1
 pkgdesc="Open source downloader for GOG.com games, with QT5 enabled for solving reCAPTCHA"
 url="https://sites.google.com/site/gogdownloader/"

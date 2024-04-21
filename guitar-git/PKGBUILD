@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=guitar-git
-pkgver=1.2.0.r230.g85d74ec
+pkgver=1.2.0.r263.g7b4f317
 pkgrel=1
 pkgdesc="Open source Git GUI Client"
 arch=(x86_64 i686 armv7h aarch64)

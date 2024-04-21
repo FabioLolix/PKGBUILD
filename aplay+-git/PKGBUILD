@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=aplay+-git
-pkgver=r122.c9159b9
+pkgver=2024.03.15.r0.ge9e20c8
 pkgrel=1
 pkgdesc="Simple CLI BitPerfect player"
 arch=(x86_64 i686 armv7h aarch64)
@@ -16,8 +16,8 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd aplay-
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  #git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  #printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git describe --long --tags --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {

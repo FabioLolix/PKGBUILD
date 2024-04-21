@@ -3,8 +3,8 @@
 # Contributor: Sergey Malkin  <adresatt@gmail.com>
 
 pkgname=nemu-git
-pkgver=3.3.0.r4.g8bcf47f
-pkgrel=2
+pkgver=3.3.1.r0.g92af91d
+pkgrel=1
 pkgdesc="ncurses interface for QEMU"
 arch=(x86_64)
 url="https://github.com/nemuTUI/nemu"

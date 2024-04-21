@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
  
 pkgname=vvave-git
-pkgver=3.0.2.r12.g5abc5521
+pkgver=3.1.0.r5.ga87a0967
 pkgrel=1
 pkgdesc="Music player for KDE"
 arch=(x86_64 i686 arm armv6h armv7h aarch64)
