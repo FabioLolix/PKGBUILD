@@ -1,6 +1,6 @@
 pkgbase = squeezelite-git
 	pkgdesc = Lightweight headless squeezebox emulator
-	pkgver = 2.0.0.1468.r500.gfd89d67
+	pkgver = 2.0.0.1488.r509.g0e85ddf
 	pkgrel = 1
 	url = https://github.com/ralph-irving/squeezelite
 	install = squeezelite.install
@@ -26,7 +26,7 @@ pkgbase = squeezelite-git
 	source = squeezelite.service
 	source = conffile
 	sha256sums = SKIP
-	sha256sums = 5b39e9754b6bcf06bcaaecab76ebf7c997966160b48692461d3be5d94ee5f004
+	sha256sums = 9bffedd1d119e6b8643007c8e3ca674266100fb091e4c1458893a42388d4e90e
 	sha256sums = f0753a1cbd0194119226587ff9c12257438674d9b8e0179d22f0d5461ad3a70a
 
 pkgname = squeezelite-git
