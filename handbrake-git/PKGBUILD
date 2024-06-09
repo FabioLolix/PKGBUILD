@@ -31,7 +31,7 @@ source=("${pkgname%-git}::git+https://github.com/HandBrake/HandBrake.git#branch=
         'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/zimg-3.0.5.tar.gz')
 _commondeps=(libxml2 libass libvorbis opus speex libtheora lame libjpeg-turbo
              libx264.so jansson libvpx libva numactl)
-_guideps=(gst-plugins-base gtk4 libgudev)
+_guideps=(gst-plugins-base gkt3 libgudev)
 makedepends=(git intltool python nasm wget cmake meson llvm clang
              x264
              "${_commondeps[@]}" "${_guideps[@]}")
