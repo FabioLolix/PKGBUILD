@@ -1,20 +1,20 @@
 # Contributor: Gustavo Alvarez <sl1pkn07@gmail.com>
 
 pkgname=flacon-git
-pkgver=11.3.0.r3.gb54bf0b
+pkgver=11.4.0.r2.g851a407
 pkgrel=1
 pkgdesc="Extracts individual tracks from one big audio file containing the entire album of music and saves them as separate audio files. (Git Version)"
 arch=('x86_64')
 url='http://flacon.github.io'
 license=('LGPL2.1')
-depends=('qt5-base'
+depends=('qt6-base'
          'uchardet'
          'taglib'
          'hicolor-icon-theme'
          )
 makedepends=('git' yaml-cpp
              'cmake'
-             'qt5-tools'
+             'qt6-tools'
              )
 optdepends=(
             'alacenc: For ALAC support'
@@ -42,14 +42,16 @@ build() {
   cmake -S flacon -B build \
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUILD_TESTS=Yes
+    -DBUILD_TESTS=Yes \
+    -DUSE_QT6=ON \
+    -DUSE_QT5=OFF
 
   cmake --build build
 }
 
 check() {
   cd build
-  #ctest --output-on-failure
+  ctest --output-on-failure
 }
 
 package() {
