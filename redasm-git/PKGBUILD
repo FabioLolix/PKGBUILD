@@ -1,4 +1,5 @@
-# Maintainer: Martin Sandsmark <martin.sandsmark@kde.org>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Martin Sandsmark <martin.sandsmark@kde.org>
 
 pkgname=redasm-git
 pkgver=3.0.0.beta5.r32.g6e8bbae
@@ -8,7 +9,7 @@ arch=(i686 x86_64)
 pkgdesc="The OpenSource Disassembler"
 license=(GPL3)
 depends=(qt6-base)
-makedepends=(git cmake patchelf qt6-tools) #qt5-x11extras
+makedepends=(git cmake patchelf qt6-tools)
 conflicts=(redasm)
 provides=(redasm)
 source=("git+https://github.com/REDasmOrg/REDasm.git"
