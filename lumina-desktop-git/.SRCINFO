@@ -1,6 +1,6 @@
 pkgbase = lumina-desktop-git
 	pkgdesc = A Lightweight QT5 Desktop for FreeBSD
-	pkgver = 1.6.2.r4.g86d0e6fc
+	pkgver = 1.6.2.r106.gf10fadce
 	pkgrel = 1
 	url = https://lumina-desktop.org/
 	arch = x86_64
@@ -11,6 +11,8 @@ pkgbase = lumina-desktop-git
 	makedepends = git
 	makedepends = qt5-tools
 	makedepends = qt5-svg
+	makedepends = qt5-declarative
+	makedepends = libxcursor
 	depends = poppler-qt5
 	depends = qt5-x11extras
 	depends = qt5-multimedia
