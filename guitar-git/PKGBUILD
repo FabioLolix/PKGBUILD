@@ -1,14 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=guitar-git
-pkgver=1.2.0.r321.g959aad9
+pkgver=1.2.0.r400.ga1e4055
 pkgrel=1
 pkgdesc="Open source Git GUI Client"
 arch=(x86_64 i686 armv7h aarch64)
 url="https://soramimi.github.io/Guitar/"
 license=(GPL)
-depends=(qt5-svg git file)
-makedepends=(cmake qt5-tools qscintilla-qt5 git)
+depends=(qt6-svg git file)
+makedepends=(cmake qt6-tools qscintilla-qt6 git qt6-5compat)
 provides=(guitar)
 conflicts=(guitar)
 source=("git+https://github.com/soramimi/Guitar.git")
@@ -26,7 +26,7 @@ prepare() {
 
 build() {
   cd "Guitar/build"
-  cmake -Wno-dev ..
+  cmake -Wno-dev .. -DBUILD_WITH_QT6=ON
   make
 }
 
