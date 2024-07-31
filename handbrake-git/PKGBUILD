@@ -1,26 +1,25 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: HurricanePootis <hurricanepootis@protonmail.com>
 # Contributor: graysky <graysky AT archlinux DOT us>
 # Contributor: jiribb <jiribb@gmail.com>
 # Contributor: David Spicer <azleifel at googlemail dot com>
 # Contributor: Andrew Brouwers
 # Contributor: ponsfoot <cabezon dot hashimoto at gmail dot com>
 # Contributor: Stefan Husmann <stefan-husmann@t-online.de>
-# Contributor: HurricanePootis <hurricanepootis@protonmail.com>
 
 pkgbase=handbrake-git
 pkgname=(handbrake-git handbrake-cli-git)
 pkgver=1.8.1.r13.g2d3448f98
-pkgrel=1
+pkgrel=2
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened. Last stable branch"
 arch=(i686 x86_64)
 url="https://handbrake.fr/"
 license=(GPL-2.0-only)
-source=("${pkgname%-git}::git+https://github.com/HandBrake/HandBrake.git#branch=1.8.x")
+source=("handbrake::git+https://github.com/HandBrake/HandBrake.git#branch=1.8.x")
 _commondeps=(libxml2 libass libvorbis opus speex libtheora lame libjpeg-turbo
-             libx264.so jansson libvpx libva numactl)
+             x264 libx264.so jansson libvpx libva numactl)
 _guideps=(gst-plugins-base gtk4 libgudev)
 makedepends=(git intltool python nasm wget cmake meson llvm clang cargo-c
-             x264
              "${_commondeps[@]}" "${_guideps[@]}")
 optdepends=('libdvdcss: for decoding encrypted DVDs'
             'intel-media-sdk: for enabling Intel QSV'
@@ -31,12 +30,12 @@ sha256sums=('SKIP')
 options=(!lto)
 
 pkgver() {
-  cd "${pkgname%-git}"
+  cd "handbrake"
   git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
  build() {
-  cd "${pkgname%-git}"
+  cd "handbrake"
 
   ./configure \
     --prefix=/usr \
