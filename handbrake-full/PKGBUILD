@@ -5,31 +5,17 @@
 # Contributor: Andrew Brouwers
 # Contributor: ponsfoot <cabezon dot hashimoto at gmail dot com>
 # Contributor: Stefan Husmann <stefan-husmann@t-online.de>
+# Contributor: HurricanePootis <hurricanepootis@protonmail.com>
 
 pkgbase=handbrake-full
 pkgname=(handbrake-full handbrake-full-cli)
 pkgver=1.8.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, fdk-aac, qsv, vce, numa, hardened"
 arch=(x86_64 i686)
 url="https://handbrake.fr/"
-license=(GPL2)
-source=("handbrake::git+https://github.com/HandBrake/HandBrake.git#tag=${pkgver}")
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/AMF-1.4.30-slim.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/dav1d-1.3.0.tar.bz2'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/libdovi-3.2.0.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/fdk-aac-2.0.2.tar.gz'
-        #'https://ffmpeg.org/releases/ffmpeg-6.1.tar.bz2'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/libbluray-1.3.4.tar.bz2'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/libdvdnav-6.1.1.tar.bz2'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/libdvdread-6.1.3.tar.bz2'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/libvpx-1.7.0.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/mfx_dispatch-1.35.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/nv-codec-headers-12.1.14.0.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/oneVPL-2023.3.1.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/SVT-AV1-v1.7.0.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/x265-snapshot-20230403-12776.tar.gz'
-        #'https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs/zimg-3.0.5.tar.gz')
+license=(GPL-2.0-only)
+source=("${pkgbase%-full}::git+https://github.com/HandBrake/HandBrake.git#tag=${pkgver}")
 _commondeps=(libxml2 libass libvorbis opus speex libtheora lame libjpeg-turbo
              libx264.so jansson libvpx libva numactl)
 _guideps=(gst-plugins-base gtk4 librsvg libgudev)
@@ -38,35 +24,11 @@ makedepends=(git intltool python nasm wget cmake meson cargo-c
              "${_commondeps[@]}" "${_guideps[@]}")
 optdepends=('libdvdcss: for decoding encrypted DVDs'
             'intel-media-sdk: for enabling Intel QSV'
-            'nvidia-utils: for enabling Nvidia nvenc')
+            'nvidia-utils: for enabling Nvidia nvenc and nvdec'
+            'cuda: for enabling Nvidia nvenc and nvdec'
+            'amf-amdgpu-pro: for enabling AMD AMF')
 sha256sums=('99a054f95dc789bb6bf5b69cea5a5dd64653cd991102ed409495d421c04bf227')
 options=(!lto)
-#noextract=(
-#    'AMF-1.4.30-slim.tar.gz'
-#    'dav1d-1.3.0.tar.bz2'
-#    'fdk-aac-2.0.2.tar.gz'
-#    'ffmpeg-6.1.tar.bz2'
-#    'libbluray-1.3.4.tar.bz2'
-#    'libdovi-3.2.0.tar.gz'
-#    'libdvdnav-6.1.1.tar.bz2'
-#    'libdvdread-6.1.3.tar.bz2'
-#    'libvpx-1.7.0.tar.gz'
-#    'mfx_dispatch-1.35.tar.gz'
-#    'nv-codec-headers-12.1.14.0.tar.gz'
-#    'oneVPL-2023.3.1.tar.gz'
-#    'SVT-AV1-v1.7.0.tar.gz'
-#    'x265-snapshot-20230403-12776.tar.gz'
-#    'zimg-3.0.5.tar.gz'
-#    )
-
-prepare() {
-  cd "handbrake"
-
-  #[ -d download ] || mkdir download
-  #for _tarball in ${noextract[@]}; do
-  #  cp ../${_tarball} download/
-  #done
-}
 
  build() {
   cd "handbrake"
@@ -79,6 +41,7 @@ prepare() {
     --enable-libdovi \
     --enable-fdk-aac \
     --enable-nvenc \
+    --enable-nvdec \
     --enable-qsv \
     --enable-vce
 
