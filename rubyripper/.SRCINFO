@@ -1,10 +1,11 @@
 pkgbase = rubyripper
 	pkgdesc = Secure audiodisc ripper
 	pkgver = 0.8.0rc3
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/bleskodev/rubyripper
 	arch = any
 	license = GPL3
+	makedepends = ruby-gettext
 	depends = cdparanoia
 	depends = ruby-iconv
 	depends = ruby-rexml

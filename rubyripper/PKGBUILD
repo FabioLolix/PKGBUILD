@@ -1,4 +1,5 @@
-# Maintainer:  Eivind Eide <xenofil AT gmail DOT com>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Eivind Eide <xenofil AT gmail DOT com>
 # Contributor: Alexander F Rødseth <xyproto AT archlinux DOT org>
 # Contributor: Maxime Gauduin <alucryd AT gmail DOT com>
 # Contributor: Dave Reisner <dreisner AT archlinux DOT org>
@@ -6,12 +7,13 @@
 
 pkgname=rubyripper
 pkgver=0.8.0rc3
-pkgrel=2
-pkgdesc='Secure audiodisc ripper'
-arch=('any')
-url='https://github.com/bleskodev/rubyripper'
-license=('GPL3')
-depends=('cdparanoia' 'ruby-iconv' 'ruby-rexml' 'ruby-gtk3')
+pkgrel=3
+pkgdesc="Secure audiodisc ripper"
+arch=(any)
+url="https://github.com/bleskodev/rubyripper"
+license=(GPL3)
+depends=(cdparanoia ruby-iconv ruby-rexml ruby-gtk3)
+makedepends=(ruby-gettext)
 optdepends=('ruby-gettext: Translations'
             'cd-discid: Gnudb support'
             'lame: MP3 encoding support'
@@ -38,8 +40,6 @@ build() {
 }
 
 package() {
-
-  make DESTDIR="${pkgdir}" -C "${pkgname}-${pkgver}" install
+  cd "${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
 }
-
-# vim: ts=2 sw=2 et:
