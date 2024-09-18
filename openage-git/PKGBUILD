@@ -3,7 +3,7 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=openage-git
-pkgver=0.5.3.r440.gd09adb090
+pkgver=0.5.3.r444.g380d2e931
 pkgrel=1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
@@ -13,12 +13,13 @@ depends=(libepoxy opusfile
          qt6-declarative qt6-multimedia vulkan-icd-loader
          libpng libogg nyan-lang
          python-pillow python-numpy python-toml python-mako
-         python-pygments python-lz4 ttf-dejavu
+         python-pygments python-lz4
 
          # namcap implicit depends
-         glibc gcc-libs python gperftools harfbuzz fontconfig freetype2
+         glibc gcc-libs zlib python gperftools harfbuzz fontconfig freetype2
          qt6-base libglvnd opus ncurses)
 makedepends=(git cmake cython vulkan-headers eigen toml11)
+optdepends=('ttf-dejavu: for text display, but you can use any font')
 provides=(openage)
 conflicts=(openage)
 source=("git+https://github.com/SFTtech/openage.git")
