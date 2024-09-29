@@ -1,53 +1,50 @@
-# $Id$
 # Maintainer: Sven Fischer <aur.archlinux@linux4tw.de>
 
 pkgname=guayadeque-git
-_pkgname=guayadeque
-pkgver=0.4.6.r2224.a8b47a68
-pkgrel=1
-pkgdesc='Lightweight music player'
-arch=('i686' 'x86_64')
-url='http://guayadeque.org/'
-license=('GPL3')
-provides=(${pkgname%-*})
-conflicts=(${pkgname%-*})
-depends=('curl' 'gst-plugins-base' 'jsoncpp' 'libgpod' 'taglib' 'webkit2gtk' 'wxgtk3' 'wxsqlite3')
-makedepends=('cmake' 'git')
-optdepends=('gst-plugins-good: Support for PulseAudio and additional file formats'
-            'gst-plugins-bad: Support for additional file formats'
-            'gst-plugins-ugly: Support for additional file formats'
-            'gst-libav: Support for additional file formats'
-            'gvfs: Support for external devices')
-source=('git+https://github.com/anonbeat/guayadeque.git'
-        'wxwidgets.patch')
+pkgver=0.4.7.r6.gd5246757
+pkgrel=3
+pkgdesc="Lightweight music player"
+arch=(i686 x86_64)
+url="https://github.com/anonbeat/guayadeque"
+license=(GPL3)
+depends=(wxsqlite3 wxwidgets-gtk3 taglib gst-plugins-base gst-plugins-good jsoncpp)
+makedepends=(cmake git)
+optdepends=('gst-libav: additional codecs'
+            'gst-plugins-bad: additional codecs'
+            'gst-plugins-ugly: additional codecs')
+provides=(guayadeque)
+conflicts=(guayadeque)
+source=("git+https://github.com/anonbeat/guayadeque.git"
+        "guayadeque-wxWidgets-3.2.patch::https://github.com/sluedecke/guayadeque/commit/a9ecb9d8bf785281ed8ccf292cccf3525ffeb457.patch"
+        "guayadeque-taglib2.patch::https://github.com/openmonk/guayadeque/pull/5/commits/20315f28a6003287067e3da893af0499494a061d.patch")
 sha512sums=('SKIP'
-            'bdf0de22543b1c0db7e5619e4740ef7976bdc4f4428e7413824dce585ccc51b99af747ccacb5c9da931706b176f93f80c8f4669c9b0acd3b158974b3b0b6be10')
+            '05cfaca64fa27e901c7b874c0878bd8726fcbcd2d5a38edd67ddfe836266853aeaaf6ed26855e627d5327141e8667403acd56fadd2f6268a7472e4f21421072a'
+            '8d6e1d7949bdb4efaf1a9e1c20c0f6967fd6fa492cd4717dc25b7750e36de88d79bd1adada2de3e41d6f28856d3308ff2ce797e09db775a65693ec09b6c7549b')
 
 pkgver() {
-  cd "${srcdir}/${_pkgname}"
-  local srcversion="$(grep "ID_GUAYADEQUE_VERSION" src/Version.h.in | cut -d '"' -f 2)"
-  printf "%s.r%s.%s" $srcversion "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${srcdir}/${pkgname%-git}"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-  cd "${srcdir}/${_pkgname}"
-  patch -p1 < ../wxwidgets.patch
+  cd "${srcdir}/${pkgname%-git}"
+  patch -Np1 -i ../guayadeque-wxWidgets-3.2.patch
+  patch -Np1 -i ../guayadeque-taglib2.patch
 }
 
 build() {
-  cd "${srcdir}/${_pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   ./buildt
   cmake . \
-    -DCMAKE_CXX_STANDARD='11' \
-    -DCMAKE_BUILD_TYPE='Release' \
-    -DCMAKE_INSTALL_PREFIX='/usr' \
-    -DwxWidgets_wxrc_EXECUTABLE='/usr/bin/wxrc-3.2' \
-    -DwxWidgets_CONFIG_EXECUTABLE='/usr/bin/wx-config' \
-    -DwxWidgets_INCLUDE_DIRS='/usr/include/wx-3.2/'
+    -DCMAKE_CXX_STANDARD=11 \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config
+
   make
 }
 
 package() {
-  cd "${srcdir}/${_pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   make DESTDIR="${pkgdir}" install
 }
