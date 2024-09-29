@@ -3,10 +3,10 @@
 
 pkgname=guayadeque-git
 pkgver=0.5.2.r0.gca56337c
-pkgrel=1
+pkgrel=2
 pkgdesc="Lightweight music player"
 arch=(x86_64 i686)
-url="https://github.com/anonbeat/guayadeque"
+url="https://github.com/thothix/guayadeque"
 license=(GPL-3.0-only)
 depends=(wxsqlite3 wxwidgets-gtk3 taglib gst-plugins-base gst-plugins-good jsoncpp)
 makedepends=(cmake git)
@@ -26,6 +26,7 @@ pkgver() {
 build() {
   local _flags=(
     -DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config
+    -D_GUREVISION_:STRING="${pkgrel}"
   )
 
   cmake -B build -S "guayadeque" -Wno-dev \
