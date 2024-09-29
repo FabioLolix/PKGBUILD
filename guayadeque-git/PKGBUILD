@@ -1,12 +1,13 @@
-# Maintainer: Sven Fischer <aur.archlinux@linux4tw.de>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: Sven Fischer <aur.archlinux@linux4tw.de>
 
 pkgname=guayadeque-git
-pkgver=0.4.7.r6.gd5246757
-pkgrel=3
+pkgver=0.5.2.r0.gca56337c
+pkgrel=1
 pkgdesc="Lightweight music player"
-arch=(i686 x86_64)
+arch=(x86_64 i686)
 url="https://github.com/anonbeat/guayadeque"
-license=(GPL3)
+license=(GPL-3.0-only)
 depends=(wxsqlite3 wxwidgets-gtk3 taglib gst-plugins-base gst-plugins-good jsoncpp)
 makedepends=(cmake git)
 optdepends=('gst-libav: additional codecs'
@@ -14,37 +15,27 @@ optdepends=('gst-libav: additional codecs'
             'gst-plugins-ugly: additional codecs')
 provides=(guayadeque)
 conflicts=(guayadeque)
-source=("git+https://github.com/anonbeat/guayadeque.git"
-        "guayadeque-wxWidgets-3.2.patch::https://github.com/sluedecke/guayadeque/commit/a9ecb9d8bf785281ed8ccf292cccf3525ffeb457.patch"
-        "guayadeque-taglib2.patch::https://github.com/openmonk/guayadeque/pull/5/commits/20315f28a6003287067e3da893af0499494a061d.patch")
-sha512sums=('SKIP'
-            '05cfaca64fa27e901c7b874c0878bd8726fcbcd2d5a38edd67ddfe836266853aeaaf6ed26855e627d5327141e8667403acd56fadd2f6268a7472e4f21421072a'
-            '8d6e1d7949bdb4efaf1a9e1c20c0f6967fd6fa492cd4717dc25b7750e36de88d79bd1adada2de3e41d6f28856d3308ff2ce797e09db775a65693ec09b6c7549b')
+source=("git+https://github.com/thothix/guayadeque.git")
+sha512sums=('SKIP')
 
 pkgver() {
-  cd "${srcdir}/${pkgname%-git}"
+  cd "guayadeque"
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare() {
-  cd "${srcdir}/${pkgname%-git}"
-  patch -Np1 -i ../guayadeque-wxWidgets-3.2.patch
-  patch -Np1 -i ../guayadeque-taglib2.patch
-}
-
 build() {
-  cd "${srcdir}/${pkgname%-git}"
-  ./buildt
-  cmake . \
-    -DCMAKE_CXX_STANDARD=11 \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
+  local _flags=(
     -DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-config
+  )
 
-  make
+  cmake -B build -S "guayadeque" -Wno-dev \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    "${_flags[@]}"
+
+  cmake --build build
 }
 
 package() {
-  cd "${srcdir}/${pkgname%-git}"
-  make DESTDIR="${pkgdir}" install
+  DESTDIR="${pkgdir}" cmake --install build
 }
