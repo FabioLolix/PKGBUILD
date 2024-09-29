@@ -16,6 +16,7 @@ s*.png
 */src
 */code
 */trunk
+*.pkg # extracted packages folder
 
 */*/src
 */*/pkg
