@@ -4,7 +4,7 @@
 
 pkgname=squeezelite-git
 pkgver=2.0.0.1488.r509.g0e85ddf
-pkgrel=1
+pkgrel=2
 pkgdesc="Lightweight headless squeezebox emulator"
 arch=(i686 x86_64 arm armv6h armv7h aarch64)
 url="https://github.com/ralph-irving/squeezelite"
@@ -15,7 +15,8 @@ provides=(squeezelite)
 conflicts=(squeezelite)
 install=squeezelite.install
 source=("git+https://github.com/ralph-irving/squeezelite.git"
-        'squeezelite.service'
+        'squeezelite-system.service'
+        'squeezelite-user.service'
         'conffile')
 sha256sums=('SKIP'
             '9bffedd1d119e6b8643007c8e3ca674266100fb091e4c1458893a42388d4e90e'
@@ -44,7 +45,9 @@ package() {
 
   install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
   install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
-  install -Dm644 ../squeezelite.service -t "${pkgdir}/usr/lib/systemd/system/"
+  #install -Dm644 ../squeezelite.service -t "${pkgdir}/usr/lib/systemd/system/"
+  install -Dm644 ../squeezelite-system.service -t "${pkgdir}/usr/lib/systemd/system/"
+  install -Dm644 ../squeezelite-user.service   -t "${pkgdir}/usr/lib/systemd/user/"
   install -Dm644 doc/squeezelite.1 -t "${pkgdir}/usr/share/man/man1/"
   install -Dm644 LICENSE.txt -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }
