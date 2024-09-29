@@ -3,7 +3,7 @@
 # Contributor: Javier Steinaker <jsteinaker@gmail.com>
 
 pkgname=pinta-git
-pkgver=r3610.b79bd6a5
+pkgver=r3833.45cca31e
 pkgrel=1
 pkgdesc="Drawing/editing program modeled after Paint.NET. It's goal is to provide a simplified alternative to GIMP for casual users"
 arch=(any)
