@@ -51,4 +51,5 @@ check() {
 package() {
   cd "${pkgname}-${pkgver}"
   make DESTDIR="${pkgdir}" install
+  ln -s /usr/bin/rrip_cli ${pkgdir}/usr/bin/rubyripper
 }
