@@ -10,10 +10,11 @@ license=(GPL3)
 depends=(chromaprint protobuf gst-plugins-base gst-plugins-good qt6-base
          sqlite udisks2 dbus alsa-lib libcdio fftw libebur128 kdsingleapplication
 
+         libicuuc.so libicui18n.so libprotobuf.so
+
          # namcap implicit depends
          glibc gcc-libs glib2 icu hicolor-icon-theme libx11 gstreamer
          abseil-cpp taglib gst-plugins-base-libs)
-depends+=(libicuuc.so libicui18n.so libprotobuf.so)
 makedepends=(git cmake boost qt6-tools gtest)
 optdepends=('gst-libav: additional codecs'
             'gst-plugins-bad: additional codecs'
