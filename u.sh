@@ -589,6 +589,16 @@ echo "Done U"
 
 
 
+VAR2=v
+  VAR=viewnior-gtk3-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
+echo "Done V"
+
+
+
 VAR2=y
   VAR=yacreader-poppler
   cd "$BASE/$VAR"
