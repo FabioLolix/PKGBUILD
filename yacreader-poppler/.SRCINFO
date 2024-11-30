@@ -20,6 +20,8 @@ pkgbase = yacreader-poppler
 	depends = hicolor-icon-theme
 	optdepends = qt6-imageformats: Support for extra image formats
 	optdepends = qrencode: YACReaderLibrary server info qr codes
+	provides = yacreader
+	conflicts = yacreader
 	source = git+https://github.com/YACReader/yacreader.git#tag=9.14.2
 	sha256sums = SKIP
 
