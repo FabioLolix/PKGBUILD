@@ -1,0 +1,3 @@
+clang/llvm are required anyway by nvdec but exporting clang also want lld otherwise it fail
+
+export CC=/usr/bin/clang CXX=/usr/bin/clang++
