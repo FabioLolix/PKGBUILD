@@ -11,6 +11,6 @@ post_upgrade() {
 }
 
 post_remove() {
-	getent passwd logitechms &>/dev/null && userdel logitechms >/dev/null
-	getent group logitechms &>/dev/null && groupdel logitechms >/dev/null || true
+	#getent passwd logitechms &>/dev/null && userdel logitechms >/dev/null
+	#getent group logitechms &>/dev/null && groupdel logitechms >/dev/null || true
 }
