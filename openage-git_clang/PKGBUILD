@@ -20,6 +20,7 @@ depends=(libepoxy opusfile
          qt6-base libglvnd opus ncurses)
 makedepends=(clang llvm lld git cmake cython vulkan-headers eigen toml11 python-setuptools)
 optdepends=('ttf-dejavu: for text display, but you can use any font')
+checkdepends=(ttf-dejavu)
 provides=(openage)
 conflicts=(openage)
 options=(!lto)
@@ -33,20 +34,18 @@ pkgver() {
 
 build() {
   export CC="/usr/bin/clang"
-  #unset CFLAGS
   export CXX="/usr/bin/clang++"
-  #unset CXXFLAGS
-  #export CPP="/usr/bin/clang-cpp"
-  #export LD="/usr/bin/lld"
-  #export LDFLAGS="-fuse-ld=lld"
-  #export AR="/usr/bin/llvm-ar"
-  #export RANLIB="/usr/bin/llvm-ranlib"
-  #export NM="/usr/bin/llvm-nm"
-  #export ADDR2LINE="/usr/bin/llvm-addr2line"
-  #export OBJCOPY="/usr/bin/llvm-objcopy"
-  #export OBJDUMP="/usr/bin/llvm-objdump"
-  #export READELF="/usr/bin/llvm-readelf"
-  #export STRIP="/usr/bin/llvm-strip"
+  export CPP="/usr/bin/clang-cpp"
+  export LD="/usr/bin/lld"
+  export LDFLAGS="-fuse-ld=lld"
+  export AR="/usr/bin/llvm-ar"
+  export RANLIB="/usr/bin/llvm-ranlib"
+  export NM="/usr/bin/llvm-nm"
+  export ADDR2LINE="/usr/bin/llvm-addr2line"
+  export OBJCOPY="/usr/bin/llvm-objcopy"
+  export OBJDUMP="/usr/bin/llvm-objdump"
+  export READELF="/usr/bin/llvm-readelf"
+  export STRIP="/usr/bin/llvm-strip"
 
   # fail to run using build type Release, RelWithDebInfo, None https://github.com/SFTtech/openage/issues/1569
 
