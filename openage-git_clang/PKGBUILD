@@ -3,7 +3,7 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=openage-git_clang
-pkgver=0.6.0.r0.gfaec07da1
+pkgver=0.6.0.r17.g8e07bba02
 pkgrel=1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
@@ -11,7 +11,7 @@ url="https://openage.sft.mx/"
 license=(GPL3)
 depends=(libepoxy opusfile
          qt6-declarative qt6-multimedia vulkan-icd-loader
-         libpng libogg nyan-lang
+         libpng libogg nyan-lang-git_clang
          python-pillow python-numpy python-toml python-mako
          python-pygments python-lz4
 
