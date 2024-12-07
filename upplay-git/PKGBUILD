@@ -1,5 +1,5 @@
+# Maintainer: Daniel Maslowski <info@orangecms.org>
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
-# Contributor: Daniel Maslowski <info@orangecms.org>
 
 pkgname=upplay-git
 pkgver=1.7.7.r4.gc234aec
