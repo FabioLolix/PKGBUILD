@@ -4,7 +4,7 @@
 
 pkgname=squeezelite-git
 pkgver=2.0.0.1504.r515.g54e3969
-pkgrel=3
+pkgrel=4
 pkgdesc="Lightweight headless squeezebox emulator"
 arch=(x86_64 i686 armv7h aarch64)
 url="https://github.com/ralph-irving/squeezelite"
@@ -16,13 +16,15 @@ conflicts=(squeezelite)
 #install=squeezelite.install
 source=("git+https://github.com/ralph-irving/squeezelite.git"
         "squeezelite-rpms::git+https://src.fedoraproject.org/rpms/squeezelite.git"
-        'squeezelite-system.service'
-        'squeezelite-user.service'
+        squeezelite.system.service
+        squeezelite.user.service
+        squeezelite.sysconfig
         'conffile')
 sha256sums=('SKIP'
             'SKIP'
-            '5d38abaaddeae45ecfc34f14f97e32f00fd9b1be6d20652470da1a46be603344'
-            '8875914c13ce0e9b5304d0ae756c3cc6a1cd107cb767bf2346076e0267fc8363'
+            '411c102fad3d94346bf73cf6e06b6aa0bb7eb9345028c77cdb26fd3914e04740'
+            '78b1b4b5a911bea17c98948d7a3dada3f0372a26e936b5bd7e2956e3c2d5e2f9'
+            'ad2b29085c77a45b315ee48e8ee0b18b4327e82d2384644cb2c58be7877e005e'
             'f0753a1cbd0194119226587ff9c12257438674d9b8e0179d22f0d5461ad3a70a')
 
 pkgver() {
@@ -46,9 +48,9 @@ package() {
   cd "${srcdir}/squeezelite"
   install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
   #install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
-  #install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
-  install -Dm644 ../squeezelite-system.service -t "${pkgdir}/usr/lib/systemd/system/"
-  install -Dm644 ../squeezelite-user.service   -t "${pkgdir}/usr/lib/systemd/user/"
+  install -Dm644 ../squeezelite.sysconfig "${pkgdir}/etc/squeezelite.conf.default"
+  install -Dm644 ../squeezelite.system.service -t "${pkgdir}/usr/lib/systemd/system/"
+  install -Dm644 ../squeezelite.user.service   -t "${pkgdir}/usr/lib/systemd/user/"
   install -Dm644 doc/squeezelite.1 -t "${pkgdir}/usr/share/man/man1/"
   install -Dm644 LICENSE.txt -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }
