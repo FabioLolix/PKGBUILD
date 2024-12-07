@@ -1,0 +1,32 @@
+# Maintainer: Eric Bailey <nerflad@gmail.com>
+
+pkgname=nyan-lang-git
+pkgver=0.3.r5.g3ab28d8
+pkgrel=1
+pkgdesc="A data description language designed for openage"
+arch=(x86_64 i686 pentium4 armv7h aarch64)
+url="https://github.com/SFTtech/nyan"
+license=(LGPL3)
+depends=(glibc gcc-libs)
+makedepends=(cmake git)
+provides=(nyan-lang)
+conflicts=(nyan-lang)
+source=("nyan-lang::git+https://github.com/SFTtech/nyan.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd nyan-lang
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+  cmake -B build -S "nyan-lang" -Wno-dev \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DCMAKE_INSTALL_PREFIX=/usr
+
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+}
