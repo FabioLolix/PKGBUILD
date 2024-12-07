@@ -26,9 +26,7 @@ sha256sums=('af8a664cb9a5983a1889c0ba56b389dabbb776927472444916bc0acc9c43268e')
 
 build() {
   export CC="/usr/bin/clang"
-  #unset CFLAGS
   export CXX="/usr/bin/clang++"
-  #unset CXXFLAGS
   export CPP="/usr/bin/clang-cpp"
   export LD="/usr/bin/lld"
   export LDFLAGS="-fuse-ld=lld"
