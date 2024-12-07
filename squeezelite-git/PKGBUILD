@@ -4,7 +4,7 @@
 
 pkgname=squeezelite-git
 pkgver=2.0.0.1504.r515.g54e3969
-pkgrel=2
+pkgrel=3
 pkgdesc="Lightweight headless squeezebox emulator"
 arch=(x86_64 i686 armv7h aarch64)
 url="https://github.com/ralph-irving/squeezelite"
@@ -13,14 +13,16 @@ depends=(glibc alsa-lib faad2 flac libmad libvorbis mpg123 libsoxr ffmpeg libavf
 makedepends=(git)
 provides=(squeezelite)
 conflicts=(squeezelite)
-install=squeezelite.install
+#install=squeezelite.install
 source=("git+https://github.com/ralph-irving/squeezelite.git"
+        "squeezelite-rpms::git+https://src.fedoraproject.org/rpms/squeezelite.git"
         'squeezelite-system.service'
         'squeezelite-user.service'
         'conffile')
 sha256sums=('SKIP'
-            'b12728904df1bcfdfd77dda8a84e98c642132c0d00ae6c6d3f2133bb30b6523d'
-            'f109c0e6370a7da7c4d4f1d9e6fc1bafd2655b3e715ed8782f357056861a1095'
+            'SKIP'
+            '5d38abaaddeae45ecfc34f14f97e32f00fd9b1be6d20652470da1a46be603344'
+            '8875914c13ce0e9b5304d0ae756c3cc6a1cd107cb767bf2346076e0267fc8363'
             'f0753a1cbd0194119226587ff9c12257438674d9b8e0179d22f0d5461ad3a70a')
 
 pkgver() {
@@ -43,7 +45,8 @@ build() {
 package() {
   cd "${srcdir}/squeezelite"
   install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
-  install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
+  #install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
+  #install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
   install -Dm644 ../squeezelite-system.service -t "${pkgdir}/usr/lib/systemd/system/"
   install -Dm644 ../squeezelite-user.service   -t "${pkgdir}/usr/lib/systemd/user/"
   install -Dm644 doc/squeezelite.1 -t "${pkgdir}/usr/share/man/man1/"

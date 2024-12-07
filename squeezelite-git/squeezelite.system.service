@@ -1,0 +1,22 @@
+[Unit]
+Description=Squeezelite headless streaming music client
+Documentation=man:squeezelite.service(7)
+Wants=sound.target
+After=sound.target
+
+[Service]
+Type=exec
+User=squeezelite
+Group=squeezelite
+EnvironmentFile=/etc/sysconfig/squeezelite
+ExecStart=/usr/bin/squeezelite -N /var/lib/squeezelite/player-name $ARGS
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
