@@ -11,7 +11,7 @@ url="https://openage.sft.mx/"
 license=(GPL3)
 depends=(libepoxy opusfile ttf-dejavu
          qt6-declarative qt6-multimedia vulkan-icd-loader
-         libpng libogg nyan-lang
+         libpng libogg nyan-lang-git_clang
          python-pillow python-numpy python-toml python-mako
          python-pygments python-lz4
 
