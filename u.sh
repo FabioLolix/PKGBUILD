@@ -235,6 +235,11 @@ VAR2=h
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
 
+  VAR=handbrake-semifull
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+
   VAR=hashit
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
@@ -313,7 +318,7 @@ VAR2=l
   VAR=logitechmediaserver-bin
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+    rsync {PKGBUILD,.SRCINFO,*.service,*.install} "$DEST/$VAR2/$VAR"
 
   VAR=lumina-desktop
   cd "$BASE/$VAR"
