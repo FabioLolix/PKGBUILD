@@ -3,13 +3,13 @@
 # Contributor: Mika Fischer <mika.fischer@zoopnet.de>
 
 pkgname=squeezelite-git
-pkgver=2.0.0.1488.r509.g0e85ddf
+pkgver=2.0.0.1504.r515.g54e3969
 pkgrel=2
 pkgdesc="Lightweight headless squeezebox emulator"
-arch=(i686 x86_64 arm armv6h armv7h aarch64)
+arch=(x86_64 i686 armv7h aarch64)
 url="https://github.com/ralph-irving/squeezelite"
-license=(GPL3)
-depends=(alsa-lib faad2 flac libmad libvorbis mpg123 libsoxr ffmpeg)
+license=(GPL-3.0-or-later)
+depends=(glibc alsa-lib faad2 flac libmad libvorbis mpg123 libsoxr ffmpeg libavformat.so)
 makedepends=(git)
 provides=(squeezelite)
 conflicts=(squeezelite)
@@ -19,7 +19,8 @@ source=("git+https://github.com/ralph-irving/squeezelite.git"
         'squeezelite-user.service'
         'conffile')
 sha256sums=('SKIP'
-            '9bffedd1d119e6b8643007c8e3ca674266100fb091e4c1458893a42388d4e90e'
+            'b12728904df1bcfdfd77dda8a84e98c642132c0d00ae6c6d3f2133bb30b6523d'
+            'f109c0e6370a7da7c4d4f1d9e6fc1bafd2655b3e715ed8782f357056861a1095'
             'f0753a1cbd0194119226587ff9c12257438674d9b8e0179d22f0d5461ad3a70a')
 
 pkgver() {
@@ -34,7 +35,6 @@ pkgver() {
 
 build() {
   cd "${srcdir}/squeezelite"
-
   export LDFLAGS="${LDFLAGS} -lasound -lpthread -lm -lrt"
   export OPTS="${OPTS} -DDSD -DRESAMPLE -DVISEXPORT -DFFMPEG -DLINKALL"
   make
@@ -42,10 +42,8 @@ build() {
 
 package() {
   cd "${srcdir}/squeezelite"
-
   install -m0755 -D squeezelite "${pkgdir}/usr/bin/squeezelite"
   install -Dm644 ../conffile "${pkgdir}/etc/squeezelite.conf.default"
-  #install -Dm644 ../squeezelite.service -t "${pkgdir}/usr/lib/systemd/system/"
   install -Dm644 ../squeezelite-system.service -t "${pkgdir}/usr/lib/systemd/system/"
   install -Dm644 ../squeezelite-user.service   -t "${pkgdir}/usr/lib/systemd/user/"
   install -Dm644 doc/squeezelite.1 -t "${pkgdir}/usr/share/man/man1/"
