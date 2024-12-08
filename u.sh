@@ -550,11 +550,6 @@ VAR2=s
     makepkg --printsrcinfo > .SRCINFO
     rsync {PKGBUILD,.SRCINFO,conffile,*.install,*.service} "$DEST/$VAR2/$VAR"
 
-  VAR=strawberry-full-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-
   VAR=strawberry-git
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
