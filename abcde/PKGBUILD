@@ -1,17 +1,18 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: schuay <jakob.gruber@gmail.com>
 # Contributor: Jochem Kossen <j.kossen@home.nl>
 # Contributor: Kevin Piche <kevin@archlinux.org>
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
-# Maintainer: schuay <jakob.gruber@gmail.com>
 
 pkgname=abcde
 pkgver=2.9.3
-pkgrel=5
-pkgdesc='Frontend command-line utility that grabs tracks off a CD, encodes them to ogg or mp3 format, and tags them, all in one go'
-arch=('any')
-url='https://abcde.einval.com/'
-license=('GPL')
-depends=('bash' 'cd-discid' 'wget' 'vorbis-tools' 'which')
-optdepends=('cdparanoia: Paranoia ripping support'
+pkgrel=6
+pkgdesc="Frontend command-line utility that grabs tracks off a CD, encodes them to ogg or mp3 format, and tags them, all in one go"
+arch=(any)
+url="https://abcde.einval.com/"
+license=(GPL-2.0-or-later)
+depends=(sh wget vorbis-tools which cdparanoia cdrtools)
+optdepends=('cd-discid'
             'flac: FLAC encoding support'
             'glyr: album art support'
             'imagemagick: album art support'
