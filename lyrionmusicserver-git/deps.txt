@@ -1,0 +1,6 @@
+
+
+
+rsync is needed by buildme.sh
+
+clang is preferred if both (gcc) are available
