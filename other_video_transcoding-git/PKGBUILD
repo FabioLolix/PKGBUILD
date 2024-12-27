@@ -1,0 +1,26 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=other_video_transcoding-git
+pkgver=r165.4d4e6fc
+pkgrel=1
+pkgdesc="Video transcoder that automatically selects a platform-specific hardware video encoder rather than relying on a slower software encoder"
+arch=(any)
+url="https://github.com/lisamelton/other_video_transcoding"
+license=(MIT)
+depends=(ruby ffmpeg mkvtoolnix-cli)
+makedepends=(git)
+conflicts=(ruby-other_video_transcoding)
+source=("git+https://github.com/lisamelton/other_video_transcoding.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd other_video_transcoding
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd other_video_transcoding
+  install -Dm755 other-transcode.rb "${pkgdir}/usr/bin/other-transcode"
+  install -D LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}
+

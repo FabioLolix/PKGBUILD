@@ -1,0 +1,16 @@
+pkgbase = other_video_transcoding-git
+	pkgdesc = Video transcoder that automatically selects a platform-specific hardware video encoder rather than relying on a slower software encoder
+	pkgver = r165.4d4e6fc
+	pkgrel = 1
+	url = https://github.com/lisamelton/other_video_transcoding
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = ruby
+	depends = ffmpeg
+	depends = mkvtoolnix-cli
+	conflicts = ruby-other_video_transcoding
+	source = git+https://github.com/lisamelton/other_video_transcoding.git
+	sha256sums = SKIP
+
+pkgname = other_video_transcoding-git
