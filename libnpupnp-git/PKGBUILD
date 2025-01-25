@@ -1,14 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=libnpupnp-git
-pkgver=6.1.0.r70.ge3d409c
+pkgver=6.2.0.r4.gf594605
 pkgrel=1
 pkgdesc="C++ base UPnP library, derived from Portable UPnP, a.k.a libupnp"
 url="https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html"
 arch=(x86_64 i686 armv6h armv7h aarch64)
 license=(BSD)
 depends=(glibc gcc-libs curl expat libmicrohttpd)
-makedepends=(git)
+makedepends=(git meson)
 provides=(libnpupnp libnpupnp.so)
 conflicts=(libnpupnp)
 source=("libnpupnp::git+https://framagit.org/medoc92/npupnp.git")
@@ -19,19 +19,12 @@ pkgver() {
   git describe --long --tags | sed 's/^libnpupnp.v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare() {
-  cd "libnpupnp"
-  ./autogen.sh
-}
-
 build(){
-  cd "libnpupnp"
-  ./configure --prefix=/usr
-  make
+  arch-meson libnpupnp build
+  meson compile -C build
 }
 
 package(){
-  cd "libnpupnp"
-  make DESTDIR="$pkgdir" install
-  install -Dm644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
+  meson install -C build --destdir "$pkgdir"
+  install -Dm644 libnpupnp/COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
