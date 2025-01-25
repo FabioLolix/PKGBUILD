@@ -7,7 +7,7 @@
 # Contributor: Michael Straube <straubem@gmx.de>
 
 pkgname=guayadeque
-pkgver=0.6.3
+pkgver=0.6.4
 pkgrel=1
 pkgdesc="Lightweight music player"
 arch=(x86_64)
@@ -24,7 +24,7 @@ optdepends=('gst-libav: additional codecs'
             'gst-plugins-bad: additional codecs'
             'gst-plugins-ugly: additional codecs')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/thothix/guayadeque/archive/v${pkgver}.tar.gz")
-sha256sums=('df869864f81ee192087bce73401245709273a52067299d25641707536f09a1be')
+sha256sums=('91bd469641c1311488e45dfd727156037ee76b4f52efc44451eb7f988eec70dd')
 
 build() {
   # buildtype None introduce problems
