@@ -1,14 +1,14 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=libupnpp-git
-pkgver=0.26.1.r4.g2cc1317
+pkgver=0.26.7.r9.g29b4f69
 pkgrel=1
 pkgdesc="A C++ wrapper for libupnp - used with upmpdcli or upplay"
 url="https://www.lesbonscomptes.com//upmpdcli/libupnpp-refdoc/libupnpp-ctl.html"
 arch=(x86_64 i686 armv6h armv7h aarch64)
 license=(LGPL2.1)
-depends=(glibc gcc-libs curl expat libnpupnp)
-makedepends=(git)
+depends=(glibc gcc-libs curl expat libnpupnp libnpupnp.so)
+makedepends=(git meson)
 provides=(libupnpp libupnpp.so)
 conflicts=(libupnpp)
 source=("git+https://framagit.org/medoc92/libupnpp.git")
@@ -19,19 +19,11 @@ pkgver() {
   git describe --long --tags | sed 's/^libupnpp.v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare() {
-  cd "libupnpp"
-  ./autogen.sh
-}
-
 build(){
-  cd "libupnpp"
-  ./configure --prefix=/usr
-  make
+  arch-meson libupnpp build
+  meson compile -C build
 }
 
 package(){
-  depends+=(libnpupnp.so)
-  cd "libupnpp"
-  make DESTDIR="$pkgdir" install
+  meson install -C build --destdir "$pkgdir"
 }
