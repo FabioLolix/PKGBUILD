@@ -1,6 +1,6 @@
 pkgbase = other_video_transcoding-git
 	pkgdesc = Video transcoder that automatically selects a platform-specific hardware video encoder rather than relying on a slower software encoder
-	pkgver = r165.4d4e6fc
+	pkgver = 2025.01.21.r0.gb063ef9
 	pkgrel = 1
 	url = https://github.com/lisamelton/other_video_transcoding
 	arch = any
