@@ -1,13 +1,14 @@
 pkgbase = gparted-git
 	pkgdesc = A Partition Magic clone, frontend to GNU Parted
-	pkgver = 1.6.0.r57.g9d88ff37
-	pkgrel = 1
+	pkgver = 1.6.0.r76.gc0518324
+	pkgrel = 2
 	url = https://gparted.org/
 	arch = i686
 	arch = x86_64
 	arch = armv7h
 	arch = aarch64
-	license = GPL
+	license = GPL-2.0-or-later
+	license = GFDL-1.2-or-later
 	makedepends = git
 	makedepends = gnome-common
 	makedepends = intltool
