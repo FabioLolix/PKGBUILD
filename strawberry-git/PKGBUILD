@@ -30,20 +30,19 @@ pkgver() {
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare() {
-  cd strawberry
-  install -d strawberry-build
-}
-
 build() {
-  cd strawberry/strawberry-build
-  cmake .. \
-    -DCMAKE_INSTALL_PREFIX=/usr \
+  local _flags=(
     -DCMAKE_CXX_FLAGS="$CXXFLAGS -DQT_NO_DEBUG_OUTPUT"
-  make
+  )
+
+  cmake -B build -S "strawberry" -Wno-dev \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    "${_flags[@]}"
+
+  cmake --build build
 }
 
 package() {
-  cd strawberry/strawberry-build
-  make DESTDIR="${pkgdir}" install
+  DESTDIR="${pkgdir}" cmake --install build
 }
