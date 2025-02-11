@@ -35,6 +35,7 @@ sha256sums=('f109ed5455f5a616cbd392c2a71efd59ffa2d207c3c3c3ad41873e20430b80c0'
 
 prepare() {
   cd "${pkgname}-${pkgver}"
+  # fix https://github.com/bleskodev/rubyripper/issues/639 https://github.com/bleskodev/rubyripper/issues/646
   patch -Np1 -i ../rubyripper_Update_code_to_remove_File.exists?_method_usage.patch
 }
 
