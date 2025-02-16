@@ -4,14 +4,14 @@
 # Contributor: Tilman Vatteroth <tilman.vatteroth@udo.edu>
 
 pkgname=upmpdcli-git
-pkgver=1.8.7.r23.g0bdb79f
+pkgver=1.9.0.r7.gf17e00c
 pkgrel=1
 pkgdesc="A UPnP Media Renderer front-end for the Music Player Daemon (MPD)"
 arch=(i686 x86_64 arm armv7h armv6h aarch64)
 url="https://www.lesbonscomptes.com/upmpdcli/"
 license=(GPL2)
-depends=(python libmpdclient libupnpp libmicrohttpd jsoncpp)
-makedepends=(git)
+depends=(python libmpdclient libupnpp libupnpp.so libmicrohttpd jsoncpp)
+makedepends=(git meson)
 optdepends=(aspell-en id3lib sqlite
             'python-requests: enable search'
             'python-bottle: enable uprcl media server'
@@ -31,21 +31,14 @@ pkgver() {
   git describe --long --tags | sed 's/^upmpdcli.v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-prepare() {
-  cd "upmpdcli"
-  ./autogen.sh
-}
-
-build() {
-  cd "upmpdcli"
-  ./configure --sysconfdir=/etc --prefix=/usr
-  make
+build(){
+  arch-meson upmpdcli build
+  meson compile -C build
 }
 
 package() {
-  depends+=(libupnpp.so)
+  meson install -C build --destdir "$pkgdir"
   cd "upmpdcli"
-  make DESTDIR="${pkgdir}" install
   install -Dm644 systemd/upmpdcli.service "${pkgdir}"/usr/lib/systemd/system/upmpdcli.service
   sed '/\[Service\]/a User=upmpdcli' -i ${pkgdir}/usr/lib/systemd/system/upmpdcli.service
   sed -i '/^After/ s/$/ mpd.service/' ${pkgdir}/usr/lib/systemd/system/upmpdcli.service
