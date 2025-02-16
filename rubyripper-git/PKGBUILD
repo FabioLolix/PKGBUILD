@@ -6,8 +6,8 @@
 # Contributor: Alexander Fehr <pizzapunk AT gmail DOT com>
 
 pkgname=rubyripper-git
-pkgver=0.8.0rc3.r12.gc19661b
-pkgrel=4
+pkgver=0.8.0rc4.r0.gc19661b
+pkgrel=1
 pkgdesc="Secure audiodisc ripper"
 arch=(any)
 url="https://github.com/bleskodev/rubyripper"
