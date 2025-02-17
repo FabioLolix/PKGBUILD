@@ -1,6 +1,6 @@
 pkgbase = cantata-qt6-git
 	pkgdesc = Qt6 graphical client for Music Player Daemon (MPD), nullobsi fork
-	pkgver = 3.3.0.r0.g3bc07b4
+	pkgver = 3.3.0.r2.g7097547
 	pkgrel = 1
 	url = https://github.com/nullobsi/cantata
 	arch = x86_64
