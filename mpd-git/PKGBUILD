@@ -1,4 +1,5 @@
-# Maintainer: PRESFIL <echo cHJlc2ZpbEBwcm90b25tYWlsLmNvbQo= | base64 -d>
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: PRESFIL <echo cHJlc2ZpbEBwcm90b25tYWlsLmNvbQo= | base64 -d>
 # Contributor: KokaKiwi <kokakiwi plus aur at kokakiwi dot net>
 # Contributor: Amanoel Dawod <amoka at amanoel dot com>
 # Contributor: David Runge <dvzrv@archlinux.org>
@@ -13,31 +14,38 @@
 # Contributor: Damir Perisa <damir.perisa@bluewin.ch>
 # Contributor: Ben <ben@benmazer.net>
 
-_pkgname=mpd
-pkgname=${_pkgname}-git
-pkgver=0.23.15.r1069.gd0a427044
+pkgname=mpd-git
+pkgver=0.23.17.r1739.gfdb887480
 pkgrel=1
-pkgdesc='Flexible, powerful, server-side application for playing music (from git)'
-url='https://www.musicpd.org/'
-license=('BSD-2-Clause' 'GPL-2.0-or-later')
-arch=('x86_64')
-depends=('bzip2' 'chromaprint' 'expat' 'fmt' 'gcc-libs' 'glibc'
-         'hicolor-icon-theme' 'lame' 'libcdio' 'libcdio-paranoia' 'libgme'
-         'libmad' 'libmms' 'libmodplug' 'libmpcdec' 'libnfs' 'libpipewire'
-         'libshout' 'libsidplayfp' 'libsoxr' 'liburing' 'openal' 'opus' 'pcre2'
-         'sqlite' 'wavpack' 'wildmidi' 'yajl' 'zlib' 'zziplib')
-makedepends=('alsa-lib' 'audiofile' 'avahi' 'boost' 'curl' 'dbus' 'faad2'
-             'ffmpeg' 'flac' 'fluidsynth' 'fmt' 'git' 'icu' 'jack' 'libao' 'libid3tag' 'libmikmod'
-             'libmpdclient' 'libogg' 'libpulse' 'libsamplerate' 'libsndfile' 'libupnp'
-             'liburing' 'libvorbis' 'meson' 'mpg123' 'python-sphinx' 'python-sphinx_rtd_theme'
-             'systemd-libs' 'twolame')
-provides=('mpd')
-conflicts=('mpd')
-backup=("etc/${_pkgname}.conf")
-source=("${_pkgname}::git+https://github.com/MusicPlayerDaemon/MPD"
-        "${_pkgname}.conf"
-        "${_pkgname}.sysusers"
-        "${_pkgname}.tmpfiles")
+pkgdesc="Flexible, powerful, server-side application for playing music"
+url="https://www.musicpd.org/"
+license=(BSD-2-Clause GPL-2.0-or-later)
+arch=(x86_64)
+depends=(bzip2 chromaprint expat fmt gcc-libs glibc
+         hicolor-icon-theme lame libcdio libcdio-paranoia libgme
+         libmad libmms libmodplug libmpcdec libnfs libpipewire
+         libshout libsidplayfp libsoxr liburing openal opus pcre2
+         sqlite wavpack wildmidi yajl zlib zziplib
+
+         libFLAC.so libao.so libasound.so libaudiofile.so
+         libavahi-client.so libavahi-common.so libavcodec.so libavformat.so
+         libavutil.so libcurl.so libdbus-1.so libfaad.so libfluidsynth.so
+         libicui18n.so libicuuc.so libid3tag.so libjack.so libmikmod.so
+         libmpdclient.so libmpg123.so libogg.so libpulse.so libsamplerate.so
+         libsndfile.so libsystemd.so libtwolame.so libvorbis.so
+         libvorbisenc.so libupnp.so)
+makedepends=(alsa-lib audiofile avahi boost curl dbus faad2
+             ffmpeg flac fluidsynth fmt git icu jack libao libid3tag libmikmod
+             libmpdclient libogg libpulse libsamplerate libsndfile libupnp
+             liburing libvorbis meson mpg123 python-sphinx python-sphinx_rtd_theme
+             systemd-libs twolame)
+provides=(mpd)
+conflicts=(mpd)
+backup=("etc/mpd.conf")
+source=("mpd::git+https://github.com/MusicPlayerDaemon/MPD"
+        "mpd.conf"
+        "mpd.sysusers"
+        "mpd.tmpfiles")
 sha256sums=('SKIP'
             'f40f68205834ca53cea3372e930bfe6c2f9ecc9df3b1605df2fec63a658b2e03'
             '0b74c6e5db08daab3091dc15a6b0c75210ba2f9e98fa074f6cfd605a461056b6'
@@ -48,25 +56,23 @@ b2sums=('SKIP'
         'd7b587c25dd5830c27af475a8fdd8102139d7c8fdd6f04fe23b36be030e4411582e289f575c299255ff8183096f7d47247327276f9a24641cbd032d9675b837a')
 
 pkgver() {
-	cd "${_pkgname}"
-
-	git describe --long --tags | sed 's/^v//; s/\([^-]*-g\)/r\1/; s/-/./g'
+  cd "mpd"
+  git describe --long --tags | sed 's/^v//; s/\([^-]*-g\)/r\1/; s/-/./g'
 }
 
 prepare() {
-	cd "${_pkgname}"
-
-	sed -e '/\[Service\]/a User=mpd' \
-		-i "systemd/system/mpd.service.in"
+  cd "mpd"
+  sed -e '/\[Service\]/a User=mpd' \
+      -i "systemd/system/mpd.service.in"
 }
 
 build() {
-  cd "${_pkgname}"
+  cd "mpd"
 
   # NOTE: sndio conflicts with alsa
   # TODO: package adplug
   # TODO: package shine
-  meson --prefix /usr \
+  meson setup --prefix /usr \
         --libexecdir lib \
         --sbindir bin \
         --buildtype plain \
@@ -81,36 +87,29 @@ build() {
         -D tremor=disabled \
         -D openmpt=disabled \
         build
+
   ninja -C build
 }
 
-check() {
-  cd "${_pkgname}"
-
-  ninja -C build test
-}
+# There aren't tests
+#check() {
+#  cd "mpd"
+#  ninja -C build test
+#}
 
 package() {
-  depends+=('libFLAC.so' 'libao.so' 'libasound.so' 'libaudiofile.so'
-            'libavahi-client.so' 'libavahi-common.so' 'libavcodec.so' 'libavformat.so'
-            'libavutil.so' 'libcurl.so' 'libdbus-1.so' 'libfaad.so' 'libfluidsynth.so'
-            'libicui18n.so' 'libicuuc.so' 'libid3tag.so' 'libjack.so' 'libmikmod.so'
-            'libmpdclient.so' 'libmpg123.so' 'libogg.so' 'libpulse.so' 'libsamplerate.so'
-            'libsndfile.so' 'libsystemd.so' 'libtwolame.so' 'libvorbis.so'
-            'libvorbisenc.so' 'libupnp.so')
-
-  cd "${_pkgname}"
+  cd "mpd"
 
   DESTDIR="${pkgdir}" ninja -C build install
 
-  install -vDm 644 "doc/${_pkgname}conf.example" \
-    -t "${pkgdir}/usr/share/doc/${_pkgname}/"
-  install -vDm 644 "doc/${_pkgname}.conf.5.rst" -t "${pkgdir}/usr/share/man/man5/"
-  install -vDm 644 "doc/${_pkgname}.1.rst" -t "${pkgdir}/usr/share/man/man1/"
+  install -vDm 644 "doc/mpdconf.example" \
+    -t "${pkgdir}/usr/share/doc/mpd/"
+  install -vDm 644 "doc/mpd.conf.5.rst" -t "${pkgdir}/usr/share/man/man5/"
+  install -vDm 644 "doc/mpd.1.rst" -t "${pkgdir}/usr/share/man/man1/"
 
-  install -vDm 644 "../${_pkgname}.conf" -t "${pkgdir}/etc/"
-  install -vDm 644 "../${_pkgname}.sysusers" "${pkgdir}/usr/lib/sysusers.d/${_pkgname}.conf"
-  install -vDm 644 "../${_pkgname}.tmpfiles" "${pkgdir}/usr/lib/tmpfiles.d/${_pkgname}.conf"
+  install -vDm 644 "../mpd.conf" -t "${pkgdir}/etc/"
+  install -vDm 644 "../mpd.sysusers" "${pkgdir}/usr/lib/sysusers.d/mpd.conf"
+  install -vDm 644 "../mpd.tmpfiles" "${pkgdir}/usr/lib/tmpfiles.d/mpd.conf"
 
   install -vDm 644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
