@@ -3,8 +3,8 @@
 # Contributor: Ricardo Liang (rliang) <ricardoliang@gmail.com>
 
 pkgname=gnome-disk-utility-git
-pkgver=44.0.r566.g6e04eaf
-pkgrel=1.1
+pkgver=44.0.r571.ge17892c
+pkgrel=1
 pkgdesc="Disk Management Utility for GNOME"
 url="https://gitlab.gnome.org/GNOME/gnome-disk-utility"
 arch=(x86_64)
@@ -51,6 +51,12 @@ pkgver() {
   cd gnome-disk-utility
   git describe --long --tags --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
+
+#  Cargo fetch is pointless in this case as stuff will be downloaded again in build()
+#prepare() {
+#  cd gnome-disk-utility
+#  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+#}
 
 build() {
   arch-meson gnome-disk-utility build
