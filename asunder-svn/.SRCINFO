@@ -1,6 +1,6 @@
 pkgbase = asunder-svn
 	pkgdesc = a graphical CD ripper and encoder
-	pkgver = r470
+	pkgver = r472
 	pkgrel = 1
 	url = http://littlesvr.ca/asunder/
 	arch = x86_64

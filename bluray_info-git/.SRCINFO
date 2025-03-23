@@ -1,6 +1,6 @@
 pkgbase = bluray_info-git
 	pkgdesc = Blu-ray utilities: bluray_info, bluray_copy, bluray_player
-	pkgver = 1.14.r0.g0f1a747
+	pkgver = 1.14.r6.g251bba2
 	pkgrel = 1
 	url = https://github.com/beandog/bluray_info
 	arch = x86_64

@@ -1,6 +1,6 @@
 pkgbase = guitar-git
 	pkgdesc = Open source Git GUI Client
-	pkgver = 1.2.0.r473.g0c4cd1c
+	pkgver = 1.2.0.r598.gcbc477c
 	pkgrel = 1
 	url = https://soramimi.github.io/Guitar/
 	arch = x86_64

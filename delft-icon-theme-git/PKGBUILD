@@ -14,7 +14,7 @@ provides=("${pkgname%-*}")
 conflicts=("${pkgname%-*}")
 options=('!strip')
 source=("${pkgname%-*}::git+${url}.git")
-md5sums=("SKIP")
+md5sums=('SKIP')
 
 pkgver() {
   cd "${pkgname%-*}"

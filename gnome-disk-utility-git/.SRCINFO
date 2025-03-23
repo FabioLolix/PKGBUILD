@@ -1,7 +1,7 @@
 pkgbase = gnome-disk-utility-git
 	pkgdesc = Disk Management Utility for GNOME
-	pkgver = 44.0.r566.g6e04eaf
-	pkgrel = 1.1
+	pkgver = 44.0.r576.g2281824
+	pkgrel = 1
 	url = https://gitlab.gnome.org/GNOME/gnome-disk-utility
 	arch = x86_64
 	groups = gnome

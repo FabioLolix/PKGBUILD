@@ -2,7 +2,7 @@
 # Contributor: Davide Depau <davide@depau.eu>
 
 pkgname=gnome-firmware-git
-pkgver=47.0.r52.g6e4f11a
+pkgver=47.0.r65.g3cac367
 pkgrel=1
 pkgdesc="GNOME application to update, reinstall and downgrade firmware on devices supported by fwupd"
 arch=(x86_64 i686 armv7h aarch64)

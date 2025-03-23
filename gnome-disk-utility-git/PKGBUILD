@@ -3,7 +3,7 @@
 # Contributor: Ricardo Liang (rliang) <ricardoliang@gmail.com>
 
 pkgname=gnome-disk-utility-git
-pkgver=44.0.r571.ge17892c
+pkgver=44.0.r576.g2281824
 pkgrel=1
 pkgdesc="Disk Management Utility for GNOME"
 url="https://gitlab.gnome.org/GNOME/gnome-disk-utility"
