@@ -2,7 +2,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=upplay-git
-pkgver=1.8.1.r2.g53f960f
+pkgver=1.8.1.r43.gac178b9
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point"
 url="https://www.lesbonscomptes.com/upplay/"
@@ -24,6 +24,7 @@ pkgver() {
 build() {
   cd upplay
   qmake6 -o Makefile upplay.pro PREFIX=/usr
+  make
 }
 
 package() {
