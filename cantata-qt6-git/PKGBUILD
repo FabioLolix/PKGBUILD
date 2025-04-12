@@ -29,14 +29,21 @@ depends=(qt6-base
 makedepends=(git cmake qt6-tools)
 optdepends=('perl-uri: Dynamic playlist'
             'mpd: Playback')
-conflicts=(cantata)
 provides=(cantata)
-source=("cantata-nullobsi::git+https://github.com/nullobsi/cantata.git")
-sha256sums=('SKIP')
+conflicts=(cantata)
+source=("cantata-nullobsi::git+https://github.com/nullobsi/cantata.git"
+        "cantata-QRegularExpression.patch::https://github.com/nullobsi/cantata/pull/54/commits/aed0b8cdb60bb100e15c0195dbd84a4a18edc35d.patch")
+sha256sums=('SKIP'
+            '553c27ca42e7bbd09ce7f63dfa747df06826c5ef8c3ddab4ac3f925f00e5f2fb')
 
 pkgver() {
   cd "cantata-nullobsi"
   git describe --long --tags --abbrev=7 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+  cd "cantata-nullobsi"
+  patch -Np1 -i ../cantata-QRegularExpression.patch
 }
 
 build() {
