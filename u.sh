@@ -421,6 +421,12 @@ VAR2=m
     rsync {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
+  VAR=mpd-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    rsync {PKGBUILD,.SRCINFO,mpd.conf,mpd.sysusers,mpd.tmpfiles} "$DEST/$VAR2/$VAR"
+    echo "    synced $VAR"
+
 echo "Done M"
 
 
