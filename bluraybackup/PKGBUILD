@@ -8,6 +8,7 @@ arch=(x86_64)
 url="https://git.golem.linux.it/matteobin/bluraybackup"
 license=(GPL-3.0-or-later)
 depends=(glibc libbluray libaacs)
+optdepends=(libbdplus)
 source=("${pkgname}-${pkgver}.tar.gz::https://git.golem.linux.it/matteobin/bluraybackup/archive/${pkgver}.tar.gz")
 sha256sums=('31837b390d1d5851bef68de1f7fa6d1deb6fe9045045e50fac94da04919dd42e')
 

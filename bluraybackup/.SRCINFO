@@ -8,6 +8,7 @@ pkgbase = bluraybackup
 	depends = glibc
 	depends = libbluray
 	depends = libaacs
+	optdepends = libbdplus
 	source = bluraybackup-2.0.tar.gz::https://git.golem.linux.it/matteobin/bluraybackup/archive/2.0.tar.gz
 	sha256sums = 31837b390d1d5851bef68de1f7fa6d1deb6fe9045045e50fac94da04919dd42e
 
