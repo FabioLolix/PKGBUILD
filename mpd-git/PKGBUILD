@@ -15,7 +15,7 @@
 # Contributor: Ben <ben@benmazer.net>
 
 pkgname=mpd-git
-pkgver=0.24.1.r1.g19ccc1e1d
+pkgver=0.24.3.r54.g287033c36
 pkgrel=1
 pkgdesc="Flexible, powerful, server-side application for playing music"
 url="https://www.musicpd.org/"
@@ -25,7 +25,7 @@ depends=(bzip2 chromaprint expat fmt gcc-libs glibc
          hicolor-icon-theme lame libcdio libcdio-paranoia libgme
          libmad libmms libmodplug libmpcdec libnfs libpipewire
          libshout libsidplayfp libsoxr liburing openal opus pcre2
-         sqlite wavpack wildmidi yajl zlib zziplib
+         sqlite wavpack wildmidi zlib zziplib
 
          libFLAC.so libao.so libasound.so libaudiofile.so
          libavahi-client.so libavahi-common.so libavcodec.so libavformat.so
@@ -35,10 +35,10 @@ depends=(bzip2 chromaprint expat fmt gcc-libs glibc
          libsndfile.so libsystemd.so libtwolame.so libvorbis.so
          libvorbisenc.so libupnp.so)
 makedepends=(alsa-lib audiofile avahi boost curl dbus faad2
-             ffmpeg flac fluidsynth fmt git icu jack libao libid3tag libmikmod
+             ffmpeg flac fluidsynth git icu jack libao libid3tag libmikmod
              libmpdclient libogg libpulse libsamplerate libsndfile libupnp
-             liburing libvorbis meson mpg123 python-sphinx python-sphinx_rtd_theme
-             systemd-libs twolame)
+             libvorbis meson mpg123 python-sphinx python-sphinx_rtd_theme
+             systemd-libs twolame nlohmann-json)
 provides=(mpd)
 conflicts=(mpd)
 backup=("etc/mpd.conf")
