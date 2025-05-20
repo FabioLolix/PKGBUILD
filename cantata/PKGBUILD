@@ -48,6 +48,7 @@ prepare() {
 
 build() {
   cmake -B build -S "$pkgname-$pkgver" -Wno-dev \
+	-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_INSTALL_PREFIX=/usr
 
   cmake --build build
