@@ -3,7 +3,7 @@
 
 pkgname=lumina-pdf
 pkgver=1.6.0
-pkgrel=1
+pkgrel=2
 pkgdesc="PDF viewer for the lumina desktop environment"
 arch=(x86_64 i686 armv7h aarch64)
 url="https://lumina-desktop.org/"
@@ -11,7 +11,7 @@ license=(BSD)
 depends=(qt5-base poppler-qt5)
 makedepends=(git qt5-svg qt5-tools)
 source=(git+https://github.com/lumina-desktop/lumina-pdf.git#tag=v${pkgver})
-sha512sums=('SKIP')
+sha512sums=('256d1a32895972b6c250aa6833bba56dfedd3325a5d381a8ebaa9222dd9bbb2e463f74ec31594a5b90bf2252757b13da96681d9008282bf06ad7c07380fee54b')
 
 build(){
   cd "${srcdir}/$pkgname/src-qt5/"
