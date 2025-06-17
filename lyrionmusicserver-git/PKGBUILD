@@ -2,9 +2,9 @@
 # Maintainer: Stefan Sielaff <aur AT stefan-sielaff DOT de>
 
 pkgname=lyrionmusicserver-git
-pkgver=9.0.2.r225.g39d9fb9
-pkgrel=1
-pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server)"
+pkgver=9.0.2.r305.g35841d4
+pkgrel=1.2
+pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server, port 9002)"
 arch=(i686 x86_64 armv7h aarch64)
 url="https://github.com/LMS-Community/slimserver"
 license=(GPL-2.0-only)
@@ -17,7 +17,7 @@ source=("git+https://github.com/LMS-Community/slimserver.git"
         'lyrionmusicserver-git.service')
 sha256sums=('SKIP'
             'SKIP'
-            '9f639d3bd5c389bd64578093a67a5b7d951db588ef50769e599722a225bcf365')
+            '0aca8904d179cdf1ec142173d9822cde5fe52cab597604eed9bee46de8f0a7ea')
 
 prepare() {
     cd "slimserver/Bin"
@@ -55,4 +55,7 @@ package() {
   cd "${srcdir}/slimserver-vendor"
   cp -a CPAN/build/5.*/lib/*/*linux*/* "${pkgdir}/opt/${pkgname}/CPAN"
     #printf "ARCH-AUR-GIT.%s\n%s" "${pkgver}" "$(date)" > "${pkgdir}/opt/${pkgname}/revision.txt"
+
+  touch "${pkgdir}"/opt/lyrionmusicserver-git/Logs/server.log
+  touch "${pkgdir}"/opt/lyrionmusicserver-git/Logs/perfmon.log
 }
