@@ -24,7 +24,7 @@ optdepends=('xorg-xbacklight: required for changing screen brightness'
 conflicts=(lumina-desktop insight-fm)
 provides=(lumina-desktop)
 source=("git+https://github.com/lumina-desktop/lumina.git")
-md5sums=(SKIP)
+md5sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/lumina"
