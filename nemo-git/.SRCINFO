@@ -1,6 +1,6 @@
 pkgbase = nemo-git
 	pkgdesc = Cinnamon file manager (Nautilus fork)
-	pkgver = master.lmde6.r2.gbfdeba3
+	pkgver = 6.4.5.r17.gf13caea
 	pkgrel = 1
 	url = https://github.com/linuxmint/nemo
 	arch = x86_64

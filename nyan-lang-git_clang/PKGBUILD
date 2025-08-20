@@ -1,8 +1,8 @@
 # Maintainer: Eric Bailey <nerflad@gmail.com>
 
 pkgname=nyan-lang-git_clang
-pkgver=0.3.1.r0.g19e742a
-pkgrel=2
+pkgver=0.3.1.r2.g12f2735
+pkgrel=1
 pkgdesc="A data description language designed for openage"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
 url="https://github.com/SFTtech/nyan"

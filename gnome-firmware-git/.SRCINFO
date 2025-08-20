@@ -1,6 +1,6 @@
 pkgbase = gnome-firmware-git
 	pkgdesc = GNOME application to update, reinstall and downgrade firmware on devices supported by fwupd
-	pkgver = 47.0.r65.g3cac367
+	pkgver = 47.0.r92.g2f63ae1
 	pkgrel = 1
 	url = https://gitlab.gnome.org/hughsie/gnome-firmware-updater
 	arch = x86_64

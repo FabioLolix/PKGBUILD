@@ -1,6 +1,6 @@
 pkgbase = inxi-perl-git
 	pkgdesc = Pinxi, development branch of inxi, a full featured CLI system information tool
-	pkgver = r6250.c7d05ca0
+	pkgver = r6285.3d53e9ab
 	pkgrel = 1
 	url = https://smxi.org/docs/inxi.htm
 	arch = any

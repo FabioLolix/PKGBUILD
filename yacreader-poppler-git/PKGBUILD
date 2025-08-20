@@ -2,7 +2,7 @@
 # Contributor: Felix Kauselmann <licorn at gmail dot com>
 
 pkgname=yacreader-poppler-git
-pkgver=r3422.d9b9fda3
+pkgver=r3470.41b78732
 pkgrel=1
 pkgdesc="Comic reader for cross-platform reading and managing your digital comic collection, using poppler for PDF"
 arch=(x86_64)

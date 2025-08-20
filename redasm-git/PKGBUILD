@@ -2,7 +2,7 @@
 # Contributor: Martin Sandsmark <martin.sandsmark@kde.org>
 
 pkgname=redasm-git
-pkgver=3.0.0.beta5.r32.g6e8bbae
+pkgver=3.0.0.beta5.r38.g27108ec
 pkgrel=1
 url="https://github.com/REDasmOrg/REDasm"
 arch=(i686 x86_64)

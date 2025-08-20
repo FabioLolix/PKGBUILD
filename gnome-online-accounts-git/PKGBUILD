@@ -2,7 +2,7 @@
 # Contributor: fisch02
 
 pkgname=gnome-online-accounts-git
-pkgver=3.54.0.r5.g2a902be
+pkgver=3.55.1.r3.gbef2e3d
 pkgrel=1
 pkgdesc="Single sign-on framework for GNOME"
 url="https://wiki.gnome.org/Projects/GnomeOnlineAccounts"

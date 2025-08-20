@@ -5,7 +5,7 @@
 # Contributor: Ner0
 
 pkgname=nemo-git
-pkgver=6.4.5.r3.gbfdeba3
+pkgver=6.4.5.r17.gf13caea
 pkgrel=1
 pkgdesc="Cinnamon file manager (Nautilus fork)"
 arch=(x86_64)

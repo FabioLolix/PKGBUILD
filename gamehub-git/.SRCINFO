@@ -1,6 +1,6 @@
 pkgbase = gamehub-git
 	pkgdesc = Games manager, downloader, library that supports GOG, Steam and Humble Bundle
-	pkgver = 0.16.3.6.dev.r34.g9314a97
+	pkgver = 0.16.3.6.dev.r36.g6cca491
 	pkgrel = 1
 	url = https://tkashkin.github.io/projects/gamehub/
 	arch = i686

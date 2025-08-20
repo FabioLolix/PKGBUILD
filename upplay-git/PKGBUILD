@@ -2,7 +2,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=upplay-git
-pkgver=1.9.6.r3.g1daa74d
+pkgver=1.9.7.r8.g5426fb9
 pkgrel=1
 pkgdesc="A Qt-based UPnP audio Control point"
 url="https://www.lesbonscomptes.com/upplay/"

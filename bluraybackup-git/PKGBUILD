@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=bluraybackup-git
-pkgver=2.0.r0.gbe9f5b4
+pkgver=2.0.r1.g8ca636b
 pkgrel=1
 pkgdesc="command line program to backup Blu-ray Disc Movies (BDMV), inspired by dvdbackup"
 arch=(x86_64)
