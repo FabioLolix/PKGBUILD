@@ -1,4 +1,4 @@
-pkgbase = yarock-mpv
+pkgbase = yarock
 	pkgdesc = Qt Modern Music Player with collection browse based on cover art
 	pkgver = 1.5.1
 	pkgrel = 1
@@ -9,12 +9,10 @@ pkgbase = yarock-mpv
 	makedepends = qt6-tools
 	makedepends = vulkan-headers
 	depends = qt6-base
+	depends = qt6-multimedia
 	depends = htmlcxx
 	depends = taglib
-	depends = mpv
-	provides = yarock
-	conflicts = yarock
 	source = yarok-1.5.1.tar.gz::https://github.com/sebaro/Yarock/archive/refs/tags/1.5.1.tar.gz
 	sha256sums = 84842c2bce879b657737edb61441207d3067f2f42a401364a0166923c9060042
 
-pkgname = yarock-mpv
+pkgname = yarock
