@@ -6,54 +6,45 @@
 # Contributor: MisterFred <mister.fred[at]free[dot]fr>
 
 pkgname=cantata
-pkgver=2.5.0
-pkgrel=6
-pkgdesc='Qt5 client for the music player daemon (MPD)'
-arch=(x86_64)
-url='https://github.com/CDrummond/cantata'
+pkgver=3.3.1
+pkgrel=1
+pkgdesc="Qt6 graphical client for Music Player Daemon (MPD), nullobsi fork"
+arch=(x86_64 i686 aarch64 armv7h)
+url="https://github.com/nullobsi/cantata"
 license=(GPL3)
-depends=(libcddb
+depends=(qt6-base
+         qt6-multimedia
+         qt6-svg
          libcdio-paranoia
          libmtp
          libmusicbrainz5
+         libcddb
+         taglib
+         libebur128
          media-player-info
          mpg123
-         qt5-multimedia
-         qt5-svg
-         taglib
-         udisks2)
-#depends+=(libtag.so
-#          libebur128.so)
-optdepends=('ffmpeg: ReplayGain support'
-            'libebur128: ReplayGain support'
-            'mpd: playback'
-            'perl-uri: dynamic playlist'
-            'sshfs: remote devices support')
-makedepends=(cmake
-             ffmpeg
-             libebur128
-             qt5-tools)
-source=("https://github.com/CDrummond/cantata/releases/download/v$pkgver/$pkgname-$pkgver.tar.bz2"
-        "cantata-tablib-2.0-compatibility.patch::https://github.com/fenuks/cantata/commit/45bac9eb3e99ed75b6539f92418556dac1c0193d.patch"
-        "cantata-ffmpeg-7.0.patch::https://github.com/eclipseo/cantata/commit/0887cf117dd791192531dca47f4ec056a02b7c8a.patch")
-sha256sums=('eb7e00ab3f567afaa02ea2c86e2fe811a475afab93182b95922c6eb126821724'
-            'f9611a1c1e23b99ffb4ee709ec10982a9289e840ec4014b1bbaff798d226a8ad'
-            '6da73f25c313d328fe0d1db665469720c618ab77008f20afe4d9b9db8a8301d7')
+         #taglib-extras
+         udisks2
+         ffmpeg
 
-prepare() {
-  cd "$pkgname-$pkgver"
-  patch -Np1 -i ../cantata-tablib-2.0-compatibility.patch
-  patch -Np1 -i ../cantata-ffmpeg-7.0.patch
-}
+        avahi gcc-libs zlib glibc
+         )
+makedepends=(git cmake qt6-tools)
+optdepends=('perl-uri: Dynamic playlist'
+            'mpd: Playback')
+source=("cantata-nullobsi::git+https://github.com/nullobsi/cantata.git#tag=v${pkgver}")
+sha256sums=('c282fd13610e6521696a9caaa5772952b16a9ff2a64192fdc379d9074ebdb96c')
 
 build() {
-  cmake -B build -S "$pkgname-$pkgver" -Wno-dev \
-	-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
-    -DCMAKE_INSTALL_PREFIX=/usr
+  cmake -B build -S "cantata-nullobsi" -Wno-dev \
+    -DQT_DIR=/usr/lib/cmake/Qt6 \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBEXECDIR=/usr/bin
 
   cmake --build build
 }
 
 package() {
-  DESTDIR="$pkgdir" cmake --install build
+  DESTDIR="${pkgdir}" cmake --install build
 }
