@@ -24,6 +24,6 @@ pkgbase = lyrionmusicserver
 	source = lyrionmusicserver.service
 	sha256sums = 78401ac07fd4fedfa6c9d7e3b63000261bc3f5c4bf87277b5654ca397db17ba1
 	sha256sums = SKIP
-	sha256sums = aae1f16d19c979b4339b50ec75a10cfdf13fcdacb2f9632e830dc9ac47d1593a
+	sha256sums = f48d1a1eb34d88c69c78a78d9f00b772e0d5613e5f476304d68a5ba0ee4c3547
 
 pkgname = lyrionmusicserver

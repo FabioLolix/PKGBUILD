@@ -2,14 +2,17 @@
 # Maintainer: Stefan Sielaff <aur AT stefan-sielaff DOT de>
 
 pkgname=lyrionmusicserver-git
-pkgver=9.0.2.r305.g35841d4
-pkgrel=1.2
+pkgver=9.0.2.r359.g0046ebe
+pkgrel=1
 pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server, port 9002)"
 arch=(i686 x86_64 armv7h aarch64)
 url="https://github.com/LMS-Community/slimserver"
 license=(GPL-2.0-only)
-depends=('perl>=5.40' 'perl<=5.42' glibc gcc-libs zlib)
-makedepends=(git rsync yasm clang)
+depends=(#'perl>=5.40' 'perl<=5.42'
+		 perl glibc gcc-libs zlib)
+makedepends=(git rsync yasm clang 
+	perl-xs-parse-keyword 
+)
 install=lyrionmusicserver.install
 options=(!strip)
 source=("git+https://github.com/LMS-Community/slimserver.git"
@@ -17,7 +20,7 @@ source=("git+https://github.com/LMS-Community/slimserver.git"
         'lyrionmusicserver-git.service')
 sha256sums=('SKIP'
             'SKIP'
-            '0aca8904d179cdf1ec142173d9822cde5fe52cab597604eed9bee46de8f0a7ea')
+            'c51f9801beeafddb13f8479182797d4f9b21d17f891e84fd8925bdb27b98badd')
 
 prepare() {
     cd "slimserver/Bin"

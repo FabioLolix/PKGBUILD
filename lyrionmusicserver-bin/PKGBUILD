@@ -14,7 +14,7 @@ options=(!strip)
 source=("https://downloads.lms-community.org/LyrionMusicServer_v${pkgver}/lyrionmusicserver-${pkgver}.tgz"
         'lyrionmusicserver-bin.service')
 sha256sums=('ebe90f37a465830124adc2b2cc127dba065c3604725a3a147ebc37d758cce99f'
-            'f2ea75494d3a24c04189914d0387af7a18359639d8b2ac851c1daf6f731a978c')
+            'b3b4a7366861ab8804ddc868c3ed0bc9ee4a02204588ea87468e8ed96004bbb4')
 
 prepare() {
   cd "lyrionmusicserver-${pkgver}/Bin"
