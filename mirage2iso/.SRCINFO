@@ -1,11 +1,11 @@
 pkgbase = mirage2iso
 	pkgdesc = libmirage-based CD/DVD image file converter
 	pkgver = 0.4.2
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/mgorny/mirage2iso
 	arch = i686
 	arch = x86_64
-	license = custom:BSD3
+	license = BSD-3-Clause
 	depends = libassuan
 	depends = libmirage
 	noextract = mirage2iso-0.4.2-tests.tar.xz
