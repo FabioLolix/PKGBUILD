@@ -3,7 +3,7 @@
 # Contributor: Ricardo Liang (rliang) <ricardoliang@gmail.com>
 
 pkgname=gnome-disk-utility-git
-pkgver=44.0.r576.g2281824
+pkgver=44.0.r693.g5b37401
 pkgrel=1
 pkgdesc="Disk Management Utility for GNOME"
 url="https://gitlab.gnome.org/GNOME/gnome-disk-utility"
@@ -20,7 +20,7 @@ depends=(
   glibc
   gtk4
   hicolor-icon-theme
-  libadwaita
+  libadwaita-git
   #libcanberra
   libdvdread
   #libhandy
@@ -44,8 +44,9 @@ makedepends=(
 )
 provides=(gnome-disk-utility)
 conflicts=(gnome-disk-utility)
-source=("git+https://gitlab.gnome.org/GNOME/gnome-disk-utility.git")
-sha256sums=('SKIP')
+source=("git+https://gitlab.gnome.org/GNOME/gnome-disk-utility.git" cargo)
+sha256sums=('SKIP'
+            '8f5ae8e09a62e3b39e3a738a253979d03d2b64d0eae6fa0bdf2b81c123452e88')
 
 pkgver() {
   cd gnome-disk-utility
@@ -59,14 +60,17 @@ pkgver() {
 #}
 
 build() {
+  chmod +x cargo
+  PATH="$PWD:$PATH"
+
   arch-meson gnome-disk-utility build
   meson compile -C build
 }
 
-#check() {
-#  meson test -C build --print-errorlogs
-#}
+check() {
+  meson test -C build --print-errorlogs || :
+}
 
 package() {
-  meson install -C build --destdir "${pkgdir}"
+  meson install -C build --destdir "${pkgdir}" --no-rebuild
 }
