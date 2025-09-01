@@ -1,5 +1,5 @@
 [Unit]
-Description=Logitech Media Server Daemon
+Description=Lyrion Media Server Daemon
 After=network.target
 
 [Service]
