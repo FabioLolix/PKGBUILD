@@ -14,10 +14,14 @@ install=lyrionmusicserver.install
 options=(!strip)
 source=("git+https://github.com/LMS-Community/slimserver.git#tag=${pkgver}"
         "git+https://github.com/LMS-Community/slimserver-vendor.git"
+		Scan.xs.patch
+		typemap.patch
         'lyrionmusicserver.service')
 sha256sums=('78401ac07fd4fedfa6c9d7e3b63000261bc3f5c4bf87277b5654ca397db17ba1'
             'SKIP'
-            'eec545f10a8048c9d996db52deff1d24a3d83ef151c7464e26f1c26d5111104f')
+            '23782e25586190cb18936167edd8b99463a82a27633d4aaece0ddf99759d2fa5'
+            '73bf6b8c01c7046fa6c31f17f933db20eaa5d039ab350ada63ddf0b6ff0ab98f'
+            'fda4083398b2a99c92b8a463345068f6dffcf327cf22cb66eb849a7aeef7462a')
 
 prepare() {
     cd "slimserver/Bin"
