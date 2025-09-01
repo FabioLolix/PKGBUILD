@@ -35,7 +35,9 @@ prepare() {
 }
 
 build() {
+  cp ../*.patch "slimserver-vendor/CPAN"
   cd "slimserver-vendor/CPAN"
+  patch buildme.sh buildme.sh.patch
   ./buildme.sh -t
 }
 
@@ -49,7 +51,4 @@ package() {
   cp -a * "${pkgdir}/opt/${pkgname}"
   cd "${srcdir}/slimserver-vendor"
   cp -a CPAN/build/5.*/lib/*/*linux*/* "${pkgdir}/opt/${pkgname}/CPAN"
-
-  touch "${pkgdir}/opt/lyrionmusicserver/Logs/server.log"
-  touch "${pkgdir}/opt/lyrionmusicserver/Logs/perfmon.log"
 }
