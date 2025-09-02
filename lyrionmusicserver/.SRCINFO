@@ -14,16 +14,20 @@ pkgbase = lyrionmusicserver
 	makedepends = yasm
 	makedepends = clang
 	depends = perl>=5.40
-	depends = perl<=5.42
+	depends = perl<5.43
 	depends = glibc
 	depends = gcc-libs
 	depends = zlib
 	options = !strip
 	source = git+https://github.com/LMS-Community/slimserver.git#tag=9.0.2
 	source = git+https://github.com/LMS-Community/slimserver-vendor.git
+	source = Scan.xs.patch
+	source = typemap.patch
 	source = lyrionmusicserver.service
 	sha256sums = 78401ac07fd4fedfa6c9d7e3b63000261bc3f5c4bf87277b5654ca397db17ba1
 	sha256sums = SKIP
-	sha256sums = f48d1a1eb34d88c69c78a78d9f00b772e0d5613e5f476304d68a5ba0ee4c3547
+	sha256sums = 23782e25586190cb18936167edd8b99463a82a27633d4aaece0ddf99759d2fa5
+	sha256sums = 73bf6b8c01c7046fa6c31f17f933db20eaa5d039ab350ada63ddf0b6ff0ab98f
+	sha256sums = fda4083398b2a99c92b8a463345068f6dffcf327cf22cb66eb849a7aeef7462a
 
 pkgname = lyrionmusicserver
