@@ -23,6 +23,7 @@ build() {
   cd bluray_info
 
   cmake . -Wno-dev \
+	-DCMAKE_INSTALL_MANDIR=/usr/share \
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr
 
@@ -32,6 +33,9 @@ build() {
 package() {
   cd bluray_info
   make DESTDIR="${pkgdir}" install
+
+  #mkdir -vp "${pkgdir}"/usr/share/
+  #mv -v "${pkgdir}"/usr/man "${pkgdir}"/usr/share/
 }
 
 # Don't like modern cmake guidelines
