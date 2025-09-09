@@ -15,7 +15,7 @@
 # Contributor: Ben <ben@benmazer.net>
 
 pkgname=mpd-git
-pkgver=0.24.3.r54.g287033c36
+pkgver=0.24.5.r79.gcc3728730
 pkgrel=1
 pkgdesc="Flexible, powerful, server-side application for playing music"
 url="https://www.musicpd.org/"
@@ -38,6 +38,7 @@ makedepends=(alsa-lib audiofile avahi boost curl dbus faad2
              ffmpeg flac fluidsynth git icu jack libao libid3tag libmikmod
              libmpdclient libogg libpulse libsamplerate libsndfile libupnp
              libvorbis meson mpg123 python-sphinx python-sphinx_rtd_theme
+vgmstream
              systemd-libs twolame nlohmann-json)
 provides=(mpd)
 conflicts=(mpd)
