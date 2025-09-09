@@ -1,5 +1,5 @@
 pkgbase = lyrionmusicserver-bin
-	pkgdesc = Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server, port 9001)
+	pkgdesc = Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server)
 	pkgver = 9.0.2
 	pkgrel = 1
 	url = https://github.com/LMS-Community/slimserver
