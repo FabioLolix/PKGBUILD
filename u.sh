@@ -389,7 +389,7 @@ VAR2=l
   VAR=lyrionmusicserver
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    rsync {PKGBUILD,.SRCINFO,*.service,*.install,*.patch} "$DEST/$VAR2/$VAR"
+    rsync {PKGBUILD,.SRCINFO,*.service,*.install} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
   VAR=lyrionmusicserver-bin
