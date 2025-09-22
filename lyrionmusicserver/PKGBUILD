@@ -3,7 +3,7 @@
 
 pkgname=lyrionmusicserver
 pkgver=9.0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server)"
 arch=(i686 x86_64 armv7h aarch64)
 url="https://github.com/LMS-Community/slimserver"
