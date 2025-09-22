@@ -19,7 +19,7 @@ source=("git+https://github.com/LMS-Community/slimserver.git"
         'lyrionmusicserver-git.service')
 sha256sums=('SKIP'
             'SKIP'
-            '67bd97e1b7b30f6edcc65a8bcd15c0ec5f63c3f80f2b08ee13019d2031af9b1b')
+            '24b2d7044b903363e15cd674f88c98c8fafdf2f5a032b599c3de56afbfee3394')
 
 prepare() {
     cd "slimserver/Bin"
