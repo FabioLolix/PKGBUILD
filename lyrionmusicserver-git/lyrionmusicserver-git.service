@@ -1,10 +1,10 @@
 [Unit]
-Description=Lyrion Media Server Daemon
+Description=Lyrion Music Server Daemon
 After=network.target
 
 [Service]
-User=
-Group=logitechms
+User=lyrionms
+Group=lyrionms
 WorkingDirectory=/opt/lyrionmusicserver-git
 RuntimeDirectory=lyrionmusicserver-git
 PIDFile=${RUNTIME_DIRECTORY}/slimserver.pid
