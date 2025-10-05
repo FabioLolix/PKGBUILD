@@ -7,8 +7,8 @@ pkgver=0.6.0.r197.g865bd548d
 pkgrel=1
 pkgdesc="A free (as in freedom) clone of the Age of Empires II engine"
 arch=(x86_64 i686 pentium4 armv7h aarch64)
-url="https://openage.sft.mx/"
-license=(GPL3)
+url="https://github.com/SFTtech/openage/"
+license=(GPL-3.0-or-later)
 depends=(libepoxy opusfile
          qt6-declarative qt6-multimedia vulkan-icd-loader
          libpng libogg nyan-lang-git_clang
@@ -18,7 +18,7 @@ depends=(libepoxy opusfile
          # namcap implicit depends
          glibc gcc-libs zlib python gperftools harfbuzz fontconfig freetype2
          qt6-base libglvnd opus ncurses)
-makedepends=(clang llvm lld git cmake cython vulkan-headers eigen toml11 python-setuptools)
+makedepends=(clang llvm lld git cmake cython vulkan-headers eigen3 toml11 python-setuptools)
 optdepends=('ttf-dejavu: for text display, but you can use any font')
 checkdepends=(ttf-dejavu)
 provides=(openage)
