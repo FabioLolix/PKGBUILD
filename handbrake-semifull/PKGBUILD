@@ -10,7 +10,7 @@
 pkgbase=handbrake-semifull
 pkgname=(handbrake-semifull handbrake-semifull-cli)
 pkgver=1.10.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, nvdec, qsv, vce, numa, hardened, libdovi"
 arch=(x86_64 i686)
 url="https://github.com/HandBrake/HandBrake"

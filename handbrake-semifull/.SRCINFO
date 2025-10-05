@@ -1,7 +1,7 @@
 pkgbase = handbrake-semifull
 	pkgdesc = Multithreaded video transcoder. Enabled: x265, nvenc, nvdec, qsv, vce, numa, hardened, libdovi
 	pkgver = 1.10.2
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/HandBrake/HandBrake
 	arch = x86_64
 	arch = i686

@@ -1,7 +1,7 @@
 pkgbase = handbrake-dev-git
 	pkgdesc = Multithreaded video transcoder. Enabled: x265, nvenc, nvdec, qsv, vce, numa, hardened, libdovi. Master branch
-	pkgver = 1.10.0.r59.geb9966aa6
-	pkgrel = 1
+	pkgver = 1.10.0.r90.gabb0f78e6
+	pkgrel = 2
 	url = https://github.com/HandBrake/HandBrake
 	arch = i686
 	arch = x86_64
