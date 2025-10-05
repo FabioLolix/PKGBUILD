@@ -11,7 +11,7 @@ depends=(alsa-lib)
 makedepends=(git clang)
 _commit=74e1578377fab9d60bb5fc842a74aa61f2816ef5
 source=("git+${url}.git#commit=${_commit}")
-sha256sums=('SKIP')
+sha256sums=('2abdada14297ffce7e43a73bbbe377c44c838356f3f2f2375f46736a8e921da9')
 
 build() {
   cd aplay-
