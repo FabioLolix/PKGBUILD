@@ -1,0 +1,33 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+
+pkgname=riprip
+pkgver=0.5.2
+pkgrel=1
+pkgdesc="Specialized audio CD-ripper optimized for track recovery"
+arch=(x86_64)
+url="https://github.com/Blobfolio/riprip"
+license=(WTFPL)
+depends=(glibc gcc-libs libcdio)
+makedepends=(git cargo clang)
+source=("git+https://github.com/Blobfolio/riprip.git#tag=v${pkgver}")
+sha256sums=('ecea9750fe9662ae290dfd83d45471f6257e5c99e8c1d59ff67b74a313a3e00f')
+
+prepare() {
+  cd riprip
+  cargo fetch --target "$CARCH-unknown-linux-gnu"
+}
+
+build() {
+  cd riprip
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --frozen --release
+}
+
+package() {
+  cd riprip
+  install -D target/release/riprip -t "${pkgdir}"/usr/bin
+  install -D release/man/*.1 -t "${pkgdir}"/usr/share/man/man1/
+
+  # todo install completions
+}
