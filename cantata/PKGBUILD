@@ -11,7 +11,7 @@ pkgrel=1
 pkgdesc="Qt6 graphical client for Music Player Daemon (MPD), nullobsi fork"
 arch=(x86_64 i686 aarch64 armv7h)
 url="https://github.com/nullobsi/cantata"
-license=(GPL3)
+license=(GPL-3.0-or-later)
 depends=(qt6-base
          qt6-multimedia
          qt6-svg
@@ -36,6 +36,8 @@ source=("cantata-nullobsi::git+https://github.com/nullobsi/cantata.git#tag=v${pk
 sha256sums=('c282fd13610e6521696a9caaa5772952b16a9ff2a64192fdc379d9074ebdb96c')
 
 build() {
+CXXFLAGS+=" -Wno-error=unused-result -Wno-error=deprecated-declarations -Wno-unused-result"
+
   cmake -B build -S "cantata-nullobsi" -Wno-dev \
     -DQT_DIR=/usr/lib/cmake/Qt6 \
     -DCMAKE_BUILD_TYPE=None \
