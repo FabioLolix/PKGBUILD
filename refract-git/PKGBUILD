@@ -9,7 +9,7 @@ url="https://github.com/Blobfolio/refract"
 license=(WTFPL)
 depends=(glibc gcc-libs)
 makedepends=(git cargo clang
-			nasm cmake ninja # reported makedeps for codecs
+			yasm cmake ninja # reported makedeps for codecs
 			)
 optdepends=(
 			'zenity: for file dialogues'
