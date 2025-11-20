@@ -7,7 +7,7 @@
 
 pkgname=cantata
 pkgver=3.3.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Qt6 graphical client for Music Player Daemon (MPD), nullobsi fork"
 arch=(x86_64 i686 aarch64 armv7h)
 url="https://github.com/nullobsi/cantata"
@@ -38,11 +38,16 @@ sha256sums=('c282fd13610e6521696a9caaa5772952b16a9ff2a64192fdc379d9074ebdb96c')
 build() {
 CXXFLAGS+=" -Wno-error=unused-result -Wno-error=deprecated-declarations -Wno-unused-result"
 
+  local _flags=(
+	-DBUNDLED_FONTAWESOME=ON
+    -DQT_DIR=/usr/lib/cmake/Qt6
+    -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib
+  )
+
   cmake -B build -S "cantata-nullobsi" -Wno-dev \
-    -DQT_DIR=/usr/lib/cmake/Qt6 \
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_LIBEXECDIR=/usr/bin
+    "${_flags[@]}"
 
   cmake --build build
 }
