@@ -2,7 +2,7 @@
 # Contributor: archtux <antonio dot arias99999 at gmail dot com>
 
 pkgname=deadbeef-git
-pkgver=1.10.0.r116.ga5611838a
+pkgver=1.10.0.r235.ge678f9aef
 pkgrel=1
 pkgdesc="Modular GTK audio player for GNU/Linux"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
@@ -80,7 +80,7 @@ build() {
 
 check() {
   cd "${srcdir}/deadbeef"
-  ./travis/download-linux-static-deps.sh
+  ./ci_scripts/download-linux-static-deps.sh
   ./scripts/test.sh
 }
 
