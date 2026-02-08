@@ -2,7 +2,7 @@ pkgbase = guayadeque-git
 	pkgdesc = Lightweight music player
 	pkgver = 0.7.3.r0.gdf98ec29
 	pkgrel = 1
-	url = https://github.com/thothix/guayadeque
+	url = https://codeberg.org/thothix/guayadeque
 	arch = x86_64
 	arch = i686
 	license = GPL-3.0-only
@@ -30,7 +30,7 @@ pkgbase = guayadeque-git
 	optdepends = gst-plugins-ugly: additional codecs
 	provides = guayadeque
 	conflicts = guayadeque
-	source = git+https://github.com/thothix/guayadeque.git
+	source = git+https://codeberg.org/thothix/guayadeque.git
 	sha512sums = SKIP
 
 pkgname = guayadeque-git

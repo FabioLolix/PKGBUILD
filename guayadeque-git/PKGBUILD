@@ -2,11 +2,11 @@
 # Contributor: Sven Fischer <aur.archlinux@linux4tw.de>
 
 pkgname=guayadeque-git
-pkgver=0.7.3.r0.gdf98ec29
+pkgver=r.
 pkgrel=1
 pkgdesc="Lightweight music player"
 arch=(x86_64 i686)
-url="https://github.com/thothix/guayadeque"
+url="https://codeberg.org/thothix/guayadeque"
 license=(GPL-3.0-only)
 depends=(wxsqlite3 wxwidgets-gtk3 taglib gst-plugins-base gst-plugins-good jsoncpp
 
@@ -20,12 +20,13 @@ optdepends=('gst-libav: additional codecs'
             'gst-plugins-ugly: additional codecs')
 provides=(guayadeque)
 conflicts=(guayadeque)
-source=("git+https://github.com/thothix/guayadeque.git")
+source=("git+https://codeberg.org/thothix/guayadeque.git")
 sha512sums=('SKIP')
 
 pkgver() {
   cd "guayadeque"
-  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  #git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
