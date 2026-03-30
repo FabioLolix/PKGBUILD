@@ -38,7 +38,6 @@ makedepends=(alsa-lib audiofile avahi boost curl dbus faad2
              ffmpeg flac fluidsynth git icu jack libao libid3tag libmikmod
              libmpdclient libogg libpulse libsamplerate libsndfile libupnp
              libvorbis meson mpg123 python-sphinx python-sphinx_rtd_theme
-vgmstream
              systemd-libs twolame nlohmann-json)
 provides=(mpd)
 conflicts=(mpd)

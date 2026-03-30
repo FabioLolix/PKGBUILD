@@ -33,7 +33,6 @@ pkgbase = mpd-git
 	makedepends = mpg123
 	makedepends = python-sphinx
 	makedepends = python-sphinx_rtd_theme
-	makedepends = vgmstream
 	makedepends = systemd-libs
 	makedepends = twolame
 	makedepends = nlohmann-json
