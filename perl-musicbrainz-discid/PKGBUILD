@@ -3,7 +3,7 @@
 
 pkgname=perl-musicbrainz-discid
 pkgver=0.06
-pkgrel=4
+pkgrel=5
 pkgdesc="MusicBrainz::DiscID module"
 arch=(x86_64)
 url="https://metacpan.org/release/MusicBrainz-DiscID"
