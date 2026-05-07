@@ -1,6 +1,6 @@
-pkgbase = lgogdownloader-qt5-git
-	pkgdesc = Open source downloader for GOG.com games, with QT5 enabled for solving reCAPTCHA
-	pkgver = 3.17.r7.gbe7a411
+pkgbase = lgogdownloader-qt-git
+	pkgdesc = Open source downloader for GOG.com games, with QT Webengine enabled for solving reCAPTCHA
+	pkgver = 3.18.r4.g279b883
 	pkgrel = 1
 	url = https://github.com/Sude-/lgogdownloader
 	arch = x86_64
@@ -16,10 +16,11 @@ pkgbase = lgogdownloader-qt5-git
 	depends = tinyxml2
 	depends = rhash
 	depends = tidy
-	depends = qt5-webengine
+	depends = qt6-webengine
 	provides = lgogdownloader
 	conflicts = lgogdownloader
+	replaces = lgogdownloader-qt5-git
 	source = git+https://github.com/Sude-/lgogdownloader.git
 	sha256sums = SKIP
 
-pkgname = lgogdownloader-qt5-git
+pkgname = lgogdownloader-qt-git
