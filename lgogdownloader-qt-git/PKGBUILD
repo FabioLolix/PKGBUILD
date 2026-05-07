@@ -2,10 +2,10 @@
 # Contributor: Joe Davison <joe@warhaggis.com>
 
 pkgname=lgogdownloader-qt5-git
-pkgver=3.15.r4.gb37dafb
+pkgver=3.17.r7.gbe7a411
 pkgrel=1
 pkgdesc="Open source downloader for GOG.com games, with QT5 enabled for solving reCAPTCHA"
-url="https://sites.google.com/site/gogdownloader/"
+url="https://github.com/Sude-/lgogdownloader"
 arch=(x86_64 i686 pentium4)
 license=(WTFPL)
 depends=(boost-libs jsoncpp tinyxml2 rhash tidy qt5-webengine)

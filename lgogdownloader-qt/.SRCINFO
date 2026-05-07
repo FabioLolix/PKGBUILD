@@ -1,0 +1,24 @@
+pkgbase = lgogdownloader-webengine
+	pkgdesc = Open source downloader for GOG.com games, with QT6 enabled for solving reCAPTCHA
+	pkgver = 3.16
+	pkgrel = 2
+	url = https://github.com/Sude-/lgogdownloader
+	arch = x86_64
+	arch = i686
+	arch = pentium4
+	license = WTFPL
+	makedepends = help2man
+	makedepends = cmake
+	makedepends = boost
+	depends = boost-libs
+	depends = jsoncpp
+	depends = tinyxml2
+	depends = rhash
+	depends = tidy
+	depends = qt6-webengine
+	provides = lgogdownloader
+	conflicts = lgogdownloader
+	source = https://github.com/Sude-/lgogdownloader/releases/download/v3.16/lgogdownloader-3.16.tar.gz
+	sha256sums = 24b005bf3caf00ebc8c603251f5689d66098f66dd37bdf399836289064cb0c9f
+
+pkgname = lgogdownloader-webengine

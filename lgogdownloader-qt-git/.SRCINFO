@@ -1,12 +1,13 @@
-pkgbase = lgogdownloader-qt5
+pkgbase = lgogdownloader-qt5-git
 	pkgdesc = Open source downloader for GOG.com games, with QT5 enabled for solving reCAPTCHA
-	pkgver = 3.15
+	pkgver = 3.17.r7.gbe7a411
 	pkgrel = 1
-	url = https://sites.google.com/site/gogdownloader/
+	url = https://github.com/Sude-/lgogdownloader
 	arch = x86_64
 	arch = i686
 	arch = pentium4
 	license = WTFPL
+	makedepends = git
 	makedepends = help2man
 	makedepends = cmake
 	makedepends = boost
@@ -18,7 +19,7 @@ pkgbase = lgogdownloader-qt5
 	depends = qt5-webengine
 	provides = lgogdownloader
 	conflicts = lgogdownloader
-	source = https://github.com/Sude-/lgogdownloader/releases/download/v3.15/lgogdownloader-3.15.tar.gz
-	sha256sums = 9946558bb30b72cd5ed712e7fc425eef4b2a1fd22b5475d1a998720800cd25f0
+	source = git+https://github.com/Sude-/lgogdownloader.git
+	sha256sums = SKIP
 
-pkgname = lgogdownloader-qt5
+pkgname = lgogdownloader-qt5-git
