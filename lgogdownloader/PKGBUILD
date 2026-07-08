@@ -16,11 +16,6 @@ source=("https://github.com/Sude-/lgogdownloader/releases/download/v${pkgver}/lg
 		)
 sha256sums=('1974f09cb0e0cdfed536937335488548addd92e5c654f4229ac22594a22f8ae0')
 
-prepare() {
-  cd "lgogdownloader-${pkgver}"
-  #patch -Np1 -i ../lgogdownloader-boost-1.89.patch
-}
-
 build() {
   local _flags=(
     -DUSE_QT_GUI=OFF
