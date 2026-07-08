@@ -2,7 +2,7 @@
 # Contributor: Sergey Malkin  <adresatt@gmail.com>
 
 pkgname=nemu
-pkgver=3.4.0
+pkgver=3.5.0
 pkgrel=1
 pkgdesc="ncurses interface for QEMU"
 arch=(x86_64)
@@ -11,7 +11,7 @@ license=(BSD-2-Clause)
 depends=(qemu ncurses sqlite json-c libxml2 libarchive glibc sh)
 makedepends=(git cmake)
 source=("git+https://github.com/nemuTUI/nemu.git#tag=v${pkgver}")
-sha256sums=('a55ed3cf0d1c102db09c4169b9ef33b5264045bc27660d9032c72bd7ae3f5485')
+sha256sums=('109c2017425ab84d6af5455e39634283d0f74a2e33b66b74d719655bd411c802')
 
 build() {
   cmake -B build -S "nemu" -Wno-dev \
