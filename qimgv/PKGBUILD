@@ -15,7 +15,7 @@ optdepends=('kimageformats: support for more image formats'
             'qtraw: raw images support')
 _commit=e2675f135d6be45036f84285a68e5a079ab4f449
 source=("git+https://github.com/easymodo/qimgv.git#commit=${_commit}")
-sha256sums=('SKIP')
+sha256sums=('2b313b450c5fc9f20fd7006ac83b4f71374ad12bd6c931a40aed19eccaccad04')
 
 pkgver() {
   cd qimgv

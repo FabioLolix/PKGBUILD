@@ -24,7 +24,7 @@ optdepends=('php-gd'
 options=(!strip !debug)
 source=("git+https://github.com/phoronix-test-suite/phoronix-test-suite.git#tag=v${pkgver}"
         "https://raw.githubusercontent.com/FabioLolix/AUR-artifacts/master/phoronix-test-suite-launcher.patch")
-sha256sums=('SKIP'
+sha256sums=('03b5812a661c5bcbd28b93d96fd9b6cdda4eba12b2a07b4049695acee404c66f'
             '577326343d0303a59fd469c3f9c9740e756dd59c0660c54363b62d6fd1cee26d')
 
 prepare() {
