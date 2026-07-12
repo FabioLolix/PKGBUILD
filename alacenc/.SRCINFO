@@ -5,10 +5,10 @@ pkgbase = alacenc
 	url = https://github.com/flacon/alacenc
 	arch = x86_64
 	license = MIT
-	makedepends = git
 	makedepends = cmake
+	makedepends = git
 	depends = glibc
-	depends = gcc-libs
+	depends = libgcc
 	source = git+https://github.com/flacon/alacenc.git#tag=v0.4.2
 	sha256sums = ca31c31057cfb82a2b98c4f02352e7f8711b34001adcb45600fa32374363a4da
 
