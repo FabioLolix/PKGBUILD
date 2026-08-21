@@ -1,6 +1,6 @@
 pkgbase = guayadeque-git
 	pkgdesc = Lightweight music player
-	pkgver = 0.7.6.r0.g59ccebac
+	pkgver = 0.7.6.r0.gec6e9209
 	pkgrel = 1
 	url = https://codeberg.org/thothix/guayadeque
 	arch = x86_64
