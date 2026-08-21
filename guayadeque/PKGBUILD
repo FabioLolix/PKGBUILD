@@ -41,8 +41,8 @@ optdepends=(
     'gst-plugins-good: additional codecs'
     'gst-plugins-ugly: additional codecs'
     )
-source=("${pkgname}-${pkgver}.tar.gz::https://codeberg.org/thothix/guayadeque/archive/v${pkgver}.tar.gz")
-sha256sums=('4a09ac55767afb7ab0bd25eaf18688594a67403eef302eccfe627d3b3498ec20')
+source=("git+https://codeberg.org/thothix/guayadeque.git#tag=v${pkgver}")
+sha256sums=('f6d5c128d48230b688305a0a4e9d5f78f7e6de2b93d7fa88356c0bc9ddc5f4fe')
 
 build() {
   # buildtype None introduce problems
