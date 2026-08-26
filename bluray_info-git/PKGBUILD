@@ -1,7 +1,7 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=bluray_info-git
-pkgver=2.0.r0.gdaf0c3c
+pkgver=2.1.r0.g9165cbb
 pkgrel=1
 pkgdesc="Blu-ray utilities: bluray_info, bluray_copy, bluray_player"
 arch=(x86_64)
@@ -19,10 +19,12 @@ pkgver() {
   git describe --long --tags --abbrev=7 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
+# Don't like modern cmake guidelines
+
 build() {
   cd bluray_info
 
-  cmake . -Wno-dev \
+  cmake . -Wno-author \
 	-DCMAKE_INSTALL_MANDIR=/usr/share \
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr
@@ -34,8 +36,6 @@ package() {
   cd bluray_info
   make DESTDIR="${pkgdir}" install
 
-  #mkdir -vp "${pkgdir}"/usr/share/
-  #mv -v "${pkgdir}"/usr/man "${pkgdir}"/usr/share/
+  install -d "${pkgdir}"/usr/share/
+  mv -v "${pkgdir}"/usr/man "${pkgdir}"/usr/share/
 }
-
-# Don't like modern cmake guidelines
