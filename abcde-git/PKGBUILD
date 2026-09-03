@@ -1,7 +1,8 @@
+# Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
+# Contributor: schuay <jakob.gruber@gmail.com>
 # Contributor: Jochem Kossen <j.kossen@home.nl>
 # Contributor: Kevin Piche <kevin@archlinux.org>
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
-# Maintainer: schuay <jakob.gruber@gmail.com>
 
 pkgname=abcde-git
 pkgver=2.9.3.r3.g8726dfe
@@ -40,8 +41,11 @@ prepare() {
   sed -i 's/^#CDDBMETHOD=musicbrainz/CDDBMETHOD=cddb/' abcde.conf
   # replace inetutils hostname with coreutils uname -n
   patch -Np1 -i ../hostname.patch
+
+  sed -i 's|doc/$(abcde_version)|doc|g' Makefile
 }
 
 package() {
-  make -C abcde DESTDIR="${pkgdir}" prefix=/usr sysconfdir=/etc install
+  cd abcde
+  make DESTDIR="${pkgdir}" prefix=/usr sysconfdir=/etc install
 }
