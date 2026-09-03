@@ -26,6 +26,7 @@ pkgbase = sayonara-player
 	depends = taglib
 	depends = zlib
 	optdepends = gst-libav: additional codecs
+	optdepends = gst-plugins-good: additional codecs
 	optdepends = gst-plugins-bad: additional codecs
 	optdepends = gst-plugins-ugly: additional codecs
 	source = git+https://gitlab.com/luciocarreras/sayonara-player.git#tag=1.12.0-stable1

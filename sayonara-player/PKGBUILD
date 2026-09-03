@@ -36,6 +36,7 @@ checkdepends=(
     )
 optdepends=(
     'gst-libav: additional codecs'
+    'gst-plugins-good: additional codecs'
     'gst-plugins-bad: additional codecs'
     'gst-plugins-ugly: additional codecs'
     )
