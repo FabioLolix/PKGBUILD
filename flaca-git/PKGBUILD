@@ -1,14 +1,21 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=flaca-git
-pkgver=3.5.1.r0.g9a87b3e
+pkgver=3.9.1.r0.ga8b47d8
 pkgrel=1
 pkgdesc="Specialized audio CD-ripper optimized for track recovery"
 arch=(x86_64)
 url="https://github.com/Blobfolio/flaca"
 license=(WTFPL)
-depends=(glibc gcc-libs)
-makedepends=(git cargo clang)
+depends=(
+    glibc
+    libgcc
+    )
+makedepends=(
+    git
+    cargo
+    clang
+    )
 provides=(flaca)
 conflicts=(flaca)
 options=(!lto)
