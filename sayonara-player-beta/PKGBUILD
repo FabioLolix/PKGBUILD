@@ -32,6 +32,7 @@ makedepends=(
     qt5-tools
     )
 checkdepends=(
+    gst-plugins-good
     xorg-server-xvfb
     )
 optdepends=(

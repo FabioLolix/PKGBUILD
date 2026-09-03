@@ -6,6 +6,7 @@ pkgbase = sayonara-player-beta
 	arch = i686
 	arch = x86_64
 	license = GPL-3.0-or-later
+	checkdepends = gst-plugins-good
 	checkdepends = xorg-server-xvfb
 	makedepends = cmake
 	makedepends = git
