@@ -10,7 +10,6 @@ pkgbase = qimgv
 	arch = aarch64
 	license = GPL-3.0-or-later
 	makedepends = cmake
-	makedepends = git
 	makedepends = qt6-tools
 	depends = glibc
 	depends = hicolor-icon-theme
