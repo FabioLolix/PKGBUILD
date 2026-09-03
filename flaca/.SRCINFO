@@ -1,6 +1,6 @@
 pkgbase = flaca
 	pkgdesc = Specialized audio CD-ripper optimized for track recovery
-	pkgver = 3.5.1
+	pkgver = 3.9.1
 	pkgrel = 1
 	url = https://github.com/Blobfolio/flaca
 	arch = x86_64
@@ -9,9 +9,9 @@ pkgbase = flaca
 	makedepends = cargo
 	makedepends = clang
 	depends = glibc
-	depends = gcc-libs
+	depends = libgcc
 	options = !lto
-	source = git+https://github.com/Blobfolio/flaca.git#tag=v3.5.1
-	sha256sums = 209962bad4e306382b0c6fe0b5e7305e7569bf8df01a50cd5edccc46f20e0526
+	source = git+https://github.com/Blobfolio/flaca.git#tag=v3.9.1
+	sha256sums = c89fb45031f287fee6353efdf654613983891f37d3447ff0681262d1ed4662dc
 
 pkgname = flaca
