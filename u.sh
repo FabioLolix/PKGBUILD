@@ -23,13 +23,19 @@ VAR2=a
     cp -a {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
-  VAR=alacenc
+  VAR=abcde-poddmo
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    cp -a {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
+    cp -a {PKGBUILD,.SRCINFO,*.patch} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
-  VAR=ambiance-rw-git
+  VAR=abcde-poddmo-git
+  cd "$BASE/$VAR"
+    makepkg --printsrcinfo > .SRCINFO
+    cp -a {PKGBUILD,.SRCINFO,*.patch} "$DEST/$VAR2/$VAR"
+    echo "    synced $VAR"
+
+  VAR=alacenc
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
     cp -a {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
