@@ -1,7 +1,7 @@
 pkgbase = abcde
 	pkgdesc = Frontend command-line utility that grabs tracks off a CD, encodes them to ogg or mp3 format, and tags them, all in one go
 	pkgver = 2.9.3
-	pkgrel = 6
+	pkgrel = 7
 	url = https://abcde.einval.com/
 	arch = any
 	license = GPL-2.0-or-later
