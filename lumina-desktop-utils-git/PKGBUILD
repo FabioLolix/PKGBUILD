@@ -2,11 +2,17 @@
 # Maintainer: E5ten
 
 pkgbase=lumina-desktop-utils-git
-pkgname=(  lumina-fileinfo-git  lumina-mediaplayer-git
-         lumina-screenshot-git lumina-textedit-git lumina-open-git) #lumina-screencast-git lumina-terminal-git
-
-#lumina-icon-theme-git lumina-archiver-git lumina-fm-git
-
+pkgname=(lumina-icon-theme-git
+         #lumina-archiver-git
+         lumina-fileinfo-git
+         #lumina-fm-git
+         lumina-mediaplayer-git
+         lumina-screenshot-git
+         lumina-textedit-git
+         lumina-open-git
+         #lumina-screencast-git
+         #lumina-terminal-git
+         )
 pkgver=1.6.2.r106.gf10fadce
 pkgrel=1
 pkgdesc="Desktop applications from Lumina project"
