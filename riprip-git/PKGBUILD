@@ -1,16 +1,25 @@
 # Maintainer: Fabio 'Lolix' Loli <fabio.loli@disroot.org> -> https://github.com/FabioLolix
 
 pkgname=riprip-git
-pkgver=0.5.2.r0.g52cf21b
+pkgver=0.5.9.r0.g3fb58d1
 pkgrel=1
 pkgdesc="Specialized audio CD-ripper optimized for track recovery"
 arch=(x86_64)
 url="https://github.com/Blobfolio/riprip"
 license=(WTFPL)
-depends=(glibc gcc-libs libcdio)
-makedepends=(git cargo clang)
+depends=(
+    glibc
+    libcdio
+    libgcc
+    )
+makedepends=(
+    git
+    cargo
+    clang
+    )
 provides=(riprip)
 conflicts=(riprip)
+options=(!lto)
 source=("git+https://github.com/Blobfolio/riprip.git")
 sha256sums=('SKIP')
 
