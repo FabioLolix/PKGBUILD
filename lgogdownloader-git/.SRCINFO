@@ -1,6 +1,6 @@
 pkgbase = lgogdownloader-git
 	pkgdesc = Open source downloader for GOG.com games, uses the GOG.com API
-	pkgver = 3.18.r23.gbc0a075
+	pkgver = 3.19.r0.gbb80e16
 	pkgrel = 1
 	url = https://github.com/Sude-/lgogdownloader
 	arch = x86_64
