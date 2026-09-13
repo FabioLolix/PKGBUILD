@@ -410,18 +410,6 @@ VAR2=l
     cp -a {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
-  VAR=lgogdownloader-qt
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    cp -a {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-    echo "    synced $VAR"
-
-  VAR=lgogdownloader-qt-git
-  cd "$BASE/$VAR"
-    makepkg --printsrcinfo > .SRCINFO
-    cp -a {PKGBUILD,.SRCINFO} "$DEST/$VAR2/$VAR"
-    echo "    synced $VAR"
-
   VAR=logitechmediaserver-bin
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
