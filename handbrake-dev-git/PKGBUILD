@@ -9,28 +9,69 @@
 
 pkgbase=handbrake-dev-git
 pkgname=(handbrake-dev-git handbrake-cli-dev-git)
-pkgver=1.11.0.r122.g83b7d9d88
+pkgver=1.11.0.r227.g174246fbe
 pkgrel=1
 pkgdesc="Multithreaded video transcoder. Enabled: x265, nvenc, nvdec, qsv, vce, numa, hardened, libdovi. Master branch"
 arch=(i686 x86_64)
 url="https://github.com/HandBrake/HandBrake"
 license=(GPL-2.0-only)
-_commondeps=(libxml2 libass libvorbis opus speex libtheora lame libjpeg-turbo
-             x264 libx264.so jansson libvpx libva numactl)
-_guideps=(gst-plugins-base gtk4 libgudev)
-makedepends=(git intltool python nasm wget cmake meson llvm clang cargo-c
-             "${_commondeps[@]}" "${_guideps[@]}")
-optdepends=('libdvdcss: for decoding encrypted DVDs'
-            'intel-media-sdk: for enabling Intel QSV'
-            'nvidia-utils: for Nvidia users, enable Nvidia nvenc'
-            'cuda: for Nvidia users, enable Nvidia nvdec'
-            'amf-amdgpu-pro: for enabling AMD AMF')
+_commondeps=(
+    bzip2
+    glibc
+    jansson
+    lame
+    libass
+    libdrm
+    libgcc
+    libjpeg-turbo
+    libstdc++
+    libtheora
+    libva
+    libvorbis
+    libvpx
+    numactl
+    opus
+    speex
+    x264 libx264.so
+    xz
+    zlib
+    )
+_guideps=(
+    gdk-pixbuf2
+    glib2
+    gst-plugins-base
+    gtk4
+    hicolor-icon-theme
+    #libgudev
+    libxml2
+    pango
+    )
+makedepends=(
+    cargo-c
+    clang
+    cmake
+    git
+    intltool
+    llvm
+    meson
+    nasm
+    python
+    wget
+    "${_commondeps[@]}"
+    "${_guideps[@]}"
+    )
+optdepends=(
+    'amf-amdgpu-pro: for enabling AMD AMF' # Still true?
+    'cuda: for Nvidia users, enable Nvidia nvdec'
+    'intel-media-sdk: for enabling Intel QSV'
+    'nvidia-utils: for Nvidia users, enable Nvidia nvenc'
+    )
 options=(!lto)
-source=("handbrake::git+https://github.com/HandBrake/HandBrake.git")
+source=("git+https://github.com/HandBrake/HandBrake.git")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd handbrake
+  cd HandBrake
   git describe --long | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
@@ -39,7 +80,7 @@ build() {
   export CFLAGS="${CFLAGS/D_FORTIFY_SOURCE=3/D_FORTIFY_SOURCE=2}"
   export CXXFLAGS="${CXXFLAGS/D_FORTIFY_SOURCE=3/D_FORTIFY_SOURCE=2}"
 
-  cd handbrake
+  cd HandBrake
 
   ./configure \
     --prefix=/usr \
@@ -50,6 +91,8 @@ build() {
     --enable-nvenc \
     --enable-nvdec \
     --enable-qsv \
+    --enable-vaapi \
+    --enable-amfdec \
     --enable-vce
 
   make -C build
@@ -63,10 +106,10 @@ package_handbrake-dev-git() {
   provides=(handbrake)
   conflicts=(handbrake)
 
-  cd "$srcdir/handbrake/build"
+  cd "${srcdir}/HandBrake/build"
 
-  make DESTDIR="$pkgdir" install
-  rm "$pkgdir/usr/bin/HandBrakeCLI"
+  make DESTDIR="${pkgdir}" install
+  rm "${pkgdir}/usr/bin/HandBrakeCLI"
 }
 
 package_handbrake-cli-dev-git() {
@@ -75,6 +118,6 @@ package_handbrake-cli-dev-git() {
   provides=(handbrake-cli)
   conflicts=(handbrake-cli)
 
-  cd "$srcdir/handbrake/build"
-  install -D HandBrakeCLI "$pkgdir/usr/bin/HandBrakeCLI"
+  cd "${srcdir}/HandBrake/build"
+  install -D HandBrakeCLI "${pkgdir}/usr/bin/HandBrakeCLI"
 }
