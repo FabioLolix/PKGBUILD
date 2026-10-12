@@ -74,7 +74,7 @@ build() {
     -DCMAKE_CXX_FLAGS="$CXXFLAGS -DQT_NO_DEBUG_OUTPUT"
   )
 
-  cmake -B build -S "strawberry" -Wno-dev \
+  cmake -B build -S "strawberry" -Wno-author \
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr \
     "${_flags[@]}"
