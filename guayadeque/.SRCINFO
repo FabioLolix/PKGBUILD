@@ -1,6 +1,6 @@
 pkgbase = guayadeque
 	pkgdesc = Lightweight music player
-	pkgver = 0.7.7
+	pkgver = 1.0.0
 	pkgrel = 1
 	url = https://codeberg.org/thothix/guayadeque
 	arch = x86_64
@@ -19,7 +19,11 @@ pkgbase = guayadeque
 	depends = libicuuc.so
 	depends = jsoncpp
 	depends = libgcc
+	depends = libglvnd
+	depends = libprojectm
 	depends = libstdc++
+	depends = libx11
+	depends = sqlite
 	depends = taglib
 	depends = wxsqlite3
 	depends = wxwidgets-common
@@ -28,7 +32,7 @@ pkgbase = guayadeque
 	optdepends = gst-plugins-bad: additional codecs
 	optdepends = gst-plugins-good: additional codecs
 	optdepends = gst-plugins-ugly: additional codecs
-	source = git+https://codeberg.org/thothix/guayadeque.git#tag=v0.7.7
-	sha256sums = d5381104f2ad6fb5ede46300be218ee819e261b3c72dc203bc84ca619ceecb20
+	source = git+https://codeberg.org/thothix/guayadeque.git#tag=v1.0.0
+	sha256sums = 7a6505c8834c70d6a2f67cc6a2c0945d9f8b79421b0458e8bf7a75c8d596e4ea
 
 pkgname = guayadeque
