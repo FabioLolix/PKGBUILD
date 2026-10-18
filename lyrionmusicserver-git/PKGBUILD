@@ -2,7 +2,7 @@
 # Maintainer: Stefan Sielaff <aur AT stefan-sielaff DOT de>
 
 pkgname=lyrionmusicserver-git
-pkgver=9.1.1.r281.gc0881b2
+pkgver=9.1.1.r311.geb59bbf
 pkgrel=1
 pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server, port 9002)"
 arch=(i686 x86_64 armv7h aarch64)
