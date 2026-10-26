@@ -3,3 +3,7 @@ post_install() {
   getent passwd lyrionms &>/dev/null || useradd -r -g lyrionms -d /opt/lyrionmusicserver-git -c 'Logitech Media Server' -s /bin/false lyrionms >/dev/null
   chown -vR lyrionms:lyrionms /opt/lyrionmusicserver-git
 }
+
+post_upgrade() {
+  chown -R lyrionms:lyrionms /opt/lyrionmusicserver-git
+}

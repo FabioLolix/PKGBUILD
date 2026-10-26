@@ -2,9 +2,9 @@
 # Maintainer: Stefan Sielaff <aur AT stefan-sielaff DOT de>
 
 pkgname=lyrionmusicserver-git
-pkgver=9.1.1.r311.geb59bbf
+pkgver=9.1.1.r347.g9513b1d
 pkgrel=1
-pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server, port 9002)"
+pkgdesc="Slimserver for Logitech Squeezebox players. This server is also called Logitech Media Server)"
 arch=(i686 x86_64 armv7h aarch64)
 url="https://github.com/LMS-Community/slimserver"
 license=(GPL-2.0-only)
@@ -13,7 +13,7 @@ depends=(
     libgcc
     libstdc++
     perl
-    'perl>=5.40' 'perl<5.43'
+    'perl>=5.44' 'perl<5.45'
     perl-io-socket-ssl
     sh
     zlib
@@ -27,9 +27,13 @@ install=lyrionmusicserver.install
 options=(!strip)
 source=("git+https://github.com/LMS-Community/slimserver.git"
         "git+https://github.com/LMS-Community/slimserver-vendor.git"
+        'IO-AIO-perl544.patch'
+        'Image-Scale-libm.patch'
         'lyrionmusicserver-git.service')
 sha256sums=('SKIP'
             'SKIP'
+            '0695c8151ca509f1d65e8df5025510cfff4c56fe6cb1cbd64e2a641dc6c7aa51'
+            '7d47361adcb36f5ddb5529068e96a0ccff3c517a9eacc258c9d86aeb4ea23780'
             '24b2d7044b903363e15cd674f88c98c8fafdf2f5a032b599c3de56afbfee3394')
 
 prepare() {
@@ -45,6 +49,17 @@ prepare() {
     rm -rf arch
     cd "${srcdir}/slimserver/lib"
     rm -rf Audio
+
+    cd "${srcdir}/slimserver-vendor/CPAN"
+    rm -rf build
+    # buildme.sh echoes before "exit $?", so failures exit 0
+    sed -i 's/exit \$?/exit 1/' buildme.sh
+    # buildme.sh reuses an already extracted module dir, then deletes it after building
+    rm -rf IO-AIO-3.71 Image-Scale-0.14
+    tar xzf IO-AIO-3.71.tar.gz
+    tar xzf Image-Scale-0.14.tar.gz
+    patch -d IO-AIO-3.71 -p1 < "${srcdir}/IO-AIO-perl544.patch"
+    patch -d Image-Scale-0.14 -p1 < "${srcdir}/Image-Scale-libm.patch"
 }
 
 pkgver() {
@@ -72,6 +87,6 @@ package() {
   cp -a CPAN/build/5.*/lib/*/*linux*/* "${pkgdir}/opt/${pkgname}/CPAN"
   printf "ARCH-AUR-GIT.%s\n%s" "${pkgver}" "$(date)" > "${pkgdir}/opt/${pkgname}/revision.txt"
 
-  #touch "${pkgdir}"/opt/lyrionmusicserver-git/Logs/server.log
+  touch "${pkgdir}"/opt/lyrionmusicserver-git/Logs/server.log
   #touch "${pkgdir}"/opt/lyrionmusicserver-git/Logs/perfmon.log
 }
