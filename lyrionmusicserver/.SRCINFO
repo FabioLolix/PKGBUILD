@@ -17,7 +17,7 @@ pkgbase = lyrionmusicserver
 	depends = libstdc++
 	depends = perl
 	depends = perl>=5.40
-	depends = perl<5.43
+	depends = perl<5.45
 	depends = perl-io-socket-ssl
 	depends = sh
 	depends = zlib
@@ -25,8 +25,12 @@ pkgbase = lyrionmusicserver
 	source = git+https://github.com/LMS-Community/slimserver.git#tag=9.1.1
 	source = git+https://github.com/LMS-Community/slimserver-vendor.git
 	source = lyrionmusicserver.service
+	source = IO-AIO-perl544.patch
+	source = Image-Scale-libm.patch
 	sha256sums = eb28fe88c7bb4a5a127b359b4d78e5b9b77301e9afea45874fba95f2cbd3d3a3
 	sha256sums = SKIP
 	sha256sums = 8d06c69c06bf824c427990de091dec2a738090aa46f0034c392d34ec446f844f
+	sha256sums = 0695c8151ca509f1d65e8df5025510cfff4c56fe6cb1cbd64e2a641dc6c7aa51
+	sha256sums = 7d47361adcb36f5ddb5529068e96a0ccff3c517a9eacc258c9d86aeb4ea23780
 
 pkgname = lyrionmusicserver
