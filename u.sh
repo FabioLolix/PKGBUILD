@@ -431,7 +431,7 @@ VAR2=l
   VAR=lyrionmusicserver
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    cp -a {PKGBUILD,.SRCINFO,*.service,*.install} "$DEST/$VAR2/$VAR"
+    cp -a {PKGBUILD,.SRCINFO,*.service,*.install,*.patch} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
   VAR=lyrionmusicserver-bin
@@ -443,7 +443,7 @@ VAR2=l
   VAR=lyrionmusicserver-git
   cd "$BASE/$VAR"
     makepkg --printsrcinfo > .SRCINFO
-    cp -a {PKGBUILD,.SRCINFO,*.service,*.install} "$DEST/$VAR2/$VAR"
+    cp -a {PKGBUILD,.SRCINFO,*.service,*.install,*.patch} "$DEST/$VAR2/$VAR"
     echo "    synced $VAR"
 
 echo "Done L"
