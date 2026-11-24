@@ -3,7 +3,7 @@
 # Contributor: Ricardo Liang (rliang) <ricardoliang@gmail.com>
 
 pkgname=gnome-disk-utility-git
-pkgver=44.0.r767.gb005684
+pkgver=51.beta.r65.gddd1e9c
 pkgrel=1
 pkgdesc="Disk Management Utility for GNOME"
 url="https://gitlab.gnome.org/GNOME/gnome-disk-utility"
@@ -11,37 +11,40 @@ arch=(x86_64)
 license=(GPL-2.0-or-later)
 groups=(gnome gnome-git)
 depends=(
-  #at-spi2-core
-  #cairo
-  dconf
-  gcc-libs
-  #gdk-pixbuf2
-  glib2
-  glibc
-  gtk4
-  hicolor-icon-theme
-  libadwaita-git
-  #libcanberra
-  libdvdread
-  #libhandy
-  libnotify
-  libpwquality
-  libsecret
-  #pango
-  parted
-  systemd-libs
-  udisks2
-  xz
-)
+    #at-spi2-core
+    #cairo
+    dconf
+    #gcc-libs
+    #gdk-pixbuf2
+    glib2
+    glibc
+    gtk4
+    #gtk4-git
+    hicolor-icon-theme
+    libadwaita
+    #libadwaita-git
+    #libcanberra
+    libdvdread
+    #libhandy
+    libnotify
+    libpwquality
+    libsecret
+    #pango
+    parted
+    systemd-libs
+    udisks2
+    xz
+    )
 makedepends=(
-  appstream
-  cargo
-  docbook-xsl
-  git
-  glib2-devel
-  meson
-  systemd
-)
+    appstream
+    cargo
+    docbook-xsl
+    git
+    glib2-devel
+    meson
+    systemd
+    #blueprint-compiler
+    )
 provides=(gnome-disk-utility)
 conflicts=(gnome-disk-utility)
 source=("git+https://gitlab.gnome.org/GNOME/gnome-disk-utility.git" cargo)
