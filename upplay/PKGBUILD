@@ -2,7 +2,7 @@
 # Contributor: Tristelune <tristelune@archlinux.info>
 
 pkgname=upplay
-pkgver=1.9.11
+pkgver=1.9.12
 pkgrel=1
 pkgdesc="Qt6 based UPnP audio Control point"
 url="https://www.lesbonscomptes.com/upplay/"
