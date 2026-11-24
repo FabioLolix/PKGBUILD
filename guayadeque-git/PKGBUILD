@@ -2,7 +2,7 @@
 # Contributor: Sven Fischer <aur.archlinux@linux4tw.de>
 
 pkgname=guayadeque-git
-pkgver=1.0.2.r0.g98b0af2f
+pkgver=1.1.1.r0.g8f3efeba
 pkgrel=1
 pkgdesc="Lightweight music player"
 arch=(x86_64 i686)
@@ -16,6 +16,7 @@ depends=(
     gst-plugins-base
     gst-plugins-base-libs
     gstreamer
+    gtk3
     hicolor-icon-theme
     icu libicuuc.so
     jsoncpp
