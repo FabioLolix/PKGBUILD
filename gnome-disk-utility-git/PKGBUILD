@@ -37,13 +37,13 @@ depends=(
     )
 makedepends=(
     appstream
+    blueprint-compiler
     cargo
     docbook-xsl
     git
     glib2-devel
     meson
     systemd
-    #blueprint-compiler
     )
 provides=(gnome-disk-utility)
 conflicts=(gnome-disk-utility)

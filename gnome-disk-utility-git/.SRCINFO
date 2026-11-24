@@ -8,6 +8,7 @@ pkgbase = gnome-disk-utility-git
 	groups = gnome-git
 	license = GPL-2.0-or-later
 	makedepends = appstream
+	makedepends = blueprint-compiler
 	makedepends = cargo
 	makedepends = docbook-xsl
 	makedepends = git
